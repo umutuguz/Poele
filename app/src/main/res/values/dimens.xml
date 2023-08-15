@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="side_margin">16dp</dimen>
+    <dimen name="top_margin">16dp</dimen>
+    <dimen name="margin_between_same_elements">8dp</dimen>
+    <dimen name="margin_between_diff_elements">16dp</dimen>
+    <dimen name="side_padding">16dp</dimen>
+    <dimen name="top_padding">8dp</dimen>
+    <dimen name="login_radius">32dp</dimen>
+    <dimen name="button_margin">8dp</dimen>
+</resources>
