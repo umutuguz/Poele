@@ -31,23 +31,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="-24dp"
+        android:background="@drawable/login_background"
         android:paddingStart="@dimen/side_padding"
-        android:paddingEnd="@dimen/side_padding"
         android:paddingTop="@dimen/login_radius"
+        android:paddingEnd="@dimen/side_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_logo_frame"
-        android:layout_marginTop="-24dp"
-        android:background="@drawable/login_background">
+        app:layout_constraintTop_toBottomOf="@id/login_logo_frame">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            app:layout_constraintTop_toTopOf="parent"
-            app:placeholderText="">
+            android:hint="@string/username"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edittext_username"
@@ -60,9 +59,9 @@
             android:id="@+id/text_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            app:layout_constraintTop_toBottomOf="@id/text_username"
             android:layout_marginTop="@dimen/side_margin"
+            android:hint="@string/password"
+            app:layout_constraintTop_toBottomOf="@id/text_username"
             app:placeholderText="">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -77,32 +76,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_between_diff_elements"
-            app:layout_constraintTop_toBottomOf="@id/text_password"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/log_in"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/log_in"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_password" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/button_signin"
+            style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/button_margin"
-            app:layout_constraintTop_toBottomOf="@id/button_login"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/sign_in"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/sign_in"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_login" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/guest"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/deneme"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/button_margin"
-            app:layout_constraintTop_toBottomOf="@id/button_signin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/guest_entry"
             android:textAlignment="textStart"
-            />
+            android:textColor="@color/md_theme_light_onSurface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_signin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

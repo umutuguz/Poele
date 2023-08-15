@@ -8,4 +8,10 @@
     <dimen name="top_padding">8dp</dimen>
     <dimen name="login_radius">32dp</dimen>
     <dimen name="button_margin">8dp</dimen>
+    <dimen name="action_bar_height">40dp</dimen>
+    <dimen name="choice_bar_height">28dp</dimen>
+    <dimen name="spinner_radius">16dp</dimen>
+    <dimen name="spinner_padding">8dp</dimen>
+    <dimen name="category_size">70dp</dimen>
+    <dimen name="navigation_bar_height">45dp</dimen>
 </resources>

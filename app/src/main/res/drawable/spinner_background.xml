@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+    <shape>
+        <corners
+            android:radius="@dimen/spinner_radius"
+            />
+        <solid android:color="@color/md_theme_light_primaryContainer"/>
+    </shape>
+</item>
+</selector>
