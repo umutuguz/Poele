@@ -10,10 +10,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/action_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/action_bar_height"
+        android:layout_height="wrap_content"
         android:background="@color/md_theme_light_surface_container_low"
-        android:paddingStart="@dimen/side_padding"
-        android:paddingEnd="@dimen/side_padding"
+        android:paddingHorizontal="@dimen/side_padding"
+        android:paddingVertical="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,10 +23,8 @@
             style="@style/Text.Logo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/wadmont"
             android:text="@string/app_name"
-            android:textAlignment="textStart"
-            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_notification"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,6 +37,7 @@
             app:icon="@drawable/round_checklist_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_notification"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -49,6 +48,7 @@
             app:icon="@drawable/round_notifications_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_shoplist"
+            app:layout_constraintStart_toEndOf="@id/action_bar_logo"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -56,14 +56,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/choice_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/choice_bar_height"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_between_same_elements"
         android:paddingStart="@dimen/side_padding"
         android:paddingEnd="@dimen/side_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/action_bar">
 
-        <Spinner
+        <!--<Spinner
             android:id="@+id/choose_home"
             style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
             android:layout_width="150dp"
@@ -74,14 +75,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
 
-            />
+            />-->
+
+        <Button
+            android:id="@+id/choose_home"
+            style="@style/Widget.Material3.Button.TonalButton.Icon"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/round_place_24"
+            android:drawableRight="@drawable/round_keyboard_arrow_down_24"
+            android:padding="0dp"
+            android:paddingStart="@dimen/spinner_padding"
+            android:paddingEnd="@dimen/spinner_padding"
+            android:text="@string/choose_home"
+            android:textAlignment="textStart"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/choose_chef"
             style="@style/Widget.Material3.Button.TonalButton.Icon"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/chef"
+            android:drawableLeft="@drawable/round_chef_24"
             android:drawableRight="@drawable/round_keyboard_arrow_down_24"
             android:padding="0dp"
             android:paddingStart="@dimen/spinner_padding"
@@ -102,26 +121,36 @@
         android:layout_width="match_parent"
         android:layout_height="202.5dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/recycler_recipe_categories"
+        app:layout_constraintBottom_toTopOf="@id/search_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/choice_bar">
 
     </androidx.viewpager2.widget.ViewPager2>
 
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_bar_height"
+        android:text="@string/search_text"
+        app:layout_constraintBottom_toTopOf="@id/recycler_recipe_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewpager_menu_card" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_recipe_categories"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/side_margin"
         android:clipToPadding="false"
-        android:padding="@dimen/side_padding"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/navigation_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewpager_menu_card"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
         app:spanCount="4"
-        tools:listitem="@layout/list_recipe_categories">
+        tools:listitem="@layout/list_recipe_category">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -130,7 +159,7 @@
         android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/navigation_bar_height"
-        android:background="@drawable/action_bar_background"
+        android:background="@drawable/background_action_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -160,7 +189,7 @@
             style="@style/Button.Icon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:icon="@drawable/kitchen"
+            app:icon="@drawable/round_kitchen_24"
             app:iconGravity="top"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_add"

@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/card_image_radius">
 
-    <ImageView
-        android:id="@+id/image_menu_card"
-        android:layout_width="match_parent"
-        android:layout_height="202.5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/isaac_benhesed_onlbxleikds_unsplash"
-        android:scaleType="centerCrop"
-        android:background="@drawable/spinner_background"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_menu_card"
+            android:layout_width="match_parent"
+            android:layout_height="202.5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/isaac_benhesed_onlbxleikds_unsplash"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:id="@+id/text_card_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/menu_title"
+            app:layout_constraintEnd_toEndOf="@id/image_menu_card"
+            app:layout_constraintStart_toStartOf="@id/image_menu_card"
+            app:layout_constraintTop_toTopOf="@id/image_menu_card" />
+
+        <TextView
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:id="@+id/text_menu_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_content"
+            android:layout_marginTop="@dimen/margin_between_diff_elements"
+            app:layout_constraintTop_toBottomOf="@id/text_card_title"
+            app:layout_constraintStart_toStartOf="@id/text_card_title"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

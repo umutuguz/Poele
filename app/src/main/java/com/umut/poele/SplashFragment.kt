@@ -9,16 +9,15 @@ import com.umut.poele.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
 
-    private var binding: FragmentSplashBinding? = null
+    private var _binding: FragmentSplashBinding? = null
+    private val binding
+        get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val fragmentBinding = FragmentSplashBinding.inflate(inflater, container, false)
-        binding = fragmentBinding
-        return fragmentBinding.root
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
 }

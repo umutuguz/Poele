@@ -3,11 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/addFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.umut.poele.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" />
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.umut.poele.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFirstFragment"
+            app:destination="@id/homeFirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFirstFragment"
+        android:name="com.umut.poele.HomeFirstFragment"
+        android:label="fragment_home_1"
+        tools:layout="@layout/fragment_home_first" >
+        <action
+            android:id="@+id/action_homeFirstFragment_to_fridgeFirstFragment"
+            app:destination="@id/fridgeFirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fridgeFirstFragment"
+        android:name="com.umut.poele.FridgeFirstFragment"
+        android:label="FridgeFirstFragment" >
+        <action
+            android:id="@+id/action_fridgeFirstFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.umut.poele.AddFragment"
+        android:label="AddFragment" />
 </navigation>
