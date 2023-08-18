@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners android:radius="@dimen/category_image_radius"/>
+            <solid android:color="@color/md_theme_light_surface_container_highest" />
+        </shape>
+    </item>
+</selector>

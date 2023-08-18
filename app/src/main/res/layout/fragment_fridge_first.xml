@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_7_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_12_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_93_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <TextView
+        android:id="@+id/text_logo"
+        style="@style/Text.Logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_action_bar"
+        android:paddingStart="@dimen/side_padding"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+        app:layout_constraintEnd_toStartOf="@id/button_notification"
+        app:layout_constraintHorizontal_weight="7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="spread" />
+
+    <ImageView
+        android:id="@+id/button_shoplist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_action_bar"
+        android:contentDescription="@string/shoplist"
+        android:scaleType="centerInside"
+        android:src="@drawable/round_checklist_24"
+        app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/button_notification"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="spread" />
+
+    <ImageView
+        android:id="@+id/button_notification"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/background_action_bar"
+        android:contentDescription="@string/notification"
+        android:scaleType="center"
+        android:src="@drawable/round_notifications_24"
+        app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toStartOf="@id/button_shoplist"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/text_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="spread" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/h_12_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_logo">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/search_bar_height"
+        android:text="@string/search_ingredient"
+        app:layout_constraintBottom_toBottomOf="@id/text_filter"
+        app:layout_constraintEnd_toStartOf="@id/image_filter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_filter" />
+
+    <ImageView
+        android:id="@+id/image_filter"
+        style="@style/Button.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/round_filter_list_24"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/side_margin"
+        app:layout_constraintStart_toEndOf="@id/search_bar"
+        app:layout_constraintTop_toBottomOf="@id/tab_home" />
+
+    <TextView
+        android:id="@+id/text_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/filter"
+        android:textColor="@color/md_theme_light_onSurfaceVariant"
+        app:layout_constraintEnd_toEndOf="@id/image_filter"
+        app:layout_constraintStart_toStartOf="@id/image_filter"
+        app:layout_constraintTop_toBottomOf="@id/image_filter" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_product"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/side_margin"
+        android:layout_marginTop="@dimen/margin_between_diff_elements"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        tools:listitem="@layout/list_product_card"
+        tools:itemCount="3"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_93_guideline"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_surprise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/side_margin"
+        android:layout_marginVertical="@dimen/top_margin"
+        android:text="@string/surprise_me"
+        app:icon="@drawable/round_hint_24"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
