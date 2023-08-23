@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/card_product_radius"
+    android:layout_marginVertical="@dimen/top_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/side_padding"
+        android:paddingVertical="@dimen/top_padding">
+
+        <TextView
+            android:id="@+id/text_product_name"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_name"
+            android:layout_marginTop="@dimen/macro_product_card_vertical_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_bias="0"/>
+
+        <TextView
+            android:id="@+id/text_category_name"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            android:layout_marginTop="@dimen/macro_product_card_vertical_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/text_product_name"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/text_product_name"
+            app:layout_constraintTop_toBottomOf="@id/text_product_name"
+            app:layout_constraintVertical_bias="0" />
+
+        <ImageView
+            android:id="@+id/image_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/round_dot_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
+
+        <ImageView
+            android:id="@+id/image_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@drawable/round_close_24"
+            app:layout_constraintBottom_toBottomOf="@id/image_menu"
+            app:layout_constraintEnd_toStartOf="@id/image_menu"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@id/text_product_name"
+            app:layout_constraintTop_toTopOf="@id/image_menu" />
+
+        <ImageView
+            android:id="@+id/image_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_between_diff_elements"
+            android:src="@drawable/round_weight_24"
+            app:layout_constraintBottom_toBottomOf="@id/text_category_name"
+            app:layout_constraintEnd_toStartOf="@id/text_amount"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@id/text_category_name"
+            app:layout_constraintTop_toTopOf="@id/text_category_name"
+            app:layout_constraintVertical_bias="1" />
+
+        <TextView
+            android:id="@+id/text_amount"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount"
+            app:layout_constraintBottom_toBottomOf="@id/image_amount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/image_amount"
+            app:layout_constraintVertical_bias="1" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginVertical="@dimen/macro_product_card_vertical_margin"
+            android:background="@drawable/background_macro_divider_vertical"
+            android:layout_marginHorizontal="@dimen/macro_divider_padding_horizontal"
+            app:layout_constraintBottom_toTopOf="@id/text_macros"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_category_name" />
+
+        <TextView
+            android:id="@+id/text_macros"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/macro_product_card_vertical_margin"
+            android:text="@string/macros"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/text_product_name"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_macros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/text_macros"
+            app:layout_constraintTop_toBottomOf="@id/text_macros"
+            app:layout_constraintVertical_bias="0">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_calorie"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calorie" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_protein"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/protein" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_carbohydrate"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/carb" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_fat"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fat" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_fiber"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fiber" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

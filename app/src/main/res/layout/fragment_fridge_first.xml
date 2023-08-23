@@ -47,10 +47,9 @@
         android:layout_height="0dp"
         android:background="@drawable/background_action_bar"
         android:contentDescription="@string/shoplist"
-        android:scaleType="centerInside"
+        android:scaleType="center"
         android:src="@drawable/round_checklist_24"
         app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
-        app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/button_notification"
@@ -61,7 +60,6 @@
         android:id="@+id/button_notification"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:background="@drawable/background_action_bar"
         android:contentDescription="@string/notification"
         android:scaleType="center"
@@ -130,7 +128,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
         tools:listitem="@layout/list_product_card"
-        tools:itemCount="3"/>
+        tools:itemCount="5"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_bar"

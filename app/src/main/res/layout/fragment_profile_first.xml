@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_7_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_93_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_action_bar"
+        android:paddingHorizontal="@dimen/side_padding"
+        android:paddingVertical="8dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/title_poele"
+        app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/md_theme_light_onSurface" />
+
+    <RelativeLayout
+        android:id="@+id/layout_profile_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/side_margin"
+        android:layout_marginTop="@dimen/margin_between_diff_elements"
+        android:background="@drawable/background_profile_list"
+        android:paddingHorizontal="@dimen/side_padding"
+        android:paddingVertical="@dimen/top_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_7_guideline"
+        app:layout_constraintVertical_bias="0">
+
+        <ImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="@dimen/avatar_dimen"
+            android:layout_height="@dimen/avatar_dimen"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_avatar"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar" />
+
+        <TextView
+            android:id="@+id/text_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/image_avatar"
+            android:text="@string/username" />
+
+        <TextView
+            android:id="@+id/text_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/image_avatar"
+            android:layout_toEndOf="@id/image_avatar"
+
+            android:text="@string/e_mail" />
+
+        <ImageView
+            android:id="@+id/image_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/round_edit_24" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/list_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/side_margin"
+        android:layout_marginTop="@dimen/margin_between_diff_elements"
+        android:background="@drawable/background_profile_list"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/side_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_profile_info"
+        app:layout_constraintVertical_bias="0"
+        android:divider="@drawable/background_macro_divider_vertical"
+        android:showDividers="middle"
+        android:dividerPadding="@dimen/top_padding"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/layout_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/top_padding"
+            android:layout_marginVertical="@dimen/top_margin">
+
+            <ImageView
+                android:id="@+id/image_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_place_24"
+                android:layout_marginEnd="@dimen/profile_text_image_margin"/>
+
+            <TextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:id="@+id/text_address"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/address" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_bookmark"
+            android:paddingVertical="@dimen/top_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="@dimen/top_margin">
+
+            <ImageView
+                android:id="@+id/image_bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_bookmark_border_24"
+                android:layout_marginEnd="@dimen/profile_text_image_margin"/>
+
+            <TextView
+                android:id="@+id/text_bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/bookmark" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_notification"
+            android:paddingVertical="@dimen/top_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="@dimen/top_margin">
+
+            <ImageView
+                android:id="@+id/image_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/round_notifications_24"
+                android:layout_marginEnd="@dimen/profile_text_image_margin"/>
+
+            <TextView
+                android:id="@+id/text_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/notification"
+                android:layout_marginEnd="@dimen/profile_text_image_margin"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_support"
+            android:paddingVertical="@dimen/top_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="@dimen/top_margin">
+
+            <ImageView
+                android:id="@+id/image_support"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/round_support_agent_24"
+                android:layout_marginEnd="@dimen/profile_text_image_margin"/>
+
+            <TextView
+                android:id="@+id/text_support"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/live_support" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"
+        android:paddingHorizontal="@dimen/side_padding"
+        android:paddingVertical="@dimen/top_margin_double"
+        android:background="@drawable/background_profile_list"
+        android:layout_marginHorizontal="@dimen/side_margin"
+        android:layout_marginVertical="@dimen/margin_between_diff_elements">
+
+        <ImageView
+            android:id="@+id/image_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/round_logout_24"
+            android:layout_marginEnd="@dimen/profile_text_image_margin"/>
+
+        <TextView
+            android:id="@+id/text_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/log_out" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/h_93_guideline"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

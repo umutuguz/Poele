@@ -20,4 +20,20 @@
     <dimen name="card_image_radius">20dp</dimen>
     <dimen name="card_product_radius">8dp</dimen>
     <dimen name="bottom_sheet_radius">28dp</dimen>
+    <dimen name="date_picker_radius">8dp</dimen>
+    <dimen name="macro_padding">16dp</dimen>
+    <dimen name="macro_item_margin">16dp</dimen>
+    <dimen name="macro_value_title_margin">8dp</dimen>
+    <dimen name="macro_divider_padding_horizontal">8dp</dimen>
+    <dimen name="macro_divider_padding_vertical">24dp</dimen>
+    <dimen name="macro_top_bottom_margin">16dp</dimen>
+    <dimen name="macro_card_radius">16dp</dimen>
+    <dimen name="macro_product_card_vertical_margin">8dp</dimen>
+    <dimen name="progress_thickness">8dp</dimen>
+    <dimen name="progress_radius">16dp</dimen>
+    <dimen name="top_margin_double">16dp</dimen>
+    <dimen name="profile_list_radius">12dp</dimen>
+    <dimen name="avatar_dimen">48dp</dimen>
+    <dimen name="avatar_radius">24dp</dimen>
+    <dimen name="profile_text_image_margin">8dp</dimen>
 </resources>

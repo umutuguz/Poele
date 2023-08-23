@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/addFragment">
+    app:startDestination="@id/profileFirstFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -43,5 +43,21 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.umut.poele.AddFragment"
-        android:label="AddFragment" />
+        android:label="AddFragment" >
+        <action
+            android:id="@+id/action_addFragment_to_macroFirstFragment"
+            app:destination="@id/macroFirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/macroFirstFragment"
+        android:name="com.umut.poele.MacroFirstFragment"
+        android:label="MacroFirstFragment" >
+        <action
+            android:id="@+id/action_macroFirstFragment_to_profileFirstFragment"
+            app:destination="@id/profileFirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFirstFragment"
+        android:name="com.umut.poele.ProfileFirstFragment"
+        android:label="ProfileFirstFragment" />
 </navigation>

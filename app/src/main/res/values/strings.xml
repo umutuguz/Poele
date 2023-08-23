@@ -31,4 +31,21 @@
     <string name="edit_recipe">Edit recipe</string>
     <string name="add_to_shoplist">Add to shoplist</string>
     <string name="edit_ingredient">Edit ingredient</string>
+    <string name="enter_a_meal">Enter a meal</string>
+    <string name="today">Today</string>
+    <string name="g_150">150g</string>
+    <string name="protein">Protein</string>
+    <string name="carbohydrate">Carbohydrate</string>
+    <string name="fat">Fat</string>
+    <string name="fiber">Fiber</string>
+    <string name="calorie">Calorie</string>
+    <string name="goal_0_100">0/100</string>
+    <string name="macros">Macros</string>
+    <string name="carb">Carb</string>
+    <string name="goal">Goal</string>
+    <string name="e_mail">E-mail</string>
+    <string name="address">Address</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="log_out">Log Out</string>
+    <string name="live_support">Live Support</string>
 </resources>
