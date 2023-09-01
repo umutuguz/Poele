@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/profileFirstFragment">
+    app:startDestination="@id/homeSecondFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_homeFirstFragment_to_fridgeFirstFragment"
             app:destination="@id/fridgeFirstFragment" />
+        <action
+            android:id="@+id/action_homeFirstFragment_to_homeSecondFragment"
+            app:destination="@id/homeSecondFragment" />
     </fragment>
     <fragment
         android:id="@+id/fridgeFirstFragment"
@@ -60,4 +63,8 @@
         android:id="@+id/profileFirstFragment"
         android:name="com.umut.poele.ProfileFirstFragment"
         android:label="ProfileFirstFragment" />
+    <fragment
+        android:id="@+id/homeSecondFragment"
+        android:name="com.umut.poele.HomeSecondFragment"
+        android:label="HomeSecondFragment" />
 </navigation>

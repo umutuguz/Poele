@@ -1,16 +1,17 @@
 package com.umut.poele
 
 import android.os.Bundle
+import android.support.v4.os.IResultReceiver._Parcel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.umut.poele.base.BaseFragment
-import com.umut.poele.databinding.FragmentProfileFirstBinding
+import com.umut.poele.databinding.FragmentHomeSecondBinding
 
-class ProfileFirstFragment: BaseFragment() {
+class HomeSecondFragment: BaseFragment() {
 
-    private var _binding: FragmentProfileFirstBinding? = null
+    private var _binding: FragmentHomeSecondBinding? = null
     private val binding
         get() = _binding!!
 
@@ -19,7 +20,7 @@ class ProfileFirstFragment: BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentProfileFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

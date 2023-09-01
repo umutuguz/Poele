@@ -36,4 +36,6 @@
     <dimen name="avatar_dimen">48dp</dimen>
     <dimen name="avatar_radius">24dp</dimen>
     <dimen name="profile_text_image_margin">8dp</dimen>
+    <dimen name="half_side_padding">8dp</dimen>
+    <dimen name="recipe_card_radius">16dp</dimen>
 </resources>

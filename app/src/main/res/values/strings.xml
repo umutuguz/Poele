@@ -48,4 +48,11 @@
     <string name="bookmark">Bookmark</string>
     <string name="log_out">Log Out</string>
     <string name="live_support">Live Support</string>
+    <string name="sort">Sort</string>
+    <string name="recipes">Recipes</string>
+    <string name="recipe_title">Recipe Title</string>
+    <string name="time">Time</string>
+    <string name="people">People</string>
+    <string name="weight">Weight</string>
+    <string name="chef_name">Chef Name</string>
 </resources>

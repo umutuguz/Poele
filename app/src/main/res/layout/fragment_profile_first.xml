@@ -38,7 +38,7 @@
         android:id="@+id/layout_profile_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/side_margin"
+        android:layout_marginHorizontal="@dimen/half_side_padding"
         android:layout_marginTop="@dimen/margin_between_diff_elements"
         android:background="@drawable/background_profile_list"
         android:paddingHorizontal="@dimen/side_padding"
@@ -93,7 +93,7 @@
         android:id="@+id/list_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/side_margin"
+        android:layout_marginHorizontal="@dimen/half_side_padding"
         android:layout_marginTop="@dimen/margin_between_diff_elements"
         android:background="@drawable/background_profile_list"
         android:orientation="vertical"
@@ -224,8 +224,9 @@
         android:paddingHorizontal="@dimen/side_padding"
         android:paddingVertical="@dimen/top_margin_double"
         android:background="@drawable/background_profile_list"
-        android:layout_marginHorizontal="@dimen/side_margin"
-        android:layout_marginVertical="@dimen/margin_between_diff_elements">
+        android:layout_marginHorizontal="@dimen/half_side_padding"
+        android:layout_marginVertical="@dimen/margin_between_diff_elements"
+        >
 
         <ImageView
             android:id="@+id/image_logout"

@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.umut.poele.base.BaseFragment
 import com.umut.poele.databinding.FragmentMacroFirstBinding
 
-class MacroFirstFragment : Fragment() {
+class MacroFirstFragment : BaseFragment() {
 
     private var _binding: FragmentMacroFirstBinding? = null
 

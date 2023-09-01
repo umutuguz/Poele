@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_light_surface"
     tools:context=".HomeFirstFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +15,9 @@
         android:paddingVertical="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0">
 
         <TextView
             android:id="@+id/action_bar_logo"
@@ -145,7 +146,7 @@
         android:layout_marginHorizontal="@dimen/side_margin"
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
@@ -153,89 +154,6 @@
         tools:listitem="@layout/list_recipe_category">
 
     </androidx.recyclerview.widget.RecyclerView>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/navigation_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/navigation_bar_height"
-        android:background="@drawable/background_action_bar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <Button
-            android:id="@+id/button_home"
-            style="@style/Button.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/round_home_24"
-            app:iconGravity="top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_fridge"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_fridge"
-            style="@style/Button.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/round_kitchen_24"
-            app:iconGravity="top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_add"
-            app:layout_constraintStart_toEndOf="@id/button_home"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
-
-        <Button
-            android:id="@+id/button_add"
-            style="@style/Button.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/round_add_24"
-            app:iconGravity="top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_macro"
-            app:layout_constraintStart_toEndOf="@id/button_fridge"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_macro"
-            style="@style/Button.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/round_show_chart_24"
-            app:iconGravity="top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_profile"
-            app:layout_constraintStart_toEndOf="@id/button_add"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_profile"
-            style="@style/Button.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/round_person_24"
-            app:iconGravity="top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button_macro"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
