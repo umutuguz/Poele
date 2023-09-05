@@ -8,18 +8,6 @@ import androidx.fragment.app.Fragment
 import com.umut.poele.base.BaseFragment
 import com.umut.poele.databinding.FragmentLoginBinding
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate, false) {
 
-    private var _binding: FragmentLoginBinding? = null
-
-    private val binding
-        get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 }

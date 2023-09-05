@@ -20,7 +20,7 @@
         android:title="@string/add" />
 
     <item
-        android:id="@+id/Macro"
+        android:id="@+id/macro"
         android:enabled="true"
         android:icon="@drawable/round_show_chart_24"
         android:title="@string/macro" />

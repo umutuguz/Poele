@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardElevation="5dp"
-    app:cardUseCompatPadding="true"
+    app:cardUseCompatPadding="false"
+    android:layout_marginVertical="@dimen/margin_between_same_elements"
     app:cardCornerRadius="@dimen/recipe_card_radius">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/side_padding"
+        android:paddingVertical="@dimen/top_padding"
+
        >
 
         <androidx.constraintlayout.widget.Guideline
@@ -23,6 +26,7 @@
             app:layout_constraintGuide_percent="0.6" />
 
         <ImageView
+            android:id="@+id/image_recipe"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
@@ -31,7 +35,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/background_recipe_card_image"
+            android:clipToOutline="true"/>
 
         <TextView
             android:id="@+id/text_recipe_title"
@@ -59,6 +65,21 @@
             app:layout_constraintHorizontal_bias="1"
             app:layout_constraintStart_toEndOf="@id/text_recipe_title"/>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            style="?attr/floatingActionButtonSmallStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/round_add_24"
+            app:layout_constraintEnd_toEndOf="@id/image_recipe"
+            app:layout_constraintStart_toStartOf="@id/image_recipe"
+            app:layout_constraintTop_toTopOf="@id/image_recipe"
+            app:layout_constraintBottom_toBottomOf="@id/image_recipe"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintVertical_bias="0"
+            android:layout_margin="@dimen/recipe_card_fab_margin"
+            android:alpha="0.7"/>
+
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group_recipe"
             android:layout_width="wrap_content"
@@ -67,11 +88,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_recipe_title">
+            app:layout_constraintTop_toBottomOf="@id/text_recipe_title"
+            app:chipSpacingHorizontal="8dp">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_time"
-                style="@style/TextAppearance.Material3.LabelMedium"
+                style="@style/Widget.Material3.Chip.Assist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/time"
@@ -79,7 +101,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_people"
-                style="@style/TextAppearance.Material3.LabelMedium"
+                style="@style/Widget.Material3.Chip.Assist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/people"
@@ -87,7 +109,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_weight"
-                style="@style/TextAppearance.Material3.LabelMedium"
+                style="@style/Widget.Material3.Chip.Assist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/weight"

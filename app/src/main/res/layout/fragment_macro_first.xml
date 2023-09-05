@@ -26,20 +26,23 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.93" />
 
-    <TextView
-        android:id="@+id/text_logo"
-        style="@style/Text.Logo"
+    <ImageView
+        android:id="@+id/image_logo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/background_action_bar"
         android:paddingHorizontal="@dimen/side_padding"
-        android:text="@string/app_name"
+        android:paddingVertical="8dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/title_poele"
         app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
         app:layout_constraintEnd_toStartOf="@id/button_goal"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintHorizontal_weight="7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_default="spread" />
+        app:tint="@color/md_theme_light_onSurface"
+        app:layout_constraintWidth_default="spread"/>
 
     <ImageView
         android:id="@+id/button_goal"
@@ -52,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/text_logo"
+        app:layout_constraintStart_toEndOf="@id/image_logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="spread" />
 
@@ -63,7 +66,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/h_12_guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_logo">
+        app:layout_constraintTop_toBottomOf="@id/image_logo">
 
     </com.google.android.material.tabs.TabLayout>
 
@@ -269,19 +272,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text_calorie_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/macro_value_title_margin"
-                android:gravity="center"
-                android:text="@string/g_150" />
-
-            <TextView
                 android:id="@+id/text_calorie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/calorie" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_calorie_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/macro_value_title_margin"
+            android:gravity="center"
+            android:text="@string/g_150" />
 
 
     </LinearLayout>
@@ -491,31 +494,19 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progress_calorie"
-        app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0"
         tools:listitem="@layout/list_macro_product_card"/>
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_bar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/h_93_guideline"
-        app:menu="@menu/bottom_navigation_menu" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_enter_meal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/side_margin"
-        android:layout_marginVertical="@dimen/top_margin"
+        android:layout_margin="@dimen/side_margin"
         android:text="@string/enter_a_meal"
         app:icon="@drawable/outline_food_bank_24"
-        app:layout_constraintBottom_toTopOf="@id/navigation_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"

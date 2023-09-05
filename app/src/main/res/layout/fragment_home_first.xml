@@ -6,53 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".HomeFirstFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/action_bar"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_7_guideline"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/md_theme_light_surface_container_low"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/h_13_guideline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_action_bar"
         android:paddingHorizontal="@dimen/side_padding"
         android:paddingVertical="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitStart"
+        android:src="@drawable/title_poele"
+        app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+        app:layout_constraintEnd_toStartOf="@id/button_notification"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_weight="7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintWidth_default="spread"
+        app:tint="@color/md_theme_light_onSurface" />
 
-        <TextView
-            android:id="@+id/action_bar_logo"
-            style="@style/Text.Logo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_notification"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/button_shoplist"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_action_bar"
+        android:contentDescription="@string/shoplist"
+        android:scaleType="centerInside"
+        android:src="@drawable/round_checklist_24"
+        app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/button_notification"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="spread" />
 
-        <Button
-            android:id="@+id/button_shoplist"
-            style="@style/Button.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/round_checklist_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button_notification"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button_notification"
-            style="@style/Button.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/round_notifications_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_shoplist"
-            app:layout_constraintStart_toEndOf="@id/action_bar_logo"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/button_notification"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_action_bar"
+        android:contentDescription="@string/notification"
+        android:scaleType="center"
+        android:src="@drawable/round_notifications_24"
+        app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
+        app:layout_constraintEnd_toStartOf="@id/button_shoplist"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/image_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="spread" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/choice_bar"
@@ -63,7 +77,8 @@
         android:paddingEnd="@dimen/side_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/action_bar">
+        app:layout_constraintTop_toBottomOf="@id/h_13_guideline"
+        app:layout_constraintBottom_toTopOf="@id/viewpager_menu_card">
 
         <!--<Spinner
             android:id="@+id/choose_home"
