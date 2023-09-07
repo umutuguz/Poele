@@ -1,10 +1,13 @@
 package com.umut.poele
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.umut.poele.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        installSplashScreen()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -22,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
+        val addFragment = AddFragment()
 
         binding.navigationBar.setOnItemSelectedListener {
             when (it.itemId) {
@@ -32,8 +38,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.add -> {
-                    setCurrentFragment(AddFragment())
-                    true
+                    addFragment.show(supportFragmentManager, AddFragment.TAG)
+                    false
                 }
                 R.id.macro -> {
                     setCurrentFragment(MacroFirstFragment())
@@ -54,5 +60,4 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
-
 }

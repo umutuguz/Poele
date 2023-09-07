@@ -16,4 +16,21 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="ModalBottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/md_theme_light_surface_container_high</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.LargeComponent</item>
+        <item name="shouldRemoveExpandedCorners">false</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+
+    </style>
+
 </resources>

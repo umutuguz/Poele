@@ -51,7 +51,7 @@
         android:background="@drawable/background_action_bar"
         android:contentDescription="@string/shoplist"
         android:scaleType="center"
-        android:src="@drawable/round_emoji_events_24"
+        android:src="@drawable/outline_emoji_events_24"
         app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
@@ -80,6 +80,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"
+
         app:layout_constraintTop_toBottomOf="@id/tab_chef">
 
         <ImageView
@@ -145,7 +148,6 @@
             android:id="@+id/layout_macro_table_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
             android:layout_marginBottom="@dimen/macro_top_bottom_margin"
             android:divider="@drawable/background_macro_divider_horizontal"
             android:dividerPadding="@dimen/macro_divider_padding_horizontal"
@@ -235,7 +237,7 @@
                 android:id="@+id/layout_fiber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/macro_item_margin"
+                android:layout_marginStart="@dimen/macro_item_margin"
                 android:orientation="vertical">
 
                 <TextView
@@ -272,19 +274,21 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/text_calorie_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/macro_value_title_margin"
+                android:gravity=""
+                android:text="@string/g_150" />
+
+            <TextView
                 android:id="@+id/text_calorie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/calorie" />
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_calorie_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/macro_value_title_margin"
-            android:gravity="center"
-            android:text="@string/g_150" />
 
 
     </LinearLayout>

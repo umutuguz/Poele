@@ -13,13 +13,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.07" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_13_guideline"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
-
     <ImageView
         android:id="@+id/image_logo"
         android:layout_width="0dp"
@@ -68,6 +61,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="spread" />
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/choice_bar"
         android:layout_width="match_parent"
@@ -75,10 +69,10 @@
         android:layout_marginVertical="@dimen/margin_between_same_elements"
         android:paddingStart="@dimen/side_padding"
         android:paddingEnd="@dimen/side_padding"
+        app:layout_constraintBottom_toTopOf="@id/viewpager_menu_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/h_13_guideline"
-        app:layout_constraintBottom_toTopOf="@id/viewpager_menu_card">
+        app:layout_constraintTop_toBottomOf="@id/h_7_guideline">
 
         <!--<Spinner
             android:id="@+id/choose_home"
@@ -98,7 +92,7 @@
             style="@style/Widget.Material3.Button.TonalButton.Icon"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/round_place_24"
+            android:drawableLeft="@drawable/outline_place_24"
             android:drawableRight="@drawable/round_keyboard_arrow_down_24"
             android:padding="0dp"
             android:paddingStart="@dimen/spinner_padding"
@@ -107,8 +101,11 @@
             android:textAlignment="textStart"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/choose_chef"
+            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Chip"
             tools:ignore="SmallSp" />
 
         <Button
@@ -126,7 +123,10 @@
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@id/choose_home"
             app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Chip"
             tools:ignore="SmallSp" />
 
 

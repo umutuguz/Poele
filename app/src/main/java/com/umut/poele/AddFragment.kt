@@ -1,13 +1,26 @@
 package com.umut.poele
 
+import android.app.Dialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.umut.poele.base.BaseFragment
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.umut.poele.base.BaseBottomSheetFragment
 import com.umut.poele.databinding.FragmentAddBinding
 
-class AddFragment : BaseFragment<FragmentAddBinding>(FragmentAddBinding::inflate, false) {
+class AddFragment : BaseBottomSheetFragment<FragmentAddBinding>(FragmentAddBinding::inflate) {
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        BottomSheetBehavior.from(binding.modalBottomSheet).apply {
+            state = BottomSheetBehavior.STATE_EXPANDED
+
+        }
+
+    }
+
+    companion object {
+
+        const val TAG = "ModalBottomSheet"
+    }
 }

@@ -5,12 +5,12 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/standard_bottom_sheet"
-        style="@style/Widget.Material3.BottomSheet"
+        android:id="@+id/modal_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_bottom_sheet"
         android:paddingHorizontal="@dimen/side_padding"
-        android:paddingVertical="@dimen/bottom_sheet_radius"
+        android:paddingVertical="@dimen/top_padding"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <!-- Drag handle for accessibility -->
@@ -18,16 +18,16 @@
             android:id="@+id/drag_handle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/image_cancel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/image_cancel"
-            app:layout_constraintVertical_bias="0"/>
+            app:layout_constraintVertical_bias="0" />
 
         <!-- Bottom sheet contents. -->
         <TextView
             android:id="@+id/text_title_bottom_sheet"
-            style="@style/TextAppearance.Material3.TitleLarge"
+            style="@style/TextAppearance.Material3.HeadlineMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/create"
@@ -56,10 +56,10 @@
             android:layout_marginTop="@dimen/margin_between_diff_elements"
             android:src="@drawable/round_add_24"
             app:layout_constraintBottom_toTopOf="@id/divider_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_title_bottom_sheet"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"/>
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_title_bottom_sheet" />
 
         <TextView
             android:id="@+id/text_add_recipe"
@@ -82,7 +82,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_add_recipe" />
-        />
 
         <ImageView
             android:id="@+id/image_add_ingredient"
@@ -193,6 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_between_same_elements"
+            android:layout_marginBottom="@dimen/margin_between_diff_elements"
             android:src="@drawable/round_playlist_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

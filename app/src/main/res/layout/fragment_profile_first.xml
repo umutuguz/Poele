@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/round_edit_24" />
+            android:src="@drawable/outline_edit_24" />
 
     </RelativeLayout>
 
