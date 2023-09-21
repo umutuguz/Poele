@@ -6,65 +6,63 @@
     app:startDestination="@id/homeFirstFragment">
 
     <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.umut.poele.SplashFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
-        <action
-            android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/loginFragment"
-        android:name="com.umut.poele.LoginFragment"
+        android:name="com.umut.poele.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_homeFirstFragment"
             app:destination="@id/homeFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFirstFragment"
-        android:name="com.umut.poele.HomeFirstFragment"
+        android:name="com.umut.poele.ui.home.HomeFirstFragment"
         android:label="fragment_home_1"
-        tools:layout="@layout/fragment_home_first" >
+        tools:layout="@layout/fragment_home_first">
         <action
             android:id="@+id/action_homeFirstFragment_to_fridgeFirstFragment"
             app:destination="@id/fridgeFirstFragment" />
         <action
-            android:id="@+id/action_homeFirstFragment_to_homeSecondFragment"
-            app:destination="@id/homeSecondFragment" />
+            android:id="@+id/action_homeFirstFragment_to_homeRecipeFragment"
+            app:destination="@id/homeRecipeFragment" />
+        <action
+            android:id="@+id/action_homeFirstFragment_to_profileFirstFragment"
+            app:destination="@id/profileFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/fridgeFirstFragment"
-        android:name="com.umut.poele.FridgeFirstFragment"
-        android:label="FridgeFirstFragment" >
+        android:name="com.umut.poele.ui.fridge.FridgeFirstFragment"
+        android:label="FridgeFirstFragment">
         <action
             android:id="@+id/action_fridgeFirstFragment_to_addFragment"
             app:destination="@id/addFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.umut.poele.AddFragment"
-        android:label="AddFragment" >
+        android:name="com.umut.poele.ui.add.AddFragment"
+        android:label="AddFragment">
         <action
             android:id="@+id/action_addFragment_to_macroFirstFragment"
             app:destination="@id/macroFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/macroFirstFragment"
-        android:name="com.umut.poele.MacroFirstFragment"
-        android:label="MacroFirstFragment" >
+        android:name="com.umut.poele.ui.macro.MacroFirstFragment"
+        android:label="MacroFirstFragment">
         <action
             android:id="@+id/action_macroFirstFragment_to_profileFirstFragment"
             app:destination="@id/profileFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFirstFragment"
-        android:name="com.umut.poele.ProfileFirstFragment"
+        android:name="com.umut.poele.ui.profile.ProfileFirstFragment"
         android:label="ProfileFirstFragment" />
     <fragment
-        android:id="@+id/homeSecondFragment"
-        android:name="com.umut.poele.HomeSecondFragment"
-        android:label="HomeSecondFragment" />
+        android:id="@+id/homeRecipeFragment"
+        android:name="com.umut.poele.ui.recipe.HomeRecipeFragment"
+        android:label="homeRecipeFragment" >
+        <action
+            android:id="@+id/action_homeRecipeFragment_to_homeFirstFragment"
+            app:destination="@id/homeFirstFragment" />
+    </fragment>
 </navigation>

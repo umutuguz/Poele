@@ -17,9 +17,9 @@
     <color name="md_theme_light_errorContainer">#FFDAD6</color>
     <color name="md_theme_light_onError">#FFFFFF</color>
     <color name="md_theme_light_onErrorContainer">#410002</color>
-    <color name="md_theme_light_background">#FFFBFF</color>
+    <color name="md_theme_light_background">#F5F5F5</color>
     <color name="md_theme_light_onBackground">#1D1B1E</color>
-    <color name="md_theme_light_surface">#FFFBFF</color>
+    <color name="md_theme_light_surface">#F5F5F5</color>
     <color name="md_theme_light_surface_container">#F2ECF1</color>
     <color name="md_theme_light_surface_container_low">#F8F2F7</color>
     <color name="md_theme_light_surface_container_lowest">#FFFFFF</color>

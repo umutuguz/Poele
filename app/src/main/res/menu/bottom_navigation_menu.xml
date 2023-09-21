@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/homeFirstFragment"
         android:enabled="true"
         android:icon="@drawable/round_home_24"
         android:title="@string/home" />
 
     <item
-        android:id="@+id/fridge"
+        android:id="@+id/fridgeFirstFragment"
         android:enabled="true"
         android:icon="@drawable/round_kitchen_24"
         android:title="@string/fridge" />
 
     <item
-        android:id="@+id/add"
+        android:id="@+id/addFragment"
         android:enabled="true"
         android:icon="@drawable/round_add_24"
         android:title="@string/add" />
 
     <item
-        android:id="@+id/macro"
+        android:id="@+id/macroFirstFragment"
         android:enabled="true"
         android:icon="@drawable/round_show_chart_24"
         android:title="@string/macro" />
 
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileFirstFragment"
         android:enabled="true"
         android:icon="@drawable/round_person_24"
         android:title="@string/profile" />

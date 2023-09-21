@@ -1,174 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeFirstFragment">
+    tools:context=".ui.home.HomeFirstFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/h_7_guideline"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
-
-    <ImageView
-        android:id="@+id/image_logo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/background_action_bar"
-        android:paddingHorizontal="@dimen/side_padding"
-        android:paddingVertical="8dp"
-        android:scaleType="fitStart"
-        android:src="@drawable/title_poele"
-        app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
-        app:layout_constraintEnd_toStartOf="@id/button_notification"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintHorizontal_weight="7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_default="spread"
-        app:tint="@color/md_theme_light_onSurface" />
-
-    <ImageView
-        android:id="@+id/button_shoplist"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/background_action_bar"
-        android:contentDescription="@string/shoplist"
-        android:scaleType="centerInside"
-        android:src="@drawable/round_checklist_24"
-        app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/button_notification"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_default="spread" />
-
-    <ImageView
-        android:id="@+id/button_notification"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/background_action_bar"
-        android:contentDescription="@string/notification"
-        android:scaleType="center"
-        android:src="@drawable/round_notifications_24"
-        app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
-        app:layout_constraintEnd_toStartOf="@id/button_shoplist"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/image_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_default="spread" />
-
+    <data>
+        <variable
+            name="adapterFoodCategory"
+            type="com.umut.poele.ui.home.FoodCategoryAdapter" />
+        <variable
+            name="adapterMenuCard"
+            type="com.umut.poele.ui.home.MenuCardAdapter" />
+        <variable
+            name="list"
+            type="com.umut.poele.data.FoodCategoryDataSource" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/choice_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_between_same_elements"
-        android:paddingStart="@dimen/side_padding"
-        android:paddingEnd="@dimen/side_padding"
-        app:layout_constraintBottom_toTopOf="@id/viewpager_menu_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/h_7_guideline">
+        android:layout_height="match_parent"
+        >
 
-        <!--<Spinner
-            android:id="@+id/choose_home"
-            style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/spinner_padding"
-            android:paddingEnd="@dimen/spinner_padding"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_7_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.07" />
 
-            />-->
-
-        <Button
-            android:id="@+id/choose_home"
-            style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/outline_place_24"
-            android:drawableRight="@drawable/round_keyboard_arrow_down_24"
-            android:padding="0dp"
-            android:paddingStart="@dimen/spinner_padding"
-            android:paddingEnd="@dimen/spinner_padding"
-            android:text="@string/choose_home"
-            android:textAlignment="textStart"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/choose_chef"
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_action_bar"
+            android:paddingHorizontal="@dimen/side_padding"
+            android:paddingVertical="8dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/title_poele"
+            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            app:layout_constraintEnd_toStartOf="@id/button_notification"
             app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_weight="7"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Chip"
-            tools:ignore="SmallSp" />
+            app:layout_constraintWidth_default="spread"
+            app:tint="@color/md_theme_light_onSurface" />
 
-        <Button
-            android:id="@+id/choose_chef"
-            style="@style/Widget.Material3.Button.TonalButton.Icon"
-            android:layout_width="150dp"
+        <ImageView
+            android:id="@+id/button_shoplist"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_action_bar"
+            android:contentDescription="@string/shoplist"
+            android:scaleType="centerInside"
+            android:src="@drawable/round_checklist_24"
+            app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/button_notification"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="spread" />
+
+        <ImageView
+            android:id="@+id/button_notification"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_action_bar"
+            android:contentDescription="@string/notification"
+            android:scaleType="center"
+            android:src="@drawable/round_notifications_24"
+            app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
+            app:layout_constraintEnd_toStartOf="@id/button_shoplist"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/image_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="spread" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/choice_bar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/round_chef_24"
-            android:drawableRight="@drawable/round_keyboard_arrow_down_24"
-            android:padding="0dp"
-            android:paddingStart="@dimen/spinner_padding"
-            android:paddingEnd="@dimen/spinner_padding"
-            android:text="@string/choose_chef"
-            android:textAlignment="textStart"
-            android:textSize="10sp"
+            android:layout_marginHorizontal="@dimen/side_margin"
+            android:layout_marginVertical="@dimen/margin_between_same_elements"
+            app:layout_constraintBottom_toTopOf="@id/viewpager_menu_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/h_7_guideline">
+
+
+            <Button
+                android:id="@+id/choose_home"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/outline_place_24"
+                android:drawableRight="@drawable/round_keyboard_arrow_down_24"
+                android:paddingStart="@dimen/spinner_padding"
+                android:paddingEnd="@dimen/spinner_padding"
+                android:text="@string/choose_home"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/choose_chef"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Chip"
+                tools:ignore="SmallSp" />
+
+            <Button
+                android:id="@+id/choose_chef"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/round_chef_24"
+                android:drawableRight="@drawable/round_keyboard_arrow_down_24"
+                android:paddingStart="@dimen/spinner_padding"
+                android:paddingEnd="@dimen/spinner_padding"
+                android:text="@string/choose_chef"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Chip"
+                tools:ignore="SmallSp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_menu_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/search_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choice_bar"
+            app:setAdapter="@{adapterMenuCard}">
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <com.google.android.material.search.SearchBar
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/search_bar_height"
+            android:text="@string/search_text"
+            app:layout_constraintBottom_toTopOf="@id/recycler_recipe_categories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpager_menu_card" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_recipe_categories"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/side_margin"
+            android:clipToPadding="true"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/choose_home"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.Material3.Chip"
-            tools:ignore="SmallSp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_bar"
+            app:setAdapter="@{adapterFoodCategory}"
+            app:setList="@{list.loadFoodCategory()}"
+            app:spanCount="4"
+            tools:listitem="@layout/list_recipe_category">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager_menu_card"
-        android:layout_width="match_parent"
-        android:layout_height="202.5dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/search_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choice_bar">
-
-    </androidx.viewpager2.widget.ViewPager2>
-
-    <com.google.android.material.search.SearchBar
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/search_bar_height"
-        android:text="@string/search_text"
-        app:layout_constraintBottom_toTopOf="@id/recycler_recipe_categories"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewpager_menu_card" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_recipe_categories"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/side_margin"
-        android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
-        app:spanCount="4"
-        tools:listitem="@layout/list_recipe_category">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

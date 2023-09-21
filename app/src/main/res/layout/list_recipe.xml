@@ -1,123 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_recipe"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardElevation="5dp"
-    app:cardUseCompatPadding="false"
-    android:layout_marginVertical="@dimen/margin_between_same_elements"
-    app:cardCornerRadius="@dimen/recipe_card_radius">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="recipe"
+            type="com.umut.poele.model.Recipe" />
+    </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_recipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/side_padding"
-        android:paddingVertical="@dimen/top_padding"
+        android:layout_marginVertical="@dimen/margin_between_same_elements"
+        app:cardCornerRadius="@dimen/recipe_card_radius"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="false">
 
-       >
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_60_guideline"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.6" />
-
-        <ImageView
-            android:id="@+id/image_recipe"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/nordwood_themes_ivp3tydlvw0_unsplash"
-            app:layout_constraintBottom_toTopOf="@id/h_60_guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/background_recipe_card_image"
-            android:clipToOutline="true"/>
-
-        <TextView
-            android:id="@+id/text_recipe_title"
-            style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/recipe_title"
-            android:layout_marginTop="@dimen/top_margin"
-            app:layout_constraintBottom_toTopOf="@id/chip_group_recipe"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/h_60_guideline" />
+            android:paddingHorizontal="@dimen/side_padding"
+            android:paddingVertical="@dimen/top_padding"
 
-        <TextView
-            android:id="@+id/text_chef"
-            style="@style/TextAppearance.Material3.LabelSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/chef_name"
-            app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
-            app:layout_constraintTop_toTopOf="@id/text_recipe_title"
-            app:layout_constraintVertical_bias="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/text_recipe_title"/>
+            >
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_add"
-            style="?attr/floatingActionButtonSmallStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/round_add_24"
-            app:layout_constraintEnd_toEndOf="@id/image_recipe"
-            app:layout_constraintStart_toStartOf="@id/image_recipe"
-            app:layout_constraintTop_toTopOf="@id/image_recipe"
-            app:layout_constraintBottom_toBottomOf="@id/image_recipe"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintVertical_bias="0"
-            android:layout_margin="@dimen/recipe_card_fab_margin"
-            android:alpha="0.7"/>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/h_60_guideline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chip_group_recipe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_recipe_title"
-            app:chipSpacingHorizontal="8dp">
+            <ImageView
+                android:id="@+id/image_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/background_recipe_card_image"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/coffee_beans"
+                app:layout_constraintBottom_toTopOf="@id/h_60_guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_time"
-                style="@style/Widget.Material3.Chip.Assist"
+            <TextView
+                android:id="@+id/text_recipe_title"
+                style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time"
-                app:chipIcon="@drawable/outline_timer_24" />
+                android:layout_marginTop="@dimen/top_margin"
+                android:text="@{recipe.name}"
+                app:layout_constraintBottom_toTopOf="@id/chip_group_recipe"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/h_60_guideline"
+                tools:text="@string/recipe_title" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_people"
-                style="@style/Widget.Material3.Chip.Assist"
+            <TextView
+                android:id="@+id/text_chef"
+                style="@style/TextAppearance.Material3.LabelSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/people"
-                app:chipIcon="@drawable/outline_people_24" />
+                android:text="@{recipe.chefName}"
+                app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toEndOf="@id/text_recipe_title"
+                app:layout_constraintTop_toTopOf="@id/text_recipe_title"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/chef_name" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_weight"
-                style="@style/Widget.Material3.Chip.Assist"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_add"
+                style="?attr/floatingActionButtonSmallStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/weight"
-                app:chipIcon="@drawable/outline_room_service_24" />
+                android:layout_margin="@dimen/recipe_card_fab_margin"
+                android:alpha="0.7"
+                android:src="@drawable/round_add_24"
+                app:layout_constraintBottom_toBottomOf="@id/image_recipe"
+                app:layout_constraintEnd_toEndOf="@id/image_recipe"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/image_recipe"
+                app:layout_constraintTop_toTopOf="@id/image_recipe"
+                app:layout_constraintVertical_bias="0" />
 
-        </com.google.android.material.chip.ChipGroup>
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_recipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_recipe_title">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_time"
+                    style="@style/Widget.Material3.Chip.Assist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{recipe.time}"
+                    app:chipIcon="@drawable/outline_timer_24"
+                    tools:text="@string/time" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_people"
+                    style="@style/Widget.Material3.Chip.Assist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{recipe.people}"
+                    app:chipIcon="@drawable/outline_people_24"
+                    tools:text="@string/people" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_weight"
+                    style="@style/Widget.Material3.Chip.Assist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{recipe.weight}"
+                    app:chipIcon="@drawable/outline_room_service_24"
+                    tools:text="@string/weight" />
+
+            </com.google.android.material.chip.ChipGroup>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>

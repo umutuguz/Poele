@@ -1,48 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/card_image_radius">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <data>
+        <variable
+            name="menuCard"
+            type="com.umut.poele.model.MenuCard" />
+    </data>
 
-        <ImageView
-            android:id="@+id/image_menu_card"
-            android:layout_width="match_parent"
-            android:layout_height="202.5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/isaac_benhesed_onlbxleikds_unsplash"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="@dimen/card_image_radius">
 
-        <TextView
-            style="@style/TextAppearance.Material3.TitleLarge"
-            android:id="@+id/text_card_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/menu_title"
-            app:layout_constraintEnd_toEndOf="@id/image_menu_card"
-            app:layout_constraintStart_toStartOf="@id/image_menu_card"
-            app:layout_constraintTop_toTopOf="@id/image_menu_card" />
-
-        <TextView
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:id="@+id/text_menu_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_content"
-            android:layout_marginTop="@dimen/margin_between_diff_elements"
-            app:layout_constraintTop_toBottomOf="@id/text_card_title"
-            app:layout_constraintStart_toStartOf="@id/text_card_title"/>
+            android:layout_height="wrap_content">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/image_menu_card"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImage="@{menuCard.imageSourceId}"
+                tools:src="@drawable/coffee" />
+
+            <TextView
+                android:id="@+id/text_card_title"
+                style="@style/TextAppearance.Material3.TitleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/menu_title"
+                app:layout_constraintEnd_toEndOf="@id/image_menu_card"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/image_menu_card"
+                app:layout_constraintTop_toTopOf="@id/image_menu_card" />
+
+            <TextView
+                android:id="@+id/text_chef"
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/side_margin"
+                android:text="@{menuCard.chefName}"
+                app:layout_constraintBottom_toBottomOf="@id/text_card_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toEndOf="@id/text_card_title"
+                app:layout_constraintTop_toTopOf="@id/text_card_title"
+                app:layout_constraintVertical_bias="1"
+                tools:text="Chef's Name" />
 
 
-</com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/text_menu_primary_content"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_diff_elements"
+                android:text="@{menuCard.primaryMealName}"
+                app:layout_constraintStart_toStartOf="@id/text_card_title"
+                app:layout_constraintTop_toBottomOf="@id/text_card_title"
+                tools:text="Primary Meal" />
+
+            <TextView
+                android:id="@+id/text_menu_secondary_content"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_same_elements"
+                android:text="@{menuCard.secondaryMealName}"
+                app:layout_constraintStart_toStartOf="@id/text_card_title"
+                app:layout_constraintTop_toBottomOf="@id/text_menu_primary_content"
+                tools:text="Secondary Meal" />
+
+            <TextView
+                android:id="@+id/text_menu_tertiary_content"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_same_elements"
+                android:text="@{menuCard.tertiaryMealName}"
+                app:layout_constraintStart_toStartOf="@id/text_card_title"
+                app:layout_constraintTop_toBottomOf="@id/text_menu_secondary_content"
+                tools:text="Tertiary Meal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

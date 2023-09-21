@@ -1,4 +1,4 @@
-package com.umut.poele.base
+package com.umut.poele.ui.base
 
 import android.app.Dialog
 import android.os.Bundle

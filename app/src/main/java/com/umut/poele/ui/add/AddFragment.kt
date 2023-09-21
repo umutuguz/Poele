@@ -1,11 +1,10 @@
-package com.umut.poele
+package com.umut.poele.ui.add
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.umut.poele.base.BaseBottomSheetFragment
 import com.umut.poele.databinding.FragmentAddBinding
+import com.umut.poele.ui.base.BaseBottomSheetFragment
 
 class AddFragment : BaseBottomSheetFragment<FragmentAddBinding>(FragmentAddBinding::inflate) {
 
@@ -14,6 +13,7 @@ class AddFragment : BaseBottomSheetFragment<FragmentAddBinding>(FragmentAddBindi
 
         BottomSheetBehavior.from(binding.modalBottomSheet).apply {
             state = BottomSheetBehavior.STATE_EXPANDED
+            saveFlags = BottomSheetBehavior.SAVE_ALL
 
         }
 

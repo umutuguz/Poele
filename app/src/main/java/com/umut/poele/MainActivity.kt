@@ -1,15 +1,20 @@
 package com.umut.poele
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.umut.poele.databinding.ActivityMainBinding
+import com.umut.poele.ui.add.AddFragment
+import com.umut.poele.ui.fridge.FridgeFirstFragment
+import com.umut.poele.ui.home.HomeFirstFragment
+import com.umut.poele.ui.macro.MacroFirstFragment
+import com.umut.poele.ui.profile.ProfileFirstFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -29,19 +34,20 @@ class MainActivity : AppCompatActivity() {
 
         val addFragment = AddFragment()
 
+//        NavigationUI.setupWithNavController(binding.navigationBar, navController)
         binding.navigationBar.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.home -> {setCurrentFragment(HomeFirstFragment())
+                R.id.homeFirstFragment -> {setCurrentFragment(HomeFirstFragment())
                     true}
-                R.id.fridge -> {
+                R.id.fridgeFirstFragment -> {
                     setCurrentFragment(FridgeFirstFragment())
                     true
                 }
-                R.id.add -> {
+                R.id.addFragment -> {
                     addFragment.show(supportFragmentManager, AddFragment.TAG)
                     false
                 }
-                R.id.macro -> {
+                R.id.macroFirstFragment -> {
                     setCurrentFragment(MacroFirstFragment())
                     true
                 }
@@ -57,6 +63,7 @@ class MainActivity : AppCompatActivity() {
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.nav_host_fragment, fragment)
+//            addToBackStack(null)
             commit()
         }
     }

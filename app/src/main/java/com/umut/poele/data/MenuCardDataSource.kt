@@ -7,10 +7,10 @@ class MenuCardDataSource {
 
     fun loadMenuCards(): List<MenuCard>{
         return listOf<MenuCard>(
-            MenuCard(R.drawable.isaac_benhesed_onlbxleikds_unsplash),
-            MenuCard(R.drawable.kimi_lee_cetg8yszkpu_unsplash),
-            MenuCard(R.drawable.nordwood_themes_ivp3tydlvw0_unsplash),
-            MenuCard(R.drawable.nordwood_themes_ndd3dikkolo_unsplash),
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs),
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs),
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs),
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs)
         )
     }
 }

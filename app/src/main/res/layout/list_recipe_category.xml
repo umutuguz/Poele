@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/image_category"
-        android:layout_width="@dimen/category_size"
-        android:layout_height="@dimen/category_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/background_category_image"
-        />
+    <data>
 
-    <TextView
+        <variable
+            name="foodCategory"
+            type="com.umut.poele.model.FoodCategory" />
+
+        <variable
+            name="listener"
+            type="com.umut.poele.ui.home.FoodCategoryListener" />
+
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.home.HomeFirstViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_recipe_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/category"
-        app:layout_constraintTop_toBottomOf="@id/image_category"
-        app:layout_constraintStart_toStartOf="@id/image_category"
-        app:layout_constraintEnd_toEndOf="@id/image_category" />
+        android:layout_margin="0dp"
+        app:cardBackgroundColor="@color/md_theme_light_background"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:id="@+id/layout_recipe_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/md_theme_light_background"
+            android:onClickListener="@{()->listener.onFoodCategoryClicked(foodCategory)}"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_category"
+                android:layout_width="@dimen/category_size"
+                android:layout_height="@dimen/category_size"
+                android:layout_gravity="center"
+                android:background="@drawable/background_category_image"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                app:setImage="@{foodCategory.imageResourceId}" />
+
+            <TextView
+                android:id="@+id/text_category_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{foodCategory.name}"
+                tools:text="Category" />
+
+        </LinearLayout>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
