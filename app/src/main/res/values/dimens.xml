@@ -16,7 +16,7 @@
     <dimen name="navigation_bar_height">45dp</dimen>
     <dimen name="category_image_radius">16dp</dimen>
     <dimen name="logo_text_size">48sp</dimen>
-    <dimen name="search_bar_height">32dp</dimen>
+    <dimen name="search_bar_height">@dimen/_28sdp</dimen>
     <dimen name="card_image_radius">20dp</dimen>
     <dimen name="card_product_radius">8dp</dimen>
     <dimen name="bottom_sheet_radius">28dp</dimen>

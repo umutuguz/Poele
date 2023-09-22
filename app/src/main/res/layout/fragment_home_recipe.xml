@@ -6,17 +6,25 @@
 
     <data>
         <variable
+            name="recipe"
+            type="com.umut.poele.model.Recipe" />
+        <variable
+            name="listener"
+            type="com.umut.poele.ui.recipe.RecipeListener" />
+
+        <variable
             name="viewModel"
             type="com.umut.poele.ui.recipe.HomeRecipeViewModel" />
+
         <variable
-            name="adapterRecipe"
-            type="com.umut.poele.ui.recipe.RecipeListAdapter" />
+            name="adapterRecipeTab"
+            type="com.umut.poele.ui.recipe.RecipeTabAdapter" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/h_7_guideline"
@@ -37,11 +45,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/background_action_bar"
+            android:onClick="@{()->viewModel.goBackClicked()}"
             android:paddingHorizontal="@dimen/side_padding"
             android:paddingVertical="@dimen/half_side_padding"
             android:scaleType="center"
             android:src="@drawable/round_arrow_back_24"
-            android:onClick="@{()->viewModel.goBackClicked()}"
             app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
             app:layout_constraintEnd_toStartOf="@id/text_page_title"
             app:layout_constraintHorizontal_bias="0"
@@ -95,6 +103,7 @@
             app:layout_constraintWidth_default="spread" />
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_recipe_category"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/h_13_guideline"
@@ -102,23 +111,24 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/h_7_guideline"
-            app:tabMode="scrollable">
+            app:tabMode="scrollable"
+            app:tabGravity="start"/>
 
-        </com.google.android.material.tabs.TabLayout>
-
-<!--        <androidx.viewpager2.widget.ViewPager2-->
-<!--            android:id="@+id/viewpager_recipe_category"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="0dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/button_filter" />-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_recipe_category"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_filter"
+            app:setAdapter="@{adapterRecipeTab}" />
 
         <com.google.android.material.search.SearchBar
             android:id="@+id/search_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/search_bar_height"
             android:layout_marginHorizontal="@dimen/side_margin"
             android:text="@string/search_text"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -154,18 +164,6 @@
             app:layout_constraintStart_toEndOf="@id/button_filter"
             app:layout_constraintTop_toTopOf="@id/button_filter"
             app:layout_constraintWidth_default="spread" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_recipe"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_filter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            app:setAdapter="@{adapterRecipe}"
-            tools:listitem="@layout/list_recipe" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".">
 
     <data>
         <variable
             name="recipe"
             type="com.umut.poele.model.Recipe" />
+        <variable
+            name="listener"
+            type="com.umut.poele.ui.recipe.RecipeListener" />
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.recipe.HomeRecipeViewModel"/>
     </data>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_recipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_between_same_elements"
         app:cardCornerRadius="@dimen/recipe_card_radius"
-        app:cardElevation="5dp"
-        app:cardUseCompatPadding="false">
-
+        app:cardElevation="1dp"
+        app:cardUseCompatPadding="true"
+        android:onClick="@{()->listener.onRecipeClicked(recipe)}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/side_padding"
-            android:paddingVertical="@dimen/top_padding"
-
-            >
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/h_60_guideline"
@@ -41,7 +43,8 @@
                 android:background="@drawable/background_recipe_card_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/coffee_beans"
+                app:setImage="@{recipe.imageId}"
+                tools:src="@drawable/coffee_beans"
                 app:layout_constraintBottom_toTopOf="@id/h_60_guideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -54,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginStart="@dimen/side_margin"
                 android:text="@{recipe.name}"
                 app:layout_constraintBottom_toTopOf="@id/chip_group_recipe"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +71,7 @@
                 style="@style/TextAppearance.Material3.LabelSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/side_margin"
                 android:text="@{recipe.chefName}"
                 app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +104,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_recipe_title"
                 app:layout_constraintTop_toBottomOf="@id/text_recipe_title">
 
                 <com.google.android.material.chip.Chip
@@ -107,7 +112,7 @@
                     style="@style/Widget.Material3.Chip.Assist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{recipe.time}"
+                    app:setIntText="@{recipe.time}"
                     app:chipIcon="@drawable/outline_timer_24"
                     tools:text="@string/time" />
 
@@ -116,7 +121,7 @@
                     style="@style/Widget.Material3.Chip.Assist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{recipe.people}"
+                    app:setIntText="@{recipe.people}"
                     app:chipIcon="@drawable/outline_people_24"
                     tools:text="@string/people" />
 
@@ -125,7 +130,7 @@
                     style="@style/Widget.Material3.Chip.Assist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{recipe.weight}"
+                    app:setIntText="@{recipe.weight}"
                     app:chipIcon="@drawable/outline_room_service_24"
                     tools:text="@string/weight" />
 

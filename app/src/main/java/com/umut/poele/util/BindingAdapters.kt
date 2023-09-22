@@ -2,6 +2,7 @@ package com.umut.poele.util
 
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,6 @@ fun setAdapter(recyclerView: RecyclerView, adapter: BaseAdapter<ViewDataBinding,
     adapter?.let {
         recyclerView.adapter = it
     }
-
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -27,4 +27,9 @@ fun setAdapter(recyclerView: RecyclerView, adapter: BaseAdapter<ViewDataBinding,
 fun setList(recyclerView: RecyclerView, list: List<ListAdapterItem>?) {
     val adapter = recyclerView.adapter as BaseAdapter<ViewDataBinding, ListAdapterItem>
     adapter.data = list ?: listOf()
+}
+
+@BindingAdapter("setIntText")
+fun setIntText(textView: TextView, integer: Int) {
+    textView.text = integer.toString()
 }

@@ -3,7 +3,8 @@
 
     <item>
         <shape>
-            <corners android:radius="@dimen/recipe_card_radius" />
+            <corners android:topRightRadius="@dimen/recipe_card_radius"
+                android:topLeftRadius="@dimen/recipe_card_radius" />
             <solid android:color="@color/md_theme_light_onPrimary" />
         </shape>
     </item>
