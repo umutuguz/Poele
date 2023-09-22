@@ -10,7 +10,7 @@
             type="com.umut.poele.model.Recipe" />
         <variable
             name="listener"
-            type="com.umut.poele.ui.recipe.RecipeListener" />
+            type="com.umut.poele.util.RecipeListener" />
         <variable
             name="viewModel"
             type="com.umut.poele.ui.recipe.HomeRecipeViewModel"/>
@@ -23,7 +23,7 @@
         app:cardCornerRadius="@dimen/recipe_card_radius"
         app:cardElevation="1dp"
         app:cardUseCompatPadding="true"
-        android:onClick="@{()->listener.onRecipeClicked(recipe)}">
+        android:onClick="@{()->viewModel.onRecipeClicked(recipe)}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

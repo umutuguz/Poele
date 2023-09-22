@@ -64,5 +64,17 @@
         <action
             android:id="@+id/action_homeRecipeFragment_to_homeFirstFragment"
             app:destination="@id/homeFirstFragment" />
+        <action
+            android:id="@+id/action_homeRecipeFragment_to_homeRecipeDetailFragment"
+            app:destination="@id/homeRecipeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeRecipeDetailFragment"
+        android:name="com.umut.poele.ui.recipe_detail.HomeRecipeDetailFragment"
+        android:label="fragment_home_recipe_detail"
+        tools:layout="@layout/fragment_home_recipe_detail" >
+        <action
+            android:id="@+id/action_homeRecipeDetailFragment_to_homeRecipeFragment"
+            app:destination="@id/homeRecipeFragment" />
     </fragment>
 </navigation>

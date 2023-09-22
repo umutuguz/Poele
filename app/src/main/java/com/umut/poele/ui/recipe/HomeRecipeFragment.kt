@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeRecipeFragment :
-    BaseFragment<FragmentHomeRecipeBinding, BaseViewModel>(R.layout.fragment_home_recipe, true) {
+    BaseFragment<FragmentHomeRecipeBinding, HomeRecipeViewModel>(R.layout.fragment_home_recipe, true) {
 
     override val vm: HomeRecipeViewModel by viewModels()
 

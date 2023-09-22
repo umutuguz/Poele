@@ -2,6 +2,7 @@ package com.umut.poele.ui.home
 
 import com.umut.poele.model.FoodCategory
 import com.umut.poele.ui.base.BaseViewModel
+import com.umut.poele.util.FoodCategoryListener
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.umut.poele.ui.home.FoodCategoryListener" />
+            type="com.umut.poele.util.FoodCategoryListener" />
 
         <variable
             name="viewModel"

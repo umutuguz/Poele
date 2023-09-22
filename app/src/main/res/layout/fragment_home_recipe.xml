@@ -5,12 +5,6 @@
     tools:context=".ui.recipe.HomeRecipeFragment">
 
     <data>
-        <variable
-            name="recipe"
-            type="com.umut.poele.model.Recipe" />
-        <variable
-            name="listener"
-            type="com.umut.poele.ui.recipe.RecipeListener" />
 
         <variable
             name="viewModel"
