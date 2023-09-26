@@ -1,6 +1,5 @@
 package com.umut.poele.util
 
-
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -15,8 +14,10 @@ fun setImage(imageView: ImageView, imageId: Int) {
 }
 
 @BindingAdapter("setAdapter")
-fun setAdapter(recyclerView: RecyclerView, adapter: BaseAdapter<ViewDataBinding,
-        ListAdapterItem>?) {
+fun setAdapter(
+    recyclerView: RecyclerView, adapter: BaseAdapter<ViewDataBinding,
+            ListAdapterItem>?
+) {
     adapter?.let {
         recyclerView.adapter = it
     }

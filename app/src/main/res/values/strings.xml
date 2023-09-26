@@ -56,4 +56,12 @@
     <string name="weight">Weight</string>
     <string name="chef_name">Chef Name</string>
     <string name="recipe_description">Pizza ipsum dolor meat lovers buffalo. Chicken steak Bianca pan parmesan bbq steak.</string>
+    <string name="info">Info</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="how_to_make">How to Make</string>
+    <string name="direction">Direction</string>
+    <string name="serve_count">Serves: %d</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at sapien arcu. Nam sit amet lorem felis. Fusce sit amet suscipit purus. Orci.</string>
+    <string name="ingredient_amount">%.0f %s</string>
+    <string name="step_counter">Step %d</string>
 </resources>

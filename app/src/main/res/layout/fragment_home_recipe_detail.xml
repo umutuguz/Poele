@@ -9,6 +9,10 @@
         <variable
             name="viewModel"
             type="com.umut.poele.ui.recipe_detail.HomeRecipeDetailViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.umut.poele.ui.recipe_detail.HomeRecipeDetailFragmentAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,280 +98,46 @@
             app:layout_constraintTop_toTopOf="@id/image_shoplist"
             app:layout_constraintWidth_default="spread" />
 
-        <!--        <com.google.android.material.tabs.TabLayout-->
-        <!--            android:id="@+id/tab_recipe_category"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            app:layout_constraintBottom_toTopOf="@id/h_13_guideline"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintHorizontal_bias="0.5"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/h_7_guideline"-->
-        <!--            app:tabMode="scrollable"-->
-        <!--            app:tabGravity="start"/>-->
-
-        <!--        <androidx.viewpager2.widget.ViewPager2-->
-        <!--            android:id="@+id/viewpager_recipe_category"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:setAdapter="@{}" />-->
-
-        <ScrollView
-            android:id="@+id/scrollView"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toTopOf="@id/button_add_shoplist"
+            app:layout_constraintBottom_toTopOf="@id/h_13_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/h_13_guideline">
+            app:layout_constraintTop_toBottomOf="@id/h_7_guideline"
+            app:tabGravity="fill"
+            app:tabMode="fixed">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<!--            <com.google.android.material.tabs.TabItem-->
+<!--                android:id="@+id/tab_info"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/info"/>-->
+<!--            <com.google.android.material.tabs.TabItem-->
+<!--                android:id="@+id/tab_ingredient"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/ingredient"/>-->
+<!--            <com.google.android.material.tabs.TabItem-->
+<!--                android:id="@+id/tab_how"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/direction"/>-->
 
-                <ImageView
-                    android:id="@+id/image_recipe"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_180sdp"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:background="@drawable/background_recipe_detail_image"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/pasta"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/pasta" />
+        </com.google.android.material.tabs.TabLayout>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab_favorite"
-                    style="@style/Widget.Material3.FloatingActionButton.Surface"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_12sdp"
-                    android:alpha="0.85"
-                    app:layout_constraintEnd_toEndOf="@id/image_recipe"
-                    app:layout_constraintTop_toTopOf="@id/image_recipe"
-                    tools:srcCompat="@drawable/outline_favorite_border_24" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/button_add_shoplist"
+            app:layout_constraintTop_toBottomOf="@id/h_13_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:setAdapter="@{adapter}" />
 
-                <TextView
-                    android:id="@+id/text_recipe_title"
-                    style="@style/TextAppearance.Material3.TitleLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/top_margin_double"
-                    app:layout_constraintBottom_toTopOf="@id/text_recipe_description"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/image_recipe"
-                    android:text="@string/recipe_title" />
-
-                <TextView
-                    android:id="@+id/text_chef_name"
-                    style="@style/TextAppearance.Material3.TitleMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1"
-                    app:layout_constraintStart_toEndOf="@id/text_recipe_title"
-                    android:text="@string/chef_name" />
-
-                <TextView
-                    android:id="@+id/text_recipe_description"
-                    style="@style/TextAppearance.Material3.TitleSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_diff_elements"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_recipe_title"
-                    android:text="@string/recipe_description" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:id="@+id/divider_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_recipe_description" />
-
-                <TextView
-                    android:id="@+id/text_basic_info"
-                    style="@style/TextAppearance.Material3.TitleMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider_1"
-                    android:text="Basic Info" />
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chip_group_basic_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    app:chipSpacing="@dimen/margin_between_same_elements"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_basic_info">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_time"
-                        style="@style/Widget.Material3.Chip.Assist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/outline_timer_24"
-                        android:text="@string/time" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_people"
-                        style="@style/Widget.Material3.Chip.Assist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/outline_people_24"
-                        android:text="@string/people" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_weight"
-                        style="@style/Widget.Material3.Chip.Assist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/outline_room_service_24"
-                        android:text="@string/weight" />
-
-                </com.google.android.material.chip.ChipGroup>
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:id="@+id/divider_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/chip_group_basic_info" />
-
-                <TextView
-                    android:id="@+id/text_equipments"
-                    style="@style/TextAppearance.Material3.TitleMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider_2"
-                    android:text="Equipments" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_equipments"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    android:layout_marginStart="@dimen/side_margin"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_equipments"
-                    tools:listitem="@layout/list_equipments" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:id="@+id/divider_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recycler_equipments" />
-
-                <TextView
-                    android:id="@+id/text_macros"
-                    style="@style/TextAppearance.Material3.TitleMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider_3"
-                    android:text="@string/macros" />
-
-                <HorizontalScrollView
-                    android:id="@+id/scrollView_macros"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/side_margin"
-                    android:layout_marginVertical="@dimen/margin_between_same_elements"
-                    android:scrollbars="none"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_macros">
-
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chip_group_macros"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipSpacing="@dimen/margin_between_same_elements"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/text_macros"
-                        app:singleLine="true">
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_calorie"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/calorie" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_protein"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/protein" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_carbohydrate"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/carb" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_fat"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/fat" />
-
-                        <com.google.android.material.chip.Chip
-                            android:id="@+id/chip_fiber"
-                            style="@style/Widget.Material3.Chip.Assist"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/fiber" />
-
-                    </com.google.android.material.chip.ChipGroup>
-
-                </HorizontalScrollView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ScrollView>
 
         <Button
             android:id="@+id/button_add_shoplist"
@@ -380,8 +150,8 @@
             app:icon="@drawable/outline_shopping_cart_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scrollView" />
+            app:layout_constraintTop_toBottomOf="@id/viewpager_recipe_category"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.umut.poele.databinding.ListMacroProductCardBinding
 
-abstract class BaseAdapter<B : ViewDataBinding, T : ListAdapterItem>(
+abstract class BaseAdapter<B : ViewDataBinding, T : Any>(
     var data: List<T>,@LayoutRes val layoutId: Int
 ) : RecyclerView.Adapter<BaseViewHolder<B>>() {
 
@@ -28,4 +28,5 @@ abstract class BaseAdapter<B : ViewDataBinding, T : ListAdapterItem>(
 
         return BaseViewHolder(binder)
     }
+
 }

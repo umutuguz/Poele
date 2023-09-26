@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardCornerRadius="0dp"-->
+<!--        app:cardElevation="0dp"-->
+<!--        app:strokeWidth="0dp">-->
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_step_header"
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_between_same_elements"
+                android:paddingHorizontal="@dimen/side_padding"
+                app:layout_constraintBottom_toTopOf="@id/text_step_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Step 1" />
+            <!--            android:background="@color/md_theme_light_surfaceVariant"-->
+
+            <TextView
+                android:id="@+id/text_step_description"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/side_margin"
+                app:layout_constraintBottom_toTopOf="@id/divider"
+                app:layout_constraintTop_toBottomOf="@id/text_step_header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@string/lorem_ipsum" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/side_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_step_description"
+                android:layout_marginVertical="@dimen/margin_between_same_elements"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    </com.google.android.material.card.MaterialCardView>-->
+</layout>
