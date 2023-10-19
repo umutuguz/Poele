@@ -33,6 +33,14 @@ class RecipeDataSource {
                     Ingredient(2, R.drawable.coffee_beans, "Egg", 3.0, ""),
                     Ingredient(1, R.drawable.herbs, "All-purpose Flavor", 2.0, "cup"),
                     Ingredient(2, R.drawable.coffee_beans, "Egg", 3.0, ""),
+                    Ingredient(1, R.drawable.herbs, "All-purpose Flavor", 2.0, "cup"),
+                    Ingredient(2, R.drawable.coffee_beans, "Egg", 3.0, ""),
+                    Ingredient(1, R.drawable.herbs, "All-purpose Flavor", 2.0, "cup"),
+                    Ingredient(2, R.drawable.coffee_beans, "Egg", 3.0, ""),
+                    Ingredient(1, R.drawable.herbs, "All-purpose Flavor", 2.0, "cup"),
+                    Ingredient(2, R.drawable.coffee_beans, "Egg", 3.0, ""),
+                    Ingredient(1, R.drawable.herbs, "All-purpose Flavor", 2.0, "cup"),
+                    Ingredient(2, R.drawable.coffee_beans, "Egg", 3.0, "")
                 ),
                 listOf(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod " + "tempor incididunt ut labore et dolore magna aliqua.",

@@ -9,59 +9,39 @@
         <variable
             name="viewModel"
             type="com.umut.poele.ui.recipe.HomeRecipeViewModel" />
-
-        <variable
-            name="adapterRecipeTab"
-            type="com.umut.poele.ui.recipe.RecipeTabAdapter" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_7_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.07" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_13_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.13" />
-
         <ImageView
             android:id="@+id/image_back"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:onClick="@{()->viewModel.goBackClicked()}"
-            android:paddingHorizontal="@dimen/side_padding"
-            android:paddingVertical="@dimen/half_side_padding"
+            android:paddingHorizontal="@dimen/horizontal_padding"
+            android:paddingVertical="@dimen/half_horizontal_padding"
             android:scaleType="center"
             android:src="@drawable/round_arrow_back_24"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
             app:layout_constraintEnd_toStartOf="@id/text_page_title"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_weight="1.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="spread"
-            app:tint="@color/md_theme_light_onSurface" />
+            app:tint="@color/md_theme_light_onSurface"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/text_page_title"
-            style="@style/TextAppearance.Material3.HeadlineSmall"
+            style="@style/TextAppearance.Material3.ActionBar.Title"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:gravity="center_vertical"
             android:text="@string/recipes"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/image_back"
             app:layout_constraintEnd_toStartOf="@id/image_notification"
             app:layout_constraintHorizontal_weight="5"
             app:layout_constraintStart_toEndOf="@id/image_back"
@@ -71,21 +51,23 @@
         <ImageView
             android:id="@+id/image_shoplist"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
+            android:onClick="@{()->viewModel.onShopListClicked()}"
             android:scaleType="center"
-            android:src="@drawable/round_checklist_24"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            android:src="@drawable/outline_shopping_cart_24"
+            app:layout_constraintBottom_toBottomOf="@id/image_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/image_notification"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="spread" />
+            app:layout_constraintWidth_default="spread"
+            android:importantForAccessibility="no" />
 
         <ImageView
             android:id="@+id/image_notification"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:scaleType="center"
             android:src="@drawable/round_notifications_24"
@@ -94,17 +76,18 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/text_page_title"
             app:layout_constraintTop_toTopOf="@id/image_shoplist"
-            app:layout_constraintWidth_default="spread" />
+            app:layout_constraintWidth_default="spread"
+            android:importantForAccessibility="no" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_recipe_category"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/h_13_guideline"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/h_7_guideline"
+            app:layout_constraintTop_toBottomOf="@id/image_back"
             app:tabMode="scrollable"
             app:tabGravity="start"/>
 
@@ -113,51 +96,49 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
+            android:layout_marginTop="@dimen/vertical_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_filter"
-            app:setAdapter="@{adapterRecipeTab}" />
+            app:layout_constraintTop_toBottomOf="@id/button_filter" />
 
         <com.google.android.material.search.SearchBar
             android:id="@+id/search_bar"
-            android:layout_width="match_parent"
+            style="@style/Widget.Umut.SearchBar"
+            android:layout_width="0dp"
             android:layout_height="@dimen/search_bar_height"
-            android:layout_marginHorizontal="@dimen/side_margin"
+            android:onClick="@{()->viewModel.onSearchBarClicked()}"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:text="@string/search_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_filter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/h_13_guideline"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/tab_recipe_category"
+            />
 
         <Button
             android:id="@+id/button_filter"
-            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
-            android:layout_width="0dp"
+            style="@style/Widget.Umut.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:minWidth="@dimen/_40sdp"
+            android:onClick="@{()->viewModel.onFilterClicked()}"
+            android:padding="0dp"
             android:text="@string/filter"
-            app:icon="@drawable/outline_filter_alt_24"
-            app:layout_constraintEnd_toStartOf="@id/button_sort"
+            android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:icon="@drawable/round_filter_list_24"
+            app:iconGravity="top"
+            app:iconSize="@dimen/_20sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar"
-            app:layout_constraintWidth_default="spread" />
-
-        <Button
-            android:id="@+id/button_sort"
-            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            android:text="@string/sort"
-            app:icon="@drawable/round_sort_24"
-            app:layout_constraintBottom_toBottomOf="@id/button_filter"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintTop_toTopOf="@id/search_bar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button_filter"
-            app:layout_constraintTop_toTopOf="@id/button_filter"
-            app:layout_constraintWidth_default="spread" />
+            app:layout_constraintBottom_toBottomOf="@id/search_bar"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

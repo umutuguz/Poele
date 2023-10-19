@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.add.AddEditSupplyViewModel" />
+        <variable
+            name="supply"
+            type="com.umut.poele.model.Supply" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_between_same_elements"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{()->viewModel.onSupplyClicked(supply)}"
+        app:cardCornerRadius="@dimen/card_product_radius"
+        app:checkedIcon="@drawable/checkbox_favorite">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/horizontal_padding"
+            android:paddingVertical="@dimen/vertical_padding">
+
+            <TextView
+                android:id="@+id/text_product_name"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{supply.name}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Product Name" />
+
+            <TextView
+                android:id="@+id/text_category_name"
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{supply.category}"
+                app:layout_constraintBottom_toTopOf="@id/image_amount"
+                app:layout_constraintStart_toStartOf="@id/text_product_name"
+                app:layout_constraintTop_toBottomOf="@id/text_product_name"
+                tools:text="@string/category" />
+
+            <ImageView
+                android:id="@+id/image_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_diff_elements"
+                android:src="@drawable/round_weight_24"
+                app:layout_constraintStart_toStartOf="@id/text_product_name"
+                app:layout_constraintTop_toBottomOf="@id/text_category_name" />
+
+            <TextView
+                android:id="@+id/text_amount"
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/supply_amount(supply.amount, supply.unit)}"
+                app:layout_constraintBottom_toBottomOf="@id/image_amount"
+                app:layout_constraintStart_toEndOf="@id/image_amount"
+                tools:text="Amount" />
+
+            <ImageView
+                android:id="@+id/image_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_info_24"
+                app:layout_constraintStart_toStartOf="@id/text_product_name"
+                app:layout_constraintTop_toBottomOf="@id/image_amount" />
+
+            <TextView
+                android:id="@+id/text_state"
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/image_state"
+                app:layout_constraintStart_toEndOf="@id/image_state"
+                app:setState="@{supply.state}"
+                tools:text="@string/state" />
+
+            <ImageView
+                android:id="@+id/image_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:src="@drawable/round_date_range_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/text_date"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/supply_date(supply.dateDay, supply.dateMonth, supply.dateYear)}"
+                app:layout_constraintBottom_toBottomOf="@id/image_date"
+                app:layout_constraintEnd_toStartOf="@id/image_date"
+                tools:text="Date" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

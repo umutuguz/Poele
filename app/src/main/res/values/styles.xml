@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="Button.Icon" parent="Widget.Material3.Button.IconButton">
+    <style name="Widget.Umut.Button.Icon" parent="Widget.Material3.Button.IconButton">
         <item name="iconTint">@color/md_theme_light_onSurface</item>
     </style>
 
-    <style name="Text.Logo" parent="TextAppearance.Material3.SearchBar">
+    <style name="TextAppearance.Umut.Logo" parent="TextAppearance.Material3.SearchBar">
         <item name="android:textSize">@dimen/logo_text_size</item>
         <item name="android:fontFamily">@font/wadmont</item>
         <item name="android:textAlignment">textStart</item>
@@ -16,9 +13,9 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="ModalBottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal">
+    <style name="Widget.Umut.ModalBottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal">
         <item name="backgroundTint">@color/md_theme_light_surface_container_high</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.App.LargeComponent</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
         <item name="shouldRemoveExpandedCorners">false</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
         <item name="android:windowIsTranslucent">true</item>
@@ -29,8 +26,44 @@
         <item name="android:windowIsFloating">false</item>
     </style>
 
-    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.Material3.Corner.ExtraLarge">
+    <style name="Widget.Umut.SearchBar" parent="Widget.Material3.SearchBar.Outlined">
+        <item name="strokeColor">@color/md_theme_light_primary</item>
+        <item name="navigationIconTint">@color/md_theme_light_primary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Umut.SearchBar</item>
+    </style>
 
+    <style name="TextAppearance.Umut.SearchBar" parent="TextAppearance.Material3.SearchBar">
+        <item name="android:textColor">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="android:textColorHint">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="Widget.Umut.Button.OutlinedButton.Icon" parent="Widget.Material3.Button.OutlinedButton.Icon">
+        <item name="strokeColor">@color/md_theme_light_primary</item>
+        <item name="navigationIconTint">@color/md_theme_light_primary</item>
+        <item name="android:elevation">0dp</item>
+        <item name="iconTint">@color/md_theme_light_primary</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textSize">@dimen/_9ssp</item>
+        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+        <item name="shapeAppearance">@style/ShapeAppearanceOverlay.Material3.Chip</item>
+        <item name="android:padding">@dimen/_8sdp</item>
+    </style>
+
+    <style name="Widget.Umut.Button.TextButton.Icon"
+        parent="Widget.Material3.Button.TextButton.Icon">
+
+    </style>
+
+    <style name="Widget.Umut.DragHanle" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="android:minHeight">@dimen/_12sdp</item>
+        <item name="android:padding">0dp</item>
+        <item name="tint">@color/md_theme_light_outlineVariant</item>
+    </style>
+
+    <style name="Widget.Umut.Button.Toggle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minWidth">@dimen/_36sdp</item>
+        <item name="android:padding">@dimen/_12sdp</item>
     </style>
 
 </resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.add.AddEditSupplyViewModel" />
+        <variable
+            name="adapter"
+            type="com.umut.poele.ui.add.SupplyEditListAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_48sdp"
+            android:background="@drawable/background_action_bar"
+            android:importantForAccessibility="no"
+            android:onClick="@{()->viewModel.onBackClicked()}"
+            android:paddingHorizontal="@dimen/horizontal_padding"
+            android:paddingVertical="@dimen/half_horizontal_padding"
+            android:scaleType="center"
+            android:src="@drawable/round_arrow_back_24"
+            app:layout_constraintEnd_toStartOf="@id/text_page_title"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_weight="1.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="spread"
+            app:tint="@color/md_theme_light_onSurface" />
+
+        <TextView
+            android:id="@+id/text_page_title"
+            style="@style/TextAppearance.Material3.ActionBar.Title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_48sdp"
+            android:background="@drawable/background_action_bar"
+            android:gravity="center_vertical"
+            android:text="@string/select_supply"
+            app:layout_constraintBottom_toBottomOf="@id/image_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="7"
+            app:layout_constraintStart_toEndOf="@id/image_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="spread" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            tools:listitem="@layout/list_edit_supply"
+            app:setAdapter="@{adapter}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

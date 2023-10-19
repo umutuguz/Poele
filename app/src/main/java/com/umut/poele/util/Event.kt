@@ -1,5 +1,7 @@
 package com.umut.poele.util
 
+import android.util.Log
+
 open class Event<out T>(private val content: T){
 
     var hasBeenHandled = false

@@ -2,23 +2,31 @@
 
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="supply"
+            type="com.umut.poele.model.Supply" />
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.fridge.FridgeFirstViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/card_product_radius"
-        android:layout_marginVertical="@dimen/top_margin">
+        app:checkedIcon="@drawable/checkbox_favorite"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginVertical="@dimen/margin_between_same_elements">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/side_padding"
-            android:paddingVertical="@dimen/top_padding">
+            android:layout_height="wrap_content">
 
             <TextView
                 style="@style/TextAppearance.Material3.TitleMedium"
@@ -27,14 +35,18 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@string/product_name" />
+                android:text="@{supply.name}"
+                android:layout_marginHorizontal="@dimen/horizontal_margin"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                tools:text="Product Name"/>
 
             <TextView
                 style="@style/TextAppearance.Material3.TitleSmall"
                 android:id="@+id/text_category_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/category"
+                android:text="@{supply.category}"
+                tools:text="@string/category"
                 app:layout_constraintTop_toBottomOf="@id/text_product_name"
                 app:layout_constraintStart_toStartOf="@id/text_product_name"
                 app:layout_constraintBottom_toTopOf="@id/image_amount" />
@@ -53,7 +65,8 @@
                 android:id="@+id/text_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/amount"
+                android:text="@{@string/supply_amount(supply.amount, supply.unit)}"
+                tools:text="Amount"
                 app:layout_constraintStart_toEndOf="@id/image_amount"
                 app:layout_constraintBottom_toBottomOf="@id/image_amount" />
 
@@ -63,14 +76,17 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/outline_info_24"
                 app:layout_constraintTop_toBottomOf="@id/image_amount"
-                app:layout_constraintStart_toStartOf="@id/text_product_name" />
+                app:layout_constraintStart_toStartOf="@id/text_product_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginVertical="@dimen/vertical_margin"/>
 
             <TextView
                 style="@style/TextAppearance.Material3.TitleSmall"
                 android:id="@+id/text_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/state"
+                app:setState="@{supply.state}"
+                tools:text="@string/state"
                 app:layout_constraintStart_toEndOf="@id/image_state"
                 app:layout_constraintBottom_toBottomOf="@id/image_state" />
 
@@ -79,6 +95,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/round_dot_24"
+                android:onClick="@{()->viewModel.onMoreOptionClicked(supply)}"
+                android:scaleType="center"
+                android:padding="@dimen/_4sdp"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:layout_marginHorizontal="@dimen/horizontal_margin_half"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,6 +108,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/round_close_24"
+                android:scaleType="centerInside"
+                android:padding="@dimen/_4sdp"
                 app:layout_constraintEnd_toStartOf="@id/image_menu"
                 app:layout_constraintTop_toTopOf="@id/image_menu" />
 
@@ -96,13 +119,16 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/round_date_range_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@id/image_state"
+                android:layout_marginHorizontal="@dimen/horizontal_margin"/>
 
             <TextView
                 android:id="@+id/text_date"
+                style="@style/TextAppearance.Material3.TitleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/date"
+                android:text="@{@string/supply_date(supply.dateDay, supply.dateMonth, supply.dateYear)}"
+                tools:text="Date"
                 app:layout_constraintEnd_toStartOf="@id/image_date"
                 app:layout_constraintBottom_toBottomOf="@id/image_date" />
 

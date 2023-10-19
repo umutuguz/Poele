@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="supply"
+            type="com.umut.poele.model.Supply" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_product_radius"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginVertical="@dimen/margin_between_same_elements">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/horizontal_padding"
+            android:paddingVertical="@dimen/vertical_padding">
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                 />
+
+            <TextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:id="@+id/text_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/checkbox"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{supply.name}"
+                tools:text="Product Name"/>
+
+            <TextView
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:id="@+id/text_category_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{supply.category}"
+                tools:text="@string/category"
+                app:layout_constraintTop_toBottomOf="@id/text_product_name"
+                app:layout_constraintStart_toStartOf="@id/text_product_name"
+                app:layout_constraintBottom_toTopOf="@id/image_amount" />
+
+            <ImageView
+                android:id="@+id/image_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/round_weight_24"
+                android:layout_marginTop="@dimen/margin_between_diff_elements"
+                app:layout_constraintTop_toBottomOf="@id/text_category_name"
+                app:layout_constraintStart_toStartOf="@id/text_product_name"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:id="@+id/text_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/supply_amount(supply.amount, supply.unit)}"
+                tools:text="Amount"
+                app:layout_constraintStart_toEndOf="@id/image_amount"
+                app:layout_constraintBottom_toBottomOf="@id/image_amount" />
+
+            <ImageView
+                android:id="@+id/image_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/outline_info_24"
+                app:layout_constraintTop_toBottomOf="@id/image_amount"
+                app:layout_constraintStart_toStartOf="@id/text_product_name" />
+
+            <TextView
+                style="@style/TextAppearance.Material3.TitleSmall"
+                android:id="@+id/text_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:setState="@{supply.state}"
+                tools:text="@string/state"
+                app:layout_constraintStart_toEndOf="@id/image_state"
+                app:layout_constraintBottom_toBottomOf="@id/image_state" />
+
+            <ImageView
+                android:id="@+id/image_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/round_date_range_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/text_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/supply_date(supply.dateDay, supply.dateMonth, supply.dateYear)}"
+                tools:text="Date"
+                app:layout_constraintEnd_toStartOf="@id/image_date"
+                app:layout_constraintBottom_toBottomOf="@id/image_date" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".">
+
+    <data>
+
+        <variable
+            name="recipe"
+            type="com.umut.poele.model.Recipe" />
+
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.add.AddEditRecipeViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->viewModel.onRecipeClicked(recipe)}"
+        app:cardCornerRadius="@dimen/recipe_card_radius"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/h_60_guideline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6" />
+
+            <ImageView
+                android:id="@+id/image_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/background_recipe_card_image"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@id/h_60_guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImage="@{recipe.imageId}"
+                tools:src="@drawable/coffee_beans" />
+
+            <TextView
+                android:id="@+id/text_recipe_title"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:text="@{recipe.name}"
+                app:layout_constraintBottom_toTopOf="@id/chip_group_recipe"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/h_60_guideline"
+                tools:text="@string/recipe_title" />
+
+            <TextView
+                android:id="@+id/text_chef"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:text="@{recipe.chefName}"
+                app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toEndOf="@id/text_recipe_title"
+                app:layout_constraintTop_toTopOf="@id/text_recipe_title"
+                app:layout_constraintVertical_bias="1"
+                tools:text="@string/chef_name" />
+
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_recipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/text_recipe_title"
+                app:layout_constraintTop_toBottomOf="@id/text_recipe_title">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_time"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/recipe_time(recipe.time)}"
+                    app:chipIcon="@drawable/outline_timer_24"
+                    tools:text="@string/time" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_people"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipIcon="@drawable/outline_people_24"
+                    app:setIntText="@{recipe.people}"
+                    tools:text="@string/people" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_weight"
+                    style="@style/TextAppearance.Material3.LabelMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/recipe_weight(recipe.weight)}"
+                    app:chipIcon="@drawable/outline_room_service_24"
+                    tools:text="@string/weight" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

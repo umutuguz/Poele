@@ -1,19 +1,33 @@
 package com.umut.poele.ui.profile
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.umut.poele.R
-import com.umut.poele.ui.base.BaseFragment
 import com.umut.poele.databinding.FragmentProfileFirstBinding
-import com.umut.poele.ui.base.BaseViewModel
-import com.umut.poele.ui.home.HomeFirstViewModel
+import com.umut.poele.ui.base.BaseFragment
+import kotlin.system.exitProcess
 
-class ProfileFirstFragment: BaseFragment<FragmentProfileFirstBinding, BaseViewModel>
-    (R.layout.fragment_profile_first, true) {
+class ProfileFirstFragment : BaseFragment<FragmentProfileFirstBinding, ProfileFirstViewModel>(R.layout.fragment_profile_first) {
 
-    override val vm: BaseViewModel
-        get() = HomeFirstViewModel()
+    override val vm: ProfileFirstViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.apply {
+            viewModel = vm
+            buttonLogOut.setOnClickListener {
+                MaterialAlertDialogBuilder(buttonLogOut.context).setTitle(R.string.logout_dialog_title).setMessage(R.string.logout_dialog_message)
+                    .setNeutralButton(R.string.log_out_dialog_neutral_button) { dialog, _ ->
+                        dialog.cancel()
+                    }.setNegativeButton(R.string.log_out_dialog_negative_button) { dialog, _ ->
+                        dialog.dismiss()
+                    }.setPositiveButton(R.string.log_out_dialog_positive_button) { _, _ ->
+                        exitProcess(-1)
+                    }.show()
+            }
+        }
+    }
 }

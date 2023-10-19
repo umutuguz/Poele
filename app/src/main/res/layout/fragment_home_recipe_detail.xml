@@ -19,49 +19,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_7_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.07" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_13_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.13" />
-
         <ImageView
             android:id="@+id/image_back"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:importantForAccessibility="no"
             android:onClick="@{()->viewModel.navigateUp()}"
-            android:paddingHorizontal="@dimen/side_padding"
-            android:paddingVertical="@dimen/half_side_padding"
+            android:paddingHorizontal="@dimen/horizontal_padding"
+            android:paddingVertical="@dimen/half_horizontal_padding"
             android:scaleType="center"
             android:src="@drawable/round_arrow_back_24"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/text_page_title"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_weight="1.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
             app:layout_constraintWidth_default="spread"
             app:tint="@color/md_theme_light_onSurface" />
 
         <TextView
             android:id="@+id/text_page_title"
-            style="@style/TextAppearance.Material3.HeadlineSmall"
+            style="@style/TextAppearance.Material3.ActionBar.Title"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:gravity="center_vertical"
             android:text="@string/recipes"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/image_back"
             app:layout_constraintEnd_toStartOf="@id/image_notification"
             app:layout_constraintHorizontal_weight="5"
             app:layout_constraintStart_toEndOf="@id/image_back"
@@ -71,12 +58,13 @@
         <ImageView
             android:id="@+id/image_shoplist"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:importantForAccessibility="no"
+            android:onClick="@{()->viewModel.onShopListClicked()}"
             android:scaleType="center"
             android:src="@drawable/outline_shopping_cart_24"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/image_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/image_notification"
@@ -86,9 +74,8 @@
         <ImageView
             android:id="@+id/image_notification"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
-            android:importantForAccessibility="no"
             android:scaleType="center"
             android:src="@drawable/round_notifications_24"
             app:layout_constraintBottom_toBottomOf="@id/image_shoplist"
@@ -101,29 +88,14 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_fragment"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/h_13_guideline"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/h_7_guideline"
+            app:layout_constraintTop_toBottomOf="@id/image_back"
+            app:layout_constraintVertical_bias="0"
             app:tabGravity="fill"
             app:tabMode="fixed">
-
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/tab_info"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/info"/>-->
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/tab_ingredient"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/ingredient"/>-->
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/tab_how"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/direction"/>-->
 
         </com.google.android.material.tabs.TabLayout>
 
@@ -133,25 +105,25 @@
             android:layout_height="0dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@id/button_add_shoplist"
-            app:layout_constraintTop_toBottomOf="@id/h_13_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:setAdapter="@{adapter}" />
-
+            app:layout_constraintTop_toBottomOf="@id/tab_fragment" />
+        <!--        app:setViewPagerAdapter="@{tabLayout,adapter}-->
 
         <Button
             android:id="@+id/button_add_shoplist"
             style="@style/Widget.Material3.Button.OutlinedButton.Icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:layout_marginVertical="@dimen/margin_between_same_elements"
             android:text="@string/add_to_shoplist"
             app:icon="@drawable/outline_shopping_cart_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/viewpager_recipe_category"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

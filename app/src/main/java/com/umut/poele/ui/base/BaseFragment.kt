@@ -1,6 +1,7 @@
 package com.umut.poele.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,20 +12,19 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import com.umut.poele.BR
-import com.umut.poele.MainActivity
+import com.umut.poele.util.Constants
 import com.umut.poele.util.NavigationCommand
-import kotlinx.coroutines.channels.BroadcastChannel
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
-    private val layoutId: Int, private val isNavigationBarVisible: Boolean
+    private val layoutId: Int
 ) : Fragment() {
+
+    private var hasBottomSheetOnScreen: Boolean = false
 
     private var _binding: B? = null
     val binding get() = _binding!!
 
     protected abstract val vm: VM
-
-    var isToolbarVisible: Boolean = isNavigationBarVisible
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -43,11 +43,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeNavigation()
-
-        val activity = requireActivity() as MainActivity
-        if (!isNavigationBarVisible) {
-            activity.binding.navigationBar.visibility = View.GONE
-        }
+        observeBottomSheetState()
     }
 
     override fun onDestroyView() {
@@ -62,10 +58,27 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
             }
         }
     }
+    private fun observeBottomSheetState() {
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>(
+            Constants.KEY_DISMISS
+        )?.observe(viewLifecycleOwner) {
+            hasBottomSheetOnScreen = !it
+        }
+    }
 
     private fun handleNavigation(navigationCommand: NavigationCommand) {
         when (navigationCommand) {
-            is NavigationCommand.ToDirection -> findNavController().navigate(navigationCommand.directions)
+            is NavigationCommand.ToDirection -> {
+                if (navigationCommand.isBottomSheet) {
+                    if (!hasBottomSheetOnScreen){
+                        findNavController().navigate(navigationCommand.directions)
+                        hasBottomSheetOnScreen = true
+                    }
+                }
+                else {
+                    findNavController().navigate(navigationCommand.directions)
+                }
+            }
             is NavigationCommand.Back -> findNavController().navigateUp()
         }
     }

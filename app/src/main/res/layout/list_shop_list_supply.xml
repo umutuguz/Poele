@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="supply"
+            type="com.umut.poele.model.Supply" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_supply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:strokeWidth="0.5dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@android:color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text_supply_title"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Supply Title"
+                android:text="@{supply.name}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginHorizontal="@dimen/horizontal_margin" />
+
+            <TextView
+                android:id="@+id/text_recipe_name"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Recipe Name"
+                android:text="@string/lasagne"
+                app:layout_constraintTop_toBottomOf="@id/text_supply_title"
+                app:layout_constraintStart_toStartOf="@id/text_supply_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+
+                />
+
+            <TextView
+                android:id="@+id/text_supply_amount"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Supply Amount"
+                app:setIntText="@{supply.amount}"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                app:layout_constraintTop_toBottomOf="@id/text_recipe_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/text_supply_title" />
+
+            <TextView
+                android:id="@+id/text_supply_need"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Required Amount"
+                android:text="@string/required_amount_500_g"
+                app:layout_constraintStart_toEndOf="@id/text_supply_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.4"
+                android:layout_marginHorizontal="@dimen/horizontal_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.3"/>
+
+            <TextView
+                android:id="@+id/text_supply_amount_total"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Supply Amount"
+                android:text="@string/total_amount"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                app:layout_constraintBottom_toBottomOf="@id/text_supply_amount"
+                app:layout_constraintStart_toStartOf="@id/text_supply_need"
+                app:layout_constraintEnd_toEndOf="@id/text_supply_need"
+                app:layout_constraintTop_toTopOf="@id/text_supply_amount" />
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                style="@style/Widget.Material3.CompoundButton.CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_supply_need"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginHorizontal="@dimen/horizontal_margin" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

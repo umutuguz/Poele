@@ -5,36 +5,26 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.umut.poele.R
-import com.umut.poele.data.RecipeDataSource
-import com.umut.poele.data.RecipeTabDataSource
+import com.umut.poele.data.FoodCategoryDataSource
 import com.umut.poele.databinding.FragmentHomeRecipeBinding
 import com.umut.poele.ui.base.BaseFragment
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class HomeRecipeFragment :
-    BaseFragment<FragmentHomeRecipeBinding, HomeRecipeViewModel>(
-        R.layout.fragment_home_recipe,
-        true
-    ) {
+class HomeRecipeFragment : BaseFragment<FragmentHomeRecipeBinding, HomeRecipeViewModel>(
+    R.layout.fragment_home_recipe
+) {
 
     override val vm: HomeRecipeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            adapterRecipeTab = RecipeTabAdapter(RecipeTabDataSource().loadRecipeTab(), vm)
             viewModel = vm
             viewpagerRecipeCategory.adapter = RecipeTabAdapter(
-                RecipeTabDataSource()
-                    .loadRecipeTab(), vm
+                FoodCategoryDataSource().loadFoodCategory(), vm
             )
         }
-        TabLayoutMediator(binding.tabRecipeCategory, binding.viewpagerRecipeCategory) { tab,
-                                                                                        position ->
-            tab.text = RecipeDataSource().loadRecipe()[position].category
-
+        TabLayoutMediator(binding.tabRecipeCategory, binding.viewpagerRecipeCategory) { tab, position ->
+            tab.text = FoodCategoryDataSource().loadFoodCategory()[position].name
         }.attach()
     }
-
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="side_margin">@dimen/_16sdp</dimen>
-    <dimen name="top_margin">@dimen/_8sdp</dimen>
+    <dimen name="horizontal_margin">@dimen/_16sdp</dimen>
+    <dimen name="horizontal_margin_half">@dimen/_8sdp</dimen>
+    <dimen name="vertical_margin">@dimen/_8sdp</dimen>
     <dimen name="margin_between_same_elements">@dimen/_8sdp</dimen>
     <dimen name="margin_between_diff_elements">@dimen/_16sdp</dimen>
-    <dimen name="side_padding">@dimen/_16sdp</dimen>
-    <dimen name="top_padding">@dimen/_8sdp</dimen>
+    <dimen name="horizontal_padding">@dimen/_16sdp</dimen>
+    <dimen name="vertical_padding">@dimen/_8sdp</dimen>
     <dimen name="login_radius">32dp</dimen>
     <dimen name="button_margin">8dp</dimen>
     <dimen name="action_bar_height">40dp</dimen>
@@ -19,7 +20,7 @@
     <dimen name="search_bar_height">@dimen/_28sdp</dimen>
     <dimen name="card_image_radius">20dp</dimen>
     <dimen name="card_product_radius">8dp</dimen>
-    <dimen name="bottom_sheet_radius">28dp</dimen>
+    <dimen name="bottom_sheet_radius">@dimen/_24sdp</dimen>
     <dimen name="date_picker_radius">8dp</dimen>
     <dimen name="macro_padding">16dp</dimen>
     <dimen name="macro_item_margin">16dp</dimen>
@@ -31,12 +32,13 @@
     <dimen name="macro_product_card_vertical_margin">8dp</dimen>
     <dimen name="progress_thickness">8dp</dimen>
     <dimen name="progress_radius">16dp</dimen>
-    <dimen name="top_margin_double">@dimen/_16sdp</dimen>
+    <dimen name="vertical_margin_double">@dimen/_16sdp</dimen>
     <dimen name="profile_list_radius">12dp</dimen>
     <dimen name="avatar_dimen">48dp</dimen>
-    <dimen name="avatar_radius">24dp</dimen>
+    <dimen name="avatar_radius">@dimen/_24sdp</dimen>
     <dimen name="profile_text_image_margin">8dp</dimen>
-    <dimen name="half_side_padding">@dimen/_8sdp</dimen>
+    <dimen name="half_horizontal_padding">@dimen/_8sdp</dimen>
     <dimen name="recipe_card_radius">16dp</dimen>
     <dimen name="recipe_card_fab_margin">8dp</dimen>
+    <dimen name="drag_handle_height">@dimen/_12sdp</dimen>
 </resources>

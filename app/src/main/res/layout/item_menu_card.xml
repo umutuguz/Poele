@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="@dimen/side_margin"
+                android:layout_marginEnd="@dimen/horizontal_margin"
                 android:text="@{menuCard.chefName}"
                 app:layout_constraintBottom_toBottomOf="@id/text_card_title"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -20,61 +20,310 @@
         android:label="fragment_home_1"
         tools:layout="@layout/fragment_home_first">
         <action
-            android:id="@+id/action_homeFirstFragment_to_fridgeFirstFragment"
-            app:destination="@id/fridgeFirstFragment" />
-        <action
             android:id="@+id/action_homeFirstFragment_to_homeRecipeFragment"
             app:destination="@id/homeRecipeFragment" />
         <action
-            android:id="@+id/action_homeFirstFragment_to_profileFirstFragment"
-            app:destination="@id/profileFirstFragment" />
+            android:id="@+id/action_homeFirstFragment_to_chooseHomeDialog"
+            app:destination="@id/chooseHomeDialog" />
+        <action
+            android:id="@+id/action_homeFirstFragment_to_chooseChefDialog"
+            app:destination="@id/chooseChefDialog" />
+        <action
+            android:id="@+id/action_homeFirstFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFirstFragment_to_shopListFragment"
+            app:destination="@id/shopListFragment" />
+        <action
+            android:id="@+id/action_homeFirstFragment_to_addEditRecipeFragment"
+            app:destination="@id/addEditRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/fridgeFirstFragment"
         android:name="com.umut.poele.ui.fridge.FridgeFirstFragment"
-        android:label="FridgeFirstFragment">
+        android:label="FridgeFirstFragment"
+        tools:layout="@layout/fragment_fridge_first">
         <action
-            android:id="@+id/action_fridgeFirstFragment_to_addFragment"
-            app:destination="@id/addFragment" />
+            android:id="@+id/action_fridgeFirstFragment_to_fridgeSupplyFragment"
+            app:destination="@id/fridgeSupplyFragment" />
+        <action
+            android:id="@+id/action_fridgeFirstFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_fridgeFirstFragment_to_filterDialog"
+            app:destination="@id/filterDialog" />
+        <action
+            android:id="@+id/action_fridgeFirstFragment_to_chooseHomeDialog"
+            app:destination="@id/chooseHomeDialog" />
+        <action
+            android:id="@+id/action_fridgeFirstFragment_to_shopListFragment"
+            app:destination="@id/shopListFragment" />
+        <action
+            android:id="@+id/action_fridgeFirstFragment_to_supplyMoreOptionDialog"
+            app:destination="@id/supplyMoreOptionDialog" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/addFragment"
         android:name="com.umut.poele.ui.add.AddFragment"
-        android:label="AddFragment">
+        android:label="AddFragment"
+        tools:layout="@layout/fragment_add">
         <action
-            android:id="@+id/action_addFragment_to_macroFirstFragment"
-            app:destination="@id/macroFirstFragment" />
-    </fragment>
+            android:id="@+id/action_addFragment_to_addEditRecipeFragment"
+            app:destination="@id/addEditRecipeFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_editRecipeFragment"
+            app:destination="@id/editRecipeFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_addEditSupplyFragment"
+            app:destination="@id/addEditSupplyFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_editSupplyFragment"
+            app:destination="@id/editSupplyFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_addShopListFragment"
+            app:destination="@id/addShopListFragment" />
+        <action
+            android:id="@+id/action_addFragment_to_dailyMenuFragment"
+            app:destination="@id/dailyMenuFragment" />
+    </dialog>
     <fragment
         android:id="@+id/macroFirstFragment"
         android:name="com.umut.poele.ui.macro.MacroFirstFragment"
-        android:label="MacroFirstFragment">
+        android:label="MacroFirstFragment"
+        tools:layout="@layout/fragment_macro_first">
         <action
-            android:id="@+id/action_macroFirstFragment_to_profileFirstFragment"
-            app:destination="@id/profileFirstFragment" />
+            android:id="@+id/action_macroFirstFragment_to_chooseChefDialog"
+            app:destination="@id/chooseChefDialog" />
+        <action
+            android:id="@+id/action_macroFirstFragment_to_mealEntryDialog"
+            app:destination="@id/mealEntryDialog" />
+        <action
+            android:id="@+id/action_macroFirstFragment_to_challengeDialog"
+            app:destination="@id/challengeDialog" />
+        <action
+            android:id="@+id/action_macroFirstFragment_to_macroMoreOptionDialog"
+            app:destination="@id/macroMoreOptionDialog" />
     </fragment>
     <fragment
         android:id="@+id/profileFirstFragment"
         android:name="com.umut.poele.ui.profile.ProfileFirstFragment"
-        android:label="ProfileFirstFragment" />
+        android:label="ProfileFirstFragment"
+        tools:layout="@layout/fragment_profile_first" >
+        <action
+            android:id="@+id/action_profileFirstFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeRecipeFragment"
         android:name="com.umut.poele.ui.recipe.HomeRecipeFragment"
-        android:label="homeRecipeFragment" >
+        android:label="homeRecipeFragment"
+        tools:layout="@layout/fragment_home_recipe">
         <action
             android:id="@+id/action_homeRecipeFragment_to_homeFirstFragment"
             app:destination="@id/homeFirstFragment" />
         <action
             android:id="@+id/action_homeRecipeFragment_to_homeRecipeDetailFragment"
             app:destination="@id/homeRecipeDetailFragment" />
+        <action
+            android:id="@+id/action_homeRecipeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeRecipeFragment_to_filterDialog"
+            app:destination="@id/filterDialog" />
+        <action
+            android:id="@+id/action_homeRecipeFragment_to_shopListFragment"
+            app:destination="@id/shopListFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeRecipeDetailFragment"
         android:name="com.umut.poele.ui.recipe_detail.HomeRecipeDetailFragment"
         android:label="fragment_home_recipe_detail"
-        tools:layout="@layout/fragment_home_recipe_detail" >
+        tools:layout="@layout/fragment_home_recipe_detail">
         <action
             android:id="@+id/action_homeRecipeDetailFragment_to_homeRecipeFragment"
             app:destination="@id/homeRecipeFragment" />
+        <action
+            android:id="@+id/action_homeRecipeDetailFragment_to_shopListFragment"
+            app:destination="@id/shopListFragment"
+            app:popUpTo="@id/homeRecipeDetailFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fridgeSupplyFragment"
+        android:name="com.umut.poele.ui.supply.FridgeSupplyFragment"
+        android:label="FridgeSupplyFragment"
+        tools:layout="@layout/fragment_fridge_supply">
+        <action
+            android:id="@+id/action_fridgeSupplyFragment_to_fridgeFirstFragment"
+            app:destination="@id/fridgeFirstFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/chooseHomeDialog"
+        android:name="com.umut.poele.ui.choose.ChooseHomeDialog"
+        android:label="ChooseHomeDialog"
+        tools:layout="@layout/dialog_choose_home">
+        <action
+            android:id="@+id/action_chooseHomeDialog_to_fridgeFirstFragment"
+            app:destination="@id/fridgeFirstFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/chooseChefDialog"
+        android:name="com.umut.poele.ui.choose.ChooseChefDialog"
+        android:label="ChooseChefDialog"
+        tools:layout="@layout/dialog_choose_chef">
+        <action
+            android:id="@+id/action_chooseChefDialog_to_macroFirstFragment"
+            app:destination="@id/macroFirstFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.umut.poele.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search_bar">
+        <action
+            android:id="@+id/action_searchFragment_to_homeFirstFragment"
+            app:destination="@id/homeFirstFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_homeRecipeFragment"
+            app:destination="@id/homeRecipeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_fridgeFirstFragment"
+            app:destination="@id/fridgeFirstFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/filterDialog"
+        android:name="com.umut.poele.ui.choose.FilterDialog"
+        android:label="FilterDialog"
+        tools:layout="@layout/dialog_filter">
+        <action
+            android:id="@+id/action_filterDialog_to_homeRecipeFragment"
+            app:destination="@id/homeRecipeFragment" />
+        <action
+            android:id="@+id/action_filterDialog_to_fridgeFirstFragment"
+            app:destination="@id/fridgeFirstFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/shopListFragment"
+        android:name="com.umut.poele.ui.shoplist.ShopListFragment"
+        android:label="ShopListFragment"
+        tools:layout="@layout/fragment_shop_list">
+        <action
+            android:id="@+id/action_shopListFragment_to_homeRecipeDetailFragment"
+            app:destination="@id/homeRecipeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditRecipeFragment"
+        android:name="com.umut.poele.ui.add.AddEditRecipeFragment"
+        android:label="AddEditRecipeFragment"
+        tools:layout="@layout/fragment_add_edit_recipe">
+        <action
+            android:id="@+id/action_addEditRecipeFragment_to_homeFirstFragment"
+            app:destination="@id/homeFirstFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/homeFirstFragment"/>
+    </fragment>
+    <dialog
+        android:id="@+id/mealEntryDialog"
+        android:name="com.umut.poele.ui.macro.MealEntryDialog"
+        android:label="MealEntryDialog"
+        tools:layout="@layout/dialog_meal_entry">
+        <action
+            android:id="@+id/action_mealEntryDialog_to_editRecipeFragment"
+            app:destination="@id/editRecipeFragment" />
+        <action
+            android:id="@+id/action_mealEntryDialog_to_editSupplyFragment"
+            app:destination="@id/editSupplyFragment" />
+        <action
+            android:id="@+id/action_mealEntryDialog_to_addEditSupplyFragment"
+            app:destination="@id/addEditSupplyFragment" />
+    </dialog>
+     <fragment
+        android:id="@+id/editRecipeFragment"
+        android:name="com.umut.poele.ui.add.EditRecipeFragment"
+        android:label="EditRecipeFragment"
+        tools:layout="@layout/fragment_edit_recipe">
+        <action
+            android:id="@+id/action_editRecipeFragment_to_addEditRecipeFragment"
+            app:destination="@id/addEditRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditSupplyFragment"
+        android:name="com.umut.poele.ui.add.AddEditSupplyFragment"
+        android:label="AddEditSupplyFragment"
+        tools:layout="@layout/fragment_add_edit_supply">
+        <action
+            android:id="@+id/action_addEditSupplyFragment_to_fridgeFirstFragment"
+            app:destination="@id/fridgeFirstFragment"
+            app:popUpTo="@id/homeFirstFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/editSupplyFragment"
+        android:name="com.umut.poele.ui.add.EditSupplyFragment"
+        android:label="EditSupplyFragment"
+        tools:layout="@layout/fragment_edit_supply">
+        <action
+            android:id="@+id/action_editSupplyFragment_to_addEditSupplyFragment"
+            app:destination="@id/addEditSupplyFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/challengeDialog"
+        android:name="com.umut.poele.ui.macro.ChallengeDialog"
+        android:label="ChallengeDialog"
+        tools:layout="@layout/dialog_challenge"/>
+    <fragment
+        android:id="@+id/addShopListFragment"
+        android:name="com.umut.poele.ui.add.AddShopListFragment"
+        android:label="AddShopListFragment"
+        tools:layout="@layout/fragment_add_shop_list">
+        <action
+            android:id="@+id/action_addShopListFragment_to_homeFirstFragment"
+            app:destination="@id/homeFirstFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/homeFirstFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/dailyMenuFragment"
+        android:name="com.umut.poele.ui.add.DailyMenuFragment"
+        android:label="DailyMenuFragment"
+        tools:layout="@layout/item_enter_daily_menu">
+        <action
+            android:id="@+id/action_dailyMenuFragment_to_homeFirstFragment"
+            app:destination="@id/homeFirstFragment"
+            app:popUpTo="@id/homeFirstFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <dialog
+        android:id="@+id/supplyMoreOptionDialog"
+        android:name="com.umut.poele.ui.fridge.SupplyMoreOptionDialog"
+        android:label="SupplyMoreOptionDialog"
+        tools:layout="@layout/dialog_supply_more_option">
+        <action
+            android:id="@+id/action_supplyMoreOptionDialog_to_addEditSupplyFragment"
+            app:destination="@id/addEditSupplyFragment" />
+        <action
+            android:id="@+id/action_supplyMoreOptionDialog_to_homeRecipeFragment"
+            app:destination="@id/homeRecipeFragment" />
+        <action
+            android:id="@+id/action_supplyMoreOptionDialog_to_fridgeFirstFragment"
+            app:destination="@id/fridgeFirstFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/macroMoreOptionDialog"
+        android:name="com.umut.poele.ui.macro.MacroMoreOptionDialog"
+        android:label="MacroMoreOptionDialog"
+        tools:layout="@layout/dialog_macro_more_option">
+        <action
+            android:id="@+id/action_macroMoreOptionDialog_to_addEditSupplyFragment"
+            app:destination="@id/addEditSupplyFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.umut.poele.ui.profile.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_homeRecipeDetailFragment"
+            app:destination="@id/homeRecipeDetailFragment" />
     </fragment>
 </navigation>

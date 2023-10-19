@@ -10,67 +10,76 @@
             type="com.umut.poele.ui.recipe_detail.IngredientAdapter" />
     </data>
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <!--    <ScrollView-->
+    <!--        android:id="@+id/scrollView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:fillViewport="false">-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="false">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/button_remove"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin">
+            android:layout_marginStart="@dimen/horizontal_margin"
+            app:icon="@drawable/baseline_remove_circle_outline_24"
+            app:iconSize="@dimen/_12sdp"
+            app:iconTint="@color/md_theme_light_onSurfaceVariant"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0" />
 
-            <Button
-                android:id="@+id/button_remove"
-                style="@style/Widget.Material3.Button.IconButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:icon="@drawable/baseline_remove_circle_outline_24"
-                app:iconSize="@dimen/_12sdp"
-                app:iconTint="@color/md_theme_light_onSurfaceVariant"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/text_serve_count"
+            style="@style/TextAppearance.Material3.LabelLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="Serves: %d"
+            android:textColor="@color/md_theme_light_onSurfaceVariant"
+            app:layout_constraintBottom_toBottomOf="@id/button_remove"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/button_remove"
+            app:layout_constraintTop_toTopOf="@id/button_remove" />
+        <!--android:text="@{@string/serve_count(recipe.people)}"-->
 
-            <TextView
-                android:id="@+id/text_serve_count"
-                style="@style/TextAppearance.Material3.LabelLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Serves 6"
-                android:textColor="@color/md_theme_light_onSurfaceVariant"
-                app:layout_constraintBottom_toBottomOf="@id/button_remove"
-                app:layout_constraintStart_toEndOf="@id/button_remove"
-                app:layout_constraintTop_toTopOf="@id/button_remove" />
-            <!--android:text="@{@string/serve_count(recipe.people)}"-->
+        <Button
+            android:id="@+id/button_add"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/baseline_add_circle_outline_24"
+            app:iconSize="@dimen/_12sdp"
+            app:iconTint="@color/md_theme_light_onSurfaceVariant"
+            app:layout_constraintBottom_toBottomOf="@id/button_remove"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/text_serve_count"
+            app:layout_constraintTop_toTopOf="@id/button_remove" />
 
-            <Button
-                android:id="@+id/button_add"
-                style="@style/Widget.Material3.Button.IconButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:icon="@drawable/baseline_add_circle_outline_24"
-                app:iconSize="@dimen/_12sdp"
-                app:iconTint="@color/md_theme_light_onSurfaceVariant"
-                app:layout_constraintBottom_toBottomOf="@id/button_remove"
-                app:layout_constraintStart_toEndOf="@id/text_serve_count"
-                app:layout_constraintTop_toTopOf="@id/button_remove" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_remove"
+            app:setAdapter="@{adapter}"
+            tools:listitem="@layout/list_recipe_ingredient" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_ingredient"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/button_remove"
-                app:setAdapter="@{adapter}"
-                tools:listitem="@layout/list_recipe_ingredient" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+    <!--    </ScrollView>-->
 
 </layout>

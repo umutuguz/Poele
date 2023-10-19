@@ -12,8 +12,7 @@ import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.ui.home.HomeFirstViewModel
 
 class LoginFragment : BaseFragment<FragmentLoginBinding, BaseViewModel>(
-    R.layout.fragment_login,
-    false) {
+    R.layout.fragment_login) {
 
     override val vm: BaseViewModel
         get() = HomeFirstViewModel()

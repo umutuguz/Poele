@@ -5,137 +5,146 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.macro.MacroFirstViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.umut.poele.ui.macro.MacroProductAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_7_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.07" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_12_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.12" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_93_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.93" />
-
         <ImageView
             android:id="@+id/image_logo"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
-            android:paddingHorizontal="@dimen/side_padding"
+            android:importantForAccessibility="no"
+            android:paddingHorizontal="@dimen/horizontal_padding"
             android:paddingVertical="8dp"
             android:scaleType="fitStart"
             android:src="@drawable/title_poele"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_goal"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintHorizontal_weight="7"
+            app:layout_constraintHorizontal_weight="7.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/md_theme_light_onSurface"
-            app:layout_constraintWidth_default="spread" />
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_default="spread"
+            app:tint="@color/md_theme_light_onSurface" />
 
         <ImageView
             android:id="@+id/button_goal"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
-            android:contentDescription="@string/shoplist"
+            android:importantForAccessibility="no"
+            android:onClick="@{()->viewModel.onChallengeClicked()}"
             android:scaleType="center"
             android:src="@drawable/outline_emoji_events_24"
-            app:layout_constraintBottom_toBottomOf="@id/h_7_guideline"
+            app:layout_constraintBottom_toBottomOf="@id/image_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/image_logo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="spread" />
 
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_chef"
+        <Button
+            android:id="@+id/choose_chef"
+            style="@style/Widget.Umut.Button.OutlinedButton.Icon"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/h_12_guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_logo">
-
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layout_date_picker"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            android:background="@drawable/background_date_picker"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:minHeight="@dimen/_32sdp"
+            android:onClick="@{()->viewModel.onChooseChefClicked()}"
+            android:text="@string/choose_chef"
+            android:textAlignment="textStart"
+            app:icon="@drawable/round_chef_24"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_logo"
+            app:layout_constraintVertical_bias="0" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layout_date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:background="@drawable/background_date_picker"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choose_chef"
             app:layout_constraintVertical_bias="0"
+            app:strokeColor="@color/md_theme_light_primary"
+            app:strokeWidth="1dp">
 
-            app:layout_constraintTop_toBottomOf="@id/tab_chef">
-
-            <ImageView
-                android:id="@+id/image_left_arrow"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/baseline_keyboard_arrow_left_24"
-                app:layout_constraintBottom_toBottomOf="@id/text_date_picker"
-                app:layout_constraintEnd_toStartOf="@id/text_date_picker"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/text_date_picker" />
+                android:paddingVertical="@dimen/_4sdp">
 
-            <TextView
-                android:id="@+id/text_date_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/side_margin"
-                android:gravity="center"
-                android:text="@string/today"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/image_left_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:src="@drawable/baseline_keyboard_arrow_left_24"
+                    app:layout_constraintBottom_toBottomOf="@id/text_date_picker"
+                    app:layout_constraintEnd_toStartOf="@id/text_date_picker"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/text_date_picker"
+                    app:tint="@color/md_theme_light_primary" />
 
-            <ImageView
-                android:id="@+id/image_right_arrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/round_keyboard_arrow_right_24"
-                app:layout_constraintBottom_toBottomOf="@id/text_date_picker"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintStart_toEndOf="@id/text_date_picker"
-                app:layout_constraintTop_toTopOf="@id/text_date_picker" />
+                <TextView
+                    android:id="@+id/text_date_picker"
+                    style="@style/TextAppearance.Material3.TitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/horizontal_margin"
+                    android:gravity="center"
+                    android:text="@string/today"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/image_right_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:src="@drawable/round_keyboard_arrow_right_24"
+                    app:layout_constraintBottom_toBottomOf="@id/text_date_picker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@id/text_date_picker"
+                    app:layout_constraintTop_toTopOf="@id/text_date_picker"
+                    app:tint="@color/md_theme_light_primary" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:id="@+id/layout_macro_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            android:layout_marginTop="@dimen/top_margin"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:background="@drawable/background_macro_card"
             android:divider="@drawable/background_macro_divider_vertical"
             android:dividerPadding="@dimen/macro_divider_padding_vertical"
@@ -149,7 +158,6 @@
             app:layout_constraintTop_toBottomOf="@id/layout_date_picker"
             app:layout_constraintVertical_bias="0">
 
-
             <LinearLayout
                 android:id="@+id/layout_macro_table_top"
                 android:layout_width="match_parent"
@@ -160,7 +168,6 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:showDividers="middle">
-
 
                 <LinearLayout
                     android:id="@+id/layout_protein"
@@ -205,7 +212,6 @@
                         android:gravity="center"
                         android:text="@string/g_150" />
 
-
                     <TextView
                         android:id="@+id/text_carbohydrate"
                         android:layout_width="wrap_content"
@@ -228,7 +234,6 @@
                         android:layout_marginBottom="@dimen/macro_value_title_margin"
                         android:gravity="center"
                         android:text="@string/g_150" />
-
 
                     <TextView
                         android:id="@+id/text_fat"
@@ -256,7 +261,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-
                     <TextView
                         android:id="@+id/text_fiber"
                         android:layout_width="wrap_content"
@@ -267,7 +271,6 @@
                         app:layout_constraintTop_toBottomOf="@id/text_protein_value" />
 
                 </LinearLayout>
-
 
             </LinearLayout>
 
@@ -295,15 +298,14 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
 
         <TextView
             android:id="@+id/text_protein_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            android:layout_marginTop="@dimen/top_margin"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:text="@string/protein"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/text_carbohydrate_progress"
@@ -342,13 +344,12 @@
             android:id="@+id/text_carbohydrate_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:text="@string/carbohydrate"
             app:layout_constraintBottom_toBottomOf="@id/text_protein_progress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/text_protein_progress"
             app:layout_constraintTop_toTopOf="@id/text_protein_progress" />
-
 
         <TextView
             android:id="@+id/text_carbohydrate_goal"
@@ -380,8 +381,8 @@
             android:id="@+id/text_fat_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            android:layout_marginTop="@dimen/top_margin"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
             android:text="@string/fat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/text_fiber_progress"
@@ -420,7 +421,7 @@
             android:id="@+id/text_fiber_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:text="@string/fiber"
             app:layout_constraintBottom_toBottomOf="@id/text_fat_progress"
             app:layout_constraintEnd_toEndOf="parent"
@@ -457,8 +458,8 @@
             android:id="@+id/text_calorie_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
-            android:layout_marginTop="@dimen/top_margin_double"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin_double"
             android:text="@string/calorie"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -492,27 +493,29 @@
             app:trackCornerRadius="@dimen/progress_radius"
             app:trackThickness="@dimen/progress_thickness" />
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_macro_product"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/side_margin"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/top_margin"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/progress_calorie"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0"
+            app:setAdapter="@{adapter}"
             tools:listitem="@layout/list_macro_product_card" />
-
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fab_enter_meal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/side_margin"
+            android:layout_margin="@dimen/horizontal_margin"
+            android:onClick="@{()->viewModel.onAddMealClicked()}"
             android:text="@string/enter_a_meal"
             app:icon="@drawable/outline_food_bank_24"
             app:layout_constraintBottom_toBottomOf="parent"

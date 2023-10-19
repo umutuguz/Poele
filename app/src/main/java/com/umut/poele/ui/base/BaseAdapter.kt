@@ -19,13 +19,13 @@ abstract class BaseAdapter<B : ViewDataBinding, T : Any>(
 
     override fun onBindViewHolder(holder: BaseViewHolder<B>, position: Int) {
         bind(holder.binder, data[position])
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<B> {
         val binder = DataBindingUtil.inflate<B>(
             LayoutInflater.from(parent.context), layoutId, parent, false
         )
-
         return BaseViewHolder(binder)
     }
 

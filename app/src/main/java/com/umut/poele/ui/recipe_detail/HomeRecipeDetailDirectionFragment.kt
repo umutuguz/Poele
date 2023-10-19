@@ -13,8 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeRecipeDetailDirectionFragment :
     BaseFragment<FragmentHomeRecipeDetailDirectionBinding, HomeRecipeDetailViewModel>(
-        R.layout.fragment_home_recipe_detail_direction,
-        false
+        R.layout.fragment_home_recipe_detail_direction
     ) {
 
     override val vm: HomeRecipeDetailViewModel by viewModels()

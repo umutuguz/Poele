@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <item
         android:id="@+id/homeFirstFragment"
@@ -15,7 +17,7 @@
 
     <item
         android:id="@+id/addFragment"
-        android:enabled="true"
+        android:enabled="false"
         android:icon="@drawable/round_add_24"
         android:title="@string/add" />
 

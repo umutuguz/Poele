@@ -1,219 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.add.AddFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/modal_bottom_sheet"
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.add.AddViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_bottom_sheet"
-        android:paddingHorizontal="@dimen/side_padding"
-        android:paddingVertical="@dimen/top_padding"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+        android:layout_height="match_parent"
+        android:background="@drawable/background_bottom_sheet">
 
-        <!-- Drag handle for accessibility -->
-        <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-            android:id="@+id/drag_handle"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/modal_bottom_sheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/image_cancel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0" />
+            android:paddingVertical="@dimen/vertical_padding"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            >
 
-        <!-- Bottom sheet contents. -->
-        <TextView
-            android:id="@+id/text_title_bottom_sheet"
-            style="@style/TextAppearance.Material3.HeadlineMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/create"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_cancel"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/drag_handle"
-            app:layout_constraintVertical_bias="0" />
+            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                android:id="@+id/drag_handle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_8sdp"
+                app:layout_constraintBottom_toTopOf="@id/image_cancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
 
-        <ImageView
-            android:id="@+id/image_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/round_close_24"
-            app:layout_constraintBottom_toBottomOf="@id/text_title_bottom_sheet"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/text_title_bottom_sheet" />
+            <TextView
+                android:id="@+id/text_title_bottom_sheet"
+                style="@style/TextAppearance.Material3.HeadlineMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_padding"
+                android:text="@string/create"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/image_cancel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/drag_handle"
+                app:layout_constraintVertical_bias="0" />
 
-        <ImageView
-            android:id="@+id/image_add_recipe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_diff_elements"
-            android:src="@drawable/round_add_24"
-            app:layout_constraintBottom_toTopOf="@id/divider_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_title_bottom_sheet" />
+            <ImageView
+                android:id="@+id/image_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/horizontal_margin"
+                android:padding="@dimen/_8sdp"
+                android:onClick="@{()->viewModel.onBackClicked()}"
+                android:src="@drawable/round_close_24"
+                app:layout_constraintBottom_toBottomOf="@id/text_title_bottom_sheet"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/text_title_bottom_sheet"
+                android:importantForAccessibility="no" />
 
-        <TextView
-            android:id="@+id/text_add_recipe"
-            style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_recipe"
-            app:layout_constraintBottom_toBottomOf="@id/image_add_recipe"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/image_add_recipe"
-            app:layout_constraintTop_toTopOf="@id/image_add_recipe" />
+            <Button
+                android:id="@+id/button_add_recipe"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/add_recipe"
+                android:textAlignment="textStart"
+                android:onClick="@{()->viewModel.onAddRecipeClicked()}"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_add_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_title_bottom_sheet"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            app:layout_constraintBottom_toTopOf="@id/image_add_ingredient"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_add_recipe" />
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_same_elements"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_add_recipe" />
 
-        <ImageView
-            android:id="@+id/image_add_ingredient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            android:src="@drawable/round_add_24"
-            app:layout_constraintBottom_toTopOf="@id/divider_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider_1" />
+            <Button
+                android:id="@+id/button_add_ingredient"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/add_ingredient"
+                android:textAlignment="textStart"
+                android:onClick="@{()->viewModel.onAddSupplyClicked()}"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_add_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_1"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
-        <TextView
-            android:id="@+id/text_add_ingredient"
-            style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_ingredient"
-            app:layout_constraintBottom_toBottomOf="@id/image_add_ingredient"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/image_add_ingredient"
-            app:layout_constraintTop_toTopOf="@id/image_add_ingredient" />
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_same_elements"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_add_ingredient" />
 
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            app:layout_constraintBottom_toTopOf="@id/image_edit_recipe"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_add_ingredient" />
+            <Button
+                android:id="@+id/button_edit_recipe"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/edit_recipe"
+                android:onClick="@{()->viewModel.onEditRecipeClicked()}"
+                android:textAlignment="textStart"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_edit_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_2"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
-        <ImageView
-            android:id="@+id/image_edit_recipe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            android:src="@drawable/round_edit_24"
-            app:layout_constraintBottom_toTopOf="@id/divider_3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider_2" />
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_same_elements"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_edit_recipe" />
 
-        <TextView
-            android:id="@+id/text_edit_recipe"
-            style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_recipe"
-            app:layout_constraintBottom_toBottomOf="@id/image_edit_recipe"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/image_edit_recipe"
-            app:layout_constraintTop_toTopOf="@id/image_edit_recipe" />
+            <Button
+                android:id="@+id/button_edit_ingredient"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/edit_ingredient"
+                android:onClick="@{()->viewModel.onEditSupplyClicked()}"
+                android:textAlignment="textStart"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_edit_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_3"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_same_elements"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_edit_ingredient" />
 
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            app:layout_constraintBottom_toTopOf="@id/image_edit_ingredient"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_edit_recipe" />
+            <Button
+                android:id="@+id/button_add_shoplist"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/add_to_shop_list"
+                android:textAlignment="textStart"
+                android:onClick="@{()->viewModel.onAddShopListClicked()}"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_add_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_4"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
-        <ImageView
-            android:id="@+id/image_edit_ingredient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            android:src="@drawable/round_edit_24"
-            app:layout_constraintBottom_toTopOf="@id/divider_4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider_3" />
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_same_elements"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_add_shoplist"
+                app:layout_constraintVertical_bias="0" />
 
-        <TextView
-            android:id="@+id/text_edit_ingredient"
-            style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_ingredient"
-            app:layout_constraintBottom_toBottomOf="@id/image_edit_ingredient"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/image_edit_ingredient"
-            app:layout_constraintTop_toTopOf="@id/image_edit_ingredient" />
+            <Button
+                android:id="@+id/button_daily_menu"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                android:text="@string/enter_daily_menu"
+                android:textAlignment="textStart"
+                android:onClick="@{()->viewModel.onEnterDailyMenuClicked()}"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_restaurant_menu_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_5"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            app:layout_constraintBottom_toTopOf="@id/image_add_shoplist"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_edit_ingredient" />
-
-        <ImageView
-            android:id="@+id/image_add_shoplist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_same_elements"
-            android:layout_marginBottom="@dimen/margin_between_diff_elements"
-            android:src="@drawable/round_playlist_add_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider_4"
-            app:layout_constraintVertical_bias="0" />
-
-        <TextView
-            android:id="@+id/text_add_shoplist"
-            style="@style/TextAppearance.Material3.TitleMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_to_shoplist"
-            app:layout_constraintBottom_toBottomOf="@id/image_add_shoplist"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/image_add_shoplist"
-            app:layout_constraintTop_toTopOf="@id/image_add_shoplist" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

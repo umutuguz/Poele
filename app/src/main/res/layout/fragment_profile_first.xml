@@ -4,49 +4,47 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.umut.poele.ui.profile.ProfileFirstViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_7_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.07" />
-
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
-            android:paddingHorizontal="@dimen/side_padding"
+            android:importantForAccessibility="no"
+            android:paddingHorizontal="@dimen/horizontal_padding"
             android:paddingVertical="8dp"
             android:scaleType="fitStart"
             android:src="@drawable/title_poele"
-            app:layout_constraintBottom_toTopOf="@id/h_7_guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
             app:tint="@color/md_theme_light_onSurface" />
 
         <RelativeLayout
             android:id="@+id/layout_profile_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/half_side_padding"
+            android:layout_marginHorizontal="@dimen/half_horizontal_padding"
             android:layout_marginTop="@dimen/margin_between_diff_elements"
             android:background="@drawable/background_profile_list"
-            android:paddingHorizontal="@dimen/side_padding"
-            android:paddingVertical="@dimen/top_margin"
+            android:paddingHorizontal="@dimen/horizontal_padding"
+            android:paddingVertical="@dimen/vertical_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/h_7_guideline"
+            app:layout_constraintTop_toBottomOf="@id/logo"
             app:layout_constraintVertical_bias="0">
 
             <ImageView
@@ -62,6 +60,7 @@
 
             <TextView
                 android:id="@+id/text_username"
+                style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -71,6 +70,7 @@
 
             <TextView
                 android:id="@+id/text_email"
+                style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/image_avatar"
@@ -92,119 +92,123 @@
             android:id="@+id/list_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/half_side_padding"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:layout_marginTop="@dimen/margin_between_diff_elements"
             android:background="@drawable/background_profile_list"
+            android:divider="@drawable/background_macro_divider_vertical"
+            android:dividerPadding="@dimen/vertical_padding"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/side_padding"
+            android:showDividers="middle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_profile_info"
-            app:layout_constraintVertical_bias="0"
-            android:divider="@drawable/background_macro_divider_vertical"
-            android:showDividers="middle"
-            android:dividerPadding="@dimen/top_padding"
+            app:layout_constraintVertical_bias="0">
 
-            >
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/layout_address"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginVertical="@dimen/vertical_margin"-->
+            <!--                android:layout_marginHorizontal="@dimen/horizontal_margin"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:paddingVertical="@dimen/vertical_padding">-->
 
-            <LinearLayout
-                android:id="@+id/layout_address"
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/image_address"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginEnd="@dimen/profile_text_image_margin"-->
+            <!--                    android:importantForAccessibility="no"-->
+            <!--                    android:src="@drawable/outline_place_24" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/text_address"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="@string/address" />-->
+
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/layout_bookmark"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginVertical="@dimen/vertical_margin"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:paddingVertical="@dimen/vertical_padding">-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/image_bookmark"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginEnd="@dimen/profile_text_image_margin"-->
+            <!--                    android:importantForAccessibility="no"-->
+            <!--                    android:src="@drawable/outline_bookmark_border_24" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/text_bookmark"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="@string/bookmark" />-->
+
+            <!--            </LinearLayout>-->
+
+            <Button
+                android:id="@+id/button_address"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingVertical="@dimen/top_padding"
-                android:layout_marginVertical="@dimen/top_margin">
+                android:minHeight="@dimen/_48sdp"
+                android:text="@string/address"
+                android:textAlignment="textStart"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/outline_place_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
-                <ImageView
-                    android:id="@+id/image_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/outline_place_24"
-                    android:layout_marginEnd="@dimen/profile_text_image_margin" />
-
-                <TextView
-                    android:id="@+id/text_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/address" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_bookmark"
-                android:paddingVertical="@dimen/top_padding"
+            <Button
+                android:id="@+id/button_favorites"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="@dimen/top_margin">
+                android:minHeight="@dimen/_48sdp"
+                android:onClick="@{()->viewModel.onFavoritesClicked()}"
+                android:text="@string/favorites"
+                android:textAlignment="textStart"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/checkbox_favorite"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
-                <ImageView
-                    android:id="@+id/image_bookmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/outline_bookmark_border_24"
-                    android:layout_marginEnd="@dimen/profile_text_image_margin" />
-
-                <TextView
-                    android:id="@+id/text_bookmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/bookmark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_notification"
-                android:paddingVertical="@dimen/top_padding"
+            <Button
+                android:id="@+id/button_notification"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="@dimen/top_margin">
+                android:minHeight="@dimen/_48sdp"
+                android:text="@string/notification"
+                android:textAlignment="textStart"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_notifications_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
-                <ImageView
-                    android:id="@+id/image_notification"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/round_notifications_24"
-                    android:layout_marginEnd="@dimen/profile_text_image_margin" />
-
-                <TextView
-                    android:id="@+id/text_notification"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/notification"
-                    android:layout_marginEnd="@dimen/profile_text_image_margin" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_support"
-                android:paddingVertical="@dimen/top_padding"
+            <Button
+                android:id="@+id/button_live_support"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="@dimen/top_margin">
-
-                <ImageView
-                    android:id="@+id/image_support"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/round_support_agent_24"
-                    android:layout_marginEnd="@dimen/profile_text_image_margin" />
-
-                <TextView
-                    android:id="@+id/text_support"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@string/live_support" />
-
-            </LinearLayout>
+                android:minHeight="@dimen/_48sdp"
+                android:text="@string/live_support"
+                android:textAlignment="textStart"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_support_agent_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
         </LinearLayout>
 
@@ -212,32 +216,44 @@
             android:id="@+id/layout_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/half_horizontal_padding"
+            android:layout_marginVertical="@dimen/margin_between_diff_elements"
+            android:background="@drawable/background_profile_list"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1"
-            android:paddingHorizontal="@dimen/side_padding"
-            android:paddingVertical="@dimen/top_margin_double"
-            android:background="@drawable/background_profile_list"
-            android:layout_marginHorizontal="@dimen/half_side_padding"
-            android:layout_marginVertical="@dimen/margin_between_diff_elements">
+            app:layout_constraintVertical_bias="1">
 
-            <ImageView
-                android:id="@+id/image_logout"
-                android:layout_width="wrap_content"
+            <!--            <ImageView-->
+            <!--                android:id="@+id/image_logout"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginEnd="@dimen/profile_text_image_margin"-->
+            <!--                android:importantForAccessibility="no"-->
+            <!--                android:src="@drawable/round_logout_24" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/text_logout"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:gravity="center"-->
+            <!--                android:text="@string/log_out" />-->
+
+            <Button
+                android:id="@+id/button_log_out"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/round_logout_24"
-                android:layout_marginEnd="@dimen/profile_text_image_margin" />
-
-            <TextView
-                android:id="@+id/text_logout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="@string/log_out" />
+                android:minHeight="@dimen/_48sdp"
+                android:text="@string/log_out"
+                android:textAlignment="textStart"
+                android:textColor="@color/md_theme_light_onSurface"
+                app:icon="@drawable/round_logout_24"
+                app:iconTint="@color/md_theme_light_onSurface"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
         </LinearLayout>
 

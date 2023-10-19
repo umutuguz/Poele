@@ -1,30 +1,81 @@
 package com.umut.poele.ui.base
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewbinding.ViewBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.umut.poele.R
+import com.umut.poele.ui.home.HomeFirstFragmentDirections
+import com.umut.poele.util.Constants
+import com.umut.poele.util.NavigationCommand
 
-abstract class BaseBottomSheetFragment<T : ViewBinding>(
-    private val inflate: (
-        LayoutInflater, ViewGroup?, Boolean
-    ) -> T
+abstract class BaseBottomSheetFragment<T : ViewDataBinding, VM : BaseViewModel>(
+    private val layoutId: Int
 ) : BottomSheetDialogFragment() {
 
+    private var hasBottomSheetOnScreen: Boolean = false
     private var _binding: T? = null
-
     val binding get() = _binding!!
+    protected abstract val vm: VM
+
+    private var currentDestination: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        _binding = inflate.invoke(inflater, container, false)
+        _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return binding.root
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(Constants.KEY_DISMISS, false)
+        return super.onCreateDialog(savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeNavigation()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(Constants.KEY_DISMISS, true)
+    }
+
+    private fun observeNavigation() {
+        vm.navigation.observeNonNull(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let { navigationCommand ->
+                handleNavigation(navigationCommand)
+            }
+        }
+    }
+
+    private fun handleNavigation(navigationCommand: NavigationCommand) {
+        when (navigationCommand) {
+            is NavigationCommand.ToDirection -> {
+                if (navigationCommand.isBottomSheet) {
+                    if (!hasBottomSheetOnScreen) {
+                        findNavController().navigate(navigationCommand.directions)
+                        hasBottomSheetOnScreen = true
+                    }
+                }
+                else {
+                    findNavController().navigate(navigationCommand.directions)
+                }
+            }
+
+            is NavigationCommand.Back -> {
+                findNavController().navigateUp()
+            }
+        }
     }
 
 }
