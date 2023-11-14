@@ -19,7 +19,7 @@ class SearchFragment : BaseFragment<FragmentSearchBarBinding, SearchViewModel>(R
         val fragments: List<Fragment> = listOf(SearchRecipeFragment(), SearchIngredientFragment())
 
         binding.apply {
-            adapterFragment = SearchFragmentAdapter(fragments, requireActivity().supportFragmentManager, lifecycle)
+//            adapterFragment = SearchFragmentAdapter(fragments, requireActivity().supportFragmentManager, lifecycle)
             adapterPopular = SearchPopularAdapter(listOf("egg", "burger", "banana", "rice", "chicken", "lasagne", "fettuccine"))
             adapterRecent = SearchRecentAdapter(listOf("brownie", "cookie", "tenderloin", "chia", "egg"))
             viewpagerSearch.adapter = SearchFragmentAdapter(fragments, requireActivity().supportFragmentManager, lifecycle)

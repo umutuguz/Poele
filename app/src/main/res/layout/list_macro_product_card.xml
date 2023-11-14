@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 android:layout_marginTop="@dimen/macro_product_card_vertical_margin"
-                android:text="@{supply.name}"
+                android:text="@{supply.title}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -143,22 +143,24 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                android:layout_marginHorizontal="@dimen/horizontal_margin"
                 app:layout_constraintStart_toStartOf="@id/text_macros"
                 app:layout_constraintTop_toBottomOf="@id/text_macros"
+                android:fillViewport="true"
+                android:scrollbars="none"
                 app:layout_constraintVertical_bias="0.0">
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chip_group_macros"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/horizontal_margin"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="@id/text_macros"
                     app:layout_constraintTop_toBottomOf="@id/text_macros"
                     app:layout_constraintVertical_bias="0"
+                    app:chipSpacing="@dimen/margin_between_same_elements"
                     app:singleLine="true">
 
                     <com.google.android.material.chip.Chip

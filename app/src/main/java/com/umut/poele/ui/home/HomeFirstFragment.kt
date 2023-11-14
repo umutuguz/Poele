@@ -1,11 +1,9 @@
 package com.umut.poele.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import com.umut.poele.MainActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.umut.poele.R
 import com.umut.poele.data.FoodCategoryDataSource
 import com.umut.poele.data.MenuCardDataSource
@@ -20,11 +18,16 @@ class HomeFirstFragment :
     override val vm: HomeFirstViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.apply {
+
             adapterFoodCategory =
                 FoodCategoryAdapter(FoodCategoryDataSource().loadFoodCategory(), vm)
-            adapterMenuCard = MenuCardAdapter(MenuCardDataSource().loadMenuCards())
-            list = FoodCategoryDataSource()
+
+            recyclerRecipeCategories.adapter?.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+
+            viewpagerMenuCard.adapter = MenuCardAdapter(MenuCardDataSource().loadMenuCards())
+
         }
 
     }

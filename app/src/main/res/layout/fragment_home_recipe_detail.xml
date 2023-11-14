@@ -24,21 +24,18 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
-            android:importantForAccessibility="no"
             android:onClick="@{()->viewModel.navigateUp()}"
             android:paddingHorizontal="@dimen/horizontal_padding"
             android:paddingVertical="@dimen/half_horizontal_padding"
             android:scaleType="center"
             android:src="@drawable/round_arrow_back_24"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/text_page_title"
-            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintHorizontal_weight="1.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintWidth_default="spread"
-            app:tint="@color/md_theme_light_onSurface" />
+            app:tint="@color/md_theme_light_onSurface"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/text_page_title"
@@ -49,7 +46,7 @@
             android:gravity="center_vertical"
             android:text="@string/recipes"
             app:layout_constraintBottom_toBottomOf="@id/image_back"
-            app:layout_constraintEnd_toStartOf="@id/image_notification"
+            app:layout_constraintEnd_toStartOf="@id/image_shoplist"
             app:layout_constraintHorizontal_weight="5"
             app:layout_constraintStart_toEndOf="@id/image_back"
             app:layout_constraintTop_toTopOf="parent"
@@ -60,31 +57,16 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
-            android:importantForAccessibility="no"
             android:onClick="@{()->viewModel.onShopListClicked()}"
             android:scaleType="center"
             android:src="@drawable/outline_shopping_cart_24"
             app:layout_constraintBottom_toBottomOf="@id/image_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/image_notification"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="spread" />
-
-        <ImageView
-            android:id="@+id/image_notification"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_48sdp"
-            android:background="@drawable/background_action_bar"
-            android:scaleType="center"
-            android:src="@drawable/round_notifications_24"
-            app:layout_constraintBottom_toBottomOf="@id/image_shoplist"
-            app:layout_constraintEnd_toStartOf="@id/image_shoplist"
-            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/text_page_title"
-            app:layout_constraintTop_toTopOf="@id/image_shoplist"
-            app:layout_constraintWidth_default="spread" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="spread"
+            android:importantForAccessibility="no" />
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_fragment"
             android:layout_width="match_parent"

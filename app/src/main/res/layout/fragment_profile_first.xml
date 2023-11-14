@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="viewModel"
             type="com.umut.poele.ui.profile.ProfileFirstViewModel" />
+
+        <variable
+            name="user"
+            type="com.umut.poele.model.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,62 +36,78 @@
             app:layout_constraintVertical_bias="0"
             app:tint="@color/md_theme_light_onSurface" />
 
-        <RelativeLayout
-            android:id="@+id/layout_profile_info"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_user_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/half_horizontal_padding"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:layout_marginTop="@dimen/margin_between_diff_elements"
             android:background="@drawable/background_profile_list"
-            android:paddingHorizontal="@dimen/horizontal_padding"
-            android:paddingVertical="@dimen/vertical_margin"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:clickable="true"
+            android:onClick="@{()->viewModel.onEditProfileClicked()}"
+            android:focusable="true"
+            app:strokeWidth="0dp"
+            app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logo"
             app:layout_constraintVertical_bias="0">
 
-            <ImageView
-                android:id="@+id/image_avatar"
-                android:layout_width="@dimen/avatar_dimen"
-                android:layout_height="@dimen/avatar_dimen"
-                android:layout_alignParentStart="true"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/background_avatar"
-                android:clipToOutline="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/avatar" />
-
-            <TextView
-                android:id="@+id/text_username"
-                style="@style/TextAppearance.Material3.TitleMedium"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/layout_profile_info"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="8dp"
-                android:layout_toEndOf="@id/image_avatar"
-                android:text="@string/username" />
+                android:background="@drawable/background_profile_list"
+                android:paddingHorizontal="@dimen/horizontal_padding"
+                android:paddingVertical="@dimen/vertical_padding">
 
-            <TextView
-                android:id="@+id/text_email"
-                style="@style/TextAppearance.Material3.BodyMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/image_avatar"
-                android:layout_toEndOf="@id/image_avatar"
+                <ImageView
+                    android:id="@+id/image_avatar"
+                    android:layout_width="@dimen/avatar_dimen"
+                    android:layout_height="@dimen/avatar_dimen"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/background_avatar"
+                    android:clipToOutline="true"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    app:setImage="@{user.profilePhotoUrl}"
+                    tools:src="@drawable/avatar" />
 
-                android:text="@string/e_mail" />
+                <TextView
+                    android:id="@+id/text_username"
+                    style="@style/TextAppearance.Material3.TitleMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_toEndOf="@id/image_avatar"
+                    android:text="@{user.name}"
+                    tools:text="@string/username" />
 
-            <ImageView
-                android:id="@+id/image_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/outline_edit_24" />
+                <TextView
+                    android:id="@+id/text_email"
+                    style="@style/TextAppearance.Material3.BodySmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/image_avatar"
+                    android:layout_toEndOf="@id/image_avatar"
+                    android:text="@{user.email}"
+                    tools:text="@string/e_mail" />
 
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/image_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/outline_edit_24" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:id="@+id/list_profile"
@@ -103,59 +124,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_profile_info"
+            app:layout_constraintTop_toBottomOf="@id/card_user_edit"
             app:layout_constraintVertical_bias="0">
-
-            <!--            <LinearLayout-->
-            <!--                android:id="@+id/layout_address"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginVertical="@dimen/vertical_margin"-->
-            <!--                android:layout_marginHorizontal="@dimen/horizontal_margin"-->
-            <!--                android:orientation="horizontal"-->
-            <!--                android:paddingVertical="@dimen/vertical_padding">-->
-
-            <!--                <ImageView-->
-            <!--                    android:id="@+id/image_address"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginEnd="@dimen/profile_text_image_margin"-->
-            <!--                    android:importantForAccessibility="no"-->
-            <!--                    android:src="@drawable/outline_place_24" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/text_address"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:text="@string/address" />-->
-
-            <!--            </LinearLayout>-->
-
-            <!--            <LinearLayout-->
-            <!--                android:id="@+id/layout_bookmark"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginVertical="@dimen/vertical_margin"-->
-            <!--                android:orientation="horizontal"-->
-            <!--                android:paddingVertical="@dimen/vertical_padding">-->
-
-            <!--                <ImageView-->
-            <!--                    android:id="@+id/image_bookmark"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_marginEnd="@dimen/profile_text_image_margin"-->
-            <!--                    android:importantForAccessibility="no"-->
-            <!--                    android:src="@drawable/outline_bookmark_border_24" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/text_bookmark"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:text="@string/bookmark" />-->
-
-            <!--            </LinearLayout>-->
 
             <Button
                 android:id="@+id/button_address"
@@ -164,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/_48sdp"
                 android:text="@string/address"
+                android:onClick="@{()->viewModel.onAddressClicked()}"
                 android:textAlignment="textStart"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/outline_place_24"
@@ -216,7 +187,7 @@
             android:id="@+id/layout_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/half_horizontal_padding"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:layout_marginVertical="@dimen/margin_between_diff_elements"
             android:background="@drawable/background_profile_list"
             android:orientation="horizontal"
@@ -226,21 +197,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1">
-
-            <!--            <ImageView-->
-            <!--                android:id="@+id/image_logout"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginEnd="@dimen/profile_text_image_margin"-->
-            <!--                android:importantForAccessibility="no"-->
-            <!--                android:src="@drawable/round_logout_24" />-->
-
-            <!--            <TextView-->
-            <!--                android:id="@+id/text_logout"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:gravity="center"-->
-            <!--                android:text="@string/log_out" />-->
 
             <Button
                 android:id="@+id/button_log_out"

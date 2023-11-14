@@ -1,29 +1,22 @@
 package com.umut.poele.model
 
-import android.text.format.DateFormat
 import com.umut.poele.ui.base.ListAdapterItem
+import com.umut.poele.util.States
+import com.umut.poele.util.Units
 import java.time.LocalDate
 import java.util.Date
 
+typealias ImageUrl = Int
+
 data class Supply(
     val id: Int,
-    val name: String,
+    val title: String,
+    val imageUrl: ImageUrl,
     val category: String,
     val amount: Double,
-    val unit: String,
-    val state: Boolean,
-    val dateDay: Int,
-    val dateMonth: Int,
-    val dateYear: Int,
-    ) : ListAdapterItem {
-
-}
-
-enum class Units(val unitName: String) {
-    ML("ml"), GRAM("g"), TEASPOON("tsp"), TABLESPOON("tbsp"),
-    DESSERTSPOON("dsp"), CUP("cup"), PINCH("pinch"), NUMBER("")
-}
-
-enum class States(val state: Boolean) {
-    UNUSED(true), USED(false)
-}
+    val unit: Units,
+    val macro: Macro,
+    var state: States,
+    val date: LocalDate,
+    val averageGML: Int?
+) : ListAdapterItem

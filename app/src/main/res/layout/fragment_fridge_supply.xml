@@ -48,39 +48,10 @@
             android:gravity="center_vertical"
             android:text="@string/fridge"
             app:layout_constraintBottom_toBottomOf="@id/image_back"
-            app:layout_constraintEnd_toStartOf="@id/image_notification"
-            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="6"
             app:layout_constraintStart_toEndOf="@id/image_back"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="spread" />
-
-        <ImageView
-            android:id="@+id/image_shoplist"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_48sdp"
-            android:background="@drawable/background_action_bar"
-            android:scaleType="center"
-            android:src="@drawable/outline_shopping_cart_24"
-            app:layout_constraintBottom_toBottomOf="@id/image_back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/image_notification"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="spread"
-            android:importantForAccessibility="no" />
-
-        <ImageView
-            android:id="@+id/image_notification"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_48sdp"
-            android:background="@drawable/background_action_bar"
-            android:scaleType="center"
-            android:src="@drawable/round_notifications_24"
-            app:layout_constraintBottom_toBottomOf="@id/image_shoplist"
-            app:layout_constraintEnd_toStartOf="@id/image_shoplist"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/text_page_title"
-            app:layout_constraintTop_toTopOf="@id/image_shoplist"
             app:layout_constraintWidth_default="spread" />
 
         <androidx.recyclerview.widget.RecyclerView

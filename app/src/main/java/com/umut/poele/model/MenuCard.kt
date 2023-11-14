@@ -9,5 +9,5 @@ data class MenuCard(
     val primaryMealName: String,
     val secondaryMealName: String,
     val tertiaryMealName: String,
-    @DrawableRes val imageSourceId: Int,
+//    @DrawableRes val imageSourceId: Int,
 ) : ListAdapterItem

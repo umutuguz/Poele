@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.umut.poele.ui.shoplist.ShopListViewModel" />
@@ -26,6 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
+            android:importantForAccessibility="no"
             android:onClick="@{()->viewModel.onBackClicked()}"
             android:paddingHorizontal="@dimen/horizontal_padding"
             android:paddingVertical="@dimen/half_horizontal_padding"
@@ -37,8 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="spread"
-            app:tint="@color/md_theme_light_onSurface"
-            android:importantForAccessibility="no" />
+            app:tint="@color/md_theme_light_onSurface" />
 
         <TextView
             android:id="@+id/text_page_title"
@@ -47,10 +48,10 @@
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:gravity="center_vertical"
-            android:text="@string/shop_list"
+            android:text="@string/shopping_list"
             app:layout_constraintBottom_toBottomOf="@id/image_back"
             app:layout_constraintEnd_toStartOf="@id/image_trash"
-            app:layout_constraintHorizontal_weight="6"
+            app:layout_constraintHorizontal_weight="5"
             app:layout_constraintStart_toEndOf="@id/image_back"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="spread" />
@@ -60,6 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
+            android:importantForAccessibility="no"
             android:scaleType="center"
             android:src="@drawable/round_delete_outline_24"
             app:layout_constraintBottom_toBottomOf="@id/image_back"
@@ -67,77 +69,74 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/text_page_title"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="spread"
-            android:importantForAccessibility="no" />
-
+            app:layout_constraintWidth_default="spread" />
 
         <TextView
             android:id="@+id/text_recipe_list_title"
             style="@style/TextAppearance.Material3.HeadlineSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginVertical="@dimen/horizontal_margin"
             android:text="@string/recipe_list"
-            app:layout_constraintTop_toBottomOf="@id/image_back"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/recycler_recipe"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintBottom_toTopOf="@id/recycler_recipe"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/horizontal_margin" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_back" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/text_recipe_list_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/horizontal_margin_half"
             android:layout_marginTop="@dimen/vertical_margin"
-            tools:listitem="@layout/list_shop_list_recipe"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_recipe_list_title"
             app:setAdapter="@{adapterRecipe}"
-            android:layout_marginStart="@dimen/horizontal_margin_half" />
+            tools:listitem="@layout/list_shop_list_recipe" />
 
         <TextView
             android:id="@+id/text_ingredient_list_title"
             style="@style/TextAppearance.Material3.HeadlineSmall"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ingredient_list"
-            app:layout_constraintTop_toBottomOf="@id/recycler_recipe"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:text="@string/product_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            android:paddingHorizontal="@dimen/horizontal_padding"
-            android:layout_marginVertical="@dimen/vertical_margin" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_recipe" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_ingredient"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/text_ingredient_list_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:listitem="@layout/list_shop_list_supply"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/vertical_margin"
-            app:setAdapter="@{adapterSupply}"/>
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_ingredient_list_title"
+            app:setAdapter="@{adapterSupply}"
+            tools:listitem="@layout/list_shop_list_supply" />
 
         <Button
             android:id="@+id/button_create_shop_list"
             style="@style/Widget.Material3.Button.Icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/create_shop_list"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:icon="@drawable/round_edit_note_24"
-            app:iconSize="@dimen/_24sdp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:layout_marginVertical="@dimen/vertical_margin"
-            android:visibility="gone"/>
-
+            android:text="@string/create_shop_list"
+            android:visibility="gone"
+            app:icon="@drawable/round_edit_note_24"
+            app:iconSize="@dimen/_24sdp"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

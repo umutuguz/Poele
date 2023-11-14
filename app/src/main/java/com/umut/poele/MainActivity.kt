@@ -1,21 +1,14 @@
 package com.umut.poele
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.umut.poele.databinding.ActivityMainBinding
-import com.umut.poele.ui.add.AddFragment
-import com.umut.poele.ui.base.BaseViewModel
-import com.umut.poele.ui.home.HomeFirstFragmentDirections
-import com.umut.poele.ui.home.HomeFirstViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-//    private lateinit var appBarConfiguration: AppBarConfiguration
+
+    //    private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,7 +53,15 @@ class MainActivity : AppCompatActivity() {
                 destination.id == R.id.searchFragment ||
                 destination.id == R.id.filterDialog ||
                 destination.id == R.id.shopListFragment ||
-                destination.id == R.id.addEditRecipeFragment
+                destination.id == R.id.addEditRecipeFragment ||
+                destination.id == R.id.dailyMenuFragment ||
+                destination.id == R.id.shopListFragment ||
+                destination.id == R.id.addShopListFragment ||
+                destination.id == R.id.favoriteFragment ||
+                destination.id == R.id.editProfileFragment ||
+                destination.id == R.id.addressFragment ||
+                destination.id == R.id.editRecipeFragment ||
+                destination.id == R.id.editSupplyFragment
             ) {
                 binding.navigationBar.visibility = View.GONE
                 binding.buttonAdd.visibility = View.GONE

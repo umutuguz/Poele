@@ -24,6 +24,7 @@ class ChooseHomeDialog :
 
         binding.apply {
             adapter = HomeAdapter(UserDataSource().loadUser())
+            viewModel = vm
         }
     }
 

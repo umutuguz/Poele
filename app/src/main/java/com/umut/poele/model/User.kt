@@ -10,10 +10,9 @@ data class User(
     val name: String,
     val surName: String,
     val phone: String,
-    val addressName: String,
-    val address: String,
-    @DrawableRes val profilePhotoId: Int,
-    @DrawableRes val homePhotoId: Int,
+    val address: Address,
+    val profilePhotoUrl: ImageUrl,
     val dailyMenu: List<MenuCard>,
-    val fridge: List<Supply>
-    ) : ListAdapterItem {}
+    val fridge: List<Supply>,
+    val recipes: List<Recipe>
+) : ListAdapterItem

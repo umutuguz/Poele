@@ -5,11 +5,15 @@ import com.umut.poele.databinding.ListSupplyBinding
 import com.umut.poele.model.Supply
 import com.umut.poele.ui.base.BaseAdapter
 
-class SearchIngredientAdapter(private val dataset: List<Supply>) : BaseAdapter<ListSupplyBinding, Supply>(dataset, R.layout.list_supply) {
+class SearchIngredientAdapter(private val dataset: List<Supply>, private val vm: SearchViewModel) : BaseAdapter<ListSupplyBinding, Supply>(dataset, R.layout
+    .list_supply) {
 
     override fun bind(binding: ListSupplyBinding, item: Supply) {
         binding.apply {
             supply = item
+            cardSupply.setOnClickListener {
+                vm.onSupplyClicked(item)
+            }
         }
     }
 }

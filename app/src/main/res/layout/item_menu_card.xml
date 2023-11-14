@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="menuCard"
             type="com.umut.poele.model.MenuCard" />
@@ -23,12 +24,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_160sdp"
                 android:scaleType="centerCrop"
+                android:src="@drawable/coffee"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{menuCard.imageSourceId}"
-                tools:src="@drawable/coffee" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_card_title"
@@ -59,7 +59,6 @@
                 app:layout_constraintTop_toTopOf="@id/text_card_title"
                 app:layout_constraintVertical_bias="1"
                 tools:text="Chef's Name" />
-
 
             <TextView
                 android:id="@+id/text_menu_primary_content"
@@ -95,7 +94,6 @@
                 tools:text="Tertiary Meal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

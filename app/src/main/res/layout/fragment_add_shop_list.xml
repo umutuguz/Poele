@@ -68,7 +68,7 @@
                     android:layout_marginVertical="@dimen/vertical_margin"
                     android:hint="@string/title"
                     app:counterEnabled="true"
-                    app:counterMaxLength="24"
+                    app:counterMaxLength="16"
                     app:endIconDrawable="@drawable/round_close_24"
                     app:endIconMode="clear_text"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -202,6 +202,7 @@
                     android:text="@string/add"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintVertical_bias="1"
                     app:layout_constraintStart_toEndOf="@id/button_cancel"
                     app:layout_constraintTop_toBottomOf="@id/text_field_date" />
 
@@ -218,6 +219,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/button_add_recipe"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="1"
                     app:layout_constraintTop_toBottomOf="@id/text_field_date" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

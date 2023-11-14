@@ -1,7 +1,6 @@
 package com.umut.poele.ui.recipe_detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeRecipeDetailFragment : BaseFragment<FragmentHomeRecipeDetailBinding, HomeRecipeDetailViewModel>(R.layout.fragment_home_recipe_detail) {
 
     override val vm: HomeRecipeDetailViewModel by viewModels()
-
     private val fragments = listOf<Fragment>(
         HomeRecipeDetailInfoFragment(), HomeRecipeDetailIngredientFragment(), HomeRecipeDetailDirectionFragment()
     )
@@ -28,7 +26,7 @@ class HomeRecipeDetailFragment : BaseFragment<FragmentHomeRecipeDetailBinding, H
             fragments, requireActivity().supportFragmentManager, lifecycle
         )
 
-        TabLayoutMediator(binding.tabFragment, binding.viewpagerFragment) {tab, position->
+        TabLayoutMediator(binding.tabFragment, binding.viewpagerFragment) { tab, position ->
             tab.text = RECIPE_DETAIL_TAB_NAME[position]
         }.attach()
 

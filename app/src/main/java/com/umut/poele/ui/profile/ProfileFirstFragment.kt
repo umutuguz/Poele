@@ -1,10 +1,13 @@
 package com.umut.poele.ui.profile
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.umut.poele.R
+import com.umut.poele.data.UserDataSource
 import com.umut.poele.databinding.FragmentProfileFirstBinding
 import com.umut.poele.ui.base.BaseFragment
 import kotlin.system.exitProcess
@@ -13,11 +16,13 @@ class ProfileFirstFragment : BaseFragment<FragmentProfileFirstBinding, ProfileFi
 
     override val vm: ProfileFirstViewModel by viewModels()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
             viewModel = vm
+            user = UserDataSource().loadUser()[0]
             buttonLogOut.setOnClickListener {
                 MaterialAlertDialogBuilder(buttonLogOut.context).setTitle(R.string.logout_dialog_title).setMessage(R.string.logout_dialog_message)
                     .setNeutralButton(R.string.log_out_dialog_neutral_button) { dialog, _ ->

@@ -36,7 +36,7 @@
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{supply.name}"
+                android:text="@{supply.title}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Product Name" />
@@ -103,7 +103,7 @@
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/supply_date(supply.dateDay, supply.dateMonth, supply.dateYear)}"
+                app:setDate="@{supply.date}"
                 app:layout_constraintBottom_toBottomOf="@id/image_date"
                 app:layout_constraintEnd_toStartOf="@id/image_date"
                 tools:text="Date" />

@@ -108,10 +108,16 @@
         android:id="@+id/profileFirstFragment"
         android:name="com.umut.poele.ui.profile.ProfileFirstFragment"
         android:label="ProfileFirstFragment"
-        tools:layout="@layout/fragment_profile_first" >
+        tools:layout="@layout/fragment_profile_first">
         <action
             android:id="@+id/action_profileFirstFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_profileFirstFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+        <action
+            android:id="@+id/action_profileFirstFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeRecipeFragment"
@@ -146,7 +152,7 @@
             android:id="@+id/action_homeRecipeDetailFragment_to_shopListFragment"
             app:destination="@id/shopListFragment"
             app:popUpTo="@id/homeRecipeDetailFragment"
-            app:popUpToInclusive="false"/>
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/fridgeSupplyFragment"
@@ -185,10 +191,17 @@
             app:destination="@id/homeFirstFragment" />
         <action
             android:id="@+id/action_searchFragment_to_homeRecipeFragment"
-            app:destination="@id/homeRecipeFragment" />
+            app:destination="@id/homeRecipeFragment"
+            app:popUpTo="@id/homeFirstFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_searchFragment_to_fridgeFirstFragment"
-            app:destination="@id/fridgeFirstFragment" />
+            app:destination="@id/fridgeFirstFragment"
+            app:popUpTo="@id/homeFirstFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_searchFragment_to_homeRecipeDetailFragment"
+            app:destination="@id/homeRecipeDetailFragment" />
     </fragment>
     <dialog
         android:id="@+id/filterDialog"
@@ -219,8 +232,8 @@
         <action
             android:id="@+id/action_addEditRecipeFragment_to_homeFirstFragment"
             app:destination="@id/homeFirstFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/homeFirstFragment"/>
+            app:popUpTo="@id/homeFirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <dialog
         android:id="@+id/mealEntryDialog"
@@ -237,7 +250,7 @@
             android:id="@+id/action_mealEntryDialog_to_addEditSupplyFragment"
             app:destination="@id/addEditSupplyFragment" />
     </dialog>
-     <fragment
+    <fragment
         android:id="@+id/editRecipeFragment"
         android:name="com.umut.poele.ui.add.EditRecipeFragment"
         android:label="EditRecipeFragment"
@@ -255,7 +268,7 @@
             android:id="@+id/action_addEditSupplyFragment_to_fridgeFirstFragment"
             app:destination="@id/fridgeFirstFragment"
             app:popUpTo="@id/homeFirstFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/editSupplyFragment"
@@ -270,7 +283,7 @@
         android:id="@+id/challengeDialog"
         android:name="com.umut.poele.ui.macro.ChallengeDialog"
         android:label="ChallengeDialog"
-        tools:layout="@layout/dialog_challenge"/>
+        tools:layout="@layout/dialog_challenge" />
     <fragment
         android:id="@+id/addShopListFragment"
         android:name="com.umut.poele.ui.add.AddShopListFragment"
@@ -279,8 +292,8 @@
         <action
             android:id="@+id/action_addShopListFragment_to_homeFirstFragment"
             app:destination="@id/homeFirstFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/homeFirstFragment"/>
+            app:popUpTo="@id/homeFirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/dailyMenuFragment"
@@ -291,7 +304,7 @@
             android:id="@+id/action_dailyMenuFragment_to_homeFirstFragment"
             app:destination="@id/homeFirstFragment"
             app:popUpTo="@id/homeFirstFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <dialog
         android:id="@+id/supplyMoreOptionDialog"
@@ -326,4 +339,14 @@
             android:id="@+id/action_favoriteFragment_to_homeRecipeDetailFragment"
             app:destination="@id/homeRecipeDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.umut.poele.ui.profile.AddressFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/fragment_address"/>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.umut.poele.ui.profile.EditProfileFragment"
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile"/>
 </navigation>

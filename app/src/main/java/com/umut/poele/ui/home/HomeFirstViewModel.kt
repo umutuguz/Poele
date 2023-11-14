@@ -2,7 +2,6 @@ package com.umut.poele.ui.home
 
 import com.umut.poele.model.FoodCategory
 import com.umut.poele.ui.base.BaseViewModel
-import com.umut.poele.util.AddRecipeListener
 import com.umut.poele.util.ChooseChefListener
 import com.umut.poele.util.ChooseHomeListener
 import com.umut.poele.util.FoodCategoryListener
@@ -13,10 +12,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeFirstViewModel @Inject constructor() : BaseViewModel(), FoodCategoryListener, ChooseHomeListener, ChooseChefListener, SearchBarListener,
-    ShopListListener{
+    ShopListListener {
 
     private var retrofit: String? = null
 
+    private val adapter: FoodCategoryAdapter? = null
+
+    fun setAdapter(dataset: List<FoodCategory>, vm: BaseViewModel) {
+
+    }
     fun setRetrofit(string: String) {
         retrofit = string
     }

@@ -55,7 +55,7 @@
 
     </style>
 
-    <style name="Widget.Umut.DragHanle" parent="Widget.Material3.BottomSheet.DragHandle">
+    <style name="Widget.Umut.DragHandle" parent="Widget.Material3.BottomSheet.DragHandle">
         <item name="android:minHeight">@dimen/_12sdp</item>
         <item name="android:padding">0dp</item>
         <item name="tint">@color/md_theme_light_outlineVariant</item>

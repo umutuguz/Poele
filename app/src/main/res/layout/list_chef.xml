@@ -44,7 +44,7 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{user.profilePhotoId}"
+                app:setImage="@{user.profilePhotoUrl}"
                 tools:src="@drawable/avatar" />
 
             <TextView

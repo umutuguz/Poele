@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/checkbox"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{supply.name}"
+                android:text="@{supply.title}"
                 tools:text="Product Name"/>
 
             <TextView
@@ -104,7 +104,7 @@
                 android:id="@+id/text_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/supply_date(supply.dateDay, supply.dateMonth, supply.dateYear)}"
+                app:setDate="@{supply.date}"
                 tools:text="Date"
                 app:layout_constraintEnd_toStartOf="@id/image_date"
                 app:layout_constraintBottom_toBottomOf="@id/image_date" />

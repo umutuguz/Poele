@@ -22,48 +22,65 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/vertical_padding"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-            >
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-                android:id="@+id/drag_handle"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_drag_handle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/_8sdp"
-                app:layout_constraintBottom_toTopOf="@id/image_cancel"
+                app:cardBackgroundColor="@color/md_theme_light_background"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0" />
+                app:layout_constraintVertical_bias="0"
+                app:strokeWidth="0dp">
 
-            <TextView
-                android:id="@+id/text_title_bottom_sheet"
-                style="@style/TextAppearance.Material3.HeadlineMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/horizontal_padding"
-                android:text="@string/create"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/image_cancel"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/drag_handle"
-                app:layout_constraintVertical_bias="0" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/image_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/horizontal_margin"
-                android:padding="@dimen/_8sdp"
-                android:onClick="@{()->viewModel.onBackClicked()}"
-                android:src="@drawable/round_close_24"
-                app:layout_constraintBottom_toBottomOf="@id/text_title_bottom_sheet"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/text_title_bottom_sheet"
-                android:importantForAccessibility="no" />
+                    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                        android:id="@+id/drag_handle"
+                        style="@style/Widget.Umut.DragHandle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/text_bottom_sheet_title"
+                        style="@style/TextAppearance.Material3.ActionBar.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/vertical_margin"
+                        android:text="@string/create"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/drag_handle"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <ImageView
+                        android:id="@+id/image_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/horizontal_margin"
+                        android:importantForAccessibility="no"
+                        android:onClick="@{()->viewModel.onBackClicked()}"
+                        android:src="@drawable/round_close_24"
+                        app:layout_constraintBottom_toBottomOf="@id/text_bottom_sheet_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toEndOf="@id/text_bottom_sheet_title"
+                        app:layout_constraintTop_toTopOf="@id/text_bottom_sheet_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <Button
                 android:id="@+id/button_add_recipe"
@@ -71,15 +88,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
+                android:onClick="@{()->viewModel.onAddRecipeClicked()}"
                 android:text="@string/add_recipe"
                 android:textAlignment="textStart"
-                android:onClick="@{()->viewModel.onAddRecipeClicked()}"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/round_add_24"
                 app:iconTint="@color/md_theme_light_onSurface"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_title_bottom_sheet"
+                app:layout_constraintTop_toBottomOf="@id/card_drag_handle"
                 app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
 
             <com.google.android.material.divider.MaterialDivider
@@ -97,9 +114,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
+                android:onClick="@{()->viewModel.onAddSupplyClicked()}"
                 android:text="@string/add_ingredient"
                 android:textAlignment="textStart"
-                android:onClick="@{()->viewModel.onAddSupplyClicked()}"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/round_add_24"
                 app:iconTint="@color/md_theme_light_onSurface"
@@ -123,8 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
-                android:text="@string/edit_recipe"
                 android:onClick="@{()->viewModel.onEditRecipeClicked()}"
+                android:text="@string/edit_recipe"
                 android:textAlignment="textStart"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/round_edit_24"
@@ -149,8 +166,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
-                android:text="@string/edit_ingredient"
                 android:onClick="@{()->viewModel.onEditSupplyClicked()}"
+                android:text="@string/edit_ingredient"
                 android:textAlignment="textStart"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/round_edit_24"
@@ -175,9 +192,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
+                android:onClick="@{()->viewModel.onAddShopListClicked()}"
                 android:text="@string/add_to_shop_list"
                 android:textAlignment="textStart"
-                android:onClick="@{()->viewModel.onAddShopListClicked()}"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/round_add_24"
                 app:iconTint="@color/md_theme_light_onSurface"
@@ -203,9 +220,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
+                android:onClick="@{()->viewModel.onEnterDailyMenuClicked()}"
                 android:text="@string/enter_daily_menu"
                 android:textAlignment="textStart"
-                android:onClick="@{()->viewModel.onEnterDailyMenuClicked()}"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/round_restaurant_menu_24"
                 app:iconTint="@color/md_theme_light_onSurface"

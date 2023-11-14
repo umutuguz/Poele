@@ -24,7 +24,7 @@ class FilterDialog : BaseBottomSheetFragment<DialogFilterBinding, ChooseViewMode
         }
 
         binding.apply {
-
+            viewModel = vm
         }
     }
 

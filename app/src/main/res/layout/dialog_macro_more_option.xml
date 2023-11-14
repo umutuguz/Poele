@@ -25,9 +25,9 @@
                 android:id="@+id/card_drag_handle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@color/md_theme_light_background"
                 app:cardCornerRadius="0dp"
-                app:cardElevation="0dp"
+                app:cardElevation="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
 
                     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
                         android:id="@+id/drag_handle"
-                        style="@style/Widget.Umut.DragHanle"
+                        style="@style/Widget.Umut.DragHandle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -95,16 +95,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/card_drag_handle"
                 app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.None" />
-
-<!--            <com.google.android.material.divider.MaterialDivider-->
-<!--                android:id="@+id/divider_1"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/margin_between_same_elements"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/button_find_recipe" />-->
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

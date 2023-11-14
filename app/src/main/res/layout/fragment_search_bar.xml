@@ -161,8 +161,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_95sdp"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/horizontal_margin"
-            app:setAdapter="@{adapterFragment}" />
+            android:paddingHorizontal="@dimen/horizontal_margin" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

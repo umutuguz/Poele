@@ -11,14 +11,6 @@
             type="com.umut.poele.ui.home.FoodCategoryAdapter" />
 
         <variable
-            name="adapterMenuCard"
-            type="com.umut.poele.ui.home.MenuCardAdapter" />
-
-        <variable
-            name="list"
-            type="com.umut.poele.data.FoodCategoryDataSource" />
-
-        <variable
             name="viewModel"
             type="com.umut.poele.ui.home.HomeFirstViewModel" />
     </data>
@@ -36,7 +28,7 @@
             android:paddingVertical="8dp"
             android:scaleType="fitStart"
             android:src="@drawable/title_poele"
-            app:layout_constraintEnd_toStartOf="@id/button_notification"
+            app:layout_constraintEnd_toStartOf="@id/button_shoplist"
             app:layout_constraintHorizontal_weight="6.5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0"
@@ -58,24 +50,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/image_logo"
             app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/button_notification"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="spread" />
-
-        <ImageView
-            android:id="@+id/button_notification"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_48sdp"
-            android:background="@drawable/background_action_bar"
-            android:contentDescription="@string/notification"
-            android:scaleType="center"
-            android:src="@drawable/round_notifications_24"
-            app:layout_constraintEnd_toStartOf="@id/button_shoplist"
-            app:layout_constraintBottom_toBottomOf="@id/image_logo"
-            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/image_logo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="spread" />
+
 
         <Button
             android:id="@+id/choose_home"
@@ -105,7 +83,7 @@
             android:text="@string/choose_chef"
             android:onClick="@{()->viewModel.onChooseChefClicked()}"
             android:textAlignment="textStart"
-            app:icon="@drawable/round_chef_24"
+            app:icon="@drawable/round_chef_16"
             app:layout_constraintBottom_toBottomOf="@id/choose_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1"
@@ -123,8 +101,7 @@
             app:layout_constraintVertical_bias="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/choose_home"
-            app:setAdapter="@{adapterMenuCard}">
+            app:layout_constraintTop_toBottomOf="@id/choose_home">
 
         </androidx.viewpager2.widget.ViewPager2>
 

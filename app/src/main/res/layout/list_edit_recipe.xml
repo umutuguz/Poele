@@ -47,7 +47,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{recipe.imageId}"
+                app:setImage="@{recipe.imageUrl}"
                 tools:src="@drawable/coffee_beans" />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/horizontal_margin"
                 android:layout_marginTop="@dimen/vertical_margin"
-                android:text="@{recipe.name}"
+                android:text="@{recipe.title}"
                 app:layout_constraintBottom_toTopOf="@id/chip_group_recipe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -97,7 +97,7 @@
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/recipe_time(recipe.time)}"
+                    android:text="@{@string/recipe_time(recipe.prepTime)}"
                     app:chipIcon="@drawable/outline_timer_24"
                     tools:text="@string/time" />
 
@@ -107,17 +107,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chipIcon="@drawable/outline_people_24"
-                    app:setIntText="@{recipe.people}"
+                    app:setIntText="@{recipe.servings}"
                     tools:text="@string/people" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_weight"
+                    android:id="@+id/chip_level"
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/recipe_weight(recipe.weight)}"
-                    app:chipIcon="@drawable/outline_room_service_24"
-                    tools:text="@string/weight" />
+                    app:setDifficultyLevel="@{recipe.difficultyLevel}"
+                    app:chipIcon="@drawable/round_chef_24"
+                    app:chipIconTint="@color/md_theme_light_onSurface"
+                    tools:text="Level" />
 
             </com.google.android.material.chip.ChipGroup>
 

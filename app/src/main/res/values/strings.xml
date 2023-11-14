@@ -66,7 +66,6 @@
     <string name="supply_amount">%.0f %s</string>
     <string name="step_counter">Step %d</string>
     <string name="recipe_time">%d min</string>
-    <string name="recipe_weight">%d g</string>
     <string name="suggest_from_recipes">Suggest from recipes</string>
     <string name="ask_chatgpt">Ask ChatGPT</string>
     <string name="home_address">Home Address…</string>
@@ -159,6 +158,30 @@
     <string name="log_out_dialog_neutral_button">Cancel</string>
     <string name="log_out_dialog_negative_button">Decline</string>
     <string name="log_out_dialog_positive_button">Accept</string>
+    <string name="address_detail">%s Dist., %s Nbhd., %s St.</string>
+    <string name="unused">Unused</string>
+    <string name="used">Used</string>
+    <string name="edit_user_info">Edit User Info</string>
+    <string name="edit_address">Edit Address</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="save_changes">Save changes</string>
+    <string name="city">City</string>
+    <string name="district">District</string>
+    <string name="neighborhood">Neighborhood</string>
+    <string name="street">Street</string>
+    <string name="building_name">Building Name</string>
+    <string name="building_no">Building No.</string>
+    <string name="door_no">Door No.</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="floor_no">Floor No.</string>
+    <string name="shopping_list">Shopping List</string>
+    <string name="product_list">Product List</string>
+    <string name="shoplist_dialog_title">Empty your shopping list</string>
+    <string name="shoplist_dialog_message">Are you sure to empty your shopping list?</string>
+    <string name="shoplist_dialog_negative_button">Decline</string>
+    <string name="shoplist_dialog_positive_button">Accept</string>
 
 
     <!--    <plurals name="amount">-->

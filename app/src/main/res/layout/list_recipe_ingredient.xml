@@ -7,7 +7,7 @@
 
         <variable
             name="ingredient"
-            type="com.umut.poele.model.Ingredient" />
+            type="com.umut.poele.model.Supply" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -44,7 +44,7 @@
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
                     android:scaleType="centerCrop"
-                    app:setImage="@{ingredient.imageId}"
+                    app:setImage="@{ingredient.imageUrl}"
                     tools:src="@drawable/coffee_beans" />
 
             </com.google.android.material.card.MaterialCardView>
@@ -66,7 +66,7 @@
                 android:id="@+id/text_ingredient_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{ingredient.name}"
+                android:text="@{ingredient.title}"
                 app:layout_constraintBottom_toBottomOf="@id/card_image_ingredient"
                 app:layout_constraintEnd_toStartOf="@id/image_add_shoplist"
                 app:layout_constraintHorizontal_bias="0.5"

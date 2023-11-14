@@ -17,7 +17,7 @@ class SearchRecipeFragment : BaseFragment<FragmentSearchRecipeBinding, SearchVie
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            adapter = SearchRecipeAdapter(RecipeDataSource().loadRecipe())
+            adapter = SearchRecipeAdapter(RecipeDataSource().loadRecipe(), vm)
         }
     }
 }

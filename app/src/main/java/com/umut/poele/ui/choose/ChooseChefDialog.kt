@@ -23,6 +23,7 @@ class ChooseChefDialog : BaseBottomSheetFragment<DialogChooseChefBinding, Choose
 
         binding.apply {
             adapter = ChefAdapter(UserDataSource().loadUser())
+            viewModel = vm
         }
     }
 

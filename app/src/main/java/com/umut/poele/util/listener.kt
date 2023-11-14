@@ -2,7 +2,6 @@ package com.umut.poele.util
 
 import com.umut.poele.model.FoodCategory
 import com.umut.poele.model.Recipe
-import com.umut.poele.model.RecipeDetail
 import com.umut.poele.model.Supply
 
 interface FoodCategoryListener {
@@ -11,10 +10,6 @@ interface FoodCategoryListener {
 
 interface RecipeListener {
     fun onRecipeClicked(clickedRecipe: Recipe)
-}
-
-interface RecipeDetailListener {
-    fun onRecipeDetailClicked(clickedRecipeDetail: RecipeDetail)
 }
 
 interface SurpriseMeListener {
@@ -103,4 +98,16 @@ interface AddCustomMealListener {
 
 interface FavoritesListener {
     fun onFavoritesClicked()
+}
+
+interface ListSelectionsListener {
+    fun onListSelectionsClicked()
+}
+
+interface AddressListener {
+    fun onAddressClicked()
+}
+
+interface EditProfileListener {
+    fun onEditProfileClicked()
 }

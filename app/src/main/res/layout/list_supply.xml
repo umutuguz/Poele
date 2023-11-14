@@ -15,6 +15,7 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_supply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/card_product_radius"
@@ -35,7 +36,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{supply.name}"
+                android:text="@{supply.title}"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 android:layout_marginVertical="@dimen/vertical_margin"
                 tools:text="Product Name"/>
@@ -127,7 +128,7 @@
                 style="@style/TextAppearance.Material3.TitleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/supply_date(supply.dateDay, supply.dateMonth, supply.dateYear)}"
+                app:setDate="@{supply.date}"
                 tools:text="Date"
                 app:layout_constraintEnd_toStartOf="@id/image_date"
                 app:layout_constraintBottom_toBottomOf="@id/image_date" />

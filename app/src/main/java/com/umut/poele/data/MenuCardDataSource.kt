@@ -7,10 +7,10 @@ class MenuCardDataSource {
 
     fun loadMenuCards(): List<MenuCard>{
         return listOf<MenuCard>(
-            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs),
-            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs),
-            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs),
-            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt", R.drawable.herbs)
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt"),
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt"),
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt"),
+            MenuCard("Dinner", "Umut", "Lasagne", "French Fries", "Yogurt")
         )
     }
 }

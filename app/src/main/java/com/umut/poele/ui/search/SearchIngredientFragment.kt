@@ -16,7 +16,7 @@ class SearchIngredientFragment : BaseFragment<FragmentSearchIngredientBinding, S
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            adapter = SearchIngredientAdapter(SupplyDataSource().loadSupply())
+            adapter = SearchIngredientAdapter(SupplyDataSource().loadSupply(), vm)
         }
     }
 }

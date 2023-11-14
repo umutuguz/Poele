@@ -1,24 +1,22 @@
 package com.umut.poele.model
 
-import androidx.annotation.DrawableRes
 import com.umut.poele.ui.base.ListAdapterItem
+import com.umut.poele.util.Levels
 
 data class Recipe(
     val id: Int,
-    @DrawableRes val imageId: Int,
-    val name: String,
+    val title: String,
+    val imageUrl: ImageUrl,
     val chefName: String,
-    val category: String,
+    val category: List<String>,
     val description: String,
-    val time: Int,
-    val people: Int,
-    val weight: Int,
+    val prepTime: Int,
+    val servings: Int,
+    val difficultyLevel: Levels,
+    val cuisine: List<String>,
+    val isFavorite: Boolean,
+    val isVegan: Boolean,
     val equipments: List<String>,
-    val calorie: Double,
-    val protein: Double,
-    val carb: Double,
-    val fat: Double,
-    val fiber: Double,
-    val ingredients: List<Ingredient>,
-    val directions: List<String>
+    val directions: List<String>,
+    val ingredients: List<Supply>
 ) : ListAdapterItem

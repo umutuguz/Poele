@@ -42,7 +42,7 @@
 
                     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
                         android:id="@+id/drag_handle"
-                        style="@style/Widget.Umut.DragHanle"
+                        style="@style/Widget.Umut.DragHandle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"

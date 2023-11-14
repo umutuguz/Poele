@@ -57,42 +57,62 @@
             app:tabGravity="fill"
             app:tabMode="fixed" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager_daily_menu"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/vertical_margin"
-            app:layout_constraintBottom_toTopOf="@id/button_cancel"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tab_menu" />
+            app:layout_constraintTop_toBottomOf="@id/tab_menu">
 
-        <Button
-            android:id="@+id/button_add_recipe"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:layout_marginStart="@dimen/horizontal_margin_half"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:text="@string/add_recipe_capital"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button_cancel" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button_cancel"
-            style="@style/Widget.Material3.Button.ElevatedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/vertical_margin"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginEnd="@dimen/horizontal_margin_half"
-            android:onClick="@{()->viewModel.onCancelClicked()}"
-            android:text="@string/cancel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button_add_recipe"
-            app:layout_constraintStart_toStartOf="parent" />
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewpager_daily_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/vertical_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button_add_recipe"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/vertical_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin_half"
+                    android:layout_marginEnd="@dimen/horizontal_margin"
+                    android:text="@string/add_recipe_capital"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/button_cancel"
+                    app:layout_constraintTop_toBottomOf="@id/viewpager_daily_menu"
+                    app:layout_constraintVertical_bias="1" />
+
+                <Button
+                    android:id="@+id/button_cancel"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/vertical_margin"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    android:layout_marginEnd="@dimen/horizontal_margin_half"
+                    android:onClick="@{()->viewModel.onCancelClicked()}"
+                    android:text="@string/cancel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/button_add_recipe"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewpager_daily_menu"
+                    app:layout_constraintVertical_bias="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

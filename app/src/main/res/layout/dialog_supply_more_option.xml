@@ -25,9 +25,9 @@
                 android:id="@+id/card_drag_handle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@color/md_theme_light_background"
                 app:cardCornerRadius="0dp"
-                app:cardElevation="0dp"
+                app:cardElevation="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
 
                     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
                         android:id="@+id/drag_handle"
-                        style="@style/Widget.Umut.DragHanle"
+                        style="@style/Widget.Umut.DragHandle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
