@@ -6,25 +6,27 @@
     <data>
 
         <variable
-            name="foodCategory"
-            type="com.umut.poele.model.FoodCategory" />
+            name="recipeCategory"
+            type="com.umut.poele.database.category.RecipeCategory" />
 
         <variable
             name="listener"
-            type="com.umut.poele.util.FoodCategoryListener" />
+            type="com.umut.poele.util.RecipeCategoryListener" />
 
         <variable
             name="viewModel"
             type="com.umut.poele.ui.home.HomeFirstViewModel" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_recipe_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
         app:cardBackgroundColor="@color/md_theme_light_background"
         app:cardElevation="0dp"
+        app:cardCornerRadius="0dp"
+        app:strokeWidth="0dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
@@ -32,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/md_theme_light_background"
-            android:onClickListener="@{()->listener.onFoodCategoryClicked(foodCategory)}"
+            android:onClickListener="@{()->listener.onRecipeCategoryClicked(recipeCategory)}"
             android:orientation="vertical">
 
             <ImageView
@@ -43,7 +45,7 @@
                 android:background="@drawable/background_category_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
-                app:setImage="@{foodCategory.imageResourceId}"
+                android:src="@drawable/pasta"
                 android:importantForAccessibility="no" />
 
             <TextView
@@ -53,7 +55,7 @@
                 android:textAlignment="center"
                 android:paddingHorizontal="@dimen/_4sdp"
                 android:layout_gravity="center"
-                android:text="@{foodCategory.name}"
+                android:text="@{recipeCategory.recipeCategoryTitle}"
                 android:maxLines="1"
                 android:ellipsize="end"
                 tools:text="Category" />
@@ -61,5 +63,5 @@
         </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

@@ -11,7 +11,7 @@
 
         <variable
             name="user"
-            type="com.umut.poele.model.User" />
+            type="com.umut.poele.database.user.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,7 +73,7 @@
                     android:clipToOutline="true"
                     android:importantForAccessibility="no"
                     android:scaleType="centerCrop"
-                    app:setImage="@{user.profilePhotoUrl}"
+                    android:src="@drawable/avatar"
                     tools:src="@drawable/avatar" />
 
                 <TextView
@@ -84,7 +84,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="8dp"
                     android:layout_toEndOf="@id/image_avatar"
-                    android:text="@{user.name}"
+                    android:text="@{user.firstName}"
                     tools:text="@string/username" />
 
                 <TextView

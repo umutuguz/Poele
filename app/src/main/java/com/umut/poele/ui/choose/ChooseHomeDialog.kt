@@ -2,17 +2,18 @@ package com.umut.poele.ui.choose
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.umut.PoeleApplication
 import com.umut.poele.R
-import com.umut.poele.data.UserDataSource
 import com.umut.poele.databinding.DialogChooseHomeBinding
 import com.umut.poele.ui.base.BaseBottomSheetFragment
 
-class ChooseHomeDialog :
-    BaseBottomSheetFragment<DialogChooseHomeBinding, ChooseViewModel>(R.layout.dialog_choose_home) {
+class ChooseHomeDialog : BaseBottomSheetFragment<DialogChooseHomeBinding, ChooseViewModel>(R.layout.dialog_choose_home) {
 
-    override val vm: ChooseViewModel by viewModels()
+    override val vm: ChooseViewModel by activityViewModels {
+        ChooseViewModelFactory((activity?.application as PoeleApplication).database.userDao())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,7 +24,10 @@ class ChooseHomeDialog :
         }
 
         binding.apply {
-            adapter = HomeAdapter(UserDataSource().loadUser())
+            vm.getAllAddressesWithUser(SelectedUser.userId).observe(this@ChooseHomeDialog.viewLifecycleOwner) { userWithAddressList ->
+                adapter = HomeAdapter(userWithAddressList.first().addresses, userWithAddressList.first().user)
+            }
+
             viewModel = vm
         }
     }

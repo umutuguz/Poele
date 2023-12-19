@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="clickedSupply"
+            type="com.umut.poele.model.Supply" />
 
         <variable
             name="viewModel"
@@ -18,16 +21,17 @@
             android:id="@+id/modal_bottom_sheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/vertical_margin"
+            android:paddingVertical="@dimen/vertical_padding"
             app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_drag_handle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/md_theme_light_background"
+                android:layout_marginVertical="@dimen/vertical_margin"
+                app:cardBackgroundColor="@android:color/transparent"
                 app:cardCornerRadius="0dp"
-                app:cardElevation="3dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +79,14 @@
                         app:layout_constraintStart_toEndOf="@id/text_bottom_sheet_title"
                         app:layout_constraintTop_toTopOf="@id/text_bottom_sheet_title" />
 
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:dividerColor="@color/md_theme_light_outline"
+                        app:dividerThickness="1dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -85,8 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
-                android:onClick="@{()->viewModel.onAddSupplyClicked()}"
-                android:text="@string/edit_ingredient"
+                android:onClick="@{()->viewModel.onEditSupplyMacroClicked(clickedSupply)}"
+                android:text="@string/edit_supply"
                 android:textAlignment="textStart"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:icon="@drawable/round_search_24"

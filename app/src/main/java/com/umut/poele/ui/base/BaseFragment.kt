@@ -12,7 +12,10 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import com.umut.poele.BR
+import com.umut.poele.database.menu.MenuCard
+import com.umut.poele.model.MenuCardModel
 import com.umut.poele.util.Constants
+import com.umut.poele.util.Meals
 import com.umut.poele.util.NavigationCommand
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
@@ -20,10 +23,8 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
 ) : Fragment() {
 
     private var hasBottomSheetOnScreen: Boolean = false
-
     private var _binding: B? = null
     val binding get() = _binding!!
-
     protected abstract val vm: VM
 
     override fun onCreateView(
@@ -58,6 +59,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
             }
         }
     }
+
     private fun observeBottomSheetState() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>(
             Constants.KEY_DISMISS
@@ -70,7 +72,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
         when (navigationCommand) {
             is NavigationCommand.ToDirection -> {
                 if (navigationCommand.isBottomSheet) {
-                    if (!hasBottomSheetOnScreen){
+                    if (!hasBottomSheetOnScreen) {
                         findNavController().navigate(navigationCommand.directions)
                         hasBottomSheetOnScreen = true
                     }
@@ -79,7 +81,46 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
                     findNavController().navigate(navigationCommand.directions)
                 }
             }
+
             is NavigationCommand.Back -> findNavController().navigateUp()
+        }
+    }
+
+    fun loadMenuCardModel(menuCardList: List<MenuCard>): List<MenuCardModel> {
+        return if (menuCardList.isNotEmpty()) {
+            listOf(
+                MenuCardModel(
+                    Meals.BREAKFAST,
+                    menuCardList[0].chefName,
+                    menuCardList[0].primaryMealBreakfast,
+                    menuCardList[0].secondaryMealBreakfast,
+                    menuCardList[0].tertiaryMealBreakfast
+                ),
+                MenuCardModel(
+                    Meals.BRUNCH,
+                    menuCardList[0].chefName,
+                    menuCardList[0].primaryMealBrunch,
+                    menuCardList[0].secondaryMealBrunch,
+                    menuCardList[0].tertiaryMealBrunch
+                ),
+                MenuCardModel(
+                    Meals.LUNCH,
+                    menuCardList[0].chefName,
+                    menuCardList[0].primaryMealLunch,
+                    menuCardList[0].secondaryMealLunch,
+                    menuCardList[0].tertiaryMealLunch
+                ),
+                MenuCardModel(
+                    Meals.DINNER,
+                    menuCardList[0].chefName,
+                    menuCardList[0].primaryMealDinner,
+                    menuCardList[0].secondaryMealDinner,
+                    menuCardList[0].tertiaryMealDinner
+                ),
+            )
+        }
+        else {
+            listOf()
         }
     }
 

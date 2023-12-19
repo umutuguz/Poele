@@ -73,7 +73,7 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewpager_daily_menu"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/vertical_margin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

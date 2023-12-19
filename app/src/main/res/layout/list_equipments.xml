@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="recipe"
-            type="com.umut.poele.model.Recipe" />
+            name="recipeModel"
+            type="com.umut.poele.model.RecipeModel" />
     </data>
 
 <!--    <androidx.constraintlayout.widget.ConstraintLayout-->

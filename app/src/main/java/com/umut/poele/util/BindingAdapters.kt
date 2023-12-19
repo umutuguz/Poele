@@ -5,7 +5,6 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.chip.Chip
 import com.umut.poele.ui.base.BaseAdapter
 import com.umut.poele.ui.base.ListAdapterItem
 import java.time.LocalDate
@@ -32,8 +31,12 @@ fun setList(recyclerView: RecyclerView, list: List<ListAdapterItem>?) {
 }
 
 @BindingAdapter("setIntText")
-fun setIntText(textView: TextView, number: Number) {
-    textView.text = number.toString()
+fun setIntText(textView: TextView, number: Number?) {
+    if (number == null) {
+        textView.text = ""
+    } else {
+        textView.text = number.toString()
+    }
 }
 
 @BindingAdapter("setState")
@@ -45,32 +48,57 @@ fun setState(textView: TextView, state: States) {
 }
 
 @BindingAdapter("setListText")
-fun setListText(textView: TextView, list: List<String>) {
-    textView.text = list.joinToString(", ")
+fun setListText(textView: TextView, list: List<String>?) {
+    if (list == null){
+        textView.text = ""
+    }else {
+        textView.text = list.joinToString(", ")
+    }
 }
 
 @BindingAdapter("setDifficultyLevel")
-fun setDifficultyLevel(chip: Chip, level: Levels) {
+fun setDifficultyLevel(textView: TextView, level: Levels?) {
     when (level) {
-        Levels.EASY -> chip.text = "Easy"
-        Levels.INTERMEDIATE -> chip.text = "Intermediate"
-        Levels.HARD -> chip.text = "Hard"
+        Levels.EASY -> textView.text = "Easy"
+        Levels.INTERMEDIATE -> textView.text = "Intermediate"
+        Levels.HARD -> textView.text = "Hard"
+
+        else -> {textView.text = ""}
+    }
+}
+
+@BindingAdapter("setDifficultyLevelString")
+fun setDifficultyLevelString(textView: TextView, level: String?) {
+    when (level) {
+        "EASY" -> textView.text = "Easy"
+        "INTERMEDIATE" -> textView.text = "Intermediate"
+        "HARD" -> textView.text = "Hard"
+
+        else -> {textView.text = ""}
     }
 }
 
 @BindingAdapter("setDate")
-fun setDate(textView: TextView, date: LocalDate) {
-    textView.text = date.toString()
+fun setDate(textView: TextView, date: LocalDate?) {
+    if (date == null){
+        textView.text = ""
+    }else{
+        textView.text = "${date.dayOfMonth}/${date.monthValue}/${date.year-2000}"
+    }
 }
 
 @BindingAdapter("setCategory")
-fun setCategory(textView: TextView, list: List<String>) {
-    textView.text = "Category: ${list.joinToString(", ")}"
+fun setCategory(textView: TextView, list: List<String>?) {
+    if (list == null) {
+        textView.text = ""
+    }else {
+        textView.text = "Category: ${list.joinToString(", ")}"
+    }
 }
 
 @BindingAdapter( "amount","unit" )
 fun setAmount(textView: TextView, amount: Double, unit: Units) {
-    var unitString = when (unit) {
+    val unitString = when (unit) {
         Units.GRAM -> "g"
         Units.ML -> "ml"
         Units.TABLESPOON -> "tbps."
@@ -81,6 +109,21 @@ fun setAmount(textView: TextView, amount: Double, unit: Units) {
         Units.PIECE -> "piece"
     }
     textView.text = "$amount $unitString"
+}
+
+@BindingAdapter("setMenu")
+fun setMenu(textView: TextView, mealTitle: Meals?){
+    if (mealTitle == null) {
+        textView.text = ""
+    }else
+    {
+        when (mealTitle){
+            Meals.BREAKFAST -> textView.text = "Breakfast"
+            Meals.BRUNCH -> textView.text = "Brunch"
+            Meals.LUNCH -> textView.text = "Lunch"
+            Meals.DINNER -> textView.text = "Dinner"
+        }
+    }
 }
 //
 //@BindingAdapter("setViewPagerAdapter")

@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="com.umut.poele.model.User" />
+            type="com.umut.poele.database.user.User" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -44,7 +44,7 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{user.profilePhotoUrl}"
+                android:src="@drawable/avatar"
                 tools:src="@drawable/avatar" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
-                android:text="@{user.name}"
+                android:text="@{user.firstName}"
                 app:layout_constraintBottom_toBottomOf="@id/image_home"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"

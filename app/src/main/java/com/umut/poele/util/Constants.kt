@@ -4,7 +4,7 @@ object Constants {
 
     const val KEY_DISMISS = "KEY_DISMISS"
     val RECIPE_DETAIL_TAB_NAME = listOf<String>("Info", "Ingredient", "Direction")
-    val SEARCH_TAB_NAME = listOf<String>("Recipe", "Ingredient")
+    val SEARCH_TAB_NAME = listOf<String>("RecipeModel", "Ingredient")
     val ENTER_DAILY_MENU_TAB_NAME = listOf<String>("Breakfast", "Brunch", "Lunch", "Dinner")
 }
 
@@ -16,3 +16,5 @@ enum class States { UNUSED, USED
 
 enum class Levels { EASY, INTERMEDIATE, HARD
 }
+
+enum class Meals { BREAKFAST, BRUNCH, LUNCH, DINNER}

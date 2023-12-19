@@ -106,17 +106,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.recipe.HomeRecipeFragment">
+    tools:context=".ui.recipeModel.HomeRecipeFragment">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.umut.poele.ui.recipe.HomeRecipeViewModel" />
+            type="com.umut.poele.ui.recipeModel.HomeRecipeViewModel" />
 
         <variable
             name="adapterRecipeTab"
-            type="com.umut.poele.ui.recipe.RecipeTabAdapter" />
+            type="com.umut.poele.ui.recipeModel.RecipeTabAdapter" />
 
     </data>
 

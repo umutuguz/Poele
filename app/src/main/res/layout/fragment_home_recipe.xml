@@ -20,7 +20,8 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
-            android:onClick="@{()->viewModel.goBackClicked()}"
+            android:importantForAccessibility="no"
+            android:onClick="@{()->viewModel.onBackClicked()}"
             android:paddingHorizontal="@dimen/horizontal_padding"
             android:paddingVertical="@dimen/half_horizontal_padding"
             android:scaleType="center"
@@ -30,8 +31,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="spread"
-            app:tint="@color/md_theme_light_onSurface"
-            android:importantForAccessibility="no" />
+            app:tint="@color/md_theme_light_onSurface" />
 
         <TextView
             android:id="@+id/text_page_title"
@@ -53,6 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
+            android:importantForAccessibility="no"
             android:onClick="@{()->viewModel.onShopListClicked()}"
             android:scaleType="center"
             android:src="@drawable/outline_shopping_cart_24"
@@ -61,27 +62,26 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/text_page_title"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="spread"
-            android:importantForAccessibility="no" />
+            app:layout_constraintWidth_default="spread" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_recipe_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_back"
-            app:tabMode="scrollable"
-            app:tabGravity="start"/>
+            app:layout_constraintVertical_bias="0"
+            app:tabGravity="start"
+            app:tabMode="scrollable" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_recipe_category"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
             android:layout_marginTop="@dimen/vertical_margin"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -92,15 +92,14 @@
             style="@style/Widget.Umut.SearchBar"
             android:layout_width="0dp"
             android:layout_height="@dimen/search_bar_height"
-            android:onClick="@{()->viewModel.onSearchBarClicked()}"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:onClick="@{()->viewModel.onSearchBarClicked()}"
             android:text="@string/search_text"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/button_filter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintTop_toBottomOf="@id/tab_recipe_category"
-            />
+            app:layout_constraintVertical_bias="0" />
 
         <Button
             android:id="@+id/button_filter"
@@ -118,12 +117,11 @@
             app:icon="@drawable/round_filter_list_24"
             app:iconGravity="top"
             app:iconSize="@dimen/_20sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintTop_toTopOf="@id/search_bar"
+            app:layout_constraintBottom_toBottomOf="@id/search_bar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/search_bar"/>
-
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/search_bar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

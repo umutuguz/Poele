@@ -1,14 +1,19 @@
 package com.umut.poele.util
 
-import com.umut.poele.model.FoodCategory
-import com.umut.poele.model.Recipe
+import com.umut.poele.database.category.RecipeCategory
+import com.umut.poele.database.recipe.Recipe
+import com.umut.poele.model.RecipeModel
 import com.umut.poele.model.Supply
 
-interface FoodCategoryListener {
-    fun onFoodCategoryClicked(clickedFoodCategory: FoodCategory)
+interface RecipeCategoryListener {
+    fun onRecipeCategoryClicked(clickedRecipeCategory: RecipeCategory)
 }
 
 interface RecipeListener {
+    fun onRecipeClicked(clickedRecipe: RecipeModel)
+}
+
+interface RecipeDatabaseListener {
     fun onRecipeClicked(clickedRecipe: Recipe)
 }
 
@@ -49,8 +54,14 @@ interface EditRecipeListener {
 interface AddSupplyListener {
     fun onAddSupplyClicked()
 }
+interface EditSupplyMacroListener {
+    fun onEditSupplyMacroClicked(clickedSupply: Supply)
+}
 interface EditSupplyListener {
     fun onEditSupplyClicked()
+}
+interface EditSupplyMoreOptionListener {
+    fun onEditSupplyMoreOptionClicked(clickedSupply: Supply)
 }
 interface AddMealListener {
     fun onAddMealClicked()
@@ -110,4 +121,19 @@ interface AddressListener {
 
 interface EditProfileListener {
     fun onEditProfileClicked()
+}
+
+interface MacroMealEntrySupplyListener{
+    fun onMacroMealEntrySupplyClicked()
+}
+
+interface MacroMealEntryRecipeListener{
+    fun onMacroMealEntryRecipeClicked()
+}
+
+interface UserLoginListener{
+    fun onLoginClicked()
+    fun onSignUpClicked()
+    fun onGuestLoginClicked()
+
 }

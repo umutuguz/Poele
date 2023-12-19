@@ -7,19 +7,20 @@
     <data>
 
         <variable
-            name="recipe"
-            type="com.umut.poele.model.Recipe" />
+            name="recipeModel"
+            type="com.umut.poele.model.RecipeModel" />
 
         <variable
             name="viewModel"
             type="com.umut.poele.ui.add.AddEditRecipeViewModel" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_recipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()->viewModel.onRecipeClicked(recipe)}"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="@dimen/recipe_card_radius"
         app:cardElevation="0dp"
         app:cardUseCompatPadding="true">
@@ -47,7 +48,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{recipe.imageUrl}"
+                app:setImage="@{recipeModel.imageUrl}"
                 tools:src="@drawable/coffee_beans" />
 
             <TextView
@@ -57,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/horizontal_margin"
                 android:layout_marginTop="@dimen/vertical_margin"
-                android:text="@{recipe.title}"
+                android:text="@{recipeModel.title}"
                 app:layout_constraintBottom_toTopOf="@id/chip_group_recipe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -71,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/horizontal_margin"
-                android:text="@{recipe.chefName}"
+                android:text="@{recipeModel.chefName}"
                 app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1"
@@ -97,7 +98,7 @@
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/recipe_time(recipe.prepTime)}"
+                    android:text="@{@string/recipe_time(recipeModel.prepTime)}"
                     app:chipIcon="@drawable/outline_timer_24"
                     tools:text="@string/time" />
 
@@ -107,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chipIcon="@drawable/outline_people_24"
-                    app:setIntText="@{recipe.servings}"
+                    app:setIntText="@{recipeModel.servings}"
                     tools:text="@string/people" />
 
                 <com.google.android.material.chip.Chip
@@ -115,7 +116,7 @@
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:setDifficultyLevel="@{recipe.difficultyLevel}"
+                    app:setDifficultyLevel="@{recipeModel.difficultyLevel}"
                     app:chipIcon="@drawable/round_chef_24"
                     app:chipIconTint="@color/md_theme_light_onSurface"
                     tools:text="Level" />
@@ -124,5 +125,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

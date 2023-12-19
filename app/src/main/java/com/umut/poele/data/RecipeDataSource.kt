@@ -1,10 +1,8 @@
 package com.umut.poele.data
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.umut.poele.R
 import com.umut.poele.model.Macro
-import com.umut.poele.model.Recipe
+import com.umut.poele.model.RecipeModel
 import com.umut.poele.model.Supply
 import com.umut.poele.util.Levels
 import com.umut.poele.util.States
@@ -13,10 +11,9 @@ import java.time.LocalDate
 
 class RecipeDataSource {
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun loadRecipe(): List<Recipe> {
-        return listOf<Recipe>(
-            Recipe(
+    fun loadRecipe(): List<RecipeModel> {
+        return listOf(
+            RecipeModel(
                 1,
                 "Lasagne",
                 R.drawable.lasagne,

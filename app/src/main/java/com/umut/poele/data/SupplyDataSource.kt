@@ -11,7 +11,6 @@ import java.time.LocalDate
 
 class SupplyDataSource {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun loadSupply(): List<Supply> {
         return listOf(
             Supply(

@@ -22,6 +22,6 @@ class MacroFirstViewModel : BaseViewModel(), ChooseChefListener, AddMealListener
     }
 
     override fun onMoreOptionClicked(clickedSupply: Supply) {
-        navigate(MacroFirstFragmentDirections.actionMacroFirstFragmentToMacroMoreOptionDialog())
+        navigate(MacroFirstFragmentDirections.actionMacroFirstFragmentToMacroMoreOptionDialog(clickedSupply))
     }
 }

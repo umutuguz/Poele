@@ -24,11 +24,11 @@ class MacroProductAdapter(private val dataset: List<Supply>, private val vm: Mac
         super.onBindViewHolder(holder, position)
         holder.binder.imageDelete.setOnClickListener {
             MaterialAlertDialogBuilder(holder.binder.imageDelete.context).setTitle(R.string.delete_dialog_title)
-                .setMessage(R.string.delete_dialog_message).setNeutralButton(R.string.delete_dialog_neutral_button) { dialog, which ->
+                .setMessage(R.string.delete_dialog_message).setNeutralButton(R.string.delete_dialog_neutral_button) { dialog, _ ->
                     dialog.cancel()
-                }.setNegativeButton(R.string.delete_dialog_negative_button) { dialog, which ->
+                }.setNegativeButton(R.string.delete_dialog_negative_button) { dialog, _ ->
                     dialog.dismiss()
-                }.setPositiveButton(R.string.delete_dialog_positive_button) { dialog, which ->
+                }.setPositiveButton(R.string.delete_dialog_positive_button) { dialog, _ ->
                     dialog.cancel()
                 }.show()
         }

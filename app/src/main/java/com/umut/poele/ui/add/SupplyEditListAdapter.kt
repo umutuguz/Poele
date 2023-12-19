@@ -5,7 +5,9 @@ import com.umut.poele.databinding.ListEditSupplyBinding
 import com.umut.poele.model.Supply
 import com.umut.poele.ui.base.BaseAdapter
 
-class SupplyEditListAdapter(private val dataset: List<Supply>, private val vm: AddEditSupplyViewModel) : BaseAdapter<ListEditSupplyBinding, Supply>(
+class SupplyEditListAdapter(private val dataset: List<Supply>, private val vm: AddEditSupplyViewModel, private val forPickSupply: Boolean) :
+    BaseAdapter<ListEditSupplyBinding,
+        Supply>(
     dataset, R
         .layout.list_edit_supply
 ) {
@@ -14,6 +16,14 @@ class SupplyEditListAdapter(private val dataset: List<Supply>, private val vm: A
         binding.apply {
             supply = item
             viewModel = vm
+
+            if (forPickSupply) {
+                cardSupply.setOnClickListener {
+                    vm.onMacroMealEntrySupplyClicked()
+                }
+            } else {
+                vm.onSupplyClicked(item)
+            }
         }
     }
 }

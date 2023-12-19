@@ -8,11 +8,8 @@
 
         <variable
             name="recipe"
-            type="com.umut.poele.model.Recipe" />
+            type="com.umut.poele.database.recipe.Recipe" />
 
-        <variable
-            name="viewModel"
-            type="com.umut.poele.ui.recipe.HomeRecipeViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -48,7 +45,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{recipe.imageUrl}"
+                android:src="@drawable/lasagne"
                 tools:src="@drawable/coffee_beans" />
 
             <TextView
@@ -131,7 +128,7 @@
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:setDifficultyLevel="@{recipe.difficultyLevel}"
+                    app:setDifficultyLevelString="@{recipe.difficultyLevel}"
                     app:chipIcon="@drawable/round_chef_24"
                     app:chipIconTint="@color/md_theme_light_onSurface"
                     tools:text="Level" />

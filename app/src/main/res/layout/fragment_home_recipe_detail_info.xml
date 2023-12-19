@@ -9,8 +9,8 @@
             name="adapter"
             type="com.umut.poele.ui.recipe_detail.EquipmentAdapter" />
         <variable
-            name="recipe"
-            type="com.umut.poele.model.Recipe" />
+            name="recipeModel"
+            type="com.umut.poele.model.RecipeModel" />
     </data>
 
     <ScrollView
@@ -31,7 +31,7 @@
                 android:background="@drawable/background_recipe_detail_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
-                app:setImage="@{recipe.imageUrl}"
+                app:setImage="@{recipeModel.imageUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 android:layout_marginVertical="@dimen/vertical_margin_double"
-                android:text="@{recipe.title}"
+                android:text="@{recipeModel.title}"
                 app:layout_constraintBottom_toTopOf="@id/text_recipe_description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_recipe"
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
-                android:text="@{recipe.chefName}"
+                android:text="@{recipeModel.chefName}"
                 tools:text="@string/chef_name"
                 app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 tools:text="Pasta"
-                app:setCategory="@{recipe.category}"
+                app:setCategory="@{recipeModel.category}"
                 android:layout_marginVertical="@dimen/margin_between_same_elements"/>
 
             <TextView
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 android:layout_marginVertical="@dimen/margin_between_diff_elements"
-                android:text="@{recipe.description}"
+                android:text="@{recipeModel.description}"
                 tools:text="@string/recipe_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="false"
-                    app:setIntText="@{recipe.prepTime}"
+                    app:setIntText="@{recipeModel.prepTime}"
                     tools:text="Prep Time"
                     app:chipIcon="@drawable/outline_timer_24" />
 
@@ -147,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="false"
-                    app:setIntText="@{recipe.servings}"
+                    app:setIntText="@{recipeModel.servings}"
                     android:text="Servings"
                     app:chipIcon="@drawable/outline_people_24" />
 
@@ -156,7 +156,7 @@
                     style="@style/Widget.Material3.Chip.Assist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:setDifficultyLevel="@{recipe.difficultyLevel}"
+                    app:setDifficultyLevel="@{recipeModel.difficultyLevel}"
                     android:clickable="false"
                     android:text="@string/level"
                     app:chipIcon="@drawable/round_chef_24" />

@@ -54,7 +54,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
-                android:text="@{@string/ingredient_amount(ingredient.amount, ingredient.unit)}"
+                app:amount="@{ingredient.amount}"
+                app:unit="@{ingredient.unit}"
                 app:layout_constraintBottom_toBottomOf="@id/card_image_ingredient"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -88,7 +89,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/card_image_ingredient" />
+                app:layout_constraintTop_toTopOf="@id/card_image_ingredient"
+                android:importantForAccessibility="no" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

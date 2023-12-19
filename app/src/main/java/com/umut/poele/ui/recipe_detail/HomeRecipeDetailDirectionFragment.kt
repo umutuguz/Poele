@@ -6,7 +6,6 @@ import androidx.fragment.app.viewModels
 import com.umut.poele.R
 import com.umut.poele.data.RecipeDataSource
 import com.umut.poele.databinding.FragmentHomeRecipeDetailDirectionBinding
-import com.umut.poele.model.Recipe
 import com.umut.poele.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 

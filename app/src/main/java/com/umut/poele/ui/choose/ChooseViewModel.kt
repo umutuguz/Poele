@@ -1,9 +1,20 @@
 package com.umut.poele.ui.choose
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
+import com.umut.poele.database.relation.UserWithAddresses
+import com.umut.poele.database.user.User
+import com.umut.poele.database.user.UserDao
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.ListSelectionsListener
 
-class ChooseViewModel : BaseViewModel(),  ListSelectionsListener{
+class ChooseViewModel(private val userDao: UserDao) : BaseViewModel(),  ListSelectionsListener{
+
+    fun getAllUsers(): LiveData<List<User>> = userDao.getAllUsers().asLiveData()
+
+    fun getAllAddressesWithUser(userId: Int): LiveData<List<UserWithAddresses>> = userDao.getAddressesWithUserId(userId).asLiveData()
 
     fun onBackClicked() {
         navigateBack()
@@ -11,5 +22,17 @@ class ChooseViewModel : BaseViewModel(),  ListSelectionsListener{
 
     override fun onListSelectionsClicked() {
         navigateBack()
+    }
+}
+
+class ChooseViewModelFactory(
+    private val userDao: UserDao,
+) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(ChooseViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST") return ChooseViewModel(userDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.umut.poele.R
 import com.umut.poele.data.RecipeDataSource
 import com.umut.poele.databinding.FragmentHomeRecipeDetailInfoBinding
@@ -19,13 +20,12 @@ class HomeRecipeDetailInfoFragment :
 
     override val vm: HomeRecipeDetailViewModel by viewModels()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
             adapter = EquipmentAdapter(RecipeDataSource().loadRecipe()[0].equipments)
-            recipe = RecipeDataSource().loadRecipe()[0]
+            recipeModel = RecipeDataSource().loadRecipe()[0]
         }
     }
 

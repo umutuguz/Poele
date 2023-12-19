@@ -4,6 +4,8 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'com.google.dagger.hilt.android'
+    id 'kotlin-parcelize'
+    id 'com.google.devtools.ksp'
 }
 
 android {
@@ -12,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.umut.poele"
-        minSdk 24
+        minSdk 26
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -51,10 +53,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
     // Navigation Components
-    implementation "androidx.navigation:navigation-fragment-ktx:2.7.4"
-    implementation "androidx.navigation:navigation-ui-ktx:2.7.4"
-    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.7.4"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.7.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.7.5"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.7.5"
     // Splash Screen
     implementation "androidx.core:core-splashscreen:1.0.1"
     // SDP - SSP
@@ -68,9 +71,16 @@ dependencies {
     // Hilt
     implementation "com.google.dagger:hilt-android:2.48"
     kapt "com.google.dagger:hilt-compiler:2.48"
-    kapt "androidx.hilt:hilt-compiler:1.0.0"
-    implementation "androidx.hilt:hilt-navigation-fragment:1.0.0"
-    implementation "androidx.hilt:hilt-navigation:1.0.0"
+    kapt "androidx.hilt:hilt-compiler:1.1.0"
+    implementation "androidx.hilt:hilt-navigation-fragment:1.1.0"
+    implementation "androidx.hilt:hilt-navigation:1.1.0"
+    // Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
+    // Room
+    implementation "androidx.room:room-runtime:2.6.1"
+    ksp "androidx.room:room-compiler:2.6.1"
+    implementation "androidx.room:room-ktx:2.6.1"
     // Circular ImageView
     implementation "de.hdodenhof:circleimageview:3.1.0"
     // Test

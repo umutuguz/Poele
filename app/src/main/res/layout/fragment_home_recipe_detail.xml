@@ -10,9 +10,6 @@
             name="viewModel"
             type="com.umut.poele.ui.recipe_detail.HomeRecipeDetailViewModel" />
 
-        <variable
-            name="adapter"
-            type="com.umut.poele.ui.recipe_detail.HomeRecipeDetailFragmentAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,7 +87,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tab_fragment" />
-        <!--        app:setViewPagerAdapter="@{tabLayout,adapter}-->
 
         <Button
             android:id="@+id/button_add_shoplist"

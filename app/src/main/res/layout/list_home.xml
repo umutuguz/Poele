@@ -7,7 +7,11 @@
 
         <variable
             name="user"
-            type="com.umut.poele.model.User" />
+            type="com.umut.poele.database.user.User" />
+
+        <variable
+            name="address"
+            type="com.umut.poele.database.address.Address" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -44,7 +48,7 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{user.address.addressImageUrl}"
+                android:src="@drawable/round_home_24"
                 tools:src="@drawable/avatar" />
 
             <TextView
@@ -53,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
-                android:text="@{@string/home_title(user.name, user.address.title)}"
+                android:text="@{@string/home_title(user.firstName, address.title)}"
                 app:layout_constraintBottom_toTopOf="@id/text_home_address"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -66,7 +70,7 @@
                 style="@style/TextAppearance.Material3.BodySmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/address_detail(user.address.district, user.address.neighborhood, user.address.street )}"
+                android:text="@{@string/address_detail(address.district, address.neighborhood, address.street)}"
                 app:layout_constraintBottom_toBottomOf="@id/image_home"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"

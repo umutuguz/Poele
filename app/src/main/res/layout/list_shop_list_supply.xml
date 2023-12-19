@@ -55,7 +55,7 @@
 <!--                app:layout_constraintHorizontal_bias="0"-->
 <!--                app:layout_constraintStart_toStartOf="@id/text_supply_title"-->
 <!--                app:layout_constraintTop_toBottomOf="@id/text_supply_title"-->
-<!--                tools:text="Recipe Name"-->
+<!--                tools:text="RecipeModel Name"-->
 
 <!--                />-->
 

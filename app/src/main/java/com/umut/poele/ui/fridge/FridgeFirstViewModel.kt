@@ -1,5 +1,8 @@
 package com.umut.poele.ui.fridge
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.umut.poele.database.supply.SupplyDao
 import com.umut.poele.model.Supply
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.ChooseHomeListener
@@ -8,12 +11,12 @@ import com.umut.poele.util.MoreOptionListener
 import com.umut.poele.util.SearchBarListener
 import com.umut.poele.util.ShopListListener
 import com.umut.poele.util.SurpriseMeListener
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
-@HiltViewModel
-class FridgeFirstViewModel @Inject constructor() : BaseViewModel(), SurpriseMeListener, SearchBarListener, FilterListener, ChooseHomeListener,
+class FridgeFirstViewModel(private val supplyDao: SupplyDao)  : BaseViewModel(), SurpriseMeListener, SearchBarListener, FilterListener,
+    ChooseHomeListener,
     ShopListListener, MoreOptionListener{
+
+//    fun getAllSuppliesWithUserId(userId: Int): LiveData<List<SupplyWithUsers>> = supplyDao.getAllSuppliesWithUserId(userId).asLiveData()
 
     override fun onSurpriseMeClicked() {
         navigate(FridgeFirstFragmentDirections.actionFridgeFirstFragmentToFridgeSupplyFragment())
@@ -36,6 +39,18 @@ class FridgeFirstViewModel @Inject constructor() : BaseViewModel(), SurpriseMeLi
     }
 
     override fun onMoreOptionClicked(clickedSupply: Supply) {
-        navigate(FridgeFirstFragmentDirections.actionFridgeFirstFragmentToSupplyMoreOptionDialog())
+        navigate(FridgeFirstFragmentDirections.actionFridgeFirstFragmentToSupplyMoreOptionDialog(clickedSupply))
+    }
+}
+
+class FridgeFirstViewModelFactory(
+    private val supplyDao: SupplyDao
+) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(FridgeFirstViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST") return FridgeFirstViewModel(supplyDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

@@ -56,7 +56,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
             app:setAdapter="@{adapter}"
-            tools:listitem="@layout/list_supply"/>
+            tools:listitem="@layout/list_search_supply"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

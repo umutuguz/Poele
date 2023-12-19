@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+ <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/homeFirstFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_homeFirstFragment"
-            app:destination="@id/homeFirstFragment" />
+            app:destination="@id/homeFirstFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/homeFirstFragment"
@@ -139,6 +141,11 @@
         <action
             android:id="@+id/action_homeRecipeFragment_to_shopListFragment"
             app:destination="@id/shopListFragment" />
+        <argument
+            android:name="clickedRecipeCategory"
+            app:argType="com.umut.poele.database.category.RecipeCategory"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/homeRecipeDetailFragment"
@@ -234,6 +241,15 @@
             app:destination="@id/homeFirstFragment"
             app:popUpTo="@id/homeFirstFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="fromEditRecipe"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="clickedRecipe"
+            android:defaultValue="@null"
+            app:argType="com.umut.poele.model.RecipeModel"
+            app:nullable="true" />
     </fragment>
     <dialog
         android:id="@+id/mealEntryDialog"
@@ -258,6 +274,15 @@
         <action
             android:id="@+id/action_editRecipeFragment_to_addEditRecipeFragment"
             app:destination="@id/addEditRecipeFragment" />
+        <argument
+            android:name="forPickRecipe"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_editRecipeFragment_to_macroFirstFragment"
+            app:destination="@id/macroFirstFragment"
+            app:popUpTo="@id/macroFirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/addEditSupplyFragment"
@@ -269,6 +294,15 @@
             app:destination="@id/fridgeFirstFragment"
             app:popUpTo="@id/homeFirstFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="fromEditSupply"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="clickedSupply"
+            android:defaultValue="@null"
+            app:argType="com.umut.poele.model.Supply"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/editSupplyFragment"
@@ -278,6 +312,15 @@
         <action
             android:id="@+id/action_editSupplyFragment_to_addEditSupplyFragment"
             app:destination="@id/addEditSupplyFragment" />
+        <argument
+            android:name="forPickSupply"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_editSupplyFragment_to_macroFirstFragment"
+            app:destination="@id/macroFirstFragment"
+            app:popUpTo="@id/macroFirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <dialog
         android:id="@+id/challengeDialog"
@@ -320,6 +363,11 @@
         <action
             android:id="@+id/action_supplyMoreOptionDialog_to_fridgeFirstFragment"
             app:destination="@id/fridgeFirstFragment" />
+        <argument
+            android:name="clickedSupply"
+            app:argType="com.umut.poele.model.Supply"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </dialog>
     <dialog
         android:id="@+id/macroMoreOptionDialog"
@@ -329,6 +377,11 @@
         <action
             android:id="@+id/action_macroMoreOptionDialog_to_addEditSupplyFragment"
             app:destination="@id/addEditSupplyFragment" />
+        <argument
+            android:name="clickedSupply"
+            app:argType="com.umut.poele.model.Supply"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </dialog>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -343,10 +396,10 @@
         android:id="@+id/addressFragment"
         android:name="com.umut.poele.ui.profile.AddressFragment"
         android:label="AddressFragment"
-        tools:layout="@layout/fragment_address"/>
+        tools:layout="@layout/fragment_address" />
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.umut.poele.ui.profile.EditProfileFragment"
         android:label="EditProfileFragment"
-        tools:layout="@layout/fragment_edit_profile"/>
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>

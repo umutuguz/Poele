@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="recipe"
-            type="com.umut.poele.model.Recipe" />
+            name="recipeModel"
+            type="com.umut.poele.model.RecipeModel" />
 
         <variable
             name="viewModel"
@@ -21,7 +21,7 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="0dp"
-        android:onClick="@{()->viewModel.onRecipeClicked(recipe)}"
+        android:onClick="@{()->viewModel.onRecipeClicked(recipeModel)}"
         app:strokeWidth="0.5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,19 +50,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 android:layout_marginVertical="@dimen/vertical_margin"
-                android:text="@{recipe.title}"
+                android:text="@{recipeModel.title}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/image_recipe"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0"
-                tools:text="Recipe Title" />
+                tools:text="RecipeModel Title" />
 
             <TextView
                 android:id="@+id/text_recipe_category"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:setListText="@{recipe.category}"
+                app:setListText="@{recipeModel.category}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/text_recipe_title"
                 app:layout_constraintTop_toBottomOf="@id/text_recipe_title"
@@ -74,7 +74,7 @@
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{recipe.chefName}"
+                android:text="@{recipeModel.chefName}"
                 app:layout_constraintBottom_toBottomOf="@id/text_recipe_category"
                 app:layout_constraintEnd_toStartOf="@id/image_arrow"
                 app:layout_constraintHorizontal_bias="0.8"

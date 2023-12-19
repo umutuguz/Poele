@@ -8,6 +8,7 @@ import com.umut.poele.data.SupplyDataSource
 import com.umut.poele.databinding.FragmentFridgeFirstBinding
 import com.umut.poele.ui.base.BaseFragment
 import com.umut.poele.ui.base.BaseViewModel
+import com.umut.poele.ui.choose.SelectedUser
 import com.umut.poele.ui.home.HomeFirstViewModel
 
 class FridgeFirstFragment : BaseFragment<FragmentFridgeFirstBinding, FridgeFirstViewModel>
@@ -19,7 +20,10 @@ class FridgeFirstFragment : BaseFragment<FragmentFridgeFirstBinding, FridgeFirst
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            adapter = SupplyListAdapter(SupplyDataSource().loadSupply(), vm)
+
+//            vm.getAllSuppliesWithUserId(SelectedUser.userId).observe(this@FridgeFirstFragment.viewLifecycleOwner){
+//                adapter = SupplyListAdapter(it, vm)
+//            }
             viewModel = vm
         }
     }

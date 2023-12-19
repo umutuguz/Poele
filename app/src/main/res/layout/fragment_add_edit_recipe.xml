@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="clickedRecipeModel"
+            type="com.umut.poele.model.RecipeModel" />
 
         <variable
             name="viewModel"
@@ -39,7 +44,7 @@
             android:layout_height="@dimen/_48sdp"
             android:background="@drawable/background_action_bar"
             android:gravity="center_vertical"
-            android:text="@string/add_recipe_capital"
+            tools:text="@string/add_recipe_capital"
             app:layout_constraintBottom_toBottomOf="@id/image_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="7"
@@ -68,7 +73,7 @@
                     android:layout_marginVertical="@dimen/vertical_margin"
                     android:clickable="true"
                     android:focusable="true"
-                    app:cardBackgroundColor="@color/md_theme_light_onSurfaceVariant"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -76,6 +81,17 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/image_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@{clickedRecipeModel.imageUrl}"
+                            android:alpha="0.5"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:importantForAccessibility="no" />
 
                         <ImageView
                             android:id="@+id/image_edit"
@@ -137,10 +153,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_basic_info_title">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:text="@{clickedRecipeModel.title}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,10 +176,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_title">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_category"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textAutoComplete"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setListText="@{clickedRecipeModel.category}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,10 +199,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_category">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_prep_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedRecipeModel.prepTime}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -200,10 +222,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_prep_time">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_servings"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedRecipeModel.servings}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -221,10 +245,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_servings">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_level"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setDifficultyLevel="@{clickedRecipeModel.difficultyLevel}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -437,6 +463,7 @@
                     app:layout_constraintTop_toBottomOf="@id/text_macros_title">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_calorie"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
@@ -458,6 +485,7 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_calorie">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_protein"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
@@ -479,6 +507,7 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_protein">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_carb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
@@ -500,6 +529,7 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_carb">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_fat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
@@ -521,6 +551,7 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_fat">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_fiber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"

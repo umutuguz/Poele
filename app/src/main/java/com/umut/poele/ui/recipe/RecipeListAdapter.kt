@@ -1,8 +1,9 @@
 package com.umut.poele.ui.recipe
 
+import android.util.Log
 import com.umut.poele.R
 import com.umut.poele.databinding.ListRecipeBinding
-import com.umut.poele.model.Recipe
+import com.umut.poele.database.recipe.Recipe
 import com.umut.poele.ui.base.BaseAdapter
 
 class RecipeListAdapter(private val dataset: List<Recipe>, private val vm: HomeRecipeViewModel) :
@@ -10,8 +11,9 @@ class RecipeListAdapter(private val dataset: List<Recipe>, private val vm: HomeR
 
     override fun bind(binding: ListRecipeBinding, item: Recipe) {
         binding.apply {
+            Log.i("umutcan", "dataset:${dataset.size}")
+            Log.i("umutcan", "itemTitle:${item.title}")
             recipe = item
-            viewModel = vm
             cardRecipe.setOnClickListener {
                 vm.onRecipeClicked(item)
             }

@@ -12,11 +12,11 @@ class MealEntryViewModel : BaseViewModel(), AddFromRecipeListener, AddFromSupply
     }
 
     override fun onAddFromRecipeClicked() {
-        navigate(MealEntryDialogDirections.actionMealEntryDialogToEditRecipeFragment())
+        navigate(MealEntryDialogDirections.actionMealEntryDialogToEditRecipeFragment(true))
     }
 
     override fun onAddFromSupplyClicked() {
-        navigate(MealEntryDialogDirections.actionMealEntryDialogToEditSupplyFragment())
+        navigate(MealEntryDialogDirections.actionMealEntryDialogToEditSupplyFragment(true))
     }
 
     override fun onAddCustomMealClicked() {

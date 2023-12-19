@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="clickedSupply"
+            type="com.umut.poele.model.Supply" />
 
         <variable
             name="viewModel"
@@ -68,7 +73,7 @@
                     android:layout_marginVertical="@dimen/vertical_margin"
                     android:clickable="true"
                     android:focusable="true"
-                    app:cardBackgroundColor="@color/md_theme_light_onSurfaceVariant"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -76,6 +81,17 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/image_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@{clickedSupply.imageUrl}"
+                            tools:src="@drawable/ground_meat"
+                            android:alpha="0.5"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
 
                         <ImageView
                             android:id="@+id/image_edit"
@@ -137,10 +153,12 @@
                     app:layout_constraintTop_toBottomOf="@id/card_supply_image">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:text="@{clickedSupply.title}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,10 +176,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_title">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_category"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textAutoComplete"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        android:text="@{clickedSupply.category}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -182,7 +202,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedSupply.amount}"
+                        android:id="@+id/text_input_amount"
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -200,10 +223,12 @@
                     app:layout_constraintTop_toBottomOf="@id/switch_state">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="date"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setDate="@{clickedSupply.date}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -324,10 +349,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_macros_title">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_calorie"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedSupply.macro.calorie}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -345,10 +372,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_calorie">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_protein"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedSupply.macro.protein}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -366,10 +395,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_protein">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_carb"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedSupply.macro.carb}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -387,10 +418,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_carb">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_fat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedSupply.macro.fat}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -408,10 +441,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text_field_fat">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_fiber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:maxLines="1" />
+                        android:maxLines="1"
+                        app:setIntText="@{clickedSupply.macro.fiber}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 

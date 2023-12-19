@@ -46,7 +46,7 @@
                 android:id="@+id/text_category_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{supply.category}"
+                android:text="Deneme"
                 tools:text="@string/category"
                 app:layout_constraintTop_toBottomOf="@id/text_product_name"
                 app:layout_constraintStart_toStartOf="@id/text_product_name"
@@ -66,7 +66,8 @@
                 android:id="@+id/text_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{@string/supply_amount(supply.amount, supply.unit)}"
+                app:amount="@{supply.amount}"
+                app:unit="@{supply.unit}"
                 tools:text="Amount"
                 app:layout_constraintStart_toEndOf="@id/image_amount"
                 app:layout_constraintBottom_toBottomOf="@id/image_amount" />
@@ -125,7 +126,7 @@
 
             <TextView
                 android:id="@+id/text_date"
-                style="@style/TextAppearance.Material3.TitleSmall"
+                style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:setDate="@{supply.date}"

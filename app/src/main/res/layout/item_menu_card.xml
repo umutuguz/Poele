@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="menuCard"
-            type="com.umut.poele.model.MenuCard" />
+            name="menuCardModel"
+            type="com.umut.poele.model.MenuCardModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="@string/menu_title"
+                app:setMenu="@{menuCardModel.menuTitle}"
+                tools:text="@string/menu_title"
                 app:layout_constraintEnd_toEndOf="@id/image_menu_card"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/image_menu_card"
@@ -51,7 +52,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="@dimen/horizontal_margin"
-                android:text="@{menuCard.chefName}"
+                android:text="@{menuCardModel.chefName}"
                 app:layout_constraintBottom_toBottomOf="@id/text_card_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1"
@@ -66,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_between_diff_elements"
-                android:text="@{menuCard.primaryMealName}"
+                android:text="@{menuCardModel.primaryMealName}"
                 app:layout_constraintStart_toStartOf="@id/text_card_title"
                 app:layout_constraintTop_toBottomOf="@id/text_card_title"
                 tools:text="Primary Meal" />
@@ -77,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_between_same_elements"
-                android:text="@{menuCard.secondaryMealName}"
+                android:text="@{menuCardModel.secondaryMealName}"
                 app:layout_constraintStart_toStartOf="@id/text_card_title"
                 app:layout_constraintTop_toBottomOf="@id/text_menu_primary_content"
                 tools:text="Secondary Meal" />
@@ -88,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_between_same_elements"
-                android:text="@{menuCard.tertiaryMealName}"
+                android:text="@{menuCardModel.tertiaryMealName}"
                 app:layout_constraintStart_toStartOf="@id/text_card_title"
                 app:layout_constraintTop_toBottomOf="@id/text_menu_secondary_content"
                 tools:text="Tertiary Meal" />

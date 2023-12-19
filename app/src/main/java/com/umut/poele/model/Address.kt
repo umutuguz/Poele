@@ -1,6 +1,11 @@
 package com.umut.poele.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Address(
+    val id: Int,
     val title: String,
     val addressImageUrl: ImageUrl,
     val city:String,
@@ -12,5 +17,5 @@ data class Address(
     val floorNumber: Int,
     val doorNumber: Int,
     val postalCode: Int
-) {
+) : Parcelable {
 }

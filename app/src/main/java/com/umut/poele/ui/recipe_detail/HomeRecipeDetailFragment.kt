@@ -25,6 +25,7 @@ class HomeRecipeDetailFragment : BaseFragment<FragmentHomeRecipeDetailBinding, H
         binding.viewpagerFragment.adapter = HomeRecipeDetailFragmentAdapter(
             fragments, requireActivity().supportFragmentManager, lifecycle
         )
+        binding.viewModel = vm
 
         TabLayoutMediator(binding.tabFragment, binding.viewpagerFragment) { tab, position ->
             tab.text = RECIPE_DETAIL_TAB_NAME[position]

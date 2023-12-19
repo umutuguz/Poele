@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import androidx.viewpager2.widget.ViewPager2
 import com.umut.poele.databinding.ListMacroProductCardBinding
 
 abstract class BaseAdapter<B : ViewDataBinding, T : Any>(

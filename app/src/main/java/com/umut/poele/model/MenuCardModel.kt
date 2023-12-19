@@ -1,13 +1,12 @@
 package com.umut.poele.model
 
-import androidx.annotation.DrawableRes
 import com.umut.poele.ui.base.ListAdapterItem
+import com.umut.poele.util.Meals
 
-data class MenuCard(
-    val menuTitle: String,
+data class MenuCardModel(
+    val menuTitle: Meals,
     val chefName: String,
     val primaryMealName: String,
     val secondaryMealName: String,
-    val tertiaryMealName: String,
-//    @DrawableRes val imageSourceId: Int,
+    val tertiaryMealName: String
 ) : ListAdapterItem

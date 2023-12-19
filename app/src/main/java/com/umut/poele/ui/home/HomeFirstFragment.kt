@@ -2,34 +2,41 @@ package com.umut.poele.ui.home
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.RecyclerView
+import com.umut.PoeleApplication
 import com.umut.poele.R
-import com.umut.poele.data.FoodCategoryDataSource
-import com.umut.poele.data.MenuCardDataSource
+import com.umut.poele.database.category.RecipeCategory
+import com.umut.poele.database.menu.MenuCard
+import com.umut.poele.database.recipe.Recipe
 import com.umut.poele.databinding.FragmentHomeFirstBinding
 import com.umut.poele.ui.base.BaseFragment
-import dagger.hilt.android.AndroidEntryPoint
+import com.umut.poele.ui.login.AccountInfo
+import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
-class HomeFirstFragment :
-    BaseFragment<FragmentHomeFirstBinding, HomeFirstViewModel>(R.layout.fragment_home_first) {
+class HomeFirstFragment : BaseFragment<FragmentHomeFirstBinding, HomeFirstViewModel>(R.layout.fragment_home_first) {
 
-    override val vm: HomeFirstViewModel by viewModels()
+    override val vm: HomeFirstViewModel by activityViewModels {
+        HomeFirstViewModelFactory(
+            (activity?.application as PoeleApplication).database.userDao(), (activity?.application as PoeleApplication).database.recipeDao()
+        )
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-
-            adapterFoodCategory =
-                FoodCategoryAdapter(FoodCategoryDataSource().loadFoodCategory(), vm)
+            vm.getAllRecipeCategories().observe(this@HomeFirstFragment.viewLifecycleOwner) { list ->
+                adapterRecipeCategory = RecipeCategoryAdapter(list, vm, vm)
+            }
 
             recyclerRecipeCategories.adapter?.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
-            viewpagerMenuCard.adapter = MenuCardAdapter(MenuCardDataSource().loadMenuCards())
-
+            vm.getMenuCardWithUserId(AccountInfo.accountUserId).observe(this@HomeFirstFragment.viewLifecycleOwner) { list ->
+                viewpagerMenuCard.adapter = MenuCardAdapter(loadMenuCardModel(list))
+            }
         }
-
     }
 
 }

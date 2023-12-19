@@ -13,13 +13,6 @@
         android:background="@color/md_theme_light_surface_container"
         tools:context=".ui.login.LoginFragment">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/h_50_guideline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/login_logo_frame"
             android:layout_width="match_parent"
@@ -59,11 +52,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/username"
+                app:endIconMode="clear_text"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edittext_username"
                     android:layout_width="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -75,11 +71,14 @@
                 android:layout_marginTop="@dimen/horizontal_margin"
                 android:hint="@string/password"
                 app:layout_constraintTop_toBottomOf="@id/text_username"
+                app:endIconMode="password_toggle"
                 app:placeholderText="">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edittext_password"
                     android:layout_width="match_parent"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -96,12 +95,12 @@
 
 
             <Button
-                android:id="@+id/button_signin"
+                android:id="@+id/button_sign_up"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/button_margin"
-                android:text="@string/sign_in"
+                android:text="@string/sign_up"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_login" />
@@ -116,7 +115,7 @@
                 android:textAlignment="textStart"
                 android:textColor="@color/md_theme_light_onSurface"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/button_signin" />
+                app:layout_constraintTop_toBottomOf="@id/button_sign_up" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

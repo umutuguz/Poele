@@ -111,7 +111,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/image_amount"
                 app:layout_constraintVertical_bias="1"
-                app:setIntText="@{supply.amount}"
+                app:amount="@{supply.amount}"
+                app:unit="@{supply.unit}"
                 tools:text="@string/amount" />
 
             <com.google.android.material.divider.MaterialDivider
@@ -168,7 +169,7 @@
                         style="@style/TextAppearance.Material3.BodySmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/calorie" />
+                        app:setIntText="@{supply.macro.calorie}" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_protein"

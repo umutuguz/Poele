@@ -19,10 +19,10 @@ class HomeRecipeDetailIngredientFragment :
 
     override val vm: HomeRecipeDetailViewModel by viewModels()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.recyclerIngredient
         binding.apply {
             adapter = IngredientAdapter(RecipeDataSource().loadRecipe()[0].ingredients)
         }

@@ -1,18 +1,21 @@
 package com.umut.poele.ui.recipe
 
+import android.util.Log
 import com.umut.poele.R
-import com.umut.poele.data.RecipeDataSource
+import com.umut.poele.database.category.RecipeCategory
+import com.umut.poele.database.recipe.Recipe
 import com.umut.poele.databinding.ItemRecipeCategoryBinding
-import com.umut.poele.model.FoodCategory
 import com.umut.poele.ui.base.BaseAdapter
 
 class RecipeTabAdapter(
-    private val dataset: List<FoodCategory>, private val vm: HomeRecipeViewModel
-) : BaseAdapter<ItemRecipeCategoryBinding, FoodCategory>(dataset, R.layout.item_recipe_category) {
+    dataset: List<RecipeCategory>, private val vm: HomeRecipeViewModel, private val recipeList: List<Recipe>
+) : BaseAdapter<ItemRecipeCategoryBinding, RecipeCategory>(dataset, R.layout.item_recipe_category) {
 
-    override fun bind(binding: ItemRecipeCategoryBinding, item: FoodCategory) {
+    override fun bind(binding: ItemRecipeCategoryBinding, item: RecipeCategory) {
         binding.apply {
-            adapterRecipe = RecipeListAdapter(RecipeDataSource().loadRecipe(), vm)
+            Log.i("umutcan", "RecipeTabAdapter ${recipeList.size}")
+
+            adapterRecipe = RecipeListAdapter(recipeList, vm)
         }
     }
 }

@@ -2,15 +2,19 @@ package com.umut.poele.ui.choose
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.umut.PoeleApplication
 import com.umut.poele.R
 import com.umut.poele.databinding.DialogFilterBinding
 import com.umut.poele.ui.base.BaseBottomSheetFragment
 
 class FilterDialog : BaseBottomSheetFragment<DialogFilterBinding, ChooseViewModel>(R.layout.dialog_filter) {
 
-    override val vm: ChooseViewModel by viewModels()
+    override val vm: ChooseViewModel by activityViewModels {
+        ChooseViewModelFactory((activity?.application as PoeleApplication).database.userDao())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

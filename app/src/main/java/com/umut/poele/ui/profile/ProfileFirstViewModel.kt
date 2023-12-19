@@ -1,12 +1,22 @@
 package com.umut.poele.ui.profile
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
+import com.umut.poele.database.recipe.RecipeDao
+import com.umut.poele.database.user.User
+import com.umut.poele.database.user.UserDao
 import com.umut.poele.ui.base.BaseViewModel
+import com.umut.poele.ui.home.HomeFirstViewModel
 import com.umut.poele.util.AddressListener
 import com.umut.poele.util.EditProfileListener
 import com.umut.poele.util.FavoritesListener
 import java.util.PrimitiveIterator
 
-class ProfileFirstViewModel : BaseViewModel(), FavoritesListener, EditProfileListener, AddressListener {
+class ProfileFirstViewModel(private val userDao: UserDao) : BaseViewModel(), FavoritesListener, EditProfileListener, AddressListener {
+
+    fun getUserWithUserId(userId: Int): LiveData<User> = userDao.getUserWithUserId(userId).asLiveData()
 
     override fun onFavoritesClicked() {
         navigate(ProfileFirstFragmentDirections.actionProfileFirstFragmentToFavoriteFragment())
@@ -18,5 +28,17 @@ class ProfileFirstViewModel : BaseViewModel(), FavoritesListener, EditProfileLis
 
     override fun onEditProfileClicked() {
         navigate(ProfileFirstFragmentDirections.actionProfileFirstFragmentToEditProfileFragment())
+    }
+}
+
+class ProfileFirstViewModelFactory(
+    private val userDao: UserDao
+) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(ProfileFirstViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST") return ProfileFirstViewModel(userDao) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

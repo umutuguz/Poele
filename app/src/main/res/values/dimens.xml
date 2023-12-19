@@ -21,6 +21,7 @@
     <dimen name="card_image_radius">20dp</dimen>
     <dimen name="card_product_radius">8dp</dimen>
     <dimen name="bottom_sheet_radius">@dimen/_24sdp</dimen>
+    <dimen name="bottom_sheet_radius_double">@dimen/_48sdp</dimen>
     <dimen name="date_picker_radius">8dp</dimen>
     <dimen name="macro_padding">16dp</dimen>
     <dimen name="macro_item_margin">16dp</dimen>
@@ -42,4 +43,5 @@
     <dimen name="recipe_card_fab_margin">8dp</dimen>
     <dimen name="drag_handle_height">@dimen/_12sdp</dimen>
     <dimen name="avatar_edit_radius">@dimen/_100sdp</dimen>
+    <dimen name="choose_bottom_sheet_height">@dimen/_300sdp</dimen>
 </resources>

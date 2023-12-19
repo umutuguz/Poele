@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="recipe"
-            type="com.umut.poele.model.Recipe" />
+            name="recipeModel"
+            type="com.umut.poele.model.RecipeModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -27,7 +27,7 @@
                 android:id="@+id/image_recipe"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
-                app:setImage="@{recipe.imageUrl}"
+                app:setImage="@{recipeModel.imageUrl}"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/pasta"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,8 +40,8 @@
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Recipe Title"
-                android:text="@{recipe.title}"
+                tools:text="RecipeModel Title"
+                android:text="@{recipeModel.title}"
                 app:layout_constraintTop_toTopOf="@id/image_recipe"
                 app:layout_constraintStart_toEndOf="@id/image_recipe"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Prep Time: 12 min"
-                android:text="@{@string/prep_time(recipe.prepTime)}"
+                android:text="@{@string/prep_time(recipeModel.prepTime)}"
                 app:layout_constraintBottom_toTopOf="@id/text_recipe_serving"
                 app:layout_constraintTop_toBottomOf="@id/text_recipe_title"
                 app:layout_constraintStart_toEndOf="@id/image_recipe"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Servings: 4"
-                android:text="@{@string/servings(recipe.servings)}"
+                android:text="@{@string/servings(recipeModel.servings)}"
                 app:layout_constraintStart_toEndOf="@id/image_recipe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"

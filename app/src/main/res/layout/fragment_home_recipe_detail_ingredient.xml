@@ -49,7 +49,7 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@id/button_remove"
             app:layout_constraintTop_toTopOf="@id/button_remove" />
-        <!--android:text="@{@string/serve_count(recipe.people)}"-->
+        <!--android:text="@{@string/serve_count(recipeModel.people)}"-->
 
         <Button
             android:id="@+id/button_add"

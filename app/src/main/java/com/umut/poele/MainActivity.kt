@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.homeRecipeDetailFragment ||
+                destination.id == R.id.loginFragment ||
                 destination.id == R.id.fridgeSupplyFragment ||
                 destination.id == R.id.homeRecipeFragment ||
                 destination.id == R.id.searchFragment ||
@@ -61,6 +62,8 @@ class MainActivity : AppCompatActivity() {
                 destination.id == R.id.editProfileFragment ||
                 destination.id == R.id.addressFragment ||
                 destination.id == R.id.editRecipeFragment ||
+                destination.id == R.id.addEditRecipeFragment ||
+                destination.id == R.id.addEditSupplyFragment ||
                 destination.id == R.id.editSupplyFragment
             ) {
                 binding.navigationBar.visibility = View.GONE

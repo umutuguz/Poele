@@ -1,0 +1,82 @@
+[
+  {
+    "user_id": 1,
+    "email": "rstockey0@chicagotribune.com",
+    "password": "dM8$aMu{",
+    "first_name": "Renell",
+    "last_name": "Stockey",
+    "phone": 1968394157
+  },
+  {
+    "user_id": 2,
+    "email": "eheaney1@springer.com",
+    "password": "aP3%7a7y",
+    "first_name": "Ethe",
+    "last_name": "Heaney",
+    "phone": 2241653269
+  },
+  {
+    "user_id": 3,
+    "email": "ibutlin2@multiply.com",
+    "password": "lP6&s,q8x=Gq75",
+    "first_name": "Ivar",
+    "last_name": "Butlin",
+    "phone": 5161740844
+  },
+  {
+    "user_id": 4,
+    "email": "fobbard3@yellowbook.com",
+    "password": "dA0@~bC{qHs!D",
+    "first_name": "Forrest",
+    "last_name": "Obbard",
+    "phone": 5053634196
+  },
+  {
+    "user_id": 5,
+    "email": "cbrissenden4@nyu.edu",
+    "password": "fW4/\\8?sn8!qUx",
+    "first_name": "Camila",
+    "last_name": "Brissenden",
+    "phone": 3832860328
+  },
+  {
+    "user_id": 6,
+    "email": "gandren5@epa.gov",
+    "password": "oJ2@_GYLoL\\3.*",
+    "first_name": "Gabriela",
+    "last_name": "Andren",
+    "phone": 5215071124
+  },
+  {
+    "user_id": 7,
+    "email": "mivachyov6@dropbox.com",
+    "password": "pP8<6$r&{)dKuX(K",
+    "first_name": "Matt",
+    "last_name": "Ivachyov",
+    "phone": 3678540385
+  },
+  {
+    "user_id": 8,
+    "email": "wsiaskowski7@hud.gov",
+    "password": "oX5<D+qBP<c",
+    "first_name": "Wendall",
+    "last_name": "Siaskowski",
+    "phone": 5916751837
+  },
+  {
+    "user_id": 9,
+    "email": "rjanse8@arizona.edu",
+    "password": "uQ6&)kS?I$GyCj6",
+    "first_name": "Rowen",
+    "last_name": "Janse",
+    "phone": 6495274713
+  },
+  {
+    "user_id": 10,
+    "email": "bsimkovich9@wiley.com",
+    "password": "xX5=z0AW",
+    "first_name": "Benoit",
+    "last_name": "Simkovich",
+    "phone": 3441233077
+  }
+]

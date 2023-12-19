@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="adapterFoodCategory"
-            type="com.umut.poele.ui.home.FoodCategoryAdapter" />
+            name="adapterRecipeCategory"
+            type="com.umut.poele.ui.home.RecipeCategoryAdapter" />
 
         <variable
             name="viewModel"
@@ -30,8 +30,6 @@
             android:src="@drawable/title_poele"
             app:layout_constraintEnd_toStartOf="@id/button_shoplist"
             app:layout_constraintHorizontal_weight="6.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_default="spread"
@@ -66,8 +64,6 @@
             android:text="@string/choose_home"
             android:onClick="@{()->viewModel.onChooseHomeClicked()}"
             app:icon="@drawable/outline_place_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintEnd_toStartOf="@id/choose_chef"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,15 +86,13 @@
             app:layout_constraintStart_toEndOf="@id/choose_home"
             app:layout_constraintTop_toTopOf="@id/choose_home" />
 
-        <androidx.viewpager2.widget.ViewPager2
+            <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_menu_card"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:orientation="horizontal"
             android:layout_marginVertical="@dimen/vertical_margin"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/choose_home">
@@ -113,9 +107,7 @@
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:text="@string/search_text"
             android:onClick="@{()->viewModel.onSearchBarClicked()}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/viewpager_menu_card" />
 
@@ -131,7 +123,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_bar"
-            app:setAdapter="@{adapterFoodCategory}"
+            app:setAdapter="@{adapterRecipeCategory}"
             app:spanCount="4"
             app:layout_constraintVertical_bias="0"
             tools:listitem="@layout/list_recipe_category">
