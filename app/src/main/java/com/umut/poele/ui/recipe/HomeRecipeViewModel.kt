@@ -7,18 +7,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.umut.poele.database.recipe.Recipe
-import com.umut.poele.database.recipe.RecipeDao
-import com.umut.poele.database.relation.RecipeCategoryWithRecipes
-import com.umut.poele.database.relation.UserWithRecipes
+import com.umut.poele.data.source.local.entity.RecipeEntity
+import com.umut.poele.data.source.local.dao.RecipeDao
+import com.umut.poele.data.source.local.relation.RecipeCategoryWithRecipes
+import com.umut.poele.data.source.local.relation.UserWithRecipeCategoriesWithRecipes
+import com.umut.poele.data.source.local.relation.UserWithRecipes
 import com.umut.poele.ui.base.BaseViewModel
+import com.umut.poele.ui.choose.SelectedUser
 import com.umut.poele.util.FilterListener
 import com.umut.poele.util.RecipeDatabaseListener
 import com.umut.poele.util.SearchBarListener
 import com.umut.poele.util.ShopListListener
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeRecipeViewModel(
@@ -30,6 +31,8 @@ class HomeRecipeViewModel(
 
     init {
         getAllRecipeCategories()
+        getUserWithRecipesAndCategories(SelectedUser.userId)
+
     }
 
     private fun getAllRecipeCategories() {
@@ -52,6 +55,16 @@ class HomeRecipeViewModel(
         _recipeCategoryListLiveData.postValue(recipeList)
     }
 
+    private fun getUserWithRecipesAndCategories(userId: Int){
+        val list = mutableListOf<List<UserWithRecipeCategoriesWithRecipes>>()
+        viewModelScope.launch {
+            recipeDao.getUsersWithRecipesAndCategories().collect{
+                list.add(it)
+                Log.i("umutcan", "it:${it.last().recipes.first().categories.last()}")
+            }
+        }
+    }
+
 
     fun getAllRecipesWithUserId(userId: Int): LiveData<UserWithRecipes> = recipeDao.getAllRecipesOfUser(userId).asLiveData()
 
@@ -62,7 +75,7 @@ class HomeRecipeViewModel(
         navigateBack()
     }
 
-    override fun onRecipeClicked(clickedRecipe: Recipe) {
+    override fun onRecipeClicked(clickedRecipe: RecipeEntity) {
         navigate(HomeRecipeFragmentDirections.actionHomeRecipeFragmentToHomeRecipeDetailFragment())
     }
 

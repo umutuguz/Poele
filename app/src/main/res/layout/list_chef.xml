@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="com.umut.poele.database.user.User" />
+            type="com.umut.poele.data.source.local.entity.UserEntity" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

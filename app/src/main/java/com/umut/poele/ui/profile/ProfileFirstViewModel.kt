@@ -4,19 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import com.umut.poele.database.recipe.RecipeDao
-import com.umut.poele.database.user.User
-import com.umut.poele.database.user.UserDao
+import com.umut.poele.data.source.local.entity.UserEntity
+import com.umut.poele.data.source.local.dao.UserDao
 import com.umut.poele.ui.base.BaseViewModel
-import com.umut.poele.ui.home.HomeFirstViewModel
 import com.umut.poele.util.AddressListener
 import com.umut.poele.util.EditProfileListener
 import com.umut.poele.util.FavoritesListener
-import java.util.PrimitiveIterator
 
 class ProfileFirstViewModel(private val userDao: UserDao) : BaseViewModel(), FavoritesListener, EditProfileListener, AddressListener {
 
-    fun getUserWithUserId(userId: Int): LiveData<User> = userDao.getUserWithUserId(userId).asLiveData()
+    fun getUserWithUserId(userId: Int): LiveData<UserEntity> = userDao.getUserWithUserId(userId).asLiveData()
 
     override fun onFavoritesClicked() {
         navigate(ProfileFirstFragmentDirections.actionProfileFirstFragmentToFavoriteFragment())

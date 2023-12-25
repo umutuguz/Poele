@@ -1,24 +1,19 @@
 package com.umut.poele.ui.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import com.umut.poele.database.address.AddressDao
-import com.umut.poele.database.category.RecipeCategory
-import com.umut.poele.database.menu.MenuCard
-import com.umut.poele.database.menu.MenuCardDao
-import com.umut.poele.database.recipe.RecipeDao
-import com.umut.poele.database.user.UserDao
+import com.umut.poele.data.source.local.entity.RecipeCategoryEntity
+import com.umut.poele.data.source.local.entity.MenuCardEntity
+import com.umut.poele.data.source.local.dao.RecipeDao
+import com.umut.poele.data.source.local.dao.UserDao
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.ChooseChefListener
 import com.umut.poele.util.ChooseHomeListener
 import com.umut.poele.util.RecipeCategoryListener
 import com.umut.poele.util.SearchBarListener
 import com.umut.poele.util.ShopListListener
-import kotlinx.coroutines.flow.Flow
-
 
 class HomeFirstViewModel(
     private val userDao: UserDao,
@@ -30,11 +25,11 @@ class HomeFirstViewModel(
         SearchBarListener,
         ShopListListener {
 
-    fun getMenuCardWithUserId(userId: Int): LiveData<List<MenuCard>> = userDao.getMenuCardWithUserId(userId).asLiveData()
+    fun getMenuCardWithUserId(userId: Int): LiveData<List<MenuCardEntity>> = userDao.getMenuCardWithUserId(userId).asLiveData()
 
-    fun getAllRecipeCategories(): LiveData<List<RecipeCategory>> = recipeDao.getAllRecipeCategories().asLiveData()
+    fun getAllRecipeCategories(): LiveData<List<RecipeCategoryEntity>> = recipeDao.getAllRecipeCategories().asLiveData()
 
-    override fun onRecipeCategoryClicked(clickedRecipeCategory: RecipeCategory) {
+    override fun onRecipeCategoryClicked(clickedRecipeCategory: RecipeCategoryEntity) {
         navigate(HomeFirstFragmentDirections.actionHomeFirstFragmentToHomeRecipeFragment(clickedRecipeCategory))
     }
 

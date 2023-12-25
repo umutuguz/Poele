@@ -3,17 +3,12 @@ package com.umut.poele.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.RecyclerView
 import com.umut.PoeleApplication
 import com.umut.poele.R
-import com.umut.poele.database.category.RecipeCategory
-import com.umut.poele.database.menu.MenuCard
-import com.umut.poele.database.recipe.Recipe
 import com.umut.poele.databinding.FragmentHomeFirstBinding
 import com.umut.poele.ui.base.BaseFragment
 import com.umut.poele.ui.login.AccountInfo
-import kotlinx.coroutines.launch
 
 class HomeFirstFragment : BaseFragment<FragmentHomeFirstBinding, HomeFirstViewModel>(R.layout.fragment_home_first) {
 

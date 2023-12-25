@@ -3,18 +3,16 @@ package com.umut.poele.ui.add
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.umut.poele.database.menu.MenuCard
-import com.umut.poele.database.recipe.RecipeDao
-import com.umut.poele.database.user.UserDao
+import com.umut.poele.data.source.local.entity.MenuCardEntity
+import com.umut.poele.data.source.local.dao.UserDao
 import com.umut.poele.ui.base.BaseViewModel
-import com.umut.poele.ui.recipe.HomeRecipeViewModel
 import com.umut.poele.util.CancelListener
 import kotlinx.coroutines.flow.Flow
 
 class DailyMenuViewModel(private val userDao: UserDao) : BaseViewModel(), CancelListener {
 
-    fun getMenuCardWithUserId(userId: Int): Flow<List<MenuCard>> {
-        Log.i("umutcan", "Full Address")
+    fun getMenuCardWithUserId(userId: Int): Flow<List<MenuCardEntity>> {
+        Log.i("umutcan", "Full AddressEntity")
         return userDao.getMenuCardWithUserId(userId)
     }
 

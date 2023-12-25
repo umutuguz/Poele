@@ -4,23 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import com.umut.poele.database.address.AddressDao
-import com.umut.poele.database.category.RecipeCategoryDao
-import com.umut.poele.database.menu.MenuCardDao
-import com.umut.poele.database.user.User
-import com.umut.poele.database.user.UserDao
+import com.umut.poele.data.source.local.entity.UserEntity
+import com.umut.poele.data.source.local.dao.UserDao
 import com.umut.poele.ui.base.BaseViewModel
-import com.umut.poele.ui.home.HomeFirstViewModel
 import com.umut.poele.util.UserLoginListener
-import kotlinx.coroutines.flow.Flow
 
 class LoginViewModel(
     private val userDao: UserDao
 ) : BaseViewModel(), UserLoginListener  {
 
-    fun getUserId(userEmail: String): LiveData<List<User>> = userDao.getUserWithUserEmail(userEmail).asLiveData()
+    fun getUserId(userEmail: String): LiveData<List<UserEntity>> = userDao.getUserWithUserEmail(userEmail).asLiveData()
 
-    fun getAllUsers(): LiveData<List<User>> = userDao.getAllUsers().asLiveData()
+    fun getAllUsers(): LiveData<List<UserEntity>> = userDao.getAllUsers().asLiveData()
 
     override fun onLoginClicked() {
         navigate(LoginFragmentDirections.actionLoginFragmentToHomeFirstFragment())

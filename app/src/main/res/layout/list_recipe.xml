@@ -8,7 +8,7 @@
 
         <variable
             name="recipe"
-            type="com.umut.poele.database.recipe.Recipe" />
+            type="com.umut.poele.data.source.local.entity.RecipeEntity" />
 
     </data>
 

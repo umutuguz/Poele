@@ -4,15 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import com.umut.poele.database.relation.UserWithAddresses
-import com.umut.poele.database.user.User
-import com.umut.poele.database.user.UserDao
+import com.umut.poele.data.source.local.entity.UserEntity
+import com.umut.poele.data.source.local.dao.UserDao
+import com.umut.poele.data.source.local.relation.UserWithAddresses
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.ListSelectionsListener
 
 class ChooseViewModel(private val userDao: UserDao) : BaseViewModel(),  ListSelectionsListener{
 
-    fun getAllUsers(): LiveData<List<User>> = userDao.getAllUsers().asLiveData()
+    fun getAllUsers(): LiveData<List<UserEntity>> = userDao.getAllUsers().asLiveData()
 
     fun getAllAddressesWithUser(userId: Int): LiveData<List<UserWithAddresses>> = userDao.getAddressesWithUserId(userId).asLiveData()
 

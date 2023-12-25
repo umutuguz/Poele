@@ -7,7 +7,7 @@
 
         <variable
             name="recipeCategory"
-            type="com.umut.poele.database.category.RecipeCategory" />
+            type="com.umut.poele.data.source.local.entity.RecipeCategoryEntity" />
 
         <variable
             name="listener"

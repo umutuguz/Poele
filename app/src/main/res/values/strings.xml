@@ -44,7 +44,7 @@
     <string name="carb">Carb</string>
     <string name="goal">Goal</string>
     <string name="e_mail">E-mail</string>
-    <string name="address">Address</string>
+    <string name="address">AddressEntity</string>
     <string name="bookmark">Bookmark</string>
     <string name="log_out">Log Out</string>
     <string name="live_support">Live Support</string>
@@ -68,7 +68,7 @@
     <string name="recipe_time">%d min</string>
     <string name="suggest_from_recipes">Suggest from recipes</string>
     <string name="ask_chatgpt">Ask ChatGPT</string>
-    <string name="home_address">Home Address…</string>
+    <string name="home_address">Home AddressEntity…</string>
     <string name="home_title">%s\'s %s</string>
     <string name="search_results">Search Results</string>
     <string name="recent_searches">Recent Searches</string>
@@ -162,8 +162,8 @@
     <string name="address_detail">%s Dist., %s Nbhd., %s St.</string>
     <string name="unused">Unused</string>
     <string name="used">Used</string>
-    <string name="edit_user_info">Edit User Info</string>
-    <string name="edit_address">Edit Address</string>
+    <string name="edit_user_info">Edit UserEntity Info</string>
+    <string name="edit_address">Edit AddressEntity</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
     <string name="phone_number">Phone Number</string>

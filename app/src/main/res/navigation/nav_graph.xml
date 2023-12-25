@@ -143,7 +143,7 @@
             app:destination="@id/shopListFragment" />
         <argument
             android:name="clickedRecipeCategory"
-            app:argType="com.umut.poele.database.category.RecipeCategory"
+            app:argType="com.umut.poele.data.source.local.entity.RecipeCategoryEntity"
             app:nullable="true"
             android:defaultValue="@null" />
     </fragment>

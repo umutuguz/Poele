@@ -7,11 +7,11 @@
 
         <variable
             name="user"
-            type="com.umut.poele.database.user.User" />
+            type="com.umut.poele.data.source.local.entity.UserEntity" />
 
         <variable
             name="address"
-            type="com.umut.poele.database.address.Address" />
+            type="com.umut.poele.data.source.local.entity.AddressEntity" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -76,7 +76,7 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@id/text_home_name"
                 app:layout_constraintTop_toBottomOf="@id/text_home_name"
-                tools:text="Home Address" />
+                tools:text="Home AddressEntity" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
