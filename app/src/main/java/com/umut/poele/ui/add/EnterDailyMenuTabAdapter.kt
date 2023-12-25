@@ -2,7 +2,7 @@ package com.umut.poele.ui.add
 
 import com.umut.poele.R
 import com.umut.poele.databinding.ItemEnterDailyMenuBinding
-import com.umut.poele.model.MenuCardModel
+import com.umut.poele.domain.model.MenuCardModel
 import com.umut.poele.ui.base.BaseAdapter
 
 class EnterDailyMenuTabAdapter(private val dataset: List<MenuCardModel>) : BaseAdapter<ItemEnterDailyMenuBinding, MenuCardModel>(dataset, R.layout.item_enter_daily_menu) {

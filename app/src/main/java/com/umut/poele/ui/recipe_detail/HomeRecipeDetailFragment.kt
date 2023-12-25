@@ -8,7 +8,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.umut.poele.R
 import com.umut.poele.databinding.FragmentHomeRecipeDetailBinding
 import com.umut.poele.ui.base.BaseFragment
-import com.umut.poele.util.Constants.RECIPE_DETAIL_TAB_NAME
+import com.umut.poele.util.Constant.RECIPE_DETAIL_TAB_NAME
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

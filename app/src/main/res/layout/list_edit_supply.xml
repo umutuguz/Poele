@@ -11,7 +11,7 @@
             type="com.umut.poele.ui.add.AddEditSupplyViewModel" />
         <variable
             name="supply"
-            type="com.umut.poele.model.Supply" />
+            type="com.umut.poele.domain.model.Supply" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

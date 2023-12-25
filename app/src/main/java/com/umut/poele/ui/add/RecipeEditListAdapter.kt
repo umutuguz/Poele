@@ -2,12 +2,12 @@ package com.umut.poele.ui.add
 
 import com.umut.poele.R
 import com.umut.poele.databinding.ListEditRecipeBinding
-import com.umut.poele.model.RecipeModel
+import com.umut.poele.domain.model.RecipeModel
 import com.umut.poele.ui.base.BaseAdapter
 
 class RecipeEditListAdapter(private val dataset: List<RecipeModel>, private val vm: AddEditRecipeViewModel, private val forPickRecipe: Boolean) :
     BaseAdapter<ListEditRecipeBinding,
-        RecipeModel>(dataset, R
+            RecipeModel>(dataset, R
     .layout
     .list_edit_recipe) {
 

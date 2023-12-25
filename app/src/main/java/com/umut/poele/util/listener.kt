@@ -2,8 +2,8 @@ package com.umut.poele.util
 
 import com.umut.poele.data.source.local.entity.RecipeCategoryEntity
 import com.umut.poele.data.source.local.entity.RecipeEntity
-import com.umut.poele.model.RecipeModel
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.RecipeModel
+import com.umut.poele.domain.model.Supply
 
 interface RecipeCategoryListener {
     fun onRecipeCategoryClicked(clickedRecipeCategory: RecipeCategoryEntity)

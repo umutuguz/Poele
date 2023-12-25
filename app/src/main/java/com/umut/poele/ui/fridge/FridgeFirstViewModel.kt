@@ -3,7 +3,7 @@ package com.umut.poele.ui.fridge
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.umut.poele.data.source.local.dao.SupplyDao
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.ChooseHomeListener
 import com.umut.poele.util.FilterListener

@@ -1,6 +1,6 @@
 package com.umut.poele.ui.fridge
 
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.AddMacroListener
 import com.umut.poele.util.EditSupplyListener

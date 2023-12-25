@@ -1,12 +1,10 @@
 package com.umut.poele.ui.recipe_detail
 
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import com.umut.poele.R
-import com.umut.poele.data.RecipeDataSource
+import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.databinding.FragmentHomeRecipeDetailIngredientBinding
 import com.umut.poele.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint

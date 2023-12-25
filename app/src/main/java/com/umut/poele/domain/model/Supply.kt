@@ -1,4 +1,4 @@
-package com.umut.poele.model
+package com.umut.poele.domain.model
 
 import android.os.Parcelable
 import com.umut.poele.ui.base.ListAdapterItem
@@ -6,7 +6,6 @@ import com.umut.poele.util.States
 import com.umut.poele.util.Units
 import kotlinx.parcelize.Parcelize
 import java.time.LocalDate
-import java.util.Date
 
 typealias ImageUrl = Int
 

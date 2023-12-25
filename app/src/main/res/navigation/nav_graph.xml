@@ -248,7 +248,7 @@
         <argument
             android:name="clickedRecipe"
             android:defaultValue="@null"
-            app:argType="com.umut.poele.model.RecipeModel"
+            app:argType="com.umut.poele.domain.model.RecipeModel"
             app:nullable="true" />
     </fragment>
     <dialog
@@ -301,7 +301,7 @@
         <argument
             android:name="clickedSupply"
             android:defaultValue="@null"
-            app:argType="com.umut.poele.model.Supply"
+            app:argType="com.umut.poele.domain.model.Supply"
             app:nullable="true" />
     </fragment>
     <fragment
@@ -365,7 +365,7 @@
             app:destination="@id/fridgeFirstFragment" />
         <argument
             android:name="clickedSupply"
-            app:argType="com.umut.poele.model.Supply"
+            app:argType="com.umut.poele.domain.model.Supply"
             app:nullable="true"
             android:defaultValue="@null" />
     </dialog>
@@ -379,7 +379,7 @@
             app:destination="@id/addEditSupplyFragment" />
         <argument
             android:name="clickedSupply"
-            app:argType="com.umut.poele.model.Supply"
+            app:argType="com.umut.poele.domain.model.Supply"
             app:nullable="true"
             android:defaultValue="@null" />
     </dialog>

@@ -10,7 +10,7 @@ import com.umut.poele.R
 import com.umut.poele.databinding.FragmentDailyMenuBinding
 import com.umut.poele.ui.base.BaseFragment
 import com.umut.poele.ui.login.AccountInfo
-import com.umut.poele.util.Constants
+import com.umut.poele.util.Constant
 import kotlinx.coroutines.launch
 
 class DailyMenuFragment : BaseFragment<FragmentDailyMenuBinding, DailyMenuViewModel>(R.layout.fragment_daily_menu) {
@@ -31,7 +31,7 @@ class DailyMenuFragment : BaseFragment<FragmentDailyMenuBinding, DailyMenuViewMo
                     viewpagerDailyMenu.adapter = EnterDailyMenuTabAdapter(loadMenuCardModel(it))
 
                     TabLayoutMediator(binding.tabMenu, binding.viewpagerDailyMenu) {tab, position ->
-                        tab.text = Constants.ENTER_DAILY_MENU_TAB_NAME[position]
+                        tab.text = Constant.ENTER_DAILY_MENU_TAB_NAME[position]
                     }.attach()
                 }
             }

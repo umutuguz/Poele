@@ -2,7 +2,7 @@ package com.umut.poele.ui.shoplist
 
 import com.umut.poele.R
 import com.umut.poele.databinding.ListShopListSupplyBinding
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseAdapter
 
 class ShopListSupplyAdapter(private val dataset: List<Supply>) : BaseAdapter<ListShopListSupplyBinding, Supply>(

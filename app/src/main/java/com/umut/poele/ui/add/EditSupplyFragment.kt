@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.umut.poele.R
-import com.umut.poele.data.SupplyDataSource
+import com.umut.poele.domain.model.SupplyDataSource
 import com.umut.poele.databinding.FragmentEditSupplyBinding
 import com.umut.poele.ui.base.BaseFragment
 

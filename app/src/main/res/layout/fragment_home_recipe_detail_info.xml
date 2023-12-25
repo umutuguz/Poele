@@ -10,7 +10,7 @@
             type="com.umut.poele.ui.recipe_detail.EquipmentAdapter" />
         <variable
             name="recipeModel"
-            type="com.umut.poele.model.RecipeModel" />
+            type="com.umut.poele.domain.model.RecipeModel" />
     </data>
 
     <ScrollView

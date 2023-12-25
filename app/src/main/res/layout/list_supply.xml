@@ -8,7 +8,7 @@
     <data>
         <variable
             name="supply"
-            type="com.umut.poele.model.Supply" />
+            type="com.umut.poele.domain.model.Supply" />
         <variable
             name="viewModel"
             type="com.umut.poele.ui.fridge.FridgeFirstViewModel" />

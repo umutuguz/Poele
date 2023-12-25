@@ -2,7 +2,7 @@ package com.umut.poele.ui.search
 
 import com.umut.poele.R
 import com.umut.poele.databinding.ListSearchRecipeBinding
-import com.umut.poele.model.RecipeModel
+import com.umut.poele.domain.model.RecipeModel
 import com.umut.poele.ui.base.BaseAdapter
 
 class SearchRecipeAdapter(private val dataset: List<RecipeModel>, private val vm: SearchViewModel) : BaseAdapter<ListSearchRecipeBinding, RecipeModel>(

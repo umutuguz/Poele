@@ -8,7 +8,7 @@
 
         <variable
             name="recipeModel"
-            type="com.umut.poele.model.RecipeModel" />
+            type="com.umut.poele.domain.model.RecipeModel" />
 
         <variable
             name="viewModel"

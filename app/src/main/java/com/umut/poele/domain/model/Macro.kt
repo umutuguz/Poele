@@ -1,4 +1,4 @@
-package com.umut.poele.model
+package com.umut.poele.domain.model
 
 import android.os.Parcelable
 import com.umut.poele.ui.base.ListAdapterItem

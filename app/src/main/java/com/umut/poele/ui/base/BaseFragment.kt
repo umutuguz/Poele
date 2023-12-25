@@ -12,8 +12,8 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import com.umut.poele.BR
 import com.umut.poele.data.source.local.entity.MenuCardEntity
-import com.umut.poele.model.MenuCardModel
-import com.umut.poele.util.Constants
+import com.umut.poele.domain.model.MenuCardModel
+import com.umut.poele.util.Constant
 import com.umut.poele.util.Meals
 import com.umut.poele.util.NavigationCommand
 
@@ -61,7 +61,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
 
     private fun observeBottomSheetState() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>(
-            Constants.KEY_DISMISS
+            Constant.KEY_DISMISS
         )?.observe(viewLifecycleOwner) {
             hasBottomSheetOnScreen = !it
         }

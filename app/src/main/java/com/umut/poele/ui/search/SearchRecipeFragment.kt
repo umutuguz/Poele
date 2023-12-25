@@ -2,10 +2,9 @@ package com.umut.poele.ui.search
 
 import android.os.Bundle
 import android.view.View
-import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import com.umut.poele.R
-import com.umut.poele.data.RecipeDataSource
+import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.databinding.FragmentSearchRecipeBinding
 import com.umut.poele.ui.base.BaseFragment
 

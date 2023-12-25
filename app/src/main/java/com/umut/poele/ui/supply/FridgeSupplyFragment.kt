@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.umut.poele.R
-import com.umut.poele.data.SupplyDataSource
+import com.umut.poele.domain.model.SupplyDataSource
 import com.umut.poele.databinding.FragmentFridgeSupplyBinding
 import com.umut.poele.ui.base.BaseFragment
-import com.umut.poele.ui.fridge.FridgeFirstViewModel
-import com.umut.poele.ui.fridge.SupplyListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

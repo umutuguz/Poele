@@ -1,10 +1,10 @@
-package com.umut.poele.data
+package com.umut.poele.domain.model
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.umut.poele.R
-import com.umut.poele.model.Macro
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.Macro
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.util.States
 import com.umut.poele.util.Units
 import java.time.LocalDate

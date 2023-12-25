@@ -1,7 +1,7 @@
 package com.umut.poele.ui.search
 
-import com.umut.poele.model.RecipeModel
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.RecipeModel
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.RecipeListener
 import com.umut.poele.util.SupplyListener

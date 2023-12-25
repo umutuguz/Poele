@@ -5,7 +5,7 @@
     <data>
         <variable
             name="clickedSupply"
-            type="com.umut.poele.model.Supply" />
+            type="com.umut.poele.domain.model.Supply" />
 
         <variable
             name="viewModel"

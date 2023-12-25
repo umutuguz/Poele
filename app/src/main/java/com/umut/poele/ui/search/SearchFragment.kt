@@ -8,7 +8,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.umut.poele.R
 import com.umut.poele.databinding.FragmentSearchBarBinding
 import com.umut.poele.ui.base.BaseFragment
-import com.umut.poele.util.Constants.SEARCH_TAB_NAME
+import com.umut.poele.util.Constant.SEARCH_TAB_NAME
 
 class SearchFragment : BaseFragment<FragmentSearchBarBinding, SearchViewModel>(R.layout.fragment_search_bar) {
 

@@ -135,6 +135,6 @@ fun setMenu(textView: TextView, mealTitle: Meals?){
 //    }
 //
 //    TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
-//        tab.text = Constants.RECIPE_DETAIL_TAB_NAME[position]
+//        tab.text = Constant.RECIPE_DETAIL_TAB_NAME[position]
 //    }.attach()
 //}

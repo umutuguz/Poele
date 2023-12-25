@@ -1,6 +1,6 @@
 package com.umut.poele.ui.add
 
-import com.umut.poele.model.RecipeModel
+import com.umut.poele.domain.model.RecipeModel
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.CancelListener
 import com.umut.poele.util.MacroMealEntryRecipeListener

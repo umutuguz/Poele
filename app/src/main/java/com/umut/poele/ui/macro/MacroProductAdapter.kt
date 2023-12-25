@@ -3,7 +3,7 @@ package com.umut.poele.ui.macro
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.umut.poele.R
 import com.umut.poele.databinding.ListMacroProductCardBinding
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseAdapter
 import com.umut.poele.ui.base.BaseViewHolder
 

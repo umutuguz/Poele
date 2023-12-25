@@ -2,7 +2,7 @@ package com.umut.poele.ui.shoplist
 
 import com.umut.poele.R
 import com.umut.poele.databinding.ListShopListRecipeBinding
-import com.umut.poele.model.RecipeModel
+import com.umut.poele.domain.model.RecipeModel
 import com.umut.poele.ui.base.BaseAdapter
 
 class ShopListRecipeAdapter(private val dataset: List<RecipeModel>) :

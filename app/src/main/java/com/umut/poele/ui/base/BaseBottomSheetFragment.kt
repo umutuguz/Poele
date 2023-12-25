@@ -3,18 +3,14 @@ package com.umut.poele.ui.base
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.umut.poele.R
-import com.umut.poele.ui.home.HomeFirstFragmentDirections
-import com.umut.poele.util.Constants
+import com.umut.poele.util.Constant
 import com.umut.poele.util.NavigationCommand
 
 abstract class BaseBottomSheetFragment<T : ViewDataBinding, VM : BaseViewModel>(
@@ -36,7 +32,7 @@ abstract class BaseBottomSheetFragment<T : ViewDataBinding, VM : BaseViewModel>(
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        findNavController().previousBackStackEntry?.savedStateHandle?.set(Constants.KEY_DISMISS, false)
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(Constant.KEY_DISMISS, false)
         return super.onCreateDialog(savedInstanceState)
     }
 
@@ -47,7 +43,7 @@ abstract class BaseBottomSheetFragment<T : ViewDataBinding, VM : BaseViewModel>(
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        findNavController().previousBackStackEntry?.savedStateHandle?.set(Constants.KEY_DISMISS, true)
+        findNavController().previousBackStackEntry?.savedStateHandle?.set(Constant.KEY_DISMISS, true)
     }
 
     private fun observeNavigation() {

@@ -5,10 +5,9 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.umut.poele.R
-import com.umut.poele.data.RecipeDataSource
+import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.databinding.FragmentEditRecipeBinding
 import com.umut.poele.ui.base.BaseFragment
-import com.umut.poele.ui.recipe.RecipeListAdapter
 
 class EditRecipeFragment : BaseFragment<FragmentEditRecipeBinding, AddEditRecipeViewModel>(R.layout.fragment_edit_recipe) {
 

@@ -1,9 +1,9 @@
-package com.umut.poele.data
+package com.umut.poele.domain.model
 
 import com.umut.poele.R
-import com.umut.poele.model.Macro
-import com.umut.poele.model.RecipeModel
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.Macro
+import com.umut.poele.domain.model.RecipeModel
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.util.Levels
 import com.umut.poele.util.States
 import com.umut.poele.util.Units

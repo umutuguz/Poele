@@ -2,7 +2,7 @@ package com.umut.poele.ui.recipe_detail
 
 import com.umut.poele.R
 import com.umut.poele.databinding.ListRecipeIngredientBinding
-import com.umut.poele.model.Supply
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseAdapter
 
 class IngredientAdapter(dataset: List<Supply>) :
