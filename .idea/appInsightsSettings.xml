@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.umut.poele" />
+                  <option name="mobileSdkAppId" value="1:603151608098:android:691b42444a2d931365dd7b" />
+                  <option name="projectId" value="poele-umut" />
+                  <option name="projectNumber" value="603151608098" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

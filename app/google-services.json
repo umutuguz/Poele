@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "603151608098",
+    "firebase_url": "https://poele-umut-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "poele-umut",
+    "storage_bucket": "poele-umut.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603151608098:android:691b42444a2d931365dd7b",
+        "android_client_info": {
+          "package_name": "com.umut.poele"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603151608098-drvj3qa3s2p1pl56t291lpf815m0pedl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.umut.poele",
+            "certificate_hash": "d4e2f12b4c493674c9ca98c990a92f527d5a9253"
+          }
+        },
+        {
+          "client_id": "603151608098-k7n7bbghbsopirdq7v23kbubprst4e1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhAcbrH8eI_eYf1B2zlYu_OiWqo2YwpBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603151608098-k7n7bbghbsopirdq7v23kbubprst4e1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

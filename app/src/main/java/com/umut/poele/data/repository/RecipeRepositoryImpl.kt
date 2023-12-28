@@ -13,6 +13,6 @@ class RecipeRepositoryImpl(poeleApiService: PoeleApiService, recipeDao: RecipeDa
 
     override suspend fun getRecipes(): Flow<List<RecipeDto>> {
         Log.i("umutcan", "RecipeRepositoryImpl")
-        return flowOf(listOf(RecipeDto(1)))
+        return flowOf(emptyList())
     }
 }

@@ -43,7 +43,7 @@
     <string name="macros">Macros</string>
     <string name="carb">Carb</string>
     <string name="goal">Goal</string>
-    <string name="e_mail">E-mail</string>
+    <string name="email">Email</string>
     <string name="address">AddressEntity</string>
     <string name="bookmark">Bookmark</string>
     <string name="log_out">Log Out</string>
@@ -184,6 +184,8 @@
     <string name="shoplist_dialog_negative_button">Decline</string>
     <string name="shoplist_dialog_positive_button">Accept</string>
     <string name="sign_up">Sign Up</string>
+    <string name="last_name">Last name</string>
+    <string name="first_name">First name</string>
 
     <!--    <plurals name="amount">-->
 <!--        <item quantity="one">%.0f</item>-->

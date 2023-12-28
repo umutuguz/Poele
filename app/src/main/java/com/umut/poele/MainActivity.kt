@@ -1,14 +1,23 @@
 package com.umut.poele
 
 import android.os.Bundle
+import android.service.notification.Condition
 import android.view.View
+import android.window.SplashScreen
+import android.window.SplashScreenView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.google.firebase.BuildConfig
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.umut.poele.databinding.ActivityMainBinding
+import com.umut.poele.ui.login.LoginViewModel
+import com.umut.poele.util.Constant
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,8 +29,10 @@ class MainActivity : AppCompatActivity() {
     //    private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        installSplashScreen()
+//        configureFirebaseServices()
+        installSplashScreen().setKeepOnScreenCondition{
+            false
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -99,6 +110,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.nav_host_fragment, fragment)
@@ -106,4 +118,10 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
+
+//    private fun configureFirebaseServices() {
+//        if (BuildConfig.DEBUG) {
+//            Firebase.auth.useEmulator(Constant.LOCALHOST, Constant.AUTH_PORT)
+//        }
+//    }
 }

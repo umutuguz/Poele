@@ -1,0 +1,81 @@
+[debug] [2023-12-26T18:02:25.912Z] ----------------------------------------------------------------------
+[debug] [2023-12-26T18:02:25.914Z] Command:       C:\Users\umutu\Desktop\firebase-tools-instant-win.exe C:\Users\umutu\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase emulators:start --only auth
+[debug] [2023-12-26T18:02:25.914Z] CLI Version:   13.0.2
+[debug] [2023-12-26T18:02:25.914Z] Platform:      win32
+[debug] [2023-12-26T18:02:25.914Z] Node Version:  v18.5.0
+[debug] [2023-12-26T18:02:25.915Z] Time:          Tue Dec 26 2023 21:02:25 GMT+0300 (GMT+03:00)
+[debug] [2023-12-26T18:02:25.915Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-26T18:02:26.001Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-26T18:02:26.001Z] > authorizing via signed-in user (umutuguzlar7@gmail.com)
+[info] i  emulators: Starting emulators: auth {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth"}}
+[debug] [2023-12-26T18:02:26.009Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-26T18:02:26.009Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-26T18:02:26.009Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project poele-umut. This may result in unexpected behavior. 
+[debug] [2023-12-26T18:02:26.018Z] [hub] writing locator at C:\Users\umutu\AppData\Local\Temp\hub-poele-umut.json
+[debug] [2023-12-26T18:02:30.498Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-12-26T18:02:30.498Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-12-26T18:02:30.498Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\umutu\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\umutu\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-12-26T18:02:30.666Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-12-26T18:02:30.666Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth │
+└────────────────┴────────────────┴────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-12-27T10:11:15.434Z] ----------------------------------------------------------------------
+[debug] [2023-12-27T10:11:15.436Z] Command:       C:\Users\umutu\Desktop\firebase-tools-instant-win.exe C:\Users\umutu\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase emulators:start --only auth
+[debug] [2023-12-27T10:11:15.436Z] CLI Version:   13.0.2
+[debug] [2023-12-27T10:11:15.436Z] Platform:      win32
+[debug] [2023-12-27T10:11:15.436Z] Node Version:  v18.5.0
+[debug] [2023-12-27T10:11:15.437Z] Time:          Wed Dec 27 2023 13:11:15 GMT+0300 (GMT+03:00)
+[debug] [2023-12-27T10:11:15.437Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-27T10:11:15.540Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-27T10:11:15.540Z] > authorizing via signed-in user (umutuguzlar7@gmail.com)
+[info] i  emulators: Starting emulators: auth {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth"}}
+[debug] [2023-12-27T10:11:15.548Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-27T10:11:15.548Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-12-27T10:11:15.548Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project poele-umut. This may result in unexpected behavior. 
+[debug] [2023-12-27T10:11:15.581Z] [hub] writing locator at C:\Users\umutu\AppData\Local\Temp\hub-poele-umut.json
+[debug] [2023-12-27T10:11:20.214Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-12-27T10:11:20.214Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-12-27T10:11:20.214Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\umutu\\.cache\\firebase\\emulators\\ui-v1.11.7\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\umutu\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.7\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-12-27T10:11:20.573Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-12-27T10:11:20.573Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI        │
+├────────────────┼────────────────┼────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth │
+└────────────────┴────────────────┴────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-12-27T11:23:28.620Z] Received signal SIGINT (Ctrl-C) 1

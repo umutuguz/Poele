@@ -95,7 +95,7 @@
                     android:layout_alignBottom="@id/image_avatar"
                     android:layout_toEndOf="@id/image_avatar"
                     android:text="@{user.email}"
-                    tools:text="@string/e_mail" />
+                    tools:text="@string/email" />
 
                 <ImageView
                     android:id="@+id/image_edit"

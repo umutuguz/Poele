@@ -137,3 +137,7 @@ interface UserLoginListener{
     fun onGuestLoginClicked()
 
 }
+interface UserSignupListener{
+    fun onSignupClicked(email: String)
+
+}
