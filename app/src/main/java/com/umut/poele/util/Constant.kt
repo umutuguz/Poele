@@ -8,7 +8,8 @@ object Constant {
     val RECIPE_DETAIL_TAB_NAME = listOf("Info", "Ingredient", "DirectionEntity")
     val SEARCH_TAB_NAME = listOf("RecipeModel", "Ingredient")
     val ENTER_DAILY_MENU_TAB_NAME = listOf("Breakfast", "Brunch", "Lunch", "Dinner")
-    const val BASE_URL = "https://www.themealdb.com/api/json/v1/1"
+    const val BASE_URL = "https://api.spoonacular.com"
+//    const val BASE_URL = "https://api.imgflip.com"
     const val LOCALHOST = "127.0.0.1"
     const val AUTH_PORT = 9099
     const val EMULATOR_PORT = 4000
@@ -25,7 +26,9 @@ enum class Units { ML, GRAM, TEASPOON, TABLESPOON, DESSERTSPOON, CUP, PINCH, PIE
 enum class States { UNUSED, USED
 }
 
-enum class Levels { EASY, INTERMEDIATE, HARD
+enum class Levels { EASY, INTERMEDIATE, HARD, UNDETERMINED
 }
 
 enum class Meals { BREAKFAST, BRUNCH, LUNCH, DINNER }
+
+enum class TabRecipe {Chicken, Pasta, Soup, Fish, Beef}

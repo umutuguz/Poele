@@ -2,9 +2,12 @@ package com.umut.poele.util
 
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.umut.poele.R
 import com.umut.poele.ui.base.BaseAdapter
 import com.umut.poele.ui.base.ListAdapterItem
 import java.time.LocalDate
@@ -12,6 +15,17 @@ import java.time.LocalDate
 @BindingAdapter("setImage")
 fun setImage(imageView: ImageView, imageId: Int) {
     imageView.setImageResource(imageId)
+}
+
+@BindingAdapter("setUrl")
+fun setUrl(imageView: ImageView, url: String?){
+    url?.let {
+        val uri =url.toUri().buildUpon().scheme("https").build()
+        imageView.load(uri) {
+            placeholder(R.drawable.loading_animation)
+            error(R.drawable.ic_broken_image)
+        }
+    }
 }
 
 @BindingAdapter("setAdapter")
@@ -68,11 +82,12 @@ fun setDifficultyLevel(textView: TextView, level: Levels?) {
 }
 
 @BindingAdapter("setDifficultyLevelString")
-fun setDifficultyLevelString(textView: TextView, level: String?) {
+fun setDifficultyLevelString(textView: TextView, level: Levels?) {
     when (level) {
-        "EASY" -> textView.text = "Easy"
-        "INTERMEDIATE" -> textView.text = "Intermediate"
-        "HARD" -> textView.text = "Hard"
+        Levels.EASY -> textView.text = "Easy"
+        Levels.INTERMEDIATE -> textView.text = "Intermediate"
+        Levels.HARD -> textView.text = "Hard"
+        Levels.UNDETERMINED -> textView.text = "Unterdetermined"
 
         else -> {textView.text = ""}
     }

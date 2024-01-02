@@ -109,7 +109,7 @@
                 app:layout_constraintTop_toBottomOf="@id/button_login" />
 
             <TextView
-                android:id="@+id/deneme"
+                android:id="@+id/text_guest"
                 style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,6 +119,39 @@
                 android:textColor="@color/md_theme_light_onSurface"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_sign_up" />
+
+            <ImageView
+                android:id="@+id/image_meme"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                tools:src="@drawable/lasagne"
+                app:setUrl="@{viewModel.recipeList.imageUrl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:scaleType="centerInside"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/text_meme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/image_meme"
+                tools:text="Meme 1"
+                android:text="@{viewModel.recipeList.title}"
+                app:layout_constraintStart_toStartOf="@id/image_meme"
+                app:layout_constraintEnd_toEndOf="@id/image_meme" />
+
+            <TextView
+                android:id="@+id/text_recipe_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/text_meme"
+                tools:text="Meme 1"
+                android:text="@{viewModel.recipeInfo.chefName}"
+                app:layout_constraintStart_toStartOf="@id/image_meme"
+                app:layout_constraintEnd_toEndOf="@id/image_meme"
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

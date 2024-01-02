@@ -2,6 +2,7 @@ package com.umut.poele.util
 
 import com.umut.poele.data.source.local.entity.RecipeCategoryEntity
 import com.umut.poele.data.source.local.entity.RecipeEntity
+import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.domain.model.RecipeModel
 import com.umut.poele.domain.model.Supply
 
@@ -14,7 +15,7 @@ interface RecipeListener {
 }
 
 interface RecipeDatabaseListener {
-    fun onRecipeClicked(clickedRecipe: RecipeEntity)
+    fun onRecipeClicked(clickedRecipe: RecipeBasic)
 }
 
 interface SurpriseMeListener {

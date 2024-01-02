@@ -1,158 +1,229 @@
 package com.umut.poele.data.source.remote.dto
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.umut.poele.domain.model.RecipeBasic
+
+fun RecipeDto.toRecipe(): RecipeBasic{
+    return RecipeBasic(
+        id,
+        title,
+        image,
+        sourceName,
+        dishTypes,
+    )
+}
 
 data class RecipeDto(
-    @SerializedName("analyzedInstructions")
-    val analyzedInstructions: List<Any>,
-    @SerializedName("cheap")
-    val cheap: Boolean,
-    @SerializedName("creditsText")
-    val creditsText: String,
-    @SerializedName("cuisines")
-    val cuisines: List<Any>,
-    @SerializedName("dairyFree")
-    val dairyFree: Boolean,
-    @SerializedName("diets")
-    val diets: List<Any>,
-    @SerializedName("dishTypes")
-    val dishTypes: List<String>,
-    @SerializedName("extendedIngredients")
-    val extendedIngredients: List<ExtendedIngredient>,
-    @SerializedName("gaps")
-    val gaps: String,
-    @SerializedName("glutenFree")
-    val glutenFree: Boolean,
-    @SerializedName("healthScore")
-    val healthScore: Double,
-    @SerializedName("id")
-    val id: Int,
-    @SerializedName("image")
-    val image: String,
-    @SerializedName("imageType")
-    val imageType: String,
-    @SerializedName("instructions")
-    val instructions: String,
-    @SerializedName("ketogenic")
-    val ketogenic: Boolean,
-    @SerializedName("license")
-    val license: String,
-    @SerializedName("lowFodmap")
-    val lowFodmap: Boolean,
-    @SerializedName("occasions")
-    val occasions: List<Any>,
-    @SerializedName("pricePerServing")
-    val pricePerServing: Double,
-    @SerializedName("readyInMinutes")
-    val readyInMinutes: Int,
-    @SerializedName("servings")
-    val servings: Int,
-    @SerializedName("sourceName")
-    val sourceName: String,
-    @SerializedName("sourceUrl")
-    val sourceUrl: String,
-    @SerializedName("spoonacularScore")
-    val spoonacularScore: Double,
-    @SerializedName("spoonacularSourceUrl")
-    val spoonacularSourceUrl: String,
-    @SerializedName("summary")
-    val summary: String,
-    @SerializedName("sustainable")
-    val sustainable: Boolean,
-    @SerializedName("title")
-    val title: String,
-    @SerializedName("vegan")
-    val vegan: Boolean,
-    @SerializedName("vegetarian")
+    @Json(name = "vegetarian")
     val vegetarian: Boolean,
-    @SerializedName("veryHealthy")
+    @Json(name = "vegan")
+    val vegan: Boolean,
+    @Json(name = "glutenFree")
+    val glutenFree: Boolean,
+    @Json(name = "dairyFree")
+    val dairyFree: Boolean,
+    @Json(name = "veryHealthy")
     val veryHealthy: Boolean,
-    @SerializedName("veryPopular")
+    @Json(name = "cheap")
+    val cheap: Boolean,
+    @Json(name = "veryPopular")
     val veryPopular: Boolean,
-    @SerializedName("weightWatcherSmartPoints")
+    @Json(name = "sustainable")
+    val sustainable: Boolean,
+    @Json(name = "lowFodmap")
+    val lowFodmap: Boolean,
+    @Json(name = "weightWatcherSmartPoints")
     val weightWatcherSmartPoints: Int,
-    @SerializedName("whole30")
-    val whole30: Boolean,
-    @SerializedName("winePairing")
-    val winePairing: WinePairing
+    @Json(name = "gaps")
+    val gaps: String,
+    @Json(name = "preparationMinutes")
+    val preparationMinutes: Int,
+    @Json(name = "cookingMinutes")
+    val cookingMinutes: Int,
+    @Json(name = "aggregateLikes")
+    val aggregateLikes: Int,
+    @Json(name = "healthScore")
+    val healthScore: Int,
+    @Json(name = "creditsText")
+    val creditsText: String,
+    @Json(name = "license")
+    val license: String,
+    @Json(name = "sourceName")
+    val sourceName: String,
+    @Json(name = "pricePerServing")
+    val pricePerServing: Double,
+    @Json(name = "extendedIngredients")
+    val extendedIngredients: List<ExtendedIngredient>,
+    @Json(name = "id")
+    val id: Int,
+    @Json(name = "title")
+    val title: String,
+    @Json(name = "readyInMinutes")
+    val readyInMinutes: Int,
+    @Json(name = "servings")
+    val servings: Int,
+    @Json(name = "sourceUrl")
+    val sourceUrl: String,
+    @Json(name = "image")
+    val image: String,
+    @Json(name = "imageType")
+    val imageType: String,
+    @Json(name = "nutrition")
+    val nutrition: Nutrition,
+    @Json(name = "summary")
+    val summary: String,
+    @Json(name = "cuisines")
+    val cuisines: List<Any>,
+    @Json(name = "dishTypes")
+    val dishTypes: List<String>,
+    @Json(name = "diets")
+    val diets: List<Any>,
+    @Json(name = "occasions")
+    val occasions: List<Any>,
+    @Json(name = "winePairing")
+    val winePairing: WinePairing,
+    @Json(name = "instructions")
+    val instructions: String,
+    @Json(name = "analyzedInstructions")
+    val analyzedInstructions: List<Any>,
+    @Json(name = "originalId")
+    val originalId: Any?,
+    @Json(name = "spoonacularScore")
+    val spoonacularScore: Double,
+    @Json(name = "spoonacularSourceUrl")
+    val spoonacularSourceUrl: String
 )
 
 data class ExtendedIngredient(
-    @SerializedName("aisle")
-    val aisle: String,
-    @SerializedName("amount")
-    val amount: Double,
-    @SerializedName("consitency")
-    val consitency: String,
-    @SerializedName("id")
+    @Json(name = "id")
     val id: Int,
-    @SerializedName("image")
+    @Json(name = "aisle")
+    val aisle: String,
+    @Json(name = "image")
     val image: String,
-    @SerializedName("measures")
-    val measures: Measures,
-    @SerializedName("meta")
-    val meta: List<String>,
-    @SerializedName("name")
+    @Json(name = "consistency")
+    val consistency: String,
+    @Json(name = "name")
     val name: String,
-    @SerializedName("original")
+    @Json(name = "nameClean")
+    val nameClean: String,
+    @Json(name = "original")
     val original: String,
-    @SerializedName("originalName")
+    @Json(name = "originalName")
     val originalName: String,
-    @SerializedName("unit")
-    val unit: String
+    @Json(name = "amount")
+    val amount: Double,
+    @Json(name = "unit")
+    val unit: String,
+    @Json(name = "meta")
+    val meta: List<String>,
+    @Json(name = "measures")
+    val measures: Measures
+)
+
+data class Nutrition(
+    @Json(name = "nutrients")
+    val nutrients: List<Nutrient>,
+    @Json(name = "properties")
+    val properties: List<Property>,
+    @Json(name = "flavonoids")
+    val flavonoids: List<Flavonoid>,
+    @Json(name = "ingredients")
+    val ingredients: List<Ingredient>,
+    @Json(name = "caloricBreakdown")
+    val caloricBreakdown: CaloricBreakdown,
+    @Json(name = "weightPerServing")
+    val weightPerServing: WeightPerServing
 )
 
 data class WinePairing(
-    @SerializedName("pairedWines")
-    val pairedWines: List<String>,
-    @SerializedName("pairingText")
+    @Json(name = "pairedWines")
+    val pairedWines: List<Any>,
+    @Json(name = "pairingText")
     val pairingText: String,
-    @SerializedName("productMatches")
-    val productMatches: List<ProductMatche>
+    @Json(name = "productMatches")
+    val productMatches: List<Any>
 )
 
 data class Measures(
-    @SerializedName("metric")
-    val metric: Metric,
-    @SerializedName("us")
-    val us: Us
-)
-
-data class Metric(
-    @SerializedName("amount")
-    val amount: Double,
-    @SerializedName("unitLong")
-    val unitLong: String,
-    @SerializedName("unitShort")
-    val unitShort: String
+    @Json(name = "us")
+    val us: Us,
+    @Json(name = "metric")
+    val metric: Metric
 )
 
 data class Us(
-    @SerializedName("amount")
+    @Json(name = "amount")
     val amount: Double,
-    @SerializedName("unitLong")
-    val unitLong: String,
-    @SerializedName("unitShort")
-    val unitShort: String
+    @Json(name = "unitShort")
+    val unitShort: String,
+    @Json(name = "unitLong")
+    val unitLong: String
 )
 
-data class ProductMatche(
-    @SerializedName("averageRating")
-    val averageRating: Double,
-    @SerializedName("description")
-    val description: String,
-    @SerializedName("id")
+data class Metric(
+    @Json(name = "amount")
+    val amount: Double,
+    @Json(name = "unitShort")
+    val unitShort: String,
+    @Json(name = "unitLong")
+    val unitLong: String
+)
+
+data class Nutrient(
+    @Json(name = "name")
+    val name: String,
+    @Json(name = "amount")
+    val amount: Double,
+    @Json(name = "unit")
+    val unit: String,
+    @Json(name = "percentOfDailyNeeds")
+    val percentOfDailyNeeds: Double
+)
+
+data class Property(
+    @Json(name = "name")
+    val name: String,
+    @Json(name = "amount")
+    val amount: Double,
+    @Json(name = "unit")
+    val unit: String
+)
+
+data class Flavonoid(
+    @Json(name = "name")
+    val name: String,
+    @Json(name = "amount")
+    val amount: Double,
+    @Json(name = "unit")
+    val unit: String
+)
+
+data class Ingredient(
+    @Json(name = "id")
     val id: Int,
-    @SerializedName("imageUrl")
-    val imageUrl: String,
-    @SerializedName("link")
-    val link: String,
-    @SerializedName("price")
-    val price: String,
-    @SerializedName("ratingCount")
-    val ratingCount: Double,
-    @SerializedName("score")
-    val score: Double,
-    @SerializedName("title")
-    val title: String
+    @Json(name = "name")
+    val name: String,
+    @Json(name = "amount")
+    val amount: Double,
+    @Json(name = "unit")
+    val unit: String,
+    @Json(name = "nutrients")
+    val nutrients: List<Nutrient>
+)
+
+data class CaloricBreakdown(
+    @Json(name = "percentProtein")
+    val percentProtein: Double,
+    @Json(name = "percentFat")
+    val percentFat: Double,
+    @Json(name = "percentCarbs")
+    val percentCarbs: Double
+)
+
+data class WeightPerServing(
+    @Json(name = "amount")
+    val amount: Int,
+    @Json(name = "unit")
+    val unit: String
 )

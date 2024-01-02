@@ -1,8 +1,7 @@
 package com.umut.poele.di
 
-import androidx.room.PrimaryKey
 import com.umut.poele.domain.repository.RecipeRepository
-import com.umut.poele.domain.use_case.GetRecipes
+import com.umut.poele.domain.use_case.GetRecipesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +14,7 @@ class UseCaseModule {
 
     @Singleton
     @Provides
-    fun provideGetRecipesUseCase(recipeRepository: RecipeRepository): GetRecipes {
-        return GetRecipes()
+    fun provideGetRecipesUseCase(recipeRepository: RecipeRepository): GetRecipesUseCase {
+        return GetRecipesUseCase(recipeRepository)
     }
 }

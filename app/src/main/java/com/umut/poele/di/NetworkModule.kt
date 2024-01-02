@@ -42,9 +42,9 @@ class NetworkModule {
             .build()
 
         return Retrofit.Builder()
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl(Constant.BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(PoeleApiService::class.java)
     }

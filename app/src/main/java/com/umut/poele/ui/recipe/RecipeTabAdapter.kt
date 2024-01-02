@@ -5,17 +5,24 @@ import com.umut.poele.R
 import com.umut.poele.data.source.local.entity.RecipeCategoryEntity
 import com.umut.poele.data.source.local.entity.RecipeEntity
 import com.umut.poele.databinding.ItemRecipeCategoryBinding
+import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.ui.base.BaseAdapter
 
 class RecipeTabAdapter(
-    dataset: List<RecipeCategoryEntity>, private val vm: HomeRecipeViewModel, private val recipeList: List<RecipeEntity>
+    private val dataset: List<RecipeCategoryEntity>, private val vm: HomeRecipeViewModel, private val recipeList: List<List<RecipeBasic>>
 ) : BaseAdapter<ItemRecipeCategoryBinding, RecipeCategoryEntity>(dataset, R.layout.item_recipe_category) {
 
     override fun bind(binding: ItemRecipeCategoryBinding, item: RecipeCategoryEntity) {
         binding.apply {
-            Log.i("umutcan", "RecipeTabAdapter ${recipeList.size}")
 
-            adapterRecipe = RecipeListAdapter(recipeList, vm)
+            val index = dataset.indexOf(item)
+            Log.i("umutcan", "index: $index")
+            recipeList.forEach{
+
+                Log.i("umutcan", "recipeList: ${it.first().title}")
+            }
+
+            adapterRecipe = RecipeListAdapter(recipeList[index], vm)
 //            val adapter = ListRecipeAdapter{
 //                vm.onRecipeClicked(it)
 //            }
@@ -24,5 +31,9 @@ class RecipeTabAdapter(
 //
 //            vm.
         }
+    }
+
+    fun getHighlightedRecipe(item: RecipeBasic) {
+
     }
 }
