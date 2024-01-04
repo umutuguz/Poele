@@ -5,7 +5,7 @@ import com.umut.poele.databinding.ListDirectionStepBinding
 import com.umut.poele.ui.base.BaseAdapter
 import com.umut.poele.ui.base.BaseViewHolder
 
-class DirectionAdapter(private val dataset: List<String>): BaseAdapter<ListDirectionStepBinding,
+class DirectionAdapter(dataset: List<String>): BaseAdapter<ListDirectionStepBinding,
         String>(dataset, R.layout.list_direction_step) {
 
     override fun bind(binding: ListDirectionStepBinding, item: String) {
@@ -19,7 +19,6 @@ class DirectionAdapter(private val dataset: List<String>): BaseAdapter<ListDirec
 
         holder.binder.apply {
             textStepHeader.text = String.format("Step %d", position+1)
-//            textStepHeader.text = root.resources.getString(R.string.step_counter, position+1)
         }
     }
 }

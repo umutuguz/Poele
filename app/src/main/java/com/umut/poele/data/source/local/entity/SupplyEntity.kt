@@ -4,6 +4,15 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.umut.poele.domain.model.ImageUrl
+import com.umut.poele.domain.model.Supply
+
+fun SupplyEntity.toSupply() : Supply {
+    return Supply(
+        supplyId,
+        title,
+        averageGML = averageGMl
+    )
+}
 
 @Entity(tableName = "supply")
 class SupplyEntity(

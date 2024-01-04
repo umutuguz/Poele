@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.umut.poele.R
-import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.databinding.FragmentHomeRecipeDetailDirectionBinding
+import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeRecipeDetailDirectionFragment :
+class HomeRecipeDetailDirectionFragment(private val clickedRecipe: RecipeBasic) :
     BaseFragment<FragmentHomeRecipeDetailDirectionBinding, HomeRecipeDetailViewModel>(
         R.layout.fragment_home_recipe_detail_direction
     ) {
@@ -21,8 +21,7 @@ class HomeRecipeDetailDirectionFragment :
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            adapter = DirectionAdapter(RecipeDataSource().loadRecipe()[0].directions)
-
+            adapter = DirectionAdapter(clickedRecipe.directions)
         }
 
     }

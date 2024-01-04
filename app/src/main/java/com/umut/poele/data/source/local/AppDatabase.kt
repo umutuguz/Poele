@@ -20,6 +20,7 @@ import com.umut.poele.data.source.local.entity.SupplyEntity
 import com.umut.poele.data.source.local.dao.SupplyDao
 import com.umut.poele.data.source.local.entity.UserEntity
 import com.umut.poele.data.source.local.dao.UserDao
+import com.umut.poele.data.source.local.entity.ShopListEntity
 import com.umut.poele.data.source.local.relation.RecipeCategoryCrossRef
 import com.umut.poele.data.source.local.relation.RecipeCuisineCrossRef
 import com.umut.poele.data.source.local.relation.RecipeEquipmentCrossRef
@@ -31,7 +32,7 @@ import com.umut.poele.data.source.local.relation.UserSupplyCrossRef
 @Database(
     entities = [
         AddressEntity::class, AmountEntity::class, RecipeCategoryEntity::class, SupplyCategoryEntity::class,
-        CuisineEntity::class, DirectionEntity::class, EquipmentEntity::class,
+        CuisineEntity::class, DirectionEntity::class, EquipmentEntity::class, ShopListEntity::class,
         MacroEntity::class, MenuCardEntity::class, RecipeEntity::class,
         SupplyEntity::class, UserEntity::class, UserSupplyCrossRef::class,
         UserRecipeCrossRef::class, SupplyCategoryCrossRef::class, RecipeCategoryCrossRef::class,

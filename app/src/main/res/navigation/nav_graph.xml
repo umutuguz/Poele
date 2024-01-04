@@ -155,8 +155,8 @@
             android:id="@+id/action_homeRecipeFragment_to_shopListFragment"
             app:destination="@id/shopListFragment" />
         <argument
-            android:name="clickedRecipeCategory"
-            app:argType="com.umut.poele.data.source.local.entity.RecipeCategoryEntity"
+            android:name="clickedMealCategory"
+            app:argType="com.umut.poele.domain.model.MealCategory"
             app:nullable="true"
             android:defaultValue="@null" />
     </fragment>
@@ -173,6 +173,11 @@
             app:destination="@id/shopListFragment"
             app:popUpTo="@id/homeRecipeDetailFragment"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="clickedRecipe"
+            app:argType="com.umut.poele.domain.model.RecipeBasic"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/fridgeSupplyFragment"
@@ -261,7 +266,7 @@
         <argument
             android:name="clickedRecipe"
             android:defaultValue="@null"
-            app:argType="com.umut.poele.domain.model.RecipeModel"
+            app:argType="com.umut.poele.domain.model.RecipeBasic"
             app:nullable="true" />
     </fragment>
     <dialog

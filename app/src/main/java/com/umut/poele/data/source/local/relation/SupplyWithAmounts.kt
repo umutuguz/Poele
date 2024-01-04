@@ -9,7 +9,7 @@ data class SupplyWithAmounts(
     @Embedded val supply: SupplyEntity,
     @Relation(
         parentColumn = "supply_id",
-        entityColumn = "amount_id"
+        entityColumn = "supply_id"
     )
     val amounts: List<AmountEntity>
 )

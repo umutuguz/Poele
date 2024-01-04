@@ -11,7 +11,7 @@
 
         <variable
             name="user"
-            type="com.umut.poele.data.source.local.entity.UserEntity" />
+            type="com.umut.poele.domain.model.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

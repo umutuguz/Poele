@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.umut.PoeleApplication
 import com.umut.poele.R
+import com.umut.poele.data.source.local.entity.toUser
 import com.umut.poele.databinding.FragmentProfileFirstBinding
 import com.umut.poele.ui.base.BaseFragment
 import com.umut.poele.ui.login.AccountInfo
@@ -27,7 +28,7 @@ class ProfileFirstFragment : BaseFragment<FragmentProfileFirstBinding, ProfileFi
             viewModel = vm
 
             vm.getUserWithUserId(AccountInfo.accountUserId).observe(this@ProfileFirstFragment.viewLifecycleOwner){
-                user = it
+                user = it.toUser()
             }
             buttonLogOut.setOnClickListener {
                 MaterialAlertDialogBuilder(buttonLogOut.context).setTitle(R.string.logout_dialog_title).setMessage(R.string.logout_dialog_message)

@@ -1,7 +1,12 @@
 package com.umut.poele.data.source.remote.dto
 
 import com.squareup.moshi.Json
+import com.umut.poele.domain.model.Macro
 import com.umut.poele.domain.model.RecipeBasic
+import com.umut.poele.domain.model.Supply
+import com.umut.poele.domain.model.toUnit
+import com.umut.poele.util.Levels
+import javax.crypto.Mac
 
 fun RecipeDto.toRecipe(): RecipeBasic{
     return RecipeBasic(
@@ -10,7 +15,33 @@ fun RecipeDto.toRecipe(): RecipeBasic{
         image,
         sourceName,
         dishTypes,
+        summary,
+        prepTime = preparationMinutes,
+        servings = servings,
+        difficultyLevel = Levels.UNDETERMINED,
+        cuisines,
+        false,
+        vegan,
+        directions = summary.split(Regex("(?<=\\.) ")),
+        ingredients = extendedIngredients.toSupply(),
+        macro = nutrition.toMacro()
     )
+}
+
+private fun List<ExtendedIngredient>.toSupply(): List<Supply> {
+    val list = mutableListOf<Supply>()
+
+    this.forEach {
+        list.add(Supply(
+            it.id,
+            it.name,
+            "https://spoonacular.com/cdn/ingredients_100x100/${it.image}",
+            it.aisle,
+            it.amount,
+            it.unit.toUnit()
+        ))
+    }
+    return list
 }
 
 data class RecipeDto(
@@ -46,8 +77,8 @@ data class RecipeDto(
     val healthScore: Int,
     @Json(name = "creditsText")
     val creditsText: String,
-    @Json(name = "license")
-    val license: String,
+    @Json(name = "license", ignore = true)
+    val license: String = "",
     @Json(name = "sourceName")
     val sourceName: String,
     @Json(name = "pricePerServing")
@@ -73,15 +104,15 @@ data class RecipeDto(
     @Json(name = "summary")
     val summary: String,
     @Json(name = "cuisines")
-    val cuisines: List<Any>,
+    val cuisines: List<String>,
     @Json(name = "dishTypes")
     val dishTypes: List<String>,
     @Json(name = "diets")
     val diets: List<Any>,
     @Json(name = "occasions")
     val occasions: List<Any>,
-    @Json(name = "winePairing")
-    val winePairing: WinePairing,
+    @Json(name = "winePairing", ignore = true)
+    val winePairing: WinePairing = WinePairing(),
     @Json(name = "instructions")
     val instructions: String,
     @Json(name = "analyzedInstructions")
@@ -138,11 +169,11 @@ data class Nutrition(
 
 data class WinePairing(
     @Json(name = "pairedWines")
-    val pairedWines: List<Any>,
+    val pairedWines: List<Any> = emptyList(),
     @Json(name = "pairingText")
-    val pairingText: String,
+    val pairingText: String = "",
     @Json(name = "productMatches")
-    val productMatches: List<Any>
+    val productMatches: List<Any> = emptyList()
 )
 
 data class Measures(
@@ -169,6 +200,21 @@ data class Metric(
     @Json(name = "unitLong")
     val unitLong: String
 )
+
+fun Nutrition.toMacro() : Macro {
+    val list = this.nutrients
+    var macro = Macro()
+    list.forEach {
+        when (it.name) {
+            "Calories" -> macro.calorie = it.amount
+            "Fat" -> macro.fat = it.amount
+            "Carbohydrates" -> macro.carb = it.amount
+            "Protein" -> macro.protein = it.amount
+            "Fiber" -> macro.fiber = it.amount
+        }
+    }
+    return macro
+}
 
 data class Nutrient(
     @Json(name = "name")

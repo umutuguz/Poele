@@ -16,14 +16,12 @@ class AccountServiceImpl @Inject constructor() : AccountService {
 
     override val currentUser: Flow<UserDto?>
         get() = callbackFlow {
-            val listener =
-                FirebaseAuth.AuthStateListener { auth ->
-                    this.trySend(auth.currentUser?.let { UserDto(it.uid) })
-                }
+            val listener = FirebaseAuth.AuthStateListener { auth ->
+                this.trySend(auth.currentUser?.let { UserDto(it.uid) })
+            }
             Firebase.auth.addAuthStateListener(listener)
             awaitClose { Firebase.auth.removeAuthStateListener(listener) }
         }
-
     override val currentUserId: String
         get() = Firebase.auth.currentUser?.uid.orEmpty()
 
@@ -32,16 +30,13 @@ class AccountServiceImpl @Inject constructor() : AccountService {
     }
 
     override suspend fun signIn(email: String, password: String) {
-        Log.i("umutcan", "email: ${email} \npassword: ${password}")
-
-        Firebase.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {task->
+        Firebase.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.i("umutcan", "${Firebase.auth.currentUser?.email}")
             }
             else {
                 Log.i("umutcan", "${task.exception}")
             }
-
         }.await()
     }
 

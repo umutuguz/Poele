@@ -5,17 +5,17 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Address(
-    val id: Int,
-    val title: String,
-    val addressImageUrl: ImageUrl,
-    val city:String,
-    val district: String,
-    val neighborhood: String,
-    val street: String,
-    val buildingName: String,
-    val buildingNumber: Int,
-    val floorNumber: Int,
-    val doorNumber: Int,
-    val postalCode: Int
+    val id: Int = -1,
+    val title: String = "",
+    val addressImageUrl: ImageUrl = -1,
+    val city:String = "",
+    val district: String = "",
+    val neighborhood: String = "",
+    val street: String = "",
+    val buildingName: String = "",
+    val buildingNumber: Int = 0,
+    val floorNumber: Int = 0,
+    val doorNumber: Int = 0,
+    val postalCode: Int = 0
 ) : Parcelable {
 }

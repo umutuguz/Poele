@@ -1,12 +1,12 @@
 package com.umut.poele.ui.profile
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import com.umut.poele.data.service.AccountService
 import com.umut.poele.data.source.local.entity.UserEntity
 import com.umut.poele.data.source.local.dao.UserDao
+import com.umut.poele.data.source.remote.dto.UserDto
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.AddressListener
 import com.umut.poele.util.EditProfileListener
@@ -19,6 +19,13 @@ class ProfileFirstViewModel @Inject constructor(private val userDao: UserDao, pr
     FavoritesListener,
     EditProfileListener,
     AddressListener {
+
+        private val _profileInfoLiveData = MutableLiveData<UserDto>()
+    val profileInfoLiveData get() = _profileInfoLiveData
+
+    init {
+//        accountInfo()
+    }
 
     fun getUserWithUserId(userId: Int): LiveData<UserEntity> = userDao.getUserWithUserId(userId).asLiveData()
 
@@ -40,6 +47,14 @@ class ProfileFirstViewModel @Inject constructor(private val userDao: UserDao, pr
             navigate(ProfileFirstFragmentDirections.actionProfileFirstFragmentToLoginFragment())
         }
     }
+
+//    fun accountInfo() {
+//        launchCatching {
+//            accountService.currentUser.collect(){
+//                _profileInfoLiveData.value = it
+//            }
+//        }
+//    }
 }
 
 //class ProfileFirstViewModelFactory(

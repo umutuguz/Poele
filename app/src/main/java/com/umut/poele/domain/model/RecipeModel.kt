@@ -1,7 +1,6 @@
 package com.umut.poele.domain.model
 
 import android.os.Parcelable
-import com.umut.poele.ui.base.ListAdapterItem
 import com.umut.poele.util.Levels
 import kotlinx.parcelize.Parcelize
 
@@ -22,4 +21,4 @@ data class RecipeModel(
     val equipments: List<String>,
     val directions: List<String>,
     val ingredients: List<Supply>
-) : ListAdapterItem, Parcelable
+) : Parcelable

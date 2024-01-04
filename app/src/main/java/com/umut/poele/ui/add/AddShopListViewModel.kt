@@ -1,5 +1,6 @@
 package com.umut.poele.ui.add
 
+import com.umut.poele.data.source.local.AppDatabase
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.CancelListener
 
@@ -12,4 +13,5 @@ class AddShopListViewModel : BaseViewModel(), CancelListener {
     override fun onCancelClicked() {
         navigate(AddShopListFragmentDirections.actionAddShopListFragmentToHomeFirstFragment())
     }
+
 }

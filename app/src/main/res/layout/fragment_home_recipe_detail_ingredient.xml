@@ -8,6 +8,9 @@
         <variable
             name="adapter"
             type="com.umut.poele.ui.recipe_detail.IngredientAdapter" />
+        <variable
+            name="recipe"
+            type="com.umut.poele.domain.model.RecipeBasic" />
     </data>
 
     <!--    <ScrollView-->
@@ -42,7 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="Serves: %d"
+            android:text="@{@string/servings(recipe.servings)}"
+            tools:text="@string/servings_only"
             android:textColor="@color/md_theme_light_onSurfaceVariant"
             app:layout_constraintBottom_toBottomOf="@id/button_remove"
             app:layout_constraintEnd_toEndOf="parent"

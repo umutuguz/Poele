@@ -7,7 +7,8 @@ import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseAdapter
 import com.umut.poele.ui.base.BaseViewHolder
 
-class SupplyListAdapter(val dataset: List<Supply>, val vm: FridgeFirstViewModel) : BaseAdapter<ListSupplyBinding, Supply>(dataset, R.layout.list_supply) {
+class SupplyListAdapter(val dataset: List<Supply>, val vm: FridgeFirstViewModel)
+    : BaseAdapter<ListSupplyBinding, Supply>(dataset, R.layout.list_supply) {
 
     override fun bind(binding: ListSupplyBinding, item: Supply) {
         binding.apply {

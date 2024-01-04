@@ -9,7 +9,11 @@ import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.domain.model.SupplyDataSource
 import com.umut.poele.databinding.FragmentShopListBinding
 import com.umut.poele.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@AndroidEntryPoint
+@ExperimentalCoroutinesApi
 class ShopListFragment : BaseFragment<FragmentShopListBinding, ShopListViewModel>(R.layout.fragment_shop_list) {
 
     override val vm: ShopListViewModel by viewModels()
@@ -19,7 +23,10 @@ class ShopListFragment : BaseFragment<FragmentShopListBinding, ShopListViewModel
 
         binding.apply {
             viewModel = vm
-            adapterRecipe = ShopListRecipeAdapter(RecipeDataSource().loadRecipe())
+            vm.shopListLiveData.observe(viewLifecycleOwner) {
+                adapterRecipe = ShopListRecipeAdapter(it)
+            }
+
             adapterSupply = ShopListSupplyAdapter(SupplyDataSource().loadSupply())
             imageTrash.setOnClickListener {
                 MaterialAlertDialogBuilder(requireContext()).setTitle(R.string.shoplist_dialog_title)
@@ -27,7 +34,8 @@ class ShopListFragment : BaseFragment<FragmentShopListBinding, ShopListViewModel
                     .setNegativeButton(R.string.shoplist_dialog_negative_button) { dialog, _ ->
                         dialog.dismiss()
                     }.setPositiveButton(R.string.shoplist_dialog_positive_button) { dialog, _ ->
-                        dialog.cancel()
+                        vm.deleteAllShopList()
+                        dialog.dismiss()
                     }.show()
             }
         }

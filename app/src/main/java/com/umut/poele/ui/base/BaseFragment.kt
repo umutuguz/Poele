@@ -12,7 +12,7 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import com.umut.poele.BR
 import com.umut.poele.data.source.local.entity.MenuCardEntity
-import com.umut.poele.domain.model.MenuCardModel
+import com.umut.poele.domain.model.MenuCard
 import com.umut.poele.util.Constant
 import com.umut.poele.util.Meals
 import com.umut.poele.util.NavigationCommand
@@ -85,31 +85,31 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
         }
     }
 
-    fun loadMenuCardModel(menuCardList: List<MenuCardEntity>): List<MenuCardModel> {
+    fun loadMenuCardModel(menuCardList: List<MenuCardEntity>): List<MenuCard> {
         return if (menuCardList.isNotEmpty()) {
             listOf(
-                MenuCardModel(
+                MenuCard(
                     Meals.BREAKFAST,
                     menuCardList[0].chefName,
                     menuCardList[0].primaryMealBreakfast,
                     menuCardList[0].secondaryMealBreakfast,
                     menuCardList[0].tertiaryMealBreakfast
                 ),
-                MenuCardModel(
+                MenuCard(
                     Meals.BRUNCH,
                     menuCardList[0].chefName,
                     menuCardList[0].primaryMealBrunch,
                     menuCardList[0].secondaryMealBrunch,
                     menuCardList[0].tertiaryMealBrunch
                 ),
-                MenuCardModel(
+                MenuCard(
                     Meals.LUNCH,
                     menuCardList[0].chefName,
                     menuCardList[0].primaryMealLunch,
                     menuCardList[0].secondaryMealLunch,
                     menuCardList[0].tertiaryMealLunch
                 ),
-                MenuCardModel(
+                MenuCard(
                     Meals.DINNER,
                     menuCardList[0].chefName,
                     menuCardList[0].primaryMealDinner,

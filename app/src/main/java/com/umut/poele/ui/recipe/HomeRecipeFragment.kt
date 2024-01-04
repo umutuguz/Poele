@@ -2,23 +2,15 @@ package com.umut.poele.ui.recipe
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.umut.PoeleApplication
 import com.umut.poele.R
-import com.umut.poele.data.source.local.entity.RecipeCategoryEntity
-import com.umut.poele.data.source.local.entity.RecipeEntity
-import com.umut.poele.data.source.local.relation.RecipeCategoryWithRecipes
 import com.umut.poele.databinding.FragmentHomeRecipeBinding
 import com.umut.poele.ui.base.BaseFragment
-import com.umut.poele.ui.choose.SelectedUser
-import com.umut.poele.util.Constant
-import com.umut.poele.util.TabRecipe
+import com.umut.poele.util.MealTypes
+import com.umut.poele.util.toMealCategoryList
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -39,10 +31,13 @@ class HomeRecipeFragment : BaseFragment<FragmentHomeRecipeBinding, HomeRecipeVie
                 viewpagerRecipeCategory.adapter = RecipeTabAdapter(vm.recipeCategoryList, vm, it)
 
                 TabLayoutMediator(binding.tabRecipeCategory, binding.viewpagerRecipeCategory) {tab, position ->
-                    tab.text = TabRecipe.entries[position].toString()
+                    tab.text = MealTypes.MAINCOURSE.toMealCategoryList()[position].title
                 }.attach()
-            }
 
+                tabRecipeCategory.selectTab(
+                    binding.tabRecipeCategory.getTabAt(vm.recipeCategoryList.indexOf(navArgs.clickedMealCategory))
+                )
+            }
 
         }
     }

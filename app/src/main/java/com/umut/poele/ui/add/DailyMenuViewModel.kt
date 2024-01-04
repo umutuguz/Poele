@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.Flow
 class DailyMenuViewModel(private val userDao: UserDao) : BaseViewModel(), CancelListener {
 
     fun getMenuCardWithUserId(userId: Int): Flow<List<MenuCardEntity>> {
-        Log.i("umutcan", "Full AddressEntity")
         return userDao.getMenuCardWithUserId(userId)
     }
 

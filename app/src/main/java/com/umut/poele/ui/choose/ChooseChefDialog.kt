@@ -40,5 +40,5 @@ class ChooseChefDialog : BaseBottomSheetFragment<DialogChooseChefBinding, Choose
 
 object SelectedUser {
 
-    var userId: Int = 0
+    var userId: Int = 1
 }

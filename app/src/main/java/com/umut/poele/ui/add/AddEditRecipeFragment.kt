@@ -19,7 +19,7 @@ class AddEditRecipeFragment : BaseFragment<FragmentAddEditRecipeBinding, AddEdit
         binding.apply {
             viewModel = vm
             if (args.fromEditRecipe) {
-                clickedRecipeModel = args.clickedRecipe
+                clickedRecipe = args.clickedRecipe
                 textPageTitle.text = getString(R.string.edit_recipe)
 
             } else {

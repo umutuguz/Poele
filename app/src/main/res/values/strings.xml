@@ -8,7 +8,7 @@
     <string name="choose_chef">Choose Chef</string>
     <string name="category">Category</string>
     <string name="choose_home">Choose Home</string>
-    <string name="search_text">Search recipeModel, ingredient…</string>
+    <string name="search_text">Search recipe, ingredient…</string>
     <string name="menu_title">Menu</string>
     <string name="menu_content">Menu Contents</string>
     <string name="shoplist">Shoplist</string>
@@ -26,9 +26,9 @@
     <string name="profile">Profile</string>
     <string name="surprise_me">Surprise Me</string>
     <string name="create">Create</string>
-    <string name="add_recipe">Add recipeModel</string>
+    <string name="add_recipe">Add recipe</string>
     <string name="add_ingredient">Add ingredient</string>
-    <string name="edit_recipe">Edit recipeModel</string>
+    <string name="edit_recipe">Edit recipe</string>
     <string name="add_to_shoplist">Add to shoplist</string>
     <string name="edit_ingredient">Edit ingredient</string>
     <string name="enter_a_meal">Enter a meal</string>
@@ -44,13 +44,13 @@
     <string name="carb">Carb</string>
     <string name="goal">Goal</string>
     <string name="email">Email</string>
-    <string name="address">AddressEntity</string>
+    <string name="address">Address</string>
     <string name="bookmark">Bookmark</string>
     <string name="log_out">Log Out</string>
     <string name="live_support">Live Support</string>
     <string name="sort">Sort</string>
     <string name="recipes">Recipes</string>
-    <string name="recipe_title">RecipeModel Title</string>
+    <string name="recipe_title">Recipe Title</string>
     <string name="time">Time</string>
     <string name="people">People</string>
     <string name="weight">Weight</string>
@@ -68,7 +68,7 @@
     <string name="recipe_time">%d min</string>
     <string name="suggest_from_recipes">Suggest from recipes</string>
     <string name="ask_chatgpt">Ask ChatGPT</string>
-    <string name="home_address">Home AddressEntity…</string>
+    <string name="home_address">Home Address…</string>
     <string name="home_title">%s\'s %s</string>
     <string name="search_results">Search Results</string>
     <string name="recent_searches">Recent Searches</string>
@@ -97,7 +97,7 @@
     <string name="list_selections">List Selections</string>
     <string name="clear_filters">Clear Filters</string>
     <string name="shop_list">Shop List</string>
-    <string name="recipe_list">RecipeModel List</string>
+    <string name="recipe_list">Recipe List</string>
     <string name="ingredient_list">Ingredient List</string>
     <string name="prep_time">Prep Time: %d min</string>
     <string name="servings">Servings: %d</string>
@@ -125,9 +125,9 @@
     <string name="add_custom_meal">Add custom meal</string>
     <string name="set_challenge">Set Challenge</string>
     <string name="set_macro_values">Set Macro Values</string>
-    <string name="add_recipe_capital">Add RecipeModel</string>
-    <string name="edit_recipe_capital">Edit RecipeModel</string>
-    <string name="select_recipe">Select RecipeModel</string>
+    <string name="add_recipe_capital">Add Recipe</string>
+    <string name="edit_recipe_capital">Edit Recipe</string>
+    <string name="select_recipe">Select Recipe</string>
     <string name="cancel">Cancel</string>
     <string name="add_supply_capital">Add Supply</string>
     <string name="date">Date</string>
@@ -145,7 +145,7 @@
     <string name="delete_dialog_negative_button">Decline</string>
     <string name="delete_dialog_positive_button">Accept</string>
     <string name="more_options">More Options</string>
-    <string name="find_recipe_contains_this_ingredient">Find recipeModel contains this ingredient</string>
+    <string name="find_recipe_contains_this_ingredient">Find recipe contains this ingredient</string>
     <string name="edit_supply">Edit supply</string>
     <string name="add_supply">Add supply</string>
     <string name="add_to_macro">Add to macro</string>
@@ -163,7 +163,7 @@
     <string name="unused">Unused</string>
     <string name="used">Used</string>
     <string name="edit_user_info">Edit UserEntity Info</string>
-    <string name="edit_address">Edit AddressEntity</string>
+    <string name="edit_address">Edit Address</string>
     <string name="name">Name</string>
     <string name="surname">Surname</string>
     <string name="phone_number">Phone Number</string>
@@ -186,6 +186,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="last_name">Last name</string>
     <string name="first_name">First name</string>
+    <string name="basic_info">Basic Info</string>
 
     <!--    <plurals name="amount">-->
 <!--        <item quantity="one">%.0f</item>-->

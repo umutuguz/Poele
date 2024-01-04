@@ -1,5 +1,6 @@
 package com.umut.poele
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.service.notification.Condition
 import android.view.View
@@ -55,7 +56,6 @@ class MainActivity : AppCompatActivity() {
 //
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.navigationBar, navController)
-
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.homeRecipeDetailFragment ||

@@ -44,14 +44,14 @@
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
                     android:scaleType="centerCrop"
-                    app:setImage="@{ingredient.imageUrl}"
+                    app:setUrl="@{ingredient.imageUrl}"
                     tools:src="@drawable/coffee_beans" />
 
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/text_ingredient_amount"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
                 app:amount="@{ingredient.amount}"
@@ -61,7 +61,10 @@
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@id/card_image_ingredient"
                 app:layout_constraintTop_toTopOf="@id/card_image_ingredient"
-                tools:text="125 gram" />
+                android:maxEms="5"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="125 gramsadasf" />
 
             <TextView
                 android:id="@+id/text_ingredient_title"
@@ -70,9 +73,9 @@
                 android:text="@{ingredient.title}"
                 app:layout_constraintBottom_toBottomOf="@id/card_image_ingredient"
                 app:layout_constraintEnd_toStartOf="@id/image_add_shoplist"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.7"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
-                app:layout_constraintStart_toEndOf="@id/text_ingredient_amount"
+                app:layout_constraintStart_toEndOf="@id/card_image_ingredient"
                 app:layout_constraintTop_toTopOf="@id/card_image_ingredient"
                 tools:text="All-Purpose Flour" />
 

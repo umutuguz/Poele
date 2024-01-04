@@ -9,8 +9,8 @@ import com.umut.poele.data.source.local.entity.UserEntity
 data class UserWithSupplies(
     @Embedded val user: UserEntity,
     @Relation(
-        parentColumn = "userId",
-        entityColumn = "supplyId",
+        parentColumn = "user_id",
+        entityColumn = "supply_id",
         associateBy = Junction(UserSupplyCrossRef::class)
     )
     val supplies: List<SupplyEntity>

@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="recipeCategory"
-            type="com.umut.poele.data.source.local.entity.RecipeCategoryEntity" />
+            name="mealCategory"
+            type="com.umut.poele.domain.model.MealCategory" />
 
         <variable
             name="listener"
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/md_theme_light_background"
-            android:onClickListener="@{()->listener.onRecipeCategoryClicked(recipeCategory)}"
+            android:onClickListener="@{()->listener.onMealCategoryClicked(mealCategory)}"
             android:orientation="vertical">
 
             <ImageView
@@ -45,7 +45,8 @@
                 android:background="@drawable/background_category_image"
                 android:clipToOutline="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/pasta"
+                tools:src="@drawable/pasta"
+                app:setUrl="@{mealCategory.image}"
                 android:importantForAccessibility="no" />
 
             <TextView
@@ -55,7 +56,7 @@
                 android:textAlignment="center"
                 android:paddingHorizontal="@dimen/_4sdp"
                 android:layout_gravity="center"
-                android:text="@{recipeCategory.recipeCategoryTitle}"
+                android:text="@{mealCategory.title}"
                 android:maxLines="1"
                 android:ellipsize="end"
                 tools:text="Category" />

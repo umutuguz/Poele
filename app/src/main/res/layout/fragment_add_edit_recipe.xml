@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="clickedRecipeModel"
-            type="com.umut.poele.domain.model.RecipeModel" />
+            name="clickedRecipe"
+            type="com.umut.poele.domain.model.RecipeBasic" />
 
         <variable
             name="viewModel"
@@ -86,7 +86,7 @@
                             android:id="@+id/image_photo"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@{clickedRecipeModel.imageUrl}"
+                            android:src="@{clickedRecipe.imageUrl}"
                             android:alpha="0.5"
                             android:scaleType="centerCrop"
                             app:layout_constraintTop_toTopOf="parent"
@@ -158,7 +158,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:text="@{clickedRecipeModel.title}"/>
+                        android:text="@{clickedRecipe.title}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,7 +181,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="textAutoComplete"
                         android:maxLines="1"
-                        app:setListText="@{clickedRecipeModel.category}"/>
+                        app:setListText="@{clickedRecipe.category}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -204,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:maxLines="1"
-                        app:setIntText="@{clickedRecipeModel.prepTime}"/>
+                        app:setIntText="@{clickedRecipe.prepTime}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -227,7 +227,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:maxLines="1"
-                        app:setIntText="@{clickedRecipeModel.servings}"/>
+                        app:setIntText="@{clickedRecipe.servings}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -250,7 +250,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:maxLines="1"
-                        app:setDifficultyLevel="@{clickedRecipeModel.difficultyLevel}"/>
+                        app:setDifficultyLevel="@{clickedRecipe.difficultyLevel}"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 

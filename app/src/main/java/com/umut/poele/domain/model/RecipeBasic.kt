@@ -1,7 +1,10 @@
 package com.umut.poele.domain.model
 
+import android.os.Parcelable
 import com.umut.poele.util.Levels
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class RecipeBasic(
     val id: Int = -1,
     val title: String = "",
@@ -15,7 +18,8 @@ data class RecipeBasic(
     val cuisine: List<String> = emptyList(),
     val isFavorite: Boolean = false,
     val isVegan: Boolean = false,
-    val equipments: List<String> = emptyList(),
+    val equipments: List<Equipment> = emptyList(),
     val directions: List<String> = emptyList(),
-    val ingredients: List<Supply> = emptyList()
-)
+    val ingredients: List<Supply> = emptyList(),
+    val macro: Macro = Macro()
+) : Parcelable

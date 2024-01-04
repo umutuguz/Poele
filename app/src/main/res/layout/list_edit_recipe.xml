@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="recipeModel"
-            type="com.umut.poele.domain.model.RecipeModel" />
+            name="recipe"
+            type="com.umut.poele.domain.model.RecipeBasic" />
 
         <variable
             name="viewModel"
@@ -48,7 +48,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImage="@{recipeModel.imageUrl}"
+                app:setUrl="@{recipe.imageUrl}"
                 tools:src="@drawable/coffee_beans" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/horizontal_margin"
                 android:layout_marginTop="@dimen/vertical_margin"
-                android:text="@{recipeModel.title}"
+                android:text="@{recipe.title}"
                 app:layout_constraintBottom_toTopOf="@id/chip_group_recipe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/horizontal_margin"
-                android:text="@{recipeModel.chefName}"
+                android:text="@{recipe.chefName}"
                 app:layout_constraintBottom_toBottomOf="@id/text_recipe_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1"
@@ -98,7 +98,7 @@
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/recipe_time(recipeModel.prepTime)}"
+                    android:text="@{@string/recipe_time(recipe.prepTime)}"
                     app:chipIcon="@drawable/outline_timer_24"
                     tools:text="@string/time" />
 
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chipIcon="@drawable/outline_people_24"
-                    app:setIntText="@{recipeModel.servings}"
+                    app:setIntText="@{recipe.servings}"
                     tools:text="@string/people" />
 
                 <com.google.android.material.chip.Chip
@@ -116,7 +116,7 @@
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:setDifficultyLevel="@{recipeModel.difficultyLevel}"
+                    app:setDifficultyLevel="@{recipe.difficultyLevel}"
                     app:chipIcon="@drawable/round_chef_24"
                     app:chipIconTint="@color/md_theme_light_onSurface"
                     tools:text="Level" />

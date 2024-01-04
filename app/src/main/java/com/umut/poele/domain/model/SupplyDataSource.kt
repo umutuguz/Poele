@@ -16,7 +16,7 @@ class SupplyDataSource {
             Supply(
                 1,
                 "Ground Beef",
-                R.drawable.ground_meat,
+                "R.drawable.ground_meat",
                 "Meat",
                 500.0,
                 Units.GRAM,
@@ -28,7 +28,7 @@ class SupplyDataSource {
             Supply(
                 2,
                 "Lasagne Sheet",
-                R.drawable.lasagne_sheet,
+                "R.drawable.lasagne_sheet",
                 "Pasta",
                 18.0,
                 Units.PIECE,
@@ -40,7 +40,7 @@ class SupplyDataSource {
             Supply(
                 3,
                 "Flour",
-                R.drawable.flour,
+                "R.drawable.flour",
                 "Food",
                 50.0,
                 Units.GRAM,

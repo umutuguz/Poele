@@ -3,7 +3,6 @@ package com.umut.poele.ui.search
 import com.umut.poele.R
 import com.umut.poele.databinding.ListRecentSearchBinding
 import com.umut.poele.ui.base.BaseAdapter
-import com.umut.poele.ui.base.ListAdapterItem
 
 class SearchRecentAdapter(private val dataset: List<String>) : BaseAdapter<com.umut.poele.databinding.ListRecentSearchBinding, String>(dataset, R.layout.list_recent_search){
 

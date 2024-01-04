@@ -2,12 +2,16 @@ package com.umut.poele.data.source.local.dao
 
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Upsert
 import com.umut.poele.data.source.local.entity.AmountEntity
 import com.umut.poele.data.source.local.entity.MacroEntity
 import com.umut.poele.data.source.local.entity.SupplyCategoryEntity
 import com.umut.poele.data.source.local.entity.SupplyEntity
 import com.umut.poele.data.source.local.relation.SupplyCategoryCrossRef
+import com.umut.poele.data.source.local.relation.SupplyWithAmounts
+import com.umut.poele.data.source.local.relation.UserWithRecipes
+import com.umut.poele.data.source.local.relation.UserWithSupplies
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -30,7 +34,15 @@ interface SupplyDao {
 //    fun getAmountWithSupplyId(supplyId: Int): Flow<List<AmountEntity>>
 
     @Query("SELECT * FROM supply ORDER BY title ASC")
-    fun getAll(): Flow<List<SupplyEntity>>
+    fun getAll(): List<SupplyEntity>
+
+    @Transaction
+    @Query("SELECT * FROM supply WHERE supply_id = :supplyId")
+    fun getAmountWithSupply(supplyId: Int) : SupplyWithAmounts
+
+    @Transaction
+    @Query("SELECT * FROM user WHERE user_id = :userId")
+    fun getSuppliesWithUserId(userId: Int): UserWithSupplies
 
     @Upsert
     suspend fun upsertSupply(supply: SupplyEntity)

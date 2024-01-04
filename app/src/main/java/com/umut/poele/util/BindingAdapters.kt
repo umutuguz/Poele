@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.umut.poele.R
 import com.umut.poele.ui.base.BaseAdapter
-import com.umut.poele.ui.base.ListAdapterItem
 import java.time.LocalDate
 
 @BindingAdapter("setImage")
@@ -37,19 +36,18 @@ fun setAdapter(
     }
 }
 
-@Suppress("UNCHECKED_CAST")
-@BindingAdapter("setList")
-fun setList(recyclerView: RecyclerView, list: List<ListAdapterItem>?) {
-    val adapter = recyclerView.adapter as BaseAdapter<ViewDataBinding, ListAdapterItem>
-    adapter.data = list ?: listOf()
-}
-
 @BindingAdapter("setIntText")
 fun setIntText(textView: TextView, number: Number?) {
-    if (number == null) {
-        textView.text = ""
-    } else {
-        textView.text = number.toString()
+    when (number) {
+        null -> {
+            textView.text = ""
+        }
+        -1 -> {
+            textView.text = "Undetermined"
+        }
+        else -> {
+            textView.text = number.toString()
+        }
     }
 }
 
@@ -58,6 +56,7 @@ fun setState(textView: TextView, state: States) {
     when (state) {
         States.UNUSED -> textView.text = "Unused"
         States.USED -> textView.text = "Used"
+        States.UNDETERMINED -> textView.text = "Undetermined"
     }
 }
 
@@ -76,6 +75,7 @@ fun setDifficultyLevel(textView: TextView, level: Levels?) {
         Levels.EASY -> textView.text = "Easy"
         Levels.INTERMEDIATE -> textView.text = "Intermediate"
         Levels.HARD -> textView.text = "Hard"
+        Levels.UNDETERMINED -> textView.text = "Unterdetermined"
 
         else -> {textView.text = ""}
     }
@@ -119,11 +119,18 @@ fun setAmount(textView: TextView, amount: Double, unit: Units) {
         Units.TABLESPOON -> "tbps."
         Units.TEASPOON -> "tsp."
         Units.DESSERTSPOON -> "dsp."
-        Units.CUP -> "cup"
-        Units.PINCH -> "pinch"
-        Units.PIECE -> "piece"
+        Units.CUP -> "cups"
+        Units.PINCH -> "pinches"
+        Units.PIECE -> "pieces"
+        Units.CLOVES -> "cloves"
+        Units.SERVINGS -> "servings"
+        Units.UNDETERMINED -> ""
     }
-    textView.text = "$amount $unitString"
+    val amountString = when (amount) {
+        -1.0 -> "Undetermined"
+        else -> amount.toString()
+    }
+    textView.text = "$amountString $unitString"
 }
 
 @BindingAdapter("setMenu")
@@ -137,19 +144,7 @@ fun setMenu(textView: TextView, mealTitle: Meals?){
             Meals.BRUNCH -> textView.text = "Brunch"
             Meals.LUNCH -> textView.text = "Lunch"
             Meals.DINNER -> textView.text = "Dinner"
+            Meals.UNDETERMINED -> textView.text = "Undetermined"
         }
     }
 }
-//
-//@BindingAdapter("setViewPagerAdapter")
-//fun setViewPagerAdapter(
-//    viewPager2: ViewPager2, tabLayout: TabLayout, adapter: BaseFragmentStateAdapter<Fragment>?
-//) {
-//    adapter?.let {
-//        viewPager2.adapter = it
-//    }
-//
-//    TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
-//        tab.text = Constant.RECIPE_DETAIL_TAB_NAME[position]
-//    }.attach()
-//}

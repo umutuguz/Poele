@@ -1,5 +1,6 @@
 package com.umut.poele.ui.search
 
+import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.domain.model.RecipeModel
 import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseViewModel
@@ -11,8 +12,8 @@ class SearchViewModel : BaseViewModel(), RecipeListener, SupplyListener {
         navigateBack()
     }
 
-    override fun onRecipeClicked(clickedRecipeModel: RecipeModel) {
-        navigate(SearchFragmentDirections.actionSearchFragmentToHomeRecipeDetailFragment())
+    override fun onRecipeClicked(clickedRecipe: RecipeBasic) {
+        navigate(SearchFragmentDirections.actionSearchFragmentToHomeRecipeDetailFragment(clickedRecipe))
     }
 
     override fun onSupplyClicked(clickedSupply: Supply) {

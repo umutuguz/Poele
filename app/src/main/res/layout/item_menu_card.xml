@@ -7,7 +7,7 @@
 
         <variable
             name="menuCardModel"
-            type="com.umut.poele.domain.model.MenuCardModel" />
+            type="com.umut.poele.domain.model.MenuCard" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

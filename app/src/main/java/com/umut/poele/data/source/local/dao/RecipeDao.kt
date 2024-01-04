@@ -1,9 +1,11 @@
 package com.umut.poele.data.source.local.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Upsert
+import com.umut.poele.data.source.local.entity.ShopListEntity
 import com.umut.poele.data.source.local.entity.CuisineEntity
 import com.umut.poele.data.source.local.entity.DirectionEntity
 import com.umut.poele.data.source.local.entity.EquipmentEntity
@@ -39,8 +41,17 @@ interface RecipeDao {
     @Query("SELECT * FROM user")
     fun getUsersWithRecipesAndCategories(): Flow<List<UserWithRecipeCategoriesWithRecipes>>
 
+    @Query("SELECT * FROM shoplist ORDER BY recipe_title ASC")
+    fun getShopList(): List<ShopListEntity>
+
+    @Delete
+    suspend fun deleteRecipeFromShopList(shopListEntity: ShopListEntity)
+    @Query("DELETE FROM shoplist")
+    suspend fun deleteAllRecipesFromShopList()
     @Upsert
     suspend fun upsertRecipe(recipe: RecipeEntity)
+    @Upsert
+    suspend fun upsertRecipeToShopList(shopListEntity: ShopListEntity)
     @Upsert
     suspend fun upsertRecipeCategoryCrossRef(crossRef: RecipeCategoryCrossRef)
     @Upsert
@@ -49,7 +60,6 @@ interface RecipeDao {
     suspend fun upsertRecipeEquipmentCrossRef(crossRef: RecipeEquipmentCrossRef)
     @Upsert
     suspend fun upsertRecipeSupplyCrossRef(crossRef: RecipeSupplyCrossRef)
-
     @Upsert
     suspend fun upsertDirection(direction: DirectionEntity)
     @Upsert

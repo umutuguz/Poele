@@ -32,13 +32,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
             }
         }
 
-        Log.i("umutcan", "email: ${args.email}")
         binding.apply {
             viewModel = vm
 
 //            if (!args.email.isNullOrEmpty()) {
 //                vm.getAllUsers().observe(this@LoginFragment.viewLifecycleOwner) {
-//                    Log.i("umutcan", "user: ${it.size}")
 //                    textUsername.editText?.setText(it.first().email)
 //                }
 //            }
@@ -73,5 +71,5 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
 
 object AccountInfo {
 
-    var accountUserId: Int = 0
+    var accountUserId: Int = 1
 }

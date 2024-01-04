@@ -4,28 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="recipeModel"
-            type="com.umut.poele.domain.model.RecipeModel" />
+            name="equipment"
+            type="com.umut.poele.domain.model.Equipment" />
     </data>
 
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content">-->
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_equipment"
+        style="@style/Widget.Material3.Chip.Assist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_between_same_elements"
+        android:clickable="false"
+        android:text="@{equipment.title}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Pan" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_equipment"
-            style="@style/Widget.Material3.Chip.Assist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_between_same_elements"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:clickable="false"
-            tools:text="Pan" />
-
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 </layout>
