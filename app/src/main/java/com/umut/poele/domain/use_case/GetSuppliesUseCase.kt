@@ -1,13 +1,18 @@
 package com.umut.poele.domain.use_case
 
 import android.util.Log
+import com.umut.poele.data.source.local.entity.ShopListEntity
+import com.umut.poele.data.source.local.entity.ShopListSupplyEntity
+import com.umut.poele.data.source.local.entity.toRecipeBasic
 import com.umut.poele.data.source.local.entity.toSupply
+import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.domain.model.Supply
 import com.umut.poele.domain.model.toLocalDate
 import com.umut.poele.domain.model.toState
 import com.umut.poele.domain.model.toUnit
 import com.umut.poele.domain.repository.RecipeRepository
 import com.umut.poele.domain.repository.SupplyRepository
+import com.umut.poele.ui.fridge.SupplyListAdapter
 import com.umut.poele.util.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
@@ -29,7 +34,6 @@ class GetSuppliesUseCase @Inject constructor(private val supplyRepository: Suppl
                 Log.e("IOException", e.localizedMessage ?: "IO Error occured")
             }
         }
-        Log.i("umutcan", "usecase supply list: ${supplies}")
         return Resource.Success(supplies)
     }
 
@@ -76,4 +80,38 @@ class GetSuppliesUseCase @Inject constructor(private val supplyRepository: Suppl
         }
         return Resource.Success(supply.first())
     }
+
+    suspend fun getShopListSupply() : Resource<List<Supply>> {
+        var shopList = emptyList<Supply>()
+        withContext(Dispatchers.IO) {
+            try {
+                shopList = supplyRepository.getShopListSupply().map { it.toSupply() }
+            } catch (e: IOException) {
+                Log.e("IOException", e.localizedMessage ?: "IO Error occured")
+            }
+        }
+        return Resource.Success(shopList)
+    }
+
+    suspend fun upsertSupplyToShopListSupply(supply: Supply) {
+        val shopListItem = ShopListSupplyEntity(
+            supply.id,
+            supply.title,
+            supply.imageUrl,
+            supply.amount,
+            supply.unit.toString().lowercase(),
+            )
+        withContext(Dispatchers.IO) {
+            supplyRepository.upsertShopListSupply(shopListItem)
+        }
+    }
+
+    suspend fun deleteShopList(): Boolean {
+        var result = false
+        withContext(Dispatchers.IO) {
+            result = supplyRepository.deleteAllSuppliesFromShopList()
+        }
+        return result
+    }
+
 }

@@ -1,10 +1,13 @@
 package com.umut.poele.ui.recipe_detail
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.umut.poele.domain.model.Equipment
 import com.umut.poele.domain.model.RecipeBasic
+import com.umut.poele.domain.model.Supply
 import com.umut.poele.domain.use_case.GetRecipesUseCase
+import com.umut.poele.domain.use_case.GetSuppliesUseCase
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.ShopListListener
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +17,10 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeRecipeDetailViewModel @Inject constructor(private val getRecipesUseCase: GetRecipesUseCase)
+class HomeRecipeDetailViewModel @Inject constructor(
+    private val getRecipesUseCase: GetRecipesUseCase,
+    private val getSuppliesUseCase: GetSuppliesUseCase
+)
     : BaseViewModel(), ShopListListener {
 
     private val _recipeInfoLiveData = MutableLiveData<RecipeBasic>()
@@ -65,6 +71,15 @@ class HomeRecipeDetailViewModel @Inject constructor(private val getRecipesUseCas
     fun addShopList(clickedRecipe: RecipeBasic) {
         viewModelScope.launch{
             getRecipesUseCase.upsertRecipeToShopList(clickedRecipe)
+        }
+    }
+
+    fun addShopListSupply(clickedRecipe: RecipeBasic) {
+        viewModelScope.launch {
+
+            clickedRecipe.ingredients.forEach {
+                getSuppliesUseCase.upsertSupplyToShopListSupply(it)
+            }
         }
     }
 

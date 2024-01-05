@@ -100,17 +100,29 @@
             tools:listitem="@layout/list_shop_list_recipe" />
 
         <TextView
+            android:id="@+id/text_empty_recipe"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_recipe_list"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/text_ingredient_list_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_recipe_list_title" />
+
+        <TextView
             android:id="@+id/text_ingredient_list_title"
             style="@style/TextAppearance.Material3.HeadlineSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
-            android:layout_marginVertical="@dimen/vertical_margin"
+            android:layout_marginVertical="@dimen/_100sdp"
             android:text="@string/product_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recycler_recipe" />
+            app:layout_constraintTop_toBottomOf="@id/text_recipe_list_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_ingredient"
@@ -119,11 +131,25 @@
             android:layout_marginTop="@dimen/vertical_margin"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_ingredient_list_title"
             app:setAdapter="@{adapterSupply}"
             tools:listitem="@layout/list_shop_list_supply" />
+
+        <TextView
+            android:id="@+id/text_empty_supply"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_50sdp"
+            android:text="@string/empty_supply_list"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_ingredient_list_title" />
 
         <Button
             android:id="@+id/button_create_shop_list"

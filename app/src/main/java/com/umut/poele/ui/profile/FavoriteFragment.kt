@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.umut.poele.R
-import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.databinding.FragmentFavoriteBinding
 import com.umut.poele.ui.base.BaseFragment
 
@@ -16,7 +15,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding, FavoriteViewModel
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            adapter = FavoriteListAdapter(RecipeDataSource().loadRecipe(), vm)
+            adapter = FavoriteListAdapter(emptyList(), vm)
         }
     }
 }

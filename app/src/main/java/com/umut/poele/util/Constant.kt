@@ -29,14 +29,14 @@ enum class Levels { EASY, INTERMEDIATE, HARD, UNDETERMINED
 
 enum class Meals { BREAKFAST, BRUNCH, LUNCH, DINNER, UNDETERMINED }
 
-enum class MealTypes {MAINCOURSE}
-//, SIDEDISH, DESSERT, APPETIZER, SALAD, BREAD, BREAKFAST, SOUP, BEVERAGE, SAUCE, MARINADE, FINGERFOOD, SNACK, DRINK
+enum class MealTypes {MAINCOURSE, SIDEDISH, DESSERT, APPETIZER}
+//, SALAD, BREAD, BREAKFAST, SOUP, BEVERAGE, SAUCE, MARINADE, FINGERFOOD, SNACK, DRINK
 fun MealTypes.toMealCategory(mealType: MealTypes): MealCategory {
     return when (mealType) {
         MealTypes.MAINCOURSE -> MealCategory("Main Course", "https://spoonacular.com/recipeImages/716381-312x231.jpg")
-//        MealTypes.SIDEDISH -> MealCategory("Side Dish", "https://spoonacular.com/recipeImages/766453-312x231.jpg")
-//        MealTypes.DESSERT -> MealCategory("Dessert", "https://spoonacular.com/recipeImages/658007-312x231.jpg")
-//        MealTypes.APPETIZER -> MealCategory("Appetizer", "https://spoonacular.com/recipeImages/716406-312x231.jpg")
+        MealTypes.SIDEDISH -> MealCategory("Side Dish", "https://spoonacular.com/recipeImages/766453-312x231.jpg")
+        MealTypes.DESSERT -> MealCategory("Dessert", "https://spoonacular.com/recipeImages/658007-312x231.jpg")
+        MealTypes.APPETIZER -> MealCategory("Appetizer", "https://spoonacular.com/recipeImages/716406-312x231.jpg")
 //        MealTypes.SALAD -> MealCategory("Salad", "https://spoonacular.com/recipeImages/782600-312x231.jpg")
 //        MealTypes.BREAD -> MealCategory("Bread", "https://spoonacular.com/recipeImages/632347-312x231.jpg")
 //        MealTypes.BREAKFAST -> MealCategory("Breakfast", "https://spoonacular.com/recipeImages/782619-312x231.png")

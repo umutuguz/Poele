@@ -23,10 +23,6 @@ class ProfileFirstViewModel @Inject constructor(private val userDao: UserDao, pr
         private val _profileInfoLiveData = MutableLiveData<UserDto>()
     val profileInfoLiveData get() = _profileInfoLiveData
 
-    init {
-//        accountInfo()
-    }
-
     fun getUserWithUserId(userId: Int): LiveData<UserEntity> = userDao.getUserWithUserId(userId).asLiveData()
 
     override fun onFavoritesClicked() {
@@ -48,23 +44,4 @@ class ProfileFirstViewModel @Inject constructor(private val userDao: UserDao, pr
         }
     }
 
-//    fun accountInfo() {
-//        launchCatching {
-//            accountService.currentUser.collect(){
-//                _profileInfoLiveData.value = it
-//            }
-//        }
-//    }
 }
-
-//class ProfileFirstViewModelFactory(
-//    private val userDao: UserDao
-//) : ViewModelProvider.Factory {
-//
-//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        if (modelClass.isAssignableFrom(ProfileFirstViewModel::class.java)) {
-//            @Suppress("UNCHECKED_CAST") return ProfileFirstViewModel(userDao) as T
-//        }
-//        throw IllegalArgumentException("Unknown ViewModel class")
-//    }
-//}

@@ -47,7 +47,7 @@ interface RecipeDao {
     @Delete
     suspend fun deleteRecipeFromShopList(shopListEntity: ShopListEntity)
     @Query("DELETE FROM shoplist")
-    suspend fun deleteAllRecipesFromShopList()
+    suspend fun deleteAllRecipesFromShopList() : Int
     @Upsert
     suspend fun upsertRecipe(recipe: RecipeEntity)
     @Upsert

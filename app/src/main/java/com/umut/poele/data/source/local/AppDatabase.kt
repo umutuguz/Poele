@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.umut.poele.data.source.local.converter.SupplyEntityListConverter
 import com.umut.poele.data.source.local.entity.AddressEntity
 import com.umut.poele.data.source.local.entity.AmountEntity
 import com.umut.poele.data.source.local.entity.RecipeCategoryEntity
@@ -21,6 +23,7 @@ import com.umut.poele.data.source.local.dao.SupplyDao
 import com.umut.poele.data.source.local.entity.UserEntity
 import com.umut.poele.data.source.local.dao.UserDao
 import com.umut.poele.data.source.local.entity.ShopListEntity
+import com.umut.poele.data.source.local.entity.ShopListSupplyEntity
 import com.umut.poele.data.source.local.relation.RecipeCategoryCrossRef
 import com.umut.poele.data.source.local.relation.RecipeCuisineCrossRef
 import com.umut.poele.data.source.local.relation.RecipeEquipmentCrossRef
@@ -33,12 +36,13 @@ import com.umut.poele.data.source.local.relation.UserSupplyCrossRef
     entities = [
         AddressEntity::class, AmountEntity::class, RecipeCategoryEntity::class, SupplyCategoryEntity::class,
         CuisineEntity::class, DirectionEntity::class, EquipmentEntity::class, ShopListEntity::class,
-        MacroEntity::class, MenuCardEntity::class, RecipeEntity::class,
+        MacroEntity::class, MenuCardEntity::class, RecipeEntity::class, ShopListSupplyEntity::class,
         SupplyEntity::class, UserEntity::class, UserSupplyCrossRef::class,
         UserRecipeCrossRef::class, SupplyCategoryCrossRef::class, RecipeCategoryCrossRef::class,
         RecipeCuisineCrossRef::class, RecipeEquipmentCrossRef::class, RecipeSupplyCrossRef::class],
     version = 1,
     exportSchema = false)
+//@TypeConverters(SupplyEntityListConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao

@@ -13,12 +13,6 @@
             type="com.umut.poele.domain.model.RecipeBasic" />
     </data>
 
-    <!--    <ScrollView-->
-    <!--        android:id="@+id/scrollView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:fillViewport="false">-->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -53,7 +47,6 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@id/button_remove"
             app:layout_constraintTop_toTopOf="@id/button_remove" />
-        <!--android:text="@{@string/serve_count(recipeModel.people)}"-->
 
         <Button
             android:id="@+id/button_add"
@@ -83,7 +76,5 @@
             tools:listitem="@layout/list_recipe_ingredient" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!--    </ScrollView>-->
 
 </layout>

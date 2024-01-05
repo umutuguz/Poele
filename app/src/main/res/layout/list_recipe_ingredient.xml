@@ -51,7 +51,7 @@
 
             <TextView
                 android:id="@+id/text_ingredient_amount"
-                android:layout_width="@dimen/_60sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
                 app:amount="@{ingredient.amount}"
@@ -60,21 +60,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toEndOf="@id/card_image_ingredient"
-                app:layout_constraintTop_toTopOf="@id/card_image_ingredient"
-                android:maxEms="5"
+
+                android:maxEms="10"
                 android:maxLines="1"
                 android:ellipsize="end"
-                tools:text="125 gramsadasf" />
+                tools:text="125 gramsadsdasdasdasdassadsadadaasf" />
 
             <TextView
                 android:id="@+id/text_ingredient_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{ingredient.title}"
-                app:layout_constraintBottom_toBottomOf="@id/card_image_ingredient"
-                app:layout_constraintEnd_toStartOf="@id/image_add_shoplist"
-                app:layout_constraintHorizontal_bias="0.7"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
+                android:maxEms="9"
+                android:maxLines="1"
+                android:ellipsize="end"
                 app:layout_constraintStart_toEndOf="@id/card_image_ingredient"
                 app:layout_constraintTop_toTopOf="@id/card_image_ingredient"
                 tools:text="All-Purpose Flour" />

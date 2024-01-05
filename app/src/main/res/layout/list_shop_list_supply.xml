@@ -18,7 +18,6 @@
         android:focusable="true"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="0dp"
-
         app:strokeWidth="0.5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,10 +32,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/horizontal_margin"
                 android:layout_marginVertical="@dimen/vertical_margin"
-                android:text="@{supply.title}"
-                android:maxLines="1"
                 android:ellipsize="end"
-                android:maxEms="4"
+                android:maxEms="7"
+                android:maxLines="1"
+                android:text="@{supply.title}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
@@ -45,58 +44,54 @@
                 app:layout_constraintVertical_bias="0"
                 tools:text="@string/title" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/text_recipe_name"-->
-<!--                style="@style/TextAppearance.Material3.BodySmall"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/lasagne"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0"-->
-<!--                app:layout_constraintStart_toStartOf="@id/text_supply_title"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/text_supply_title"-->
-<!--                tools:text="RecipeModel Name"-->
-
-<!--                />-->
-
             <TextView
                 android:id="@+id/text_supply_amount"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/vertical_margin"
+                app:amount="@{supply.amount}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/text_supply_title"
                 app:layout_constraintTop_toBottomOf="@id/text_supply_title"
-                app:amount="@{supply.amount}"
                 app:unit="@{supply.unit}"
                 tools:text="Supply Amount" />
+
+            <TextView
+                android:id="@+id/text_required"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/required_amount"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="@id/text_supply_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.25" />
 
             <TextView
                 android:id="@+id/text_supply_need"
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/horizontal_margin"
-                android:text="@string/required_amount_500_g"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintVertical_bias="0.25"
-                app:layout_constraintHorizontal_bias="0.6"
-                app:layout_constraintStart_toStartOf="@id/text_supply_title"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Required Amount" />
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="@id/text_required"
+
+                app:layout_constraintStart_toEndOf="@id/text_required"
+                app:layout_constraintTop_toTopOf="@id/text_required"
+                app:setIntText="@{supply.amount}"
+                tools:text="5" />
 
             <TextView
                 android:id="@+id/text_supply_amount_total"
                 style="@style/TextAppearance.Material3.BodyMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="In stock: 49 g"
+                android:text="In stock: None"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/text_supply_need"
-                app:layout_constraintStart_toStartOf="@id/text_supply_need"
+                app:layout_constraintStart_toStartOf="@id/text_required"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.75"
                 tools:text="Supply Amount" />

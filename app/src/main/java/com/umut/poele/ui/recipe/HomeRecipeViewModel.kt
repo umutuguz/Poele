@@ -28,60 +28,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeRecipeViewModel @Inject constructor(
-    private val recipeDao: RecipeDao,
     private val getRecipesUseCase: GetRecipesUseCase
 ) : BaseViewModel(), RecipeListener, SearchBarListener, FilterListener, ShopListListener {
 
-    private var _recipeCategoryListLiveData: MutableLiveData<List<RecipeCategoryWithRecipes>> = MutableLiveData()
-    val recipeCategoryListLiveData get() = _recipeCategoryListLiveData
-
-    private val _recipeList = MutableLiveData<List<RecipeBasic>>()
-    val recipeList : LiveData<List<RecipeBasic>> = _recipeList
-
-    private val _recipeInfo = MutableLiveData<RecipeBasic>()
-    val recipeInfo : LiveData<RecipeBasic> = _recipeInfo
-
-    private val allRecipeList = mutableListOf<List<RecipeBasic>>()
-
+    private val allRecipeList = MutableList(MealTypes.MAINCOURSE.toMealCategoryList().size) {
+        listOf(RecipeBasic())
+    }
     private val _allRecipeListLiveData = MutableLiveData<List<List<RecipeBasic>>>()
     val allRecipeListLiveData get() = _allRecipeListLiveData
-
     val recipeCategoryList = MealTypes.MAINCOURSE.toMealCategoryList()
-
-    private fun getAllRecipeCategories() {
-        val recipeList = mutableListOf<RecipeCategoryWithRecipes>()
-
-        viewModelScope.launch {
-            recipeDao.getAllRecipeCategories().collect { list ->
-                Log.i("umutcan", "list: ${list.size}")
-
-                list.map {recipeCategory->
-                    async { getRecipesWithCategory(recipeCategory.recipeCategoryTitle).collect {
-                        recipeList.add(it)
-                    } }
-
-                }.map {
-                    it.await()
-                }
-            }
-        }
-        _recipeCategoryListLiveData.postValue(recipeList)
-    }
-
-    private fun getUserWithRecipesAndCategories(userId: Int){
-        val list = mutableListOf<List<UserWithRecipeCategoriesWithRecipes>>()
-        viewModelScope.launch {
-            recipeDao.getUsersWithRecipesAndCategories().collect{
-                list.add(it)
-            }
-        }
-    }
-
-
-    fun getAllRecipesWithUserId(userId: Int): LiveData<UserWithRecipes> = recipeDao.getAllRecipesOfUser(userId).asLiveData()
-
-    private fun getRecipesWithCategory(recipeCategoryTitle: String): Flow<RecipeCategoryWithRecipes> =
-        recipeDao.getRecipesWithCategory(recipeCategoryTitle)
 
     fun onBackClicked() {
         navigateBack()
@@ -108,33 +63,26 @@ class HomeRecipeViewModel @Inject constructor(
     }
 
     private fun getAllCategoryRecipes() {
-        recipeCategoryList.forEach{
-            getRecipesWithType(it.title)
+        var index = 0
+
+        recipeCategoryList.forEach {
+            getRecipesWithType(it.title, index)
+            ++index
         }
     }
 
-    private fun getRecipesWithType(type:String) {
+    private fun getRecipesWithType(type: String, index: Int) {
         viewModelScope.launch {
-            Log.i("umutcan", "type: $type")
-            val result = withContext(Dispatchers.IO) {getRecipesUseCase.getRecipesWithType(true ,type.lowercase(), 15)}
-//            val result = async {getRecipesUseCase.getRecipesWithType(type.lowercase())}.await()
+            val result = withContext(Dispatchers.IO) {
+                getRecipesUseCase.getRecipesWithType(true, type.lowercase(), 15)
+            }
             result.data?.let {
-                allRecipeList.add(it)
+                allRecipeList.set(index, it)
             }
             if (allRecipeList.size == recipeCategoryList.size) {
-                Log.i("umutcan", "allRecipeList: ${allRecipeList}")
                 _allRecipeListLiveData.value = allRecipeList
             }
         }
-    }
-
-    private fun getRecipeInfo(id: Int, includeNutrition: Boolean){
-        viewModelScope.launch {
-            val result = async { getRecipesUseCase.getRecipeInfo(id, includeNutrition) }.await()
-//            val result = withContext(Dispatchers.IO) { getRecipesUseCase.getRecipeInfo(id, includeNutrition)}
-            _recipeInfo.value = result.data ?: RecipeBasic()
-        }
-
     }
 
 }

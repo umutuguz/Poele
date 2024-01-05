@@ -18,7 +18,7 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import javax.inject.Inject
 
-class GetRecipesUseCase @Inject constructor(private val recipeRepository: RecipeRepository, private val recipeDao: RecipeDao) {
+class GetRecipesUseCase @Inject constructor(private val recipeRepository: RecipeRepository) {
 
     suspend fun getRecipes(number: Int): Resource<List<RecipeBasic>> {
         var recipes = emptyList<RecipeBasic>()
@@ -98,13 +98,15 @@ class GetRecipesUseCase @Inject constructor(private val recipeRepository: Recipe
             recipeBasic.difficultyLevel.toString(),
             recipeBasic.chefName)
         withContext(Dispatchers.IO) {
-            recipeDao.upsertRecipeToShopList(shopListItem)
+            recipeRepository.upsertShopList(shopListItem)
         }
     }
 
-    suspend fun deleteShopList() {
+    suspend fun deleteShopList(): Boolean{
+        var result = false
         withContext(Dispatchers.IO) {
-            recipeDao.deleteAllRecipesFromShopList()
+            result = recipeRepository.deleteAllRecipesFromShopList()
         }
+        return result
     }
 }

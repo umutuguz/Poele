@@ -5,9 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.umut.poele.R
-import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.databinding.FragmentHomeRecipeDetailInfoBinding
-import com.umut.poele.domain.model.Equipment
 import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint

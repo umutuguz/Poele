@@ -4,6 +4,7 @@ import com.umut.poele.data.source.local.entity.ShopListEntity
 import com.umut.poele.data.source.remote.dto.EquipmentDto
 import com.umut.poele.data.source.remote.dto.RecipeBasicDto
 import com.umut.poele.data.source.remote.dto.RecipeDto
+import com.umut.poele.domain.model.RecipeBasic
 
 interface RecipeRepository {
 
@@ -14,4 +15,8 @@ interface RecipeRepository {
     suspend fun getEquipmentWithId(id: Int): List<EquipmentDto>
 
     suspend fun getShopList(): List<ShopListEntity>
+
+    suspend fun upsertShopList(shopListEntity: ShopListEntity)
+
+    suspend fun deleteAllRecipesFromShopList() : Boolean
 }

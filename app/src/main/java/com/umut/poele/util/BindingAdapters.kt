@@ -126,11 +126,20 @@ fun setAmount(textView: TextView, amount: Double, unit: Units) {
         Units.SERVINGS -> "servings"
         Units.UNDETERMINED -> ""
     }
+    var result = 0
+    val amountString1 = amount.toString()
+    val intAmount = amountString1.split(".").first().toInt()
+    val decimalAmount = amountString1.split(".").last().toInt()
+    if (decimalAmount == 0) {
+        result = intAmount
+        textView.text = "Amount: $result $unitString"
+    }
+
     val amountString = when (amount) {
         -1.0 -> "Undetermined"
         else -> amount.toString()
     }
-    textView.text = "$amountString $unitString"
+    textView.text = "Amount: $amountString $unitString"
 }
 
 @BindingAdapter("setMenu")
@@ -146,5 +155,14 @@ fun setMenu(textView: TextView, mealTitle: Meals?){
             Meals.DINNER -> textView.text = "Dinner"
             Meals.UNDETERMINED -> textView.text = "Undetermined"
         }
+    }
+}
+
+@BindingAdapter("setPrepTime")
+fun setPrepTime(textView: TextView, time: Int?) {
+    when (time) {
+        -1 -> textView.text = "Prep Time: Unstated"
+        else -> textView.text = "Prep Time: $time min"
+
     }
 }

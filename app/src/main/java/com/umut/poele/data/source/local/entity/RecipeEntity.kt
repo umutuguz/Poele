@@ -18,11 +18,3 @@ data class RecipeEntity(
     @ColumnInfo("is_favorite") val isFavorite: Boolean,
     @ColumnInfo("is_vegan") val isVegan: Boolean,
 )
-
-//class CategoryConverter{
-//
-//    @TypeConverter
-//    fun categoryToString(category: Category): String {
-//        return category.toString()
-//    }
-//}

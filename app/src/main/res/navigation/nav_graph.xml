@@ -3,27 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/homeFirstFragment">
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.umut.poele.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment_to_homeFirstFragment"
-            app:destination="@id/homeFirstFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"/>
-        <action
-            android:id="@+id/action_loginFragment_to_signupFragment"
-            app:destination="@id/signupFragment" />
-        <argument
-            android:name="email"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="null" />
-    </fragment>
     <fragment
         android:id="@+id/homeFirstFragment"
         android:name="com.umut.poele.ui.home.HomeFirstFragment"
@@ -420,15 +401,6 @@
         android:name="com.umut.poele.ui.profile.EditProfileFragment"
         android:label="EditProfileFragment"
         tools:layout="@layout/fragment_edit_profile" />
-    <fragment
-        android:id="@+id/signupFragment"
-        android:name="com.umut.poele.ui.signup.SignupFragment"
-        android:label="SignupFragment"
-        tools:layout="@layout/fragment_signup">
-        <action
-            android:id="@+id/action_signupFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/loginFragment"/>
-    </fragment>
+
+<!--    <include app:graph="@navigation/login_graph" />-->
 </navigation>

@@ -52,4 +52,15 @@ class RecipeRepositoryImpl(private val api: PoeleApiService, private val recipeD
             emptyList()
         }
     }
+
+    override suspend fun upsertShopList(shopListEntity: ShopListEntity) {
+        if (shopListEntity.recipeTitle.isNotEmpty()) {
+            recipeDao.upsertRecipeToShopList(shopListEntity)
+        }
+    }
+
+    override suspend fun deleteAllRecipesFromShopList() : Boolean{
+        val result = recipeDao.deleteAllRecipesFromShopList()
+        return result > 0
+    }
 }

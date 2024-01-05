@@ -7,14 +7,6 @@
 
     </data>
 
-<!--    <com.google.android.material.card.MaterialCardView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:cardCornerRadius="0dp"-->
-<!--        app:cardElevation="0dp"-->
-<!--        app:strokeWidth="0dp">-->
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -31,7 +23,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Step 1" />
-            <!--            android:background="@color/md_theme_light_surfaceVariant"-->
 
             <TextView
                 android:id="@+id/text_step_description"
@@ -59,5 +50,4 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    </com.google.android.material.card.MaterialCardView>-->
 </layout>

@@ -6,25 +6,27 @@ import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.domain.model.Supply
 import com.umut.poele.domain.model.toUnit
 import com.umut.poele.util.Levels
+import com.umut.poele.util.Units
+import com.umut.poele.util.extension.toDifficultyLevel
 import javax.crypto.Mac
 
 fun RecipeDto.toRecipe(): RecipeBasic{
     return RecipeBasic(
-        id,
-        title,
-        image,
-        sourceName,
-        dishTypes,
-        summary,
-        prepTime = preparationMinutes,
-        servings = servings,
-        difficultyLevel = Levels.UNDETERMINED,
-        cuisines,
+        id ?: -1,
+        title ?: "",
+        image ?: "",
+        sourceName ?: "",
+        dishTypes ?: emptyList(),
+        summary ?: "",
+        prepTime = preparationMinutes ?: -1,
+        servings = servings ?: -1,
+        difficultyLevel = spoonacularScore?.toDifficultyLevel() ?: Levels.UNDETERMINED,
+        cuisines ?: emptyList(),
         false,
-        vegan,
-        directions = summary.split(Regex("(?<=\\.) ")),
-        ingredients = extendedIngredients.toSupply(),
-        macro = nutrition.toMacro()
+        vegan ?: false,
+        directions = summary?.split(Regex("(?<=\\.) ")) ?: emptyList(),
+        ingredients = extendedIngredients?.toSupply() ?: emptyList(),
+        macro = nutrition?.toMacro() ?: Macro()
     )
 }
 
@@ -33,12 +35,12 @@ private fun List<ExtendedIngredient>.toSupply(): List<Supply> {
 
     this.forEach {
         list.add(Supply(
-            it.id,
-            it.name,
+            it.id ?: -1,
+            it.name ?: "",
             "https://spoonacular.com/cdn/ingredients_100x100/${it.image}",
-            it.aisle,
-            it.amount,
-            it.unit.toUnit()
+            it.aisle ?: "",
+            it.amount ?: 0.0,
+            it.unit?.toUnit() ?: Units.UNDETERMINED
         ))
     }
     return list
@@ -46,125 +48,125 @@ private fun List<ExtendedIngredient>.toSupply(): List<Supply> {
 
 data class RecipeDto(
     @Json(name = "vegetarian")
-    val vegetarian: Boolean,
+    val vegetarian: Boolean?,
     @Json(name = "vegan")
-    val vegan: Boolean,
+    val vegan: Boolean?,
     @Json(name = "glutenFree")
-    val glutenFree: Boolean,
+    val glutenFree: Boolean?,
     @Json(name = "dairyFree")
-    val dairyFree: Boolean,
+    val dairyFree: Boolean?,
     @Json(name = "veryHealthy")
-    val veryHealthy: Boolean,
+    val veryHealthy: Boolean?,
     @Json(name = "cheap")
-    val cheap: Boolean,
+    val cheap: Boolean?,
     @Json(name = "veryPopular")
-    val veryPopular: Boolean,
+    val veryPopular: Boolean?,
     @Json(name = "sustainable")
-    val sustainable: Boolean,
+    val sustainable: Boolean?,
     @Json(name = "lowFodmap")
-    val lowFodmap: Boolean,
+    val lowFodmap: Boolean?,
     @Json(name = "weightWatcherSmartPoints")
-    val weightWatcherSmartPoints: Int,
+    val weightWatcherSmartPoints: Int?,
     @Json(name = "gaps")
-    val gaps: String,
+    val gaps: String?,
     @Json(name = "preparationMinutes")
-    val preparationMinutes: Int,
+    val preparationMinutes: Int?,
     @Json(name = "cookingMinutes")
-    val cookingMinutes: Int,
+    val cookingMinutes: Int?,
     @Json(name = "aggregateLikes")
-    val aggregateLikes: Int,
+    val aggregateLikes: Int?,
     @Json(name = "healthScore")
-    val healthScore: Int,
+    val healthScore: Int?,
     @Json(name = "creditsText")
-    val creditsText: String,
+    val creditsText: String?,
     @Json(name = "license", ignore = true)
-    val license: String = "",
+    val license: String? = "",
     @Json(name = "sourceName")
-    val sourceName: String,
+    val sourceName: String?,
     @Json(name = "pricePerServing")
-    val pricePerServing: Double,
+    val pricePerServing: Double?,
     @Json(name = "extendedIngredients")
-    val extendedIngredients: List<ExtendedIngredient>,
+    val extendedIngredients: List<ExtendedIngredient>?,
     @Json(name = "id")
-    val id: Int,
+    val id: Int?,
     @Json(name = "title")
-    val title: String,
+    val title: String?,
     @Json(name = "readyInMinutes")
-    val readyInMinutes: Int,
+    val readyInMinutes: Int?,
     @Json(name = "servings")
-    val servings: Int,
+    val servings: Int?,
     @Json(name = "sourceUrl")
-    val sourceUrl: String,
+    val sourceUrl: String?,
     @Json(name = "image")
-    val image: String,
+    val image: String?,
     @Json(name = "imageType")
-    val imageType: String,
+    val imageType: String?,
     @Json(name = "nutrition")
-    val nutrition: Nutrition,
+    val nutrition: Nutrition?,
     @Json(name = "summary")
-    val summary: String,
+    val summary: String?,
     @Json(name = "cuisines")
-    val cuisines: List<String>,
+    val cuisines: List<String>?,
     @Json(name = "dishTypes")
-    val dishTypes: List<String>,
+    val dishTypes: List<String>?,
     @Json(name = "diets")
-    val diets: List<Any>,
+    val diets: List<Any>?,
     @Json(name = "occasions")
-    val occasions: List<Any>,
+    val occasions: List<Any>?,
     @Json(name = "winePairing", ignore = true)
-    val winePairing: WinePairing = WinePairing(),
+    val winePairing: WinePairing? = WinePairing(),
     @Json(name = "instructions")
-    val instructions: String,
+    val instructions: String?,
     @Json(name = "analyzedInstructions")
-    val analyzedInstructions: List<Any>,
+    val analyzedInstructions: List<Any>?,
     @Json(name = "originalId")
     val originalId: Any?,
     @Json(name = "spoonacularScore")
-    val spoonacularScore: Double,
+    val spoonacularScore: Double?,
     @Json(name = "spoonacularSourceUrl")
     val spoonacularSourceUrl: String
 )
 
 data class ExtendedIngredient(
     @Json(name = "id")
-    val id: Int,
+    val id: Int?,
     @Json(name = "aisle")
-    val aisle: String,
+    val aisle: String?,
     @Json(name = "image")
-    val image: String,
+    val image: String?,
     @Json(name = "consistency")
-    val consistency: String,
+    val consistency: String?,
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "nameClean")
-    val nameClean: String,
+    val nameClean: String?,
     @Json(name = "original")
-    val original: String,
+    val original: String?,
     @Json(name = "originalName")
-    val originalName: String,
+    val originalName: String?,
     @Json(name = "amount")
-    val amount: Double,
+    val amount: Double?,
     @Json(name = "unit")
-    val unit: String,
+    val unit: String?,
     @Json(name = "meta")
-    val meta: List<String>,
+    val meta: List<String>?,
     @Json(name = "measures")
-    val measures: Measures
+    val measures: Measures?
 )
 
 data class Nutrition(
     @Json(name = "nutrients")
-    val nutrients: List<Nutrient>,
+    val nutrients: List<Nutrient>?,
     @Json(name = "properties")
-    val properties: List<Property>,
+    val properties: List<Property>?,
     @Json(name = "flavonoids")
-    val flavonoids: List<Flavonoid>,
+    val flavonoids: List<Flavonoid>?,
     @Json(name = "ingredients")
-    val ingredients: List<Ingredient>,
+    val ingredients: List<Ingredient>?,
     @Json(name = "caloricBreakdown")
-    val caloricBreakdown: CaloricBreakdown,
+    val caloricBreakdown: CaloricBreakdown?,
     @Json(name = "weightPerServing")
-    val weightPerServing: WeightPerServing
+    val weightPerServing: WeightPerServing?
 )
 
 data class WinePairing(
@@ -178,39 +180,39 @@ data class WinePairing(
 
 data class Measures(
     @Json(name = "us")
-    val us: Us,
+    val us: Us?,
     @Json(name = "metric")
-    val metric: Metric
+    val metric: Metric?
 )
 
 data class Us(
     @Json(name = "amount")
-    val amount: Double,
+    val amount: Double?,
     @Json(name = "unitShort")
-    val unitShort: String,
+    val unitShort: String?,
     @Json(name = "unitLong")
-    val unitLong: String
+    val unitLong: String?
 )
 
 data class Metric(
     @Json(name = "amount")
-    val amount: Double,
+    val amount: Double?,
     @Json(name = "unitShort")
-    val unitShort: String,
+    val unitShort: String?,
     @Json(name = "unitLong")
-    val unitLong: String
+    val unitLong: String?
 )
 
 fun Nutrition.toMacro() : Macro {
     val list = this.nutrients
-    var macro = Macro()
-    list.forEach {
+    val macro = Macro()
+    list?.forEach {
         when (it.name) {
-            "Calories" -> macro.calorie = it.amount
-            "Fat" -> macro.fat = it.amount
-            "Carbohydrates" -> macro.carb = it.amount
-            "Protein" -> macro.protein = it.amount
-            "Fiber" -> macro.fiber = it.amount
+            "Calories" -> macro.calorie = it.amount ?: -1.0
+            "Fat" -> macro.fat = it.amount ?: -1.0
+            "Carbohydrates" -> macro.carb = it.amount ?: -1.0
+            "Protein" -> macro.protein = it.amount ?: -1.0
+            "Fiber" -> macro.fiber = it.amount ?: -1.0
         }
     }
     return macro
@@ -218,58 +220,58 @@ fun Nutrition.toMacro() : Macro {
 
 data class Nutrient(
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "amount")
-    val amount: Double,
+    val amount: Double?,
     @Json(name = "unit")
-    val unit: String,
+    val unit: String?,
     @Json(name = "percentOfDailyNeeds")
-    val percentOfDailyNeeds: Double
+    val percentOfDailyNeeds: Double?
 )
 
 data class Property(
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "amount")
-    val amount: Double,
+    val amount: Double?,
     @Json(name = "unit")
-    val unit: String
+    val unit: String?
 )
 
 data class Flavonoid(
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "amount")
-    val amount: Double,
+    val amount: Double?,
     @Json(name = "unit")
-    val unit: String
+    val unit: String?
 )
 
 data class Ingredient(
     @Json(name = "id")
-    val id: Int,
+    val id: Int?,
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "amount")
-    val amount: Double,
+    val amount: Double?,
     @Json(name = "unit")
-    val unit: String,
+    val unit: String?,
     @Json(name = "nutrients")
-    val nutrients: List<Nutrient>
+    val nutrients: List<Nutrient>?
 )
 
 data class CaloricBreakdown(
     @Json(name = "percentProtein")
-    val percentProtein: Double,
+    val percentProtein: Double?,
     @Json(name = "percentFat")
-    val percentFat: Double,
+    val percentFat: Double?,
     @Json(name = "percentCarbs")
-    val percentCarbs: Double
+    val percentCarbs: Double?
 )
 
 data class WeightPerServing(
     @Json(name = "amount")
-    val amount: Int,
+    val amount: Int?,
     @Json(name = "unit")
-    val unit: String
+    val unit: String?
 )

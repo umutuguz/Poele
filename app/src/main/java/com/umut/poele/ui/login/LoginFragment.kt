@@ -31,29 +31,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
                 textPassword.editText?.setText("cancan")
             }
         }
-
         binding.apply {
             viewModel = vm
-
-//            if (!args.email.isNullOrEmpty()) {
-//                vm.getAllUsers().observe(this@LoginFragment.viewLifecycleOwner) {
-//                    textUsername.editText?.setText(it.first().email)
-//                }
-//            }
-//            else {
-//                textUsername.editText?.setText(args.email)
-//            }
-
-//            buttonLogin.setOnClickListener {
-//                vm.getUserId(textUsername.editText?.text.toString()).observe(this@LoginFragment.viewLifecycleOwner) { list ->
-//                    list.firstOrNull()?.let { user ->
-//                        Toast.makeText(context, "${user.id} is the id", Toast.LENGTH_LONG).show()
-//                        AccountInfo.accountUserId = user.id
-//                        SelectedUser.userId = user.id
-//                        vm.onLoginClicked()
-//                    }
-//                }
-//            }
 
             buttonLogin.setOnClickListener {
                 vm.email.value = textUsername.editText?.text.toString()
@@ -61,7 +40,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
 
                 vm.onLoginClicked()
             }
-
             textGuest.setOnClickListener{
                 vm.onGuestClicked()
             }

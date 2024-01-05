@@ -28,19 +28,21 @@ class HomeRecipeDetailFragment
         binding.apply {
 
             args.clickedRecipe?.let { clickedRecipe ->
-                Log.i("umutcan", "recipeInfoId: ${clickedRecipe.id}")
                 vm.getRecipeInfo(clickedRecipe.id, true)
 
-                vm.recipeInfoLiveData.observe(viewLifecycleOwner) {
+                vm.recipeInfoLiveData.observe(viewLifecycleOwner) {recipe->
                     viewpagerFragment.adapter = HomeRecipeDetailFragmentAdapter(
-                        loadFragments(it), requireActivity().supportFragmentManager, lifecycle
+                        loadFragments(recipe), requireActivity().supportFragmentManager, lifecycle
                     )
+
                     TabLayoutMediator(tabFragment, viewpagerFragment) { tab, position ->
                         tab.text = RECIPE_DETAIL_TAB_NAME[position]
                     }.attach()
-                }
-                buttonAddShoplist.setOnClickListener {
-                    vm.addShopList(clickedRecipe)
+
+                    buttonAddShoplist.setOnClickListener {
+                        vm.addShopListSupply(recipe)
+                        vm.addShopList(recipe)
+                    }
                 }
             }
             viewModel = vm

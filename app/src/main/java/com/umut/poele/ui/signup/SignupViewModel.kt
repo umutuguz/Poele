@@ -31,15 +31,3 @@ class SignupViewModel @Inject constructor(
         }
     }
 }
-
-
-//class SignupViewModelFactory(
-//    private val userDao: UserDao,
-//) : ViewModelProvider.Factory {
-//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//        if (modelClass.isAssignableFrom(SignupViewModel::class.java)) {
-//            @Suppress("UNCHECKED_CAST") return SignupViewModel(userDao) as T
-//        }
-//        throw IllegalArgumentException("Unknown ViewModel class")
-//    }
-//}

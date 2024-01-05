@@ -19,23 +19,18 @@ import org.jetbrains.annotations.ApiStatus.Experimental
 @ExperimentalCoroutinesApi
 class HomeFirstFragment : BaseFragment<FragmentHomeFirstBinding, HomeFirstViewModel>(R.layout.fragment_home_first) {
 
-    override val vm: HomeFirstViewModel by viewModels()
+    override val vm: HomeFirstViewModel by activityViewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-//            vm.getAllRecipeCategories().observe(this@HomeFirstFragment.viewLifecycleOwner) { list ->
-//                adapterRecipeCategory = RecipeCategoryAdapter(list, vm, vm)
-//            }
 
             adapterRecipeCategory = RecipeCategoryAdapter(vm.getMealTypes(), vm, vm)
 
-            recyclerRecipeCategories.adapter?.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-
-//            vm.getMenuCardWithUserId(AccountInfo.accountUserId).observe(this@HomeFirstFragment.viewLifecycleOwner) { list ->
-//                viewpagerMenuCard.adapter = MenuCardAdapter(loadMenuCardModel(list))
-//            }
+            recyclerRecipeCategories.adapter?.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy
+                .PREVENT_WHEN_EMPTY
 
             vm.menuCardListLiveData.observe(viewLifecycleOwner){
                 viewpagerMenuCard.adapter = MenuCardAdapter(it)

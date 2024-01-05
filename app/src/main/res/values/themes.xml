@@ -39,17 +39,6 @@
 
     </style>
 
-<!--    <style name="BottomSheetDialogTheme" parent="Theme.Material3.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/BottomSheetDialogStyle</item>
-        <item name="android:windowBackground">@android:color/black</item>
-    </style>
-
-    <style name="BottomSheetDialogStyle" parent="Widget.Material3.BottomSheet.Modal">
-        <item name="android:elevation">1dp</item>
-        <item name="background">@drawable/background_bottom_sheet</item>
-        <item name="shouldRemoveExpandedCorners">true</item>
-    </style>-->
-
     <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Widget.Umut.ModalBottomSheetDialog</item>
     </style>

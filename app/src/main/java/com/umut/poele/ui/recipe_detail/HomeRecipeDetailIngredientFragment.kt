@@ -22,10 +22,7 @@ class HomeRecipeDetailIngredientFragment(private val clickedRecipe: RecipeBasic)
 
         binding.apply {
             recipe = clickedRecipe
-//            vm.recipeInfoLiveData.observe(viewLifecycleOwner) {
-//
-//                adapter = IngredientAdapter(it.ingredients)
-//            }
+
             adapter = IngredientAdapter(clickedRecipe.ingredients)
 
             buttonAdd.setOnClickListener {

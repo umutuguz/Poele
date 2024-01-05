@@ -4,8 +4,10 @@ import com.umut.poele.R
 import com.umut.poele.databinding.ListShopListSupplyBinding
 import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseAdapter
+import com.umut.poele.ui.base.BaseViewHolder
 
-class ShopListSupplyAdapter(private val dataset: List<Supply>) : BaseAdapter<ListShopListSupplyBinding, Supply>(
+class ShopListSupplyAdapter(dataset: List<Supply>, private val vm: ShopListViewModel)
+    : BaseAdapter<ListShopListSupplyBinding, Supply>(
     dataset, R.layout.list_shop_list_supply
 ) {
 
@@ -14,4 +16,5 @@ class ShopListSupplyAdapter(private val dataset: List<Supply>) : BaseAdapter<Lis
             supply = item
         }
     }
+
 }

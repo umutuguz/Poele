@@ -48,7 +48,6 @@ class FridgeFirstViewModel @Inject constructor(private val getSuppliesUseCase: G
             result.data?.let {list->
                 list.forEach { supply->
                     val result2 = withContext(Dispatchers.IO){getSuppliesUseCase.getAmountWithSupplyId(supply.id)}
-                    Log.i("umutcan", "${result2.data}")
                     supply.amount = result2.data?.amount ?: 0.0
                     supply.date = result2.data?.date ?: LocalDate.now()
                     supply.unit = result2.data?.unit ?: Units.UNDETERMINED
@@ -58,8 +57,6 @@ class FridgeFirstViewModel @Inject constructor(private val getSuppliesUseCase: G
             }
         }
     }
-
-//    fun getAllSuppliesWithUserId(userId: Int): LiveData<List<SupplyWithUsers>> = supplyDao.getAllSuppliesWithUserId(userId).asLiveData()
 
     override fun onSurpriseMeClicked() {
         navigate(FridgeFirstFragmentDirections.actionFridgeFirstFragmentToFridgeSupplyFragment())

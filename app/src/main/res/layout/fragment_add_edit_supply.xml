@@ -122,21 +122,6 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/text_basic_info_title"-->
-<!--                    style="@style/TextAppearance.Material3.TitleLarge"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginVertical="@dimen/vertical_margin"-->
-<!--                    android:clickable="true"-->
-<!--                    android:focusable="true"-->
-<!--                    android:paddingHorizontal="@dimen/horizontal_margin"-->
-<!--                    android:text="@string/basic_infos"-->
-<!--                    app:drawableEndCompat="@drawable/round_keyboard_arrow_down_24"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/card_supply_image" />-->
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_field_title"
                     android:layout_width="match_parent"

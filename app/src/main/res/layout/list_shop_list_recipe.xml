@@ -67,8 +67,7 @@
                 app:layout_constraintStart_toEndOf="@id/image_recipe"
                 app:layout_constraintTop_toBottomOf="@id/text_recipe_title"
                 app:layout_constraintVertical_bias="0.7"
-
-                android:text="@{@string/prep_time(recipe.prepTime)}"
+                app:setPrepTime="@{recipe.prepTime}"
                 tools:text="Prep Time: 12 min" />
 
             <TextView

@@ -187,9 +187,8 @@
     <string name="last_name">Last name</string>
     <string name="first_name">First name</string>
     <string name="basic_info">Basic Info</string>
+    <string name="required_amount">Required Amount:   </string>
+    <string name="empty_recipe_list">There are no recipes in the shopping list.</string>
+    <string name="empty_supply_list">There are no supplies in the shopping list.</string>
 
-    <!--    <plurals name="amount">-->
-<!--        <item quantity="one">%.0f</item>-->
-<!--        <item quantity="other">%.1f</item>-->
-<!--    </plurals>-->
 </resources>

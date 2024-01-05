@@ -27,10 +27,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
-    //    private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        configureFirebaseServices()
         installSplashScreen().setKeepOnScreenCondition{
             false
         }
@@ -43,18 +42,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonAdd.setOnClickListener {
             navController.navigate(R.id.addFragment)
-//            addFragment.show(supportFragmentManager, AddFragment.TAG)
-//            supportFragmentManager.beginTransaction().apply {
-//                add(addFragment, AddFragment.TAG)
-//
-//                addToBackStack(null)
-//                commit()
-//            }
+
         }
-//        appBarConfiguration = AppBarConfiguration(navController.graph)
-//
-//
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+
         NavigationUI.setupWithNavController(binding.navigationBar, navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -85,43 +75,7 @@ class MainActivity : AppCompatActivity() {
                 binding.buttonAdd.visibility = View.VISIBLE
             }
         }
-//        binding.navigationBar.setOnItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.homeFirstFragment -> {setCurrentFragment(HomeFirstFragment())
-//                    true}
-//                R.id.fridgeFirstFragment -> {
-//                    setCurrentFragment(FridgeFirstFragment())
-//                    true
-//                }
-//                R.id.addFragment -> {
-//                    addFragment.show(supportFragmentManager, AddFragment.TAG)
-//                    false
-//                }
-//                R.id.macroFirstFragment -> {
-//                    setCurrentFragment(MacroFirstFragment())
-//                    true
-//                }
-//                else -> {
-//                    setCurrentFragment(ProfileFirstFragment())
-//                    true
-//                }
-//            }
-//        }
 
     }
 
-
-    private fun setCurrentFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_host_fragment, fragment)
-            addToBackStack(null)
-            commit()
-        }
-    }
-
-//    private fun configureFirebaseServices() {
-//        if (BuildConfig.DEBUG) {
-//            Firebase.auth.useEmulator(Constant.LOCALHOST, Constant.AUTH_PORT)
-//        }
-//    }
 }

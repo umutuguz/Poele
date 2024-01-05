@@ -19,8 +19,8 @@ class UseCaseModule {
 
     @Singleton
     @Provides
-    fun provideGetRecipesUseCase(recipeRepository: RecipeRepository, recipeDao: RecipeDao): GetRecipesUseCase {
-        return GetRecipesUseCase(recipeRepository, recipeDao)
+    fun provideGetRecipesUseCase(recipeRepository: RecipeRepository): GetRecipesUseCase {
+        return GetRecipesUseCase(recipeRepository)
     }
     @Singleton
     @Provides

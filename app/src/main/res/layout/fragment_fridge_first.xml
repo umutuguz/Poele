@@ -81,14 +81,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/button_filter" />
 
-        <!--        <androidx.constraintlayout.widget.Group-->
-        <!--            android:id="@+id/group_filter"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            app:constraint_referenced_ids="image_filter,text_filter"-->
-        <!--            android:clickable="true"-->
-        <!--            android:focusable="true" />-->
-
         <Button
             android:id="@+id/button_filter"
             style="@style/Widget.Umut.Button.TextButton.Icon"
@@ -109,30 +101,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/search_bar"
             app:layout_constraintTop_toBottomOf="@id/choose_home" />
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/image_filter"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginEnd="@dimen/horizontal_margin"-->
-        <!--            android:importantForAccessibility="no"-->
-        <!--            android:padding="@dimen/_4sdp"-->
-        <!--            android:src="@drawable/round_filter_list_24"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@id/search_bar"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toEndOf="@id/search_bar"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/choose_home" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/text_filter"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="@string/filter"-->
-        <!--            android:textColor="@color/md_theme_light_onSurfaceVariant"-->
-        <!--            app:layout_constraintEnd_toEndOf="@id/image_filter"-->
-        <!--            app:layout_constraintStart_toStartOf="@id/image_filter"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/image_filter" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_product"

@@ -11,8 +11,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.umut.poele.databinding.ListMacroProductCardBinding
 
 abstract class BaseAdapter<B : ViewDataBinding, T : Any>(
-    var data: List<T>,@LayoutRes val layoutId: Int
+    var data: List<T>, @LayoutRes val layoutId: Int
 ) : RecyclerView.Adapter<BaseViewHolder<B>>() {
+
 
     abstract fun bind(binding: B, item: T)
 

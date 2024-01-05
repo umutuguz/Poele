@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.umut.poele.R
-import com.umut.poele.domain.model.RecipeDataSource
 import com.umut.poele.databinding.FragmentSearchRecipeBinding
 import com.umut.poele.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class SearchRecipeFragment : BaseFragment<FragmentSearchRecipeBinding, SearchViewModel>(R.layout.fragment_search_recipe) {
+@AndroidEntryPoint
+class SearchRecipeFragment
+    : BaseFragment<FragmentSearchRecipeBinding, SearchViewModel>(R.layout.fragment_search_recipe) {
 
     override val vm: SearchViewModel by viewModels()
 
@@ -16,7 +18,9 @@ class SearchRecipeFragment : BaseFragment<FragmentSearchRecipeBinding, SearchVie
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            adapter = SearchRecipeAdapter(RecipeDataSource().loadRecipe(), vm)
+            vm.recentRecipeListLiveData.observe(viewLifecycleOwner) {
+                adapter = SearchRecipeAdapter(it, vm)
+            }
         }
     }
 }
