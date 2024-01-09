@@ -7,6 +7,6 @@ import com.umut.poele.domain.model.RecipeBasic
 
 abstract class BaseDetailFragment
     : Fragment() {
-
+        Lohdas
          abstract fun updateRecipe(updatedRecipe: RecipeBasic)
 }
