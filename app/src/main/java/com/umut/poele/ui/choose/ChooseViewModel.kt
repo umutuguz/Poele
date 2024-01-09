@@ -14,7 +14,10 @@ class ChooseViewModel(private val userDao: UserDao) : BaseViewModel(),  ListSele
 
     fun getAllUsers(): LiveData<List<UserEntity>> = userDao.getAllUsers().asLiveData()
 
-    fun getAllAddressesWithUser(userId: Int): LiveData<List<UserWithAddresses>> = userDao.getAddressesWithUserId(userId).asLiveData()
+    fun getAllAddressesWithUser(userId: Int): LiveData<List<UserWithAddresses>>{
+        return userDao.getAddressesWithUserId(userId).asLiveData()
+    }
+
 
     fun onBackClicked() {
         navigateBack()

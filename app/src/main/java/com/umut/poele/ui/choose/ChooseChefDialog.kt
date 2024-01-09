@@ -9,7 +9,8 @@ import com.umut.poele.R
 import com.umut.poele.databinding.DialogChooseChefBinding
 import com.umut.poele.ui.base.BaseBottomSheetFragment
 
-class ChooseChefDialog : BaseBottomSheetFragment<DialogChooseChefBinding, ChooseViewModel>(R.layout.dialog_choose_chef) {
+class ChooseChefDialog
+    : BaseBottomSheetFragment<DialogChooseChefBinding, ChooseViewModel>(R.layout.dialog_choose_chef) {
 
     override val vm: ChooseViewModel by activityViewModels {
         ChooseViewModelFactory((activity?.application as PoeleApplication).database.userDao())

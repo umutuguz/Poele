@@ -10,6 +10,10 @@
             type="com.umut.poele.domain.model.MealCategory" />
 
         <variable
+            name="mealCategoryIndex"
+            type="Integer" />
+
+        <variable
             name="listener"
             type="com.umut.poele.util.RecipeCategoryListener" />
 
@@ -34,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/md_theme_light_background"
-            android:onClickListener="@{()->listener.onMealCategoryClicked(mealCategory)}"
+            android:onClickListener="@{()->listener.onMealCategoryClicked(mealCategoryIndex)}"
             android:orientation="vertical">
 
             <ImageView

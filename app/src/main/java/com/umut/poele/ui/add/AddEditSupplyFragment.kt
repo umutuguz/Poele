@@ -8,7 +8,8 @@ import com.umut.poele.R
 import com.umut.poele.databinding.FragmentAddEditSupplyBinding
 import com.umut.poele.ui.base.BaseFragment
 
-class AddEditSupplyFragment : BaseFragment<FragmentAddEditSupplyBinding, AddEditSupplyViewModel>(R.layout.fragment_add_edit_supply) {
+class AddEditSupplyFragment
+    : BaseFragment<FragmentAddEditSupplyBinding, AddEditSupplyViewModel>(R.layout.fragment_add_edit_supply) {
 
     override val vm: AddEditSupplyViewModel by viewModels()
     private val args: AddEditSupplyFragmentArgs by navArgs()

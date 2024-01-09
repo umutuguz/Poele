@@ -8,7 +8,8 @@ import com.umut.poele.R
 import com.umut.poele.databinding.FragmentAddEditRecipeBinding
 import com.umut.poele.ui.base.BaseFragment
 
-class AddEditRecipeFragment : BaseFragment<FragmentAddEditRecipeBinding, AddEditRecipeViewModel>(R.layout.fragment_add_edit_recipe) {
+class AddEditRecipeFragment
+    : BaseFragment<FragmentAddEditRecipeBinding, AddEditRecipeViewModel>(R.layout.fragment_add_edit_recipe) {
 
     override val vm: AddEditRecipeViewModel by viewModels()
     private val args: AddEditRecipeFragmentArgs by navArgs()

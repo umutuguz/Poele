@@ -12,6 +12,7 @@ import com.umut.poele.data.source.local.relation.UserWithRecipes
 import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.domain.use_case.GetRecipesUseCase
 import com.umut.poele.ui.base.BaseViewModel
+import com.umut.poele.util.Constant
 import com.umut.poele.util.FilterListener
 import com.umut.poele.util.MealTypes
 import com.umut.poele.util.RecipeListener
@@ -27,16 +28,8 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeRecipeViewModel @Inject constructor(
-    private val getRecipesUseCase: GetRecipesUseCase
-) : BaseViewModel(), RecipeListener, SearchBarListener, FilterListener, ShopListListener {
-
-    private val allRecipeList = MutableList(MealTypes.MAINCOURSE.toMealCategoryList().size) {
-        listOf(RecipeBasic())
-    }
-    private val _allRecipeListLiveData = MutableLiveData<List<List<RecipeBasic>>>()
-    val allRecipeListLiveData get() = _allRecipeListLiveData
-    val recipeCategoryList = MealTypes.MAINCOURSE.toMealCategoryList()
+class HomeRecipeViewModel @Inject constructor()
+    : BaseViewModel(), RecipeListener, SearchBarListener, FilterListener, ShopListListener {
 
     fun onBackClicked() {
         navigateBack()
@@ -58,31 +51,5 @@ class HomeRecipeViewModel @Inject constructor(
         navigate(HomeRecipeFragmentDirections.actionHomeRecipeFragmentToShopListFragment())
     }
 
-    init {
-        getAllCategoryRecipes()
-    }
-
-    private fun getAllCategoryRecipes() {
-        var index = 0
-
-        recipeCategoryList.forEach {
-            getRecipesWithType(it.title, index)
-            ++index
-        }
-    }
-
-    private fun getRecipesWithType(type: String, index: Int) {
-        viewModelScope.launch {
-            val result = withContext(Dispatchers.IO) {
-                getRecipesUseCase.getRecipesWithType(true, type.lowercase(), 15)
-            }
-            result.data?.let {
-                allRecipeList.set(index, it)
-            }
-            if (allRecipeList.size == recipeCategoryList.size) {
-                _allRecipeListLiveData.value = allRecipeList
-            }
-        }
-    }
 
 }

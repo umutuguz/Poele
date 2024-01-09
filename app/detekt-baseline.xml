@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ComplexCondition:MainActivity.kt$MainActivity$destination.id == R.id.homeRecipeDetailFragment || destination.id == R.id.loginFragment || destination.id == R.id.fridgeSupplyFragment || destination.id == R.id.homeRecipeFragment || destination.id == R.id.searchFragment || destination.id == R.id.filterDialog || destination.id == R.id.shopListFragment || destination.id == R.id.addEditRecipeFragment || destination.id == R.id.dailyMenuFragment || destination.id == R.id.shopListFragment || destination.id == R.id.addShopListFragment || destination.id == R.id.favoriteFragment || destination.id == R.id.editProfileFragment || destination.id == R.id.addressFragment || destination.id == R.id.editRecipeFragment || destination.id == R.id.addEditRecipeFragment || destination.id == R.id.addEditSupplyFragment || destination.id == R.id.editSupplyFragment</ID>
+    <ID>CyclomaticComplexMethod:BindingAdapters.kt$@BindingAdapter( "amount","unit" ) fun setAmount(textView: TextView, amount: Double, unit: Units)</ID>
+    <ID>CyclomaticComplexMethod:MainActivity.kt$MainActivity$override fun onCreate(savedInstanceState: Bundle?)</ID>
+    <ID>CyclomaticComplexMethod:PrepopulateRoomCallback.kt$PrepopulateRoomCallback$private suspend fun prePopulateData(context: Context)</ID>
+    <ID>CyclomaticComplexMethod:RecipeDto.kt$fun RecipeDto.toRecipe(): RecipeBasic</ID>
+    <ID>CyclomaticComplexMethod:Supply.kt$fun String.toUnit(): Units</ID>
+    <ID>FunctionOnlyReturningConstant:StringExtension.kt$fun String.empty()</ID>
+    <ID>ImplicitDefaultLocale:DirectionAdapter.kt$DirectionAdapter$String.format("Step %d", position+1)</ID>
+    <ID>LongMethod:PrepopulateRoomCallback.kt$PrepopulateRoomCallback$private suspend fun prePopulateData(context: Context)</ID>
+    <ID>MagicNumber:BindingAdapters.kt$2000</ID>
+    <ID>MagicNumber:FilterDialog.kt$FilterDialog$0.0001f</ID>
+    <ID>MagicNumber:RecipeExtension.kt$100.0</ID>
+    <ID>MagicNumber:RecipeExtension.kt$50.0</ID>
+    <ID>MagicNumber:RecipeExtension.kt$75.0</ID>
+    <ID>MagicNumber:SearchViewModel.kt$SearchViewModel$5</ID>
+    <ID>MagicNumber:Supply.kt$3</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$10.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$11</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$12.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$14.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$16</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$18.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$2.7</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$2023</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$3</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$3.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$30.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$332.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$359.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$364.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$4</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$50.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$500.0</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$71.7</ID>
+    <ID>MagicNumber:SupplyDataSource.kt$SupplyDataSource$76.0</ID>
+    <ID>MaxLineLength:AddEditRecipeFragment.kt$AddEditRecipeFragment$class</ID>
+    <ID>MaxLineLength:AddEditSupplyFragment.kt$AddEditSupplyFragment$class</ID>
+    <ID>MaxLineLength:AddViewModel.kt$AddViewModel$class</ID>
+    <ID>MaxLineLength:ChooseChefDialog.kt$ChooseChefDialog$class</ID>
+    <ID>MaxLineLength:ChooseHomeDialog.kt$ChooseHomeDialog$class</ID>
+    <ID>MaxLineLength:ChooseHomeDialog.kt$ChooseHomeDialog$vm.getAllAddressesWithUser(SelectedUser.userId)</ID>
+    <ID>MaxLineLength:ChooseViewModel.kt$ChooseViewModel$fun getAllAddressesWithUser(userId: Int): LiveData&lt;List&lt;UserWithAddresses&gt;&gt;</ID>
+    <ID>MaxLineLength:EditProfileFragment.kt$EditProfileFragment$class</ID>
+    <ID>MaxLineLength:EditSupplyFragment.kt$EditSupplyFragment$class</ID>
+    <ID>MaxLineLength:EnterDailyMenuTabAdapter.kt$EnterDailyMenuTabAdapter$class</ID>
+    <ID>MaxLineLength:FavoriteListAdapter.kt$FavoriteListAdapter$class</ID>
+    <ID>MaxLineLength:GetMenuCardUseCase.kt$GetMenuCardUseCase$mealPlanRepository.getMenuCardMealInfo(timeFrame, targetCalories).toList()</ID>
+    <ID>MaxLineLength:GetMenuCardUseCase.kt$GetMenuCardUseCase$menuCard</ID>
+    <ID>MaxLineLength:HomeAdapter.kt$HomeAdapter$class</ID>
+    <ID>MaxLineLength:MacroFirstViewModel.kt$MacroFirstViewModel$class</ID>
+    <ID>MaxLineLength:MacroMoreOptionDialog.kt$MacroMoreOptionDialog$class</ID>
+    <ID>MaxLineLength:MacroMoreOptionViewModel.kt$MacroMoreOptionViewModel$navigate(MacroMoreOptionDialogDirections.actionMacroMoreOptionDialogToAddEditSupplyFragment(true, clickedSupply))</ID>
+    <ID>MaxLineLength:MacroProductAdapter.kt$MacroProductAdapter$.</ID>
+    <ID>MaxLineLength:MacroProductAdapter.kt$MacroProductAdapter$class</ID>
+    <ID>MaxLineLength:MealEntryDialog.kt$MealEntryDialog$class</ID>
+    <ID>MaxLineLength:PrepopulateRoomCallback.kt$PrepopulateRoomCallback$val</ID>
+    <ID>MaxLineLength:ProfileFirstFragment.kt$ProfileFirstFragment$MaterialAlertDialogBuilder(buttonLogOut.context).setTitle(R.string.logout_dialog_title).setMessage(R.string.logout_dialog_message)</ID>
+    <ID>MaxLineLength:ProfileFirstFragment.kt$ProfileFirstFragment$class</ID>
+    <ID>MaxLineLength:ProfileFirstViewModel.kt$ProfileFirstViewModel$class</ID>
+    <ID>MaxLineLength:RecipeEditListAdapter.kt$RecipeEditListAdapter$class</ID>
+    <ID>MaxLineLength:RecipeTabAdapter.kt$RecipeTabAdapter$private val dataset: List&lt;MealCategory&gt;</ID>
+    <ID>MaxLineLength:SearchFragmentAdapter.kt$SearchFragmentAdapter$class</ID>
+    <ID>MaxLineLength:SearchIngredientAdapter.kt$SearchIngredientAdapter$class</ID>
+    <ID>MaxLineLength:SearchPopularAdapter.kt$SearchPopularAdapter$class</ID>
+    <ID>MaxLineLength:SearchRecentAdapter.kt$SearchRecentAdapter$class</ID>
+    <ID>MaxLineLength:SearchRecipeAdapter.kt$SearchRecipeAdapter$class</ID>
+    <ID>MaxLineLength:SupplyEditListAdapter.kt$SupplyEditListAdapter$class</ID>
+    <ID>MaxLineLength:SupplyListAdapter.kt$SupplyListAdapter$.</ID>
+    <ID>MaxLineLength:SupplyMoreOptionDialog.kt$SupplyMoreOptionDialog$class</ID>
+    <ID>MaxLineLength:SupplyMoreOptionViewModel.kt$SupplyMoreOptionViewModel$navigate(SupplyMoreOptionDialogDirections.actionSupplyMoreOptionDialogToAddEditSupplyFragment(true, clickedSupply))</ID>
+    <ID>PackageNaming:DirectionAdapter.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:EquipmentAdapter.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:GetMenuCardUseCase.kt$package com.umut.poele.domain.use_case</ID>
+    <ID>PackageNaming:GetRecipesUseCase.kt$package com.umut.poele.domain.use_case</ID>
+    <ID>PackageNaming:GetSuppliesUseCase.kt$package com.umut.poele.domain.use_case</ID>
+    <ID>PackageNaming:HomeRecipeDetailDirectionFragment.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:HomeRecipeDetailFragment.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:HomeRecipeDetailFragmentAdapter.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:HomeRecipeDetailInfoFragment.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:HomeRecipeDetailIngredientFragment.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:HomeRecipeDetailViewModel.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>PackageNaming:IngredientAdapter.kt$package com.umut.poele.ui.recipe_detail</ID>
+    <ID>TooGenericExceptionCaught:PrepopulateRoomCallback.kt$PrepopulateRoomCallback$exception: Exception</ID>
+    <ID>TooManyFunctions:BindingAdapters.kt$com.umut.poele.util.BindingAdapters.kt</ID>
+    <ID>TooManyFunctions:RecipeDao.kt$RecipeDao</ID>
+    <ID>TooManyFunctions:SupplyDao.kt$SupplyDao</ID>
+    <ID>TooManyFunctions:UserDao.kt$UserDao</ID>
+    <ID>UnusedPrivateProperty:LoginFragment.kt$LoginFragment$private val args: LoginFragmentArgs by navArgs()</ID>
+    <ID>UnusedPrivateProperty:ShopListRecipeAdapter.kt$ShopListRecipeAdapter$private val vm: ShopListViewModel</ID>
+    <ID>UnusedPrivateProperty:ShopListSupplyAdapter.kt$ShopListSupplyAdapter$private val vm: ShopListViewModel</ID>
+    <ID>WildcardImport:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

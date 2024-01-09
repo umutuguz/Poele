@@ -20,7 +20,7 @@
             android:defaultValue="null" />
         <action
             android:id="@+id/action_loginFragment_to_homeFirstFragment"
-            app:destination="@id/nav_graph.xml"
+            app:destination="@id/nav_graph"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true"/>
     </fragment>

@@ -20,4 +20,6 @@ interface SupplyRepository {
     suspend fun upsertShopListSupply(shopListSupplyEntity: ShopListSupplyEntity)
 
     suspend fun deleteAllSuppliesFromShopList(): Boolean
+
+    suspend fun deleteSupplyFromFridge(amountId: Int) : Boolean
 }

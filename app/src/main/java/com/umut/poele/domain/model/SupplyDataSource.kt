@@ -18,7 +18,7 @@ class SupplyDataSource {
                 Macro(332.0, 30.0, 0.0, 14.0, 14.0),
                 States.UNUSED,
                 LocalDate.of(2023, 11, 4),
-                null
+                -1
             ),
             Supply(
                 2,
@@ -30,6 +30,7 @@ class SupplyDataSource {
                 Macro(359.0, 2.0, 71.7, 3.0, 12.0),
                 States.UNUSED,
                 LocalDate.of(2023, 11, 4),
+                -1,
                 16
             ),
             Supply(
@@ -42,7 +43,7 @@ class SupplyDataSource {
                 Macro(364.0, 1.0, 76.0, 2.7, 10.0),
                 States.UNUSED,
                 LocalDate.of(2023, 11, 4),
-                null
+                -1
             ),
         )
     }

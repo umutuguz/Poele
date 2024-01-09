@@ -7,6 +7,7 @@ import com.umut.poele.data.source.local.entity.toRecipeBasic
 import com.umut.poele.data.source.remote.dto.Nutrition
 import com.umut.poele.data.source.remote.dto.toEquipment
 import com.umut.poele.data.source.remote.dto.toRecipe
+import com.umut.poele.domain.model.CategoryList
 import com.umut.poele.domain.model.Equipment
 import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.domain.model.RecipeModel
@@ -48,7 +49,7 @@ class GetRecipesUseCase @Inject constructor(private val recipeRepository: Recipe
         return Resource.Success(recipe)
     }
 
-    suspend fun getRecipesWithType(info: Boolean,type: String, number: Int): Resource<List<RecipeBasic>> {
+    suspend fun getRecipesWithType(info: Boolean,type: String, number: Int): Resource<CategoryList> {
         var recipeList = emptyList<RecipeBasic>()
         withContext(Dispatchers.IO) {
             try {
@@ -59,7 +60,7 @@ class GetRecipesUseCase @Inject constructor(private val recipeRepository: Recipe
                 Log.e("IOException", e.localizedMessage ?: "IO Error occured")
             }
         }
-        return Resource.Success(recipeList)
+        return Resource.Success(CategoryList(recipeList))
     }
 
     suspend fun getEquipmentWithId(id: Int): Resource<List<Equipment>> {

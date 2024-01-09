@@ -19,6 +19,7 @@ data class Supply(
     val macro: Macro = Macro(),
     var state: States = States.UNUSED,
     var date: LocalDate = LocalDate.now(),
+    var amountId: Int = -1,
     val averageGML: Int? = null
 ) : Parcelable
 

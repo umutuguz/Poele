@@ -52,8 +52,18 @@ class FridgeFirstViewModel @Inject constructor(private val getSuppliesUseCase: G
                     supply.date = result2.data?.date ?: LocalDate.now()
                     supply.unit = result2.data?.unit ?: Units.UNDETERMINED
                     supply.state = result2.data?.state ?: States.UNDETERMINED
+                    supply.amountId = result2.data?.amountId ?: 0
                 }
                 _supplyListLiveData.value = list
+            }
+        }
+    }
+
+    fun deleteSupplyFromFridge(amountId: Int, userId: Int) {
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {getSuppliesUseCase.deleteSupplyFromFridge(amountId, userId)}
+            result.data?.let {
+                _supplyListLiveData.value = it
             }
         }
     }

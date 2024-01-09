@@ -8,7 +8,15 @@ import com.umut.poele.util.EditRecipeListener
 import com.umut.poele.util.EditSupplyListener
 import com.umut.poele.util.EnterDailyMenuListener
 
-class AddViewModel : BaseViewModel(), AddRecipeListener, EditRecipeListener, AddSupplyListener, EditSupplyListener,AddShopListListener, EnterDailyMenuListener  {
+class AddViewModel
+    : BaseViewModel(),
+    AddRecipeListener,
+    EditRecipeListener,
+    AddSupplyListener,
+    EditSupplyListener,
+    AddShopListListener,
+    EnterDailyMenuListener
+{
 
     fun onBackClicked(){
         navigateBack()

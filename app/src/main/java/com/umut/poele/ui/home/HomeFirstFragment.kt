@@ -19,7 +19,7 @@ import org.jetbrains.annotations.ApiStatus.Experimental
 @ExperimentalCoroutinesApi
 class HomeFirstFragment : BaseFragment<FragmentHomeFirstBinding, HomeFirstViewModel>(R.layout.fragment_home_first) {
 
-    override val vm: HomeFirstViewModel by activityViewModels()
+    override val vm: HomeFirstViewModel by viewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -5,9 +5,9 @@
 
     <data>
 
-        <variable
-            name="adapter"
-            type="com.umut.poele.ui.recipe_detail.IngredientAdapter" />
+<!--        <variable-->
+<!--            name="adapter"-->
+<!--            type="com.umut.poele.ui.recipe_detail.IngredientAdapter" />-->
         <variable
             name="recipe"
             type="com.umut.poele.domain.model.RecipeBasic" />
@@ -72,7 +72,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_remove"
-            app:setAdapter="@{adapter}"
             tools:listitem="@layout/list_recipe_ingredient" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

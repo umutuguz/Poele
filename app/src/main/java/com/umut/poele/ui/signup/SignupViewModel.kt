@@ -17,7 +17,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignupViewModel @Inject constructor(
-    private val userDao: UserDao,
     private val accountService: AccountService
 ) : BaseViewModel(), UserSignupListener  {
 

@@ -2,7 +2,7 @@
  <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph.xml"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/homeFirstFragment">
 
     <fragment
@@ -112,8 +112,8 @@
         <action
             android:id="@+id/action_profileFirstFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/homeFirstFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpTo="@id/login_graph"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/homeRecipeFragment"
@@ -136,10 +136,12 @@
             android:id="@+id/action_homeRecipeFragment_to_shopListFragment"
             app:destination="@id/shopListFragment" />
         <argument
-            android:name="clickedMealCategory"
-            app:argType="com.umut.poele.domain.model.MealCategory"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            android:name="clickedMealIndex"
+            app:argType="integer" />
+        <argument
+            android:name="allRecipeList"
+            app:argType="com.umut.poele.domain.model.CategoryList[]" />
+
     </fragment>
     <fragment
         android:id="@+id/homeRecipeDetailFragment"

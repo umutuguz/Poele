@@ -30,14 +30,7 @@ class AccountServiceImpl @Inject constructor() : AccountService {
     }
 
     override suspend fun signIn(email: String, password: String) {
-        Firebase.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Log.i("umutcan", "${Firebase.auth.currentUser?.email}")
-            }
-            else {
-                Log.i("umutcan", "${task.exception}")
-            }
-        }.await()
+        Firebase.auth.signInWithEmailAndPassword(email, password).await()
     }
 
     override suspend fun signUp(email: String, password: String) {

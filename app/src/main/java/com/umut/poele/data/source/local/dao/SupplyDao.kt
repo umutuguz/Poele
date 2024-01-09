@@ -20,22 +20,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface SupplyDao {
 
-//    @Transaction
-//    @Query("SELECT * FROM user WHERE user_id = :userId")
-//    fun getAllSuppliesWithUserId(userId: Int): Flow<List<SupplyWithUsers>>
-//
-//    @Transaction
-//    @Query("SELECT * FROM supply WHERE supply_id = :supplyId")
-//    fun getCategoriesWithSupplyId(supplyId: Int): Flow<List<SupplyCategoryWithSupplies>>
-//
-//    @Transaction
-//    @Query("SELECT * FROM macro WHERE supply_id = :supplyId")
-//    fun getMacroWithSupplyId(supplyId: Int): Flow<List<MacroEntity>>
-//
-//    @Transaction
-//    @Query("SELECT * FROM amount WHERE supply_id = :supplyId ORDER BY amount_id ASC")
-//    fun getAmountWithSupplyId(supplyId: Int): Flow<List<AmountEntity>>
-
     @Query("SELECT * FROM supply ORDER BY title ASC")
     fun getAll(): List<SupplyEntity>
 
@@ -46,6 +30,9 @@ interface SupplyDao {
     @Transaction
     @Query("SELECT * FROM user WHERE user_id = :userId")
     fun getSuppliesWithUserId(userId: Int): UserWithSupplies
+
+    @Query("DELETE FROM amount WHERE amount_id = :amountId")
+    suspend fun deleteSupplyFromFridge(amountId: Int) : Int
 
     @Query("SELECT * FROM shoplist_supply ORDER BY supply_title ASC")
     fun getSupplyShopList(): List<ShopListSupplyEntity>

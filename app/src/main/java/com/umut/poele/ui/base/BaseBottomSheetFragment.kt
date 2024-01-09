@@ -22,8 +22,6 @@ abstract class BaseBottomSheetFragment<T : ViewDataBinding, VM : BaseViewModel>(
     val binding get() = _binding!!
     protected abstract val vm: VM
 
-    private var currentDestination: Int? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {

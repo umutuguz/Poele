@@ -7,6 +7,8 @@ import com.umut.poele.R
 import com.umut.poele.databinding.FragmentHomeRecipeDetailDirectionBinding
 import com.umut.poele.domain.model.RecipeBasic
 import com.umut.poele.ui.base.BaseFragment
+import com.umut.poele.ui.recipe_detail.DirectionAdapter
+import com.umut.poele.ui.recipe_detail.HomeRecipeDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,5 +26,16 @@ class HomeRecipeDetailDirectionFragment(private val clickedRecipe: RecipeBasic) 
             adapter = DirectionAdapter(clickedRecipe.directions)
         }
 
+    }
+    companion object {
+        private var INSTANCE: HomeRecipeDetailDirectionFragment? = null
+
+        fun getFragment(clickedRecipe: RecipeBasic) : HomeRecipeDetailDirectionFragment {
+            val instance = HomeRecipeDetailDirectionFragment(clickedRecipe)
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE = instance
+                instance
+            }
+        }
     }
 }

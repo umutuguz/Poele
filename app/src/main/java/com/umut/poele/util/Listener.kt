@@ -6,7 +6,7 @@ import com.umut.poele.domain.model.Supply
 
 interface RecipeCategoryListener {
 
-    fun onMealCategoryClicked(clickedMealCategory: MealCategory)
+    fun onMealCategoryClicked(clickedMealIndex: Int)
 }
 
 interface RecipeListener {

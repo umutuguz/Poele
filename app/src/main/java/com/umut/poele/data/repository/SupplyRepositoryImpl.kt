@@ -1,5 +1,6 @@
 package com.umut.poele.data.repository
 
+import android.util.Log
 import com.umut.poele.data.source.local.dao.SupplyDao
 import com.umut.poele.data.source.local.entity.ShopListSupplyEntity
 import com.umut.poele.data.source.local.entity.SupplyEntity
@@ -39,6 +40,12 @@ class SupplyRepositoryImpl(private val supplyDao: SupplyDao) : SupplyRepository 
 
     override suspend fun deleteAllSuppliesFromShopList(): Boolean {
         val result = supplyDao.deleteAllSuppliesFromShopList()
+        return result > 0
+    }
+
+    override suspend fun deleteSupplyFromFridge(amountId: Int): Boolean {
+        val result = supplyDao.deleteSupplyFromFridge(amountId)
+        Log.i("umutcan", "repository: $result")
         return result > 0
     }
 }

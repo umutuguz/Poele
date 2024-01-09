@@ -1,6 +1,7 @@
 package com.umut.poele.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.navigation.fragment.findNavController
 import com.umut.poele.BR
+import com.umut.poele.R
 import com.umut.poele.data.source.local.entity.MenuCardEntity
 import com.umut.poele.domain.model.MenuCard
 import com.umut.poele.util.Constant
@@ -29,6 +31,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        Log.i("umutcan", "onCreatView: ${resources.getResourceName(layoutId)}")
         _binding = DataBindingUtil.inflate(
             inflater, layoutId, container, false
         )

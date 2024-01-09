@@ -17,5 +17,4 @@ data class Address(
     val floorNumber: Int = 0,
     val doorNumber: Int = 0,
     val postalCode: Int = 0
-) : Parcelable {
-}
+) : Parcelable

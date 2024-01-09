@@ -1,5 +1,6 @@
 package com.umut.poele.ui.fridge
 
+import com.umut.poele.domain.model.CategoryList
 import com.umut.poele.domain.model.Supply
 import com.umut.poele.ui.base.BaseViewModel
 import com.umut.poele.util.AddMacroListener
@@ -22,6 +23,8 @@ class SupplyMoreOptionViewModel : BaseViewModel(), FindRecipeListener, AddMacroL
     }
 
     override fun onFindRecipeClicked() {
-        navigate(SupplyMoreOptionDialogDirections.actionSupplyMoreOptionDialogToHomeRecipeFragment())
+        // TODO: Fix clickedMealIndex
+        navigate(SupplyMoreOptionDialogDirections.actionSupplyMoreOptionDialogToHomeRecipeFragment(0,
+            emptyList<CategoryList>().toTypedArray()))
     }
 }
