@@ -14,40 +14,44 @@ import com.umut.poele.util.Constant.RECIPE_DETAIL_TAB_NAME
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeRecipeDetailFragment : BaseFragment<FragmentHomeRecipeDetailBinding, HomeRecipeDetailViewModel>(R.layout.fragment_home_recipe_detail) {
+class HomeRecipeDetailFragment
+    : BaseFragment<FragmentHomeRecipeDetailBinding, HomeRecipeDetailViewModel>(R.layout.fragment_home_recipe_detail) {
 
     override val vm: HomeRecipeDetailViewModel by viewModels()
     private val args: HomeRecipeDetailFragmentArgs by navArgs()
-    lateinit var adapter: HomeRecipeDetailFragmentAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        adapter = HomeRecipeDetailFragmentAdapter(requireActivity().supportFragmentManager, lifecycle)
 
         binding.apply {
             var result = RecipeBasic()
             args.clickedRecipe?.let { clickedRecipe ->
                 vm.getRecipeInfo(clickedRecipe.id, true)
 
-                adapter.submitFragmentList(listOf(HomeRecipeDetailInfoFragment()))
-                viewpagerFragment.adapter = adapter
-
-                vm.recipeInfoLiveData.observe(viewLifecycleOwner) { recipe ->
+                vm.recipeInfoLiveData.observe(viewLifecycleOwner) { recipe->
                     result = recipe
-                    adapter.submitRecipe(recipe)
+                    viewpagerFragment.adapter = HomeRecipeDetailFragmentAdapter(
+                        loadFragments(recipe), requireActivity().supportFragmentManager, lifecycle
+                    )
+                    // TODO: Fix the structure of the mediator
+                    TabLayoutMediator(tabFragment, viewpagerFragment) { tab, position ->
+                        tab.text = RECIPE_DETAIL_TAB_NAME[position]
+                    }.attach()
                 }
             }
-
-            TabLayoutMediator(tabFragment, viewpagerFragment) { tab, position ->
-                tab.text = RECIPE_DETAIL_TAB_NAME[position]
-            }.attach()
-
             buttonAddShoplist.setOnClickListener {
                 vm.addShopListSupply(result)
                 vm.addShopList(result)
             }
             viewModel = vm
         }
+    }
+
+    private fun loadFragments(recipe: RecipeBasic): List<Fragment> {
+        return listOf(
+            HomeRecipeDetailInfoFragment(recipe),
+            HomeRecipeDetailIngredientFragment(recipe),
+            HomeRecipeDetailDirectionFragment(recipe)
+        )
     }
 }

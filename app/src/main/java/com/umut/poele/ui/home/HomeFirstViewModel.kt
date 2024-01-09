@@ -25,22 +25,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeFirstViewModel @Inject constructor(
-    private val getMenuCardUseCase: GetMenuCardUseCase,
-    private val getRecipesUseCase: GetRecipesUseCase
-) : BaseViewModel(), RecipeCategoryListener, ChooseHomeListener,
-    ChooseChefListener, SearchBarListener, ShopListListener
-{
+    private val getMenuCardUseCase: GetMenuCardUseCase, private val getRecipesUseCase: GetRecipesUseCase
+) : BaseViewModel(), RecipeCategoryListener, ChooseHomeListener, ChooseChefListener, SearchBarListener, ShopListListener {
 
     private val _menuCardListLiveData = MutableLiveData<List<MenuCard>>()
     val menuCardListLiveData get() = _menuCardListLiveData
     private var isAllListFetched = false
-
     private val allRecipeList = MutableList(MealTypes.MAINCOURSE.toMealCategoryList().size) {
         CategoryList()
     }
-
     val recipeCategoryList = MealTypes.MAINCOURSE.toMealCategoryList()
-
 
     init {
         getMenuCardInfo("Umut", "week", Constant.TARGET_CALORIE)
@@ -57,12 +51,12 @@ class HomeFirstViewModel @Inject constructor(
             }
         }
     }
+
     fun getMealTypes(): List<MealCategory> = MealTypes.MAINCOURSE.toMealCategoryList()
 
     private fun getAllCategoryRecipes() {
-        recipeCategoryList.forEachIndexed {index, item->
+        recipeCategoryList.forEachIndexed { index, item ->
             getRecipesWithType(item.title, index)
-
         }
     }
 
@@ -82,8 +76,9 @@ class HomeFirstViewModel @Inject constructor(
 
     override fun onMealCategoryClicked(clickedMealIndex: Int) {
         if (isAllListFetched) {
-            navigate(HomeFirstFragmentDirections
-                .actionHomeFirstFragmentToHomeRecipeFragment(clickedMealIndex, allRecipeList.toTypedArray()))
+            navigate(
+                HomeFirstFragmentDirections.actionHomeFirstFragmentToHomeRecipeFragment(clickedMealIndex, allRecipeList.toTypedArray())
+            )
         }
     }
 

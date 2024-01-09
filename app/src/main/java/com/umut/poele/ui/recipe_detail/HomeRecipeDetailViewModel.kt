@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.umut.poele.domain.model.Equipment
 import com.umut.poele.domain.model.RecipeBasic
-import com.umut.poele.domain.model.Supply
 import com.umut.poele.domain.use_case.GetRecipesUseCase
 import com.umut.poele.domain.use_case.GetSuppliesUseCase
 import com.umut.poele.ui.base.BaseViewModel
@@ -18,14 +17,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeRecipeDetailViewModel @Inject constructor(
-    private val getRecipesUseCase: GetRecipesUseCase,
-    private val getSuppliesUseCase: GetSuppliesUseCase
-)
-    : BaseViewModel(), ShopListListener {
+    private val getRecipesUseCase: GetRecipesUseCase, private val getSuppliesUseCase: GetSuppliesUseCase
+) : BaseViewModel(), ShopListListener {
 
     private val _recipeInfoLiveData = MutableLiveData<RecipeBasic>()
     val recipeInfoLiveData get() = _recipeInfoLiveData
-
     private val _recipeEquipmentLiveData = MutableLiveData<List<Equipment>>()
     val recipeEquipmentLiveData get() = _recipeEquipmentLiveData
 
@@ -37,7 +33,7 @@ class HomeRecipeDetailViewModel @Inject constructor(
         navigate(HomeRecipeDetailFragmentDirections.actionHomeRecipeDetailFragmentToShopListFragment())
     }
 
-    fun getRecipeInfo(clickedRecipeId: Int, includeNutrition: Boolean){
+    fun getRecipeInfo(clickedRecipeId: Int, includeNutrition: Boolean) {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
                 getRecipesUseCase.getRecipeInfo(clickedRecipeId, includeNutrition)
@@ -48,9 +44,9 @@ class HomeRecipeDetailViewModel @Inject constructor(
         }
     }
 
-    fun getEquipment(clickedRecipeId: Int){
+    fun getEquipment(clickedRecipeId: Int) {
         viewModelScope.launch {
-            val result = withContext(Dispatchers.IO) { getRecipesUseCase.getEquipmentWithId(clickedRecipeId)}
+            val result = withContext(Dispatchers.IO) { getRecipesUseCase.getEquipmentWithId(clickedRecipeId) }
             result.data?.let {
                 _recipeEquipmentLiveData.value = it
             }
@@ -60,20 +56,31 @@ class HomeRecipeDetailViewModel @Inject constructor(
     fun increaseServings(clickedRecipe: RecipeBasic) {
         val servings = clickedRecipe.servings
         val supplyList = clickedRecipe.ingredients
+
         supplyList.forEach {
-            it.amount = (servings + 1) / (servings) * it.amount
+            Log.i("umutcan", "amount: ${it.amount}")
+            it.amount = (servings + 1) * it.amount / servings
+            Log.i("umutcan", "increased amount: ${it.amount}")
         }
-        viewModelScope.launch{
-            _recipeInfoLiveData.value = clickedRecipe.copy(servings = servings + 1, ingredients = supplyList)
+
+        viewModelScope.launch {
+            if (servings < 15) {
+                _recipeInfoLiveData.value = clickedRecipe.copy(servings = servings + 1, ingredients = supplyList)
+            }
         }
     }
+
     fun decreaseServings(clickedRecipe: RecipeBasic) {
+        Log.i("umutcan", "decrease clickedRecipe: ${clickedRecipe.ingredients}")
+        Log.i("umutcan", "decrease clickedRecipe servings: ${clickedRecipe.servings}")
         val servings = clickedRecipe.servings
         val supplyList = clickedRecipe.ingredients
-        supplyList.forEach {
-            it.amount = (servings - 1) / (servings) * it.amount
+        if (servings > 1) {
+            supplyList.forEach {
+                it.amount = (servings - 1) * it.amount / servings
+            }
         }
-        viewModelScope.launch{
+        viewModelScope.launch {
             if (servings > 1) {
                 _recipeInfoLiveData.value = clickedRecipe.copy(servings = servings - 1, ingredients = supplyList)
             }
@@ -81,14 +88,13 @@ class HomeRecipeDetailViewModel @Inject constructor(
     }
 
     fun addShopList(clickedRecipe: RecipeBasic) {
-        viewModelScope.launch{
+        viewModelScope.launch {
             getRecipesUseCase.upsertRecipeToShopList(clickedRecipe)
         }
     }
 
     fun addShopListSupply(clickedRecipe: RecipeBasic) {
         viewModelScope.launch {
-
             clickedRecipe.ingredients.forEach {
                 getSuppliesUseCase.upsertSupplyToShopListSupply(it)
             }

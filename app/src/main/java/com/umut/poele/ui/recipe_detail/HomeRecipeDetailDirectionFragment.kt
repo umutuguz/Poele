@@ -27,15 +27,5 @@ class HomeRecipeDetailDirectionFragment(private val clickedRecipe: RecipeBasic) 
         }
 
     }
-    companion object {
-        private var INSTANCE: HomeRecipeDetailDirectionFragment? = null
 
-        fun getFragment(clickedRecipe: RecipeBasic) : HomeRecipeDetailDirectionFragment {
-            val instance = HomeRecipeDetailDirectionFragment(clickedRecipe)
-            return INSTANCE ?: synchronized(this) {
-                INSTANCE = instance
-                instance
-            }
-        }
-    }
 }

@@ -1,17 +1,13 @@
 package com.umut.poele.ui.recipe
 
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayoutMediator
 import com.umut.poele.R
 import com.umut.poele.databinding.FragmentHomeRecipeBinding
 import com.umut.poele.ui.base.BaseFragment
-import com.umut.poele.ui.choose.HomeAdapter
 import com.umut.poele.util.MealTypes
 import com.umut.poele.util.toMealCategoryList
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +20,7 @@ class HomeRecipeFragment : BaseFragment<FragmentHomeRecipeBinding, HomeRecipeVie
 ) {
 
     override val vm: HomeRecipeViewModel by activityViewModels()
-    private val navArgs: HomeRecipeFragmentArgs by navArgs()
+    private val args: HomeRecipeFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,12 +29,12 @@ class HomeRecipeFragment : BaseFragment<FragmentHomeRecipeBinding, HomeRecipeVie
             viewpagerRecipeCategory.adapter = RecipeTabAdapter(
                 MealTypes.MAINCOURSE.toMealCategoryList(),
                 vm,
-                navArgs.allRecipeList.toList()
+                args.allRecipeList.toList()
             )
 
             TabLayoutMediator(binding.tabRecipeCategory, binding.viewpagerRecipeCategory) { tab, position ->
                 tab.text = MealTypes.MAINCOURSE.toMealCategoryList()[position].title
-                viewpagerRecipeCategory.setCurrentItem(navArgs.clickedMealIndex, false)
+                viewpagerRecipeCategory.setCurrentItem(args.clickedMealIndex, false)
             }.attach()
         }
     }

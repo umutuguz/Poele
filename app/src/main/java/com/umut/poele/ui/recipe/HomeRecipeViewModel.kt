@@ -50,6 +50,4 @@ class HomeRecipeViewModel @Inject constructor()
     override fun onShopListClicked() {
         navigate(HomeRecipeFragmentDirections.actionHomeRecipeFragmentToShopListFragment())
     }
-
-
 }

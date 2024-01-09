@@ -44,16 +44,4 @@ class HomeRecipeDetailIngredientFragment(private var clickedRecipe: RecipeBasic)
         }
     }
 
-    companion object {
-
-        private var INSTANCE: HomeRecipeDetailIngredientFragment? = null
-
-        fun getFragment(clickedRecipe: RecipeBasic): HomeRecipeDetailIngredientFragment {
-            val instance = HomeRecipeDetailIngredientFragment(clickedRecipe)
-            return INSTANCE ?: synchronized(this) {
-                INSTANCE = instance
-                instance
-            }
-        }
-    }
 }
