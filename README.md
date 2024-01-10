@@ -15,9 +15,12 @@ The app is currently in development. There is no variant available in Play Store
 ## Screenshots
 
 ![Screenshot showing Recipe screen, Fridge screen, Macro screen and Profile screen also their detail screens](docs/images/screenshots.png "Screenshot showing Recipe screen, Fridge screen, Macro screen and Profile screen also their detail screens")
+
 ## Screenshots (Whole App)
+
 <p align="center">  
-<img src="/docs/image/screenshot/log-in.png" width="20%"/>  
+</p>
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/add.png" alt="add" width="250" height="auto"/>  
 <img src="/docs/image/screenshot/sign-up.png" width="20%"/>  
 <img src="/docs/image/screenshot/home.png" width="20%"/>  
 <img src="/docs/image/screenshot/home-recipe.png" width="20%"/>  
@@ -36,7 +39,10 @@ The app is currently in development. There is no variant available in Play Store
 <img src="/docs/image/screenshot/macro-add.png" width="20%"/>  
 <img src="/docs/image/screenshot/macro-set-challenge.png" width="20%"/>  
 <img src="/docs/image/screenshot/profile.png" width="20%"/>  
-</p>
+
+
+<br>
+<br>
 
 # Development Environment
 
@@ -52,6 +58,7 @@ together to create a complete app.
 # Architecture
 
 The **Poele** app follows the **MVVM** (Model-View-ViewModel) architectural design pattern and **Clean Architecture** design pattern. 
+
 ![Architecture Diagram](docs/images/app-architecture-diagram.png "Architecture Diagram")
 
 # Build
@@ -108,6 +115,7 @@ To prevent boilerplate code in the project base classes implemented to the code.
 - [SDP](https://github.com/intuit/sdp) An android lib that provides a new size unit - sdp (scalable dp). This size unit scales with the screen size. It can help Android developers with supporting multiple screens.
 - [Material Design 3](https://m3.material.io/) is the latest version of Google’s open-source design system.
 # Dependency
+
  ```
    dependencies {  
    
@@ -198,7 +206,11 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 # Contact
 [LinkedIn](https://www.linkedin.com/in/umutuguzlar/)
+[Github](https://github.com/umutuguz/)
 [Send me an email](mailto:umutuguzlar7@gmail.com)
+
+# Thanks
+Thanks to [Can](https://github.com/ckavuzlu) who shared his experiences with me during this process.
 
 
 
