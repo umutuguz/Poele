@@ -16,11 +16,26 @@ The app is currently in development. There is no variant available in Play Store
 
 ![Screenshot showing Recipe screen, Fridge screen, Macro screen and Profile screen also their detail screens](docs/images/screenshots.png "Screenshot showing Recipe screen, Fridge screen, Macro screen and Profile screen also their detail screens")
 ## Screenshots (Whole App)
-<p align="center">
-<img src="/previews/home_initial.png" width="20%"/>
-<img src="/previews/home_expanded.png" width="20%"/>
-<img src="/previews/detail_initial.png" width="20%"/>
-<img src="/previews/detail_expanded.png" width="20%"/>
+<p align="center">  
+<img src="/docs/image/screenshot/log-in.png" width="20%"/>  
+<img src="/docs/image/screenshot/sign-up.png" width="20%"/>  
+<img src="/docs/image/screenshot/home.png" width="20%"/>  
+<img src="/docs/image/screenshot/home-recipe.png" width="20%"/>  
+<img src="/docs/image/screenshot/home-recipe.png" width="20%"/>  
+<img src="/docs/image/screenshot/home-recipe-detail-info.png" width="20%"/>  
+<img src="/docs/image/screenshot/home-recipe-detail-ingredient.png" width="20%"/>  
+<img src="/docs/image/screenshot/home-recipe-detail-direction.png" width="20%"/>  
+<img src="/docs/image/screenshot/shop-list.png" width="20%"/>  
+<img src="/docs/image/screenshot/filter.png" width="20%"/>  
+<img src="/docs/image/screenshot/search-recent.png" width="20%"/>  
+<img src="/docs/image/screenshot/search-popular.png" width="20%"/>  
+<img src="/docs/image/screenshot/fridge.png" width="20%"/>  
+<img src="/docs/image/screenshot/add.png" width="20%"/>  
+<img src="/docs/image/screenshot/add-recipe.png" width="20%"/>  
+<img src="/docs/image/screenshot/macro.png" width="20%"/>  
+<img src="/docs/image/screenshot/macro-add.png" width="20%"/>  
+<img src="/docs/image/screenshot/macro-set-challenge.png" width="20%"/>  
+<img src="/docs/image/screenshot/profile.png" width="20%"/>  
 </p>
 
 # Development Environment
@@ -37,6 +52,7 @@ together to create a complete app.
 # Architecture
 
 The **Poele** app follows the **MVVM** (Model-View-ViewModel) architectural design pattern and **Clean Architecture** design pattern. 
+![Architecture Diagram](docs/images/app-architecture-diagram.png "Architecture Diagram")
 
 # Build
 
@@ -58,6 +74,7 @@ Package structure of the project designed in the light of MVVM with Clean Archit
 - Dependency Injection
 - UI
 - Util
+
 ![Package Structure](docs/images/package-structure.png "Package Structure")
 # Base Classes
 To prevent boilerplate code in the project base classes implemented to the code.
@@ -68,6 +85,8 @@ To prevent boilerplate code in the project base classes implemented to the code.
 - BaseBottomSheetFragment
 - BaseFragmentStateAdapter
 - BaseViewHolder
+
+![Base Classes](docs/images/base-classes.png "Base Classes")
 
 # Tech stack & Open-source libraries
 - Minimum SDK level 21
@@ -173,7 +192,9 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 # License
 
 **Poele** is distributed under the terms of the Apache License (Version 2.0). See the
-[license](LICENSE) for more information.![Poele](docs/images/poele-preview.png "Poele")
+[license](LICENSE) for more information.
+
+![Poele](docs/images/poele-logo.png "Poele")
 
 # Contact
 [LinkedIn](https://www.linkedin.com/in/umutuguzlar/)
