@@ -113,11 +113,11 @@
     <string name="prep_time_only">Prep Time</string>
     <string name="servings_only">Servings</string>
     <string name="level">Level</string>
-    <string name="d_ingredient">%d. Ingredient</string>
-    <string name="d_ingredient_amount">%d. Ingredient amount</string>
+    <string name="d_ingredient">Ingredient</string>
+    <string name="d_ingredient_amount">Ingredient amount</string>
     <string name="add_new_ingredient">Add new ingredient</string>
     <string name="equipments">Equipments</string>
-    <string name="d_equipment">%d. Equipment</string>
+    <string name="d_equipment">Equipment</string>
     <string name="add_new_equipment">Add new equipment</string>
     <string name="meal_entry">Meal Entry</string>
     <string name="add_from_recipes">Add from recipes</string>
