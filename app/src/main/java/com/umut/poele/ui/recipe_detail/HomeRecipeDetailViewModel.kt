@@ -57,12 +57,11 @@ class HomeRecipeDetailViewModel @Inject constructor(
         val servings = clickedRecipe.servings
         val supplyList = clickedRecipe.ingredients
 
-        supplyList.forEach {
-            Log.i("umutcan", "amount: ${it.amount}")
-            it.amount = (servings + 1) * it.amount / servings
-            Log.i("umutcan", "increased amount: ${it.amount}")
+        if (servings < 15) {
+            supplyList.forEach {
+                it.amount = (servings + 1) * it.amount / servings
+            }
         }
-
         viewModelScope.launch {
             if (servings < 15) {
                 _recipeInfoLiveData.value = clickedRecipe.copy(servings = servings + 1, ingredients = supplyList)
@@ -71,8 +70,7 @@ class HomeRecipeDetailViewModel @Inject constructor(
     }
 
     fun decreaseServings(clickedRecipe: RecipeBasic) {
-        Log.i("umutcan", "decrease clickedRecipe: ${clickedRecipe.ingredients}")
-        Log.i("umutcan", "decrease clickedRecipe servings: ${clickedRecipe.servings}")
+
         val servings = clickedRecipe.servings
         val supplyList = clickedRecipe.ingredients
         if (servings > 1) {

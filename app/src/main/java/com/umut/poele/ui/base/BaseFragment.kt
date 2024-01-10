@@ -31,7 +31,6 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        Log.i("umutcan", "onCreatView: ${resources.getResourceName(layoutId)}")
         _binding = DataBindingUtil.inflate(
             inflater, layoutId, container, false
         )

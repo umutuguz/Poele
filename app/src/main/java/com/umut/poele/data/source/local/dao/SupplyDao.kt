@@ -25,33 +25,39 @@ interface SupplyDao {
 
     @Transaction
     @Query("SELECT * FROM supply WHERE supply_id = :supplyId")
-    fun getAmountWithSupply(supplyId: Int) : SupplyWithAmounts
+    fun getAmountWithSupply(supplyId: Int): SupplyWithAmounts
 
     @Transaction
     @Query("SELECT * FROM user WHERE user_id = :userId")
     fun getSuppliesWithUserId(userId: Int): UserWithSupplies
 
     @Query("DELETE FROM amount WHERE amount_id = :amountId")
-    suspend fun deleteSupplyFromFridge(amountId: Int) : Int
+    suspend fun deleteSupplyFromFridge(amountId: Int): Int
 
     @Query("SELECT * FROM shoplist_supply ORDER BY supply_title ASC")
     fun getSupplyShopList(): List<ShopListSupplyEntity>
 
     @Query("DELETE FROM shoplist_supply")
-    suspend fun deleteAllSuppliesFromShopList() : Int
+    suspend fun deleteAllSuppliesFromShopList(): Int
+
     @Delete
     suspend fun deleteSupplyFromShopList(shopListSupplyEntity: ShopListSupplyEntity)
+
     @Upsert
     suspend fun upsertSupplyToShopList(shopListSupplyEntity: ShopListSupplyEntity)
+
     @Upsert
     suspend fun upsertSupply(supply: SupplyEntity)
+
     @Upsert
     suspend fun upsertSupplyCategoryCrossRef(crossRef: SupplyCategoryCrossRef)
 
     @Upsert
     suspend fun upsertAmount(amount: AmountEntity)
+
     @Upsert
     suspend fun upsertSupplyCategory(supplyCategory: SupplyCategoryEntity)
+
     @Upsert
     suspend fun upsertMacro(macro: MacroEntity)
 }

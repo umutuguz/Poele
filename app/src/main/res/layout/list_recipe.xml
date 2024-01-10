@@ -145,7 +145,7 @@
                         android:layout_height="wrap_content"
                         app:chipIcon="@drawable/round_chef_24"
                         app:chipIconTint="@color/md_theme_light_onSurface"
-                        app:setDifficultyLevelString="@{recipe.difficultyLevel}"
+                        app:setDifficultyLevel="@{recipe.difficultyLevel}"
                         tools:text="Level" />
 
                 </com.google.android.material.chip.ChipGroup>

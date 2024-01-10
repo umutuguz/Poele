@@ -9,12 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.umut.poele.R
 import com.umut.poele.ui.base.BaseAdapter
+import com.umut.poele.util.extension.toText
 import java.time.LocalDate
-
-@BindingAdapter("setImage")
-fun setImage(imageView: ImageView, imageId: Int) {
-    imageView.setImageResource(imageId)
-}
 
 @BindingAdapter("setUrl")
 fun setUrl(imageView: ImageView, url: String?){
@@ -52,12 +48,8 @@ fun setIntText(textView: TextView, number: Number?) {
 }
 
 @BindingAdapter("setState")
-fun setState(textView: TextView, state: States) {
-    when (state) {
-        States.UNUSED -> textView.text = "Unused"
-        States.USED -> textView.text = "Used"
-        States.UNDETERMINED -> textView.text = "Undetermined"
-    }
+fun setState(textView: TextView, state: States?) {
+    textView.text = state?.toText() ?: ""
 }
 
 @BindingAdapter("setListText")
@@ -71,26 +63,7 @@ fun setListText(textView: TextView, list: List<String>?) {
 
 @BindingAdapter("setDifficultyLevel")
 fun setDifficultyLevel(textView: TextView, level: Levels?) {
-    when (level) {
-        Levels.EASY -> textView.text = "Easy"
-        Levels.INTERMEDIATE -> textView.text = "Intermediate"
-        Levels.HARD -> textView.text = "Hard"
-        Levels.UNDETERMINED -> textView.text = "Unterdetermined"
-
-        else -> {textView.text = ""}
-    }
-}
-
-@BindingAdapter("setDifficultyLevelString")
-fun setDifficultyLevelString(textView: TextView, level: Levels?) {
-    when (level) {
-        Levels.EASY -> textView.text = "Easy"
-        Levels.INTERMEDIATE -> textView.text = "Intermediate"
-        Levels.HARD -> textView.text = "Hard"
-        Levels.UNDETERMINED -> textView.text = "Unterdetermined"
-
-        else -> {textView.text = ""}
-    }
+    textView.text = level?.toText() ?: ""
 }
 
 @BindingAdapter("setDate")
@@ -113,33 +86,10 @@ fun setCategory(textView: TextView, list: List<String>?) {
 
 @BindingAdapter( "amount","unit" )
 fun setAmount(textView: TextView, amount: Double, unit: Units) {
-    val unitString = when (unit) {
-        Units.GRAM -> "g"
-        Units.ML -> "ml"
-        Units.TABLESPOON -> "tbps."
-        Units.TEASPOON -> "tsp."
-        Units.DESSERTSPOON -> "dsp."
-        Units.CUP -> "cups"
-        Units.PINCH -> "pinches"
-        Units.PIECE -> "pieces"
-        Units.CLOVES -> "cloves"
-        Units.SERVINGS -> "servings"
-        Units.UNDETERMINED -> ""
-    }
-    var result = 0
-    val amountString1 = amount.toString()
-    val intAmount = amountString1.split(".").first().toInt()
-    val decimalAmount = amountString1.split(".").last().toInt()
-    if (decimalAmount == 0) {
-        result = intAmount
-        textView.text = "Amount: $result $unitString"
-    }
+    val unitString = unit.toText()
+    val amountString = amount.toText()
 
-    val amountString = when (amount) {
-        -1.0 -> "Undetermined"
-        else -> amount.toString()
-    }
-    textView.text = "Amount: $amountString $unitString"
+    textView.text = amountString + " " + unitString
 }
 
 @BindingAdapter("setMenu")
@@ -148,13 +98,7 @@ fun setMenu(textView: TextView, mealTitle: Meals?){
         textView.text = ""
     }else
     {
-        when (mealTitle){
-            Meals.BREAKFAST -> textView.text = "Breakfast"
-            Meals.BRUNCH -> textView.text = "Brunch"
-            Meals.LUNCH -> textView.text = "Lunch"
-            Meals.DINNER -> textView.text = "Dinner"
-            Meals.UNDETERMINED -> textView.text = "Undetermined"
-        }
+        textView.text = mealTitle.toText()
     }
 }
 

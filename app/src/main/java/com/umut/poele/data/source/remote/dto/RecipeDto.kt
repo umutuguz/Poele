@@ -1,5 +1,6 @@
 package com.umut.poele.data.source.remote.dto
 
+import android.text.Html
 import com.squareup.moshi.Json
 import com.umut.poele.domain.model.Macro
 import com.umut.poele.domain.model.RecipeBasic
@@ -17,14 +18,14 @@ fun RecipeDto.toRecipe(): RecipeBasic{
         image ?: "",
         sourceName ?: "",
         dishTypes ?: emptyList(),
-        summary ?: "",
+        Html.fromHtml(summary ?: "", Html.FROM_HTML_MODE_LEGACY).toString(),
         prepTime = preparationMinutes ?: -1,
         servings = servings ?: -1,
         difficultyLevel = spoonacularScore?.toDifficultyLevel() ?: Levels.UNDETERMINED,
         cuisines ?: emptyList(),
         false,
         vegan ?: false,
-        directions = summary?.split(Regex("(?<=\\.) ")) ?: emptyList(),
+        directions = Html.fromHtml(summary ?: "", Html.FROM_HTML_MODE_LEGACY).toString().split(Regex("(?<=\\.) ")),
         ingredients = extendedIngredients?.toSupply() ?: emptyList(),
         macro = nutrition?.toMacro() ?: Macro()
     )

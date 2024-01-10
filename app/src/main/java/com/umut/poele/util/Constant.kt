@@ -21,14 +21,55 @@ object Constant {
 
 enum class Units { ML, GRAM, TEASPOON, TABLESPOON, DESSERTSPOON, CUP, PINCH, PIECE, CLOVES, SERVINGS, UNDETERMINED
 }
+fun Units.toText(): String {
+    return when (this) {
+            Units.GRAM -> "g"
+            Units.ML -> "ml"
+            Units.TABLESPOON -> "tbps."
+            Units.TEASPOON -> "tsp."
+            Units.DESSERTSPOON -> "dsp."
+            Units.CUP -> "cups"
+            Units.PINCH -> "pinches"
+            Units.PIECE -> "pieces"
+            Units.CLOVES -> "cloves"
+            Units.SERVINGS -> "servings"
+            Units.UNDETERMINED -> ""
+    }
+}
+
 
 enum class States { UNUSED, USED, UNDETERMINED
+}
+fun States.toText(): String {
+    return when (this) {
+        States.UNUSED -> "Unused"
+        States.USED -> "Used"
+        States.UNDETERMINED -> "Undetermined"
+    }
 }
 
 enum class Levels { EASY, INTERMEDIATE, HARD, UNDETERMINED
 }
+fun Levels.toText(): String {
+    return when (this) {
+        Levels.EASY -> "Easy"
+        Levels.INTERMEDIATE -> "Intermediate"
+        Levels.HARD -> "Hard"
+        Levels.UNDETERMINED -> "Unterdetermined"
+    }
+}
 
 enum class Meals { BREAKFAST, BRUNCH, LUNCH, DINNER, UNDETERMINED }
+
+fun Meals.toText(): String {
+    return when (this){
+        Meals.BREAKFAST -> "Breakfast"
+        Meals.BRUNCH -> "Brunch"
+        Meals.LUNCH -> "Lunch"
+        Meals.DINNER -> "Dinner"
+        Meals.UNDETERMINED -> "Undetermined"
+    }
+}
 
 enum class MealTypes {MAINCOURSE}
 //, SIDEDISH, DESSERT, APPETIZER, SALAD, BREAD, BREAKFAST, SOUP, BEVERAGE, SAUCE, MARINADE, FINGERFOOD, SNACK, DRINK

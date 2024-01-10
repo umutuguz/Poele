@@ -20,7 +20,8 @@ data class Supply(
     var state: States = States.UNUSED,
     var date: LocalDate = LocalDate.now(),
     var amountId: Int = -1,
-    val averageGML: Int? = null
+    val averageGML: Int? = null,
+    val userId: Int = -1
 ) : Parcelable
 
 fun String.toLocalDate() : LocalDate {

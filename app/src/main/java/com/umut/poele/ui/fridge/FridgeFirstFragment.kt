@@ -1,6 +1,7 @@
 package com.umut.poele.ui.fridge
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -24,6 +25,7 @@ class FridgeFirstFragment : BaseFragment<FragmentFridgeFirstBinding, FridgeFirst
         binding.apply {
 
             vm.supplyListLiveData.observe(viewLifecycleOwner) {
+                Log.i("umutcan", "fragment observe")
                 adapter = SupplyListAdapter(it, vm)
             }
             viewModel = vm

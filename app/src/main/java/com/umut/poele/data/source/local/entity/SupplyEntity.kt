@@ -6,11 +6,12 @@ import androidx.room.PrimaryKey
 import com.umut.poele.domain.model.ImageUrl
 import com.umut.poele.domain.model.Supply
 
-fun SupplyEntity.toSupply() : Supply {
+fun SupplyEntity.toSupply(userId: Int = -1) : Supply {
     return Supply(
         supplyId,
         title,
-        averageGML = averageGMl
+        averageGML = averageGMl,
+        userId = userId
     )
 }
 
