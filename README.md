@@ -25,7 +25,6 @@ The app is currently in development. There is no variant available in Play Store
 <img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/sign-up.png" width="250" height="auto"/>  
 <img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home.png" width="250" height="auto"/>  
 <img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe.png" width="250" height="auto"/>  
-<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe.png" width="250" height="auto"/>  
 <img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe-detail-info.png" width="250" height="auto"/>  
 <img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe-detail-ingredient.png" width="250" height="auto"/>  
 <img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe-detail-direction.png" width="250" height="auto"/>  
