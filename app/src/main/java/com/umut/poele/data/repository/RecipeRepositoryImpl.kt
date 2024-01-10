@@ -11,7 +11,7 @@ import com.umut.poele.domain.repository.RecipeRepository
 class RecipeRepositoryImpl(private val api: PoeleApiService, private val recipeDao: RecipeDao) : RecipeRepository {
 
     override suspend fun getRecipes(number: Int): List<RecipeBasicDto> {
-        val result = api.getRecipes(number)
+        val result = api.getRecipes(true, number)
         return if (result.totalResults != 0) {
             result.results
         }

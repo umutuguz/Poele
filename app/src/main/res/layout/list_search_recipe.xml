@@ -49,7 +49,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:setUrl="@{recipe.imageUrl}"
-                tools:src="@drawable/coffee_beans" />
+                tools:src="@drawable/coffee_beans"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/text_recipe_title"
@@ -113,7 +114,7 @@
                     style="@style/TextAppearance.Material3.LabelMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{@string/recipe_time(recipe.prepTime)}"
+                    app:setIntText="@{recipe.prepTime}"
                     app:chipIcon="@drawable/outline_timer_24"
                     tools:text="Prep Time" />
 

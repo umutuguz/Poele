@@ -7,13 +7,13 @@ import com.umut.poele.util.Levels
 
 fun RecipeBasicDto.toRecipeBasic(): RecipeBasic  {
     return RecipeBasic(
-        id,
-        title,
-        image,
-        sourceName,
-        prepTime = preparationMinutes,
-        servings = servings,
-        difficultyLevel = spoonacularScore.toDifficultyLevel()
+        id ?: -1,
+        title ?: "",
+        image ?: "",
+        sourceName ?: "",
+        prepTime = preparationMinutes ?: -1,
+        servings = servings ?: -1,
+        difficultyLevel = spoonacularScore?.toDifficultyLevel() ?: Levels.UNDETERMINED
     )
 }
 

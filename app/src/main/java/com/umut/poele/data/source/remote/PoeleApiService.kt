@@ -11,7 +11,9 @@ import retrofit2.http.Query
 interface PoeleApiService {
 
     @GET("/recipes/complexSearch")
-    suspend fun getRecipes(@Query("number") number: Int = 10) : RecipeBasicResponse
+    suspend fun getRecipes(
+        @Query("addRecipeInformation") addRecipeInformation: Boolean = true,
+        @Query("number") number: Int = 10) : RecipeBasicResponse
 
     @GET("/recipes/{id}/information")
     suspend fun getRecipeInfo(
