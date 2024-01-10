@@ -19,8 +19,11 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class FridgeFirstViewModel @Inject constructor(private val getSuppliesUseCase: GetSuppliesUseCase) : BaseViewModel(), SurpriseMeListener,
-    SearchBarListener, FilterListener, ChooseHomeListener, ShopListListener, MoreOptionListener {
+class FridgeFirstViewModel @Inject constructor(
+    private val getSuppliesUseCase: GetSuppliesUseCase
+) : BaseViewModel(), SurpriseMeListener,
+    SearchBarListener, FilterListener,
+    ChooseHomeListener, ShopListListener, MoreOptionListener {
 
     private val _supplyListLiveData = MutableLiveData<List<Supply>>()
     val supplyListLiveData get() = _supplyListLiveData

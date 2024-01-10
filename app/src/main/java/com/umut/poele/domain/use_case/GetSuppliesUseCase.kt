@@ -51,7 +51,6 @@ class GetSuppliesUseCase @Inject constructor(private val supplyRepository: Suppl
         withContext(Dispatchers.IO) {
             try {
                 supplyRepository.getAmountWithSupplyId(supplyId).amounts.forEach {
-                    Log.i("umutcan", "amount size: ${it.userId == SelectedUser.userId}")
                     supply = if (it.supplyId == supplyId && it.userId == SelectedUser.userId) {
                         Supply(
                             supplyId,
@@ -116,12 +115,9 @@ class GetSuppliesUseCase @Inject constructor(private val supplyRepository: Suppl
         val supplyWithAmountList = mutableListOf<Supply>()
         withContext(Dispatchers.IO) {
             try {
-                Log.i("umutcan", "useCase amountId: $amountId")
                 val deleteResponse = supplyRepository.deleteSupplyFromFridge(amountId)
                 if (deleteResponse) {
-                    supplyResult.addAll(
-                        supplyRepository.getSuppliesWithUserId(userId).supplies.map { it.toSupply(userId) }
-                    )
+                    supplyResult.addAll(supplyRepository.getSuppliesWithUserId(userId).supplies.map { it.toSupply(userId) })
 
                     supplyResult.forEach { supply ->
                         getAmountWithSupplyId(supply.id).data?.let { amountSupply ->

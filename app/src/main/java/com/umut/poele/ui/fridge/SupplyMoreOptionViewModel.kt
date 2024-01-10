@@ -23,7 +23,7 @@ class SupplyMoreOptionViewModel : BaseViewModel(), FindRecipeListener, AddMacroL
     }
 
     override fun onFindRecipeClicked() {
-        // TODO: Fix clickedMealIndex
+
         navigate(SupplyMoreOptionDialogDirections.actionSupplyMoreOptionDialogToHomeRecipeFragment(0,
             emptyList<CategoryList>().toTypedArray()))
     }

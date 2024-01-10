@@ -45,7 +45,6 @@ class SupplyRepositoryImpl(private val supplyDao: SupplyDao) : SupplyRepository 
 
     override suspend fun deleteSupplyFromFridge(amountId: Int): Boolean {
         val result = supplyDao.deleteSupplyFromFridge(amountId)
-        Log.i("umutcan", "repository: $result")
         return result > 0
     }
 }

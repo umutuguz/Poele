@@ -33,7 +33,7 @@ class HomeRecipeDetailFragment
                     viewpagerFragment.adapter = HomeRecipeDetailFragmentAdapter(
                         loadFragments(recipe), requireActivity().supportFragmentManager, lifecycle
                     )
-                    // TODO: Fix the structure of the mediator
+                    // TODO: Fix the structure of the mediator (fixed in feature/create-base-recipe-detail branch)
                     TabLayoutMediator(tabFragment, viewpagerFragment) { tab, position ->
                         tab.text = RECIPE_DETAIL_TAB_NAME[position]
                     }.attach()

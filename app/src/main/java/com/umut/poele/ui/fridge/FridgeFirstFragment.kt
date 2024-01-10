@@ -25,7 +25,6 @@ class FridgeFirstFragment : BaseFragment<FragmentFridgeFirstBinding, FridgeFirst
         binding.apply {
 
             vm.supplyListLiveData.observe(viewLifecycleOwner) {
-                Log.i("umutcan", "fragment observe")
                 adapter = SupplyListAdapter(it, vm)
             }
             viewModel = vm

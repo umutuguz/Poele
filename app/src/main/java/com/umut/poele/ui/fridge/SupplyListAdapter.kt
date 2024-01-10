@@ -22,8 +22,6 @@ class SupplyListAdapter(val dataset: List<Supply>, val vm: FridgeFirstViewModel)
     override fun onBindViewHolder(holder: BaseViewHolder<ListSupplyBinding>, position: Int) {
         super.onBindViewHolder(holder, position)
         holder.binder.imageDelete.setOnClickListener {
-            Log.i("umutcan", "clickedSupply: ${dataset[position].title}")
-            Log.i("umutcan", "clickedSupplyId: ${dataset[position].amountId}")
             MaterialAlertDialogBuilder(holder.binder.imageDelete.context).setTitle(R.string.delete_dialog_title)
                 .setMessage(R.string.delete_dialog_message)
                 .setNegativeButton(R.string.delete_dialog_negative_button) { dialog, _ ->
