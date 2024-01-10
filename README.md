@@ -207,10 +207,14 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 # Contact
 [LinkedIn](https://www.linkedin.com/in/umutuguzlar/)
+
 [Github](https://github.com/umutuguz/)
+
 [Send me an email](mailto:umutuguzlar7@gmail.com)
 
+
 # Thanks
+
 Thanks to [Can](https://github.com/ckavuzlu) who shared his experiences with me during this process.
 
 
