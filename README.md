@@ -19,27 +19,29 @@ The app is currently in development. There is no variant available in Play Store
 ## Screenshots (Whole App)
 
 <p align="center">  
-</p>
-<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/add.png" alt="add" width="250" height="auto"/>  
-<img src="/docs/image/screenshot/sign-up.png" width="20%"/>  
-<img src="/docs/image/screenshot/home.png" width="20%"/>  
-<img src="/docs/image/screenshot/home-recipe.png" width="20%"/>  
-<img src="/docs/image/screenshot/home-recipe.png" width="20%"/>  
-<img src="/docs/image/screenshot/home-recipe-detail-info.png" width="20%"/>  
-<img src="/docs/image/screenshot/home-recipe-detail-ingredient.png" width="20%"/>  
-<img src="/docs/image/screenshot/home-recipe-detail-direction.png" width="20%"/>  
-<img src="/docs/image/screenshot/shop-list.png" width="20%"/>  
-<img src="/docs/image/screenshot/filter.png" width="20%"/>  
-<img src="/docs/image/screenshot/search-recent.png" width="20%"/>  
-<img src="/docs/image/screenshot/search-popular.png" width="20%"/>  
-<img src="/docs/image/screenshot/fridge.png" width="20%"/>  
-<img src="/docs/image/screenshot/add.png" width="20%"/>  
-<img src="/docs/image/screenshot/add-recipe.png" width="20%"/>  
-<img src="/docs/image/screenshot/macro.png" width="20%"/>  
-<img src="/docs/image/screenshot/macro-add.png" width="20%"/>  
-<img src="/docs/image/screenshot/macro-set-challenge.png" width="20%"/>  
-<img src="/docs/image/screenshot/profile.png" width="20%"/>  
 
+  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/log-in.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/sign-up.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe-detail-info.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe-detail-ingredient.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/home-recipe-detail-direction.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/shop-list.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/filter.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/search-recent.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/search-popular.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/fridge.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/add.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/add-recipe.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/macro.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/macro-add.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/macro-set-challenge.png" width="250" height="auto"/>  
+<img src="https://github.com/umutuguz/Poele/blob/master/docs/images/screenshot/profile.png" width="250" height="auto"/>
+
+</p>
 
 <br>
 <br>
